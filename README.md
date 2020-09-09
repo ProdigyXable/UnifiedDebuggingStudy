@@ -67,7 +67,7 @@ Following subfolders and file are included in this folder.
 
 - RQ1_1: Contains data and script to generate the table corresponding to Figure 3.
 
-- RQ1_2: Contains the data and script to generate Figure7.
+- RQ1_2: Contains the data and script to generate Figure 7.
 
 - RQ2: Contains the data and script to generate Figure 8.
 
