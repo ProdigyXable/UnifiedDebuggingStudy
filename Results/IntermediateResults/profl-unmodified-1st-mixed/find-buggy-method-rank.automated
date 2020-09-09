@@ -1,0 +1,72 @@
+#!/bin/bash
+projectName=$(../get-project $1)
+
+acs="profl-acs-results_${projectName}"
+arja="profl-arja-results_${projectName}"
+avatar="profl-avatar-results_${projectName}"
+cardumen="profl-cardumen-results_${projectName}"
+dynamoth="profl-dynamoth-results_${projectName}"
+fixMiner="profl-fixMiner-results_${projectName}"
+genprogA="profl-genprogA-results_${projectName}"
+jGenProg="profl-jGenProg-results_${projectName}"
+jKali="profl-jKali-results_${projectName}"
+jMutRepair="profl-jMutRepair-results_${projectName}"
+kaliA="profl-kaliA-results_${projectName}"
+kPar="profl-kPar-results_${projectName}"
+nopol="profl-nopol-results_${projectName}"
+simfix="profl-simfix-results_${projectName}"
+rsrepair="profl-rsrepair-results_${projectName}"
+tbar="profl-tbar-results_${projectName}"
+prapr="profl-prapr-results_${projectName}"
+aggregated="aggregated_${projectName}"
+
+if [ "$projectName" == "" ]; then
+        echo "Missing project name (L/Lang) (M/Math) (C/Chart) (Cl/Closure) (Mo/Mockito) (T/Time)"
+        exit
+elif [ "$projectName" == "Closure" ]; then
+        max=133
+elif [ "$projectName" == "Lang" ]; then
+        max=65
+elif [ "$projectName" == "Math" ]; then
+        max=106
+elif [ "$projectName" == "Chart" ]; then
+        max=26
+elif [ "$projectName" == "Time" ]; then
+        max=27
+elif [ "$projectName" == "Mocktio" ]; then
+        max=33
+fi
+
+for id in `eval echo {1..${max}}`
+do
+		:
+		python3 find-buggy-method-rank.py ProFL-KaliA/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $kaliA
+		python3 find-buggy-method-rank.py ProFL-RSRepair/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $rsrepair
+		python3 find-buggy-method-rank.py ProFL-GenProgA/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $genprogA
+		python3 find-buggy-method-rank.py ProFL-Arja/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $arja
+done
+
+
+for id in `eval echo {1..${max}}`
+do      
+		:
+		python3 find-buggy-method-rank.py ProFL-ACS/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $acs
+        
+		python3 find-buggy-method-rank.py ProFL-AvatarFixer/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $avatar
+		python3 find-buggy-method-rank.py ProFL-FixMiner/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $fixMiner
+		python3 find-buggy-method-rank.py ProFL-kParFixer/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $kPar
+		python3 find-buggy-method-rank.py ProFL-TBarFixer/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $tbar
+        
+		python3 find-buggy-method-rank.py ProFL-Dynamoth/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $dynamoth
+
+		python3 find-buggy-method-rank.py ProFL-Simfix/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $simfix
+        
+		python3 find-buggy-method-rank.py ProFL-jKali/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $jKali
+		python3 find-buggy-method-rank.py ProFL-jGenProg/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $jGenProg
+		python3 find-buggy-method-rank.py ProFL-jMutRepair/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $jMutRepair
+
+        python3 find-buggy-method-rank.py ProFL-Cardumen/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $cardumen
+		python3 find-buggy-method-rank.py ProFL-PraPR/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $prapr
+
+		python3 find-buggy-method-rank.py aggregation/$projectName-${id} ../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a $aggregated
+done

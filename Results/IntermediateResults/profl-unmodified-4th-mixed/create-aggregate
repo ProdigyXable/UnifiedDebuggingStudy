@@ -1,0 +1,35 @@
+#!/bin/bash
+rm -rf aggregation
+mkdir aggregation
+
+projects=(Lang Math Time Chart)
+
+for project in ${projects[@]}
+do
+
+max=0
+        if [ "$project" = "Chart" ]; then
+                max=26
+        fi
+
+        if [ "$project" = "Lang" ]; then
+                max=65
+        fi
+
+        if [ "$project" = "Math" ]; then
+                max=106
+        fi
+
+        if [ "$project" = "Time" ]; then
+                max=27
+        fi
+
+        for id in $(seq $max)
+        do
+                mkdir aggregation/${project}-${id}
+                sudo cp ProFL-Simfix/${project}-${id}/generalSusInfo.profl aggregation/${project}-${id}/                
+                java -cp ~/ProFl-Replicate-2.0-SNAPSHOT.jar utdallas.edu.profl.replicate.core.AggregateData 9 $(find */${project}-${id} -type f -name aggregatedSusInfo.profl) | tee aggregation/${project}-${id}/aggregatedSusInfo.profl
+	echo ----------------------------
+        done
+
+done
