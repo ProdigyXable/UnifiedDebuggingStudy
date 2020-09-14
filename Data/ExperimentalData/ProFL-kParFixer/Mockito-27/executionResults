@@ -1,0 +1,232 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-27
+04:39:32.833 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-27 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/27.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/27.txt
+04:39:36.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+04:39:36.630 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-27/generalSusInfo.profl
+04:39:36.669 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-27/aggregatedSusInfo.profl
+04:39:36.675 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+04:39:36.675 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.Mockito ===1285
+04:39:37.568 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Smart Mockito users hardly use this feature because they know it could be a sign of poor tests.
+     * Normally, you don't need to reset your mocks, just create new mocks for each test method.
+     * <p>
+     * Instead of reset() please consider writing simple, small and focused test methods over lengthy, over-specified tests.
+     * <b>First potential code smell is reset() in the middle of the test method.</b> This probably means you're testing too much.
+     * Follow the whisper of your test methods: "Please keep us small & focused on single behavior".
+     * There are several threads about it on mockito mailing list.
+     * <p>
+     * The only reason we added reset() method is to
+     * make it possible to work with container-injected mocks.
+     * See issue 55 (<a href="http://code.google.com/p/mockito/issues/detail?id=55">here</a>)
+     * or FAQ (<a href="http://code.google.com/p/mockito/wiki/FAQ">here</a>).
+     * <p>
+     * <b>Don't harm yourself.</b> reset() in the middle of the test method is a code smell (you're probably testing too much).
+     * <pre>
+     *   List mock = mock(List.class);
+     *   when(mock.size()).thenReturn(10);
+     *   mock.add(1);
+     *
+     *   reset(mock);
+     *   //at this point the mock forgot any interactions & stubbing
+     * </pre>
+     *
+     * @param <T>
+     * @param mocks to be reset
+     */
+    public static <T> void reset(T ... mocks) {
+        MOCKITO_CORE.reset(mocks);
+    }
+04:39:37.578 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.Mockito ===1284
+04:39:37.698 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+MOCKITO_CORE.reset(mocks);
+04:39:37.810 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: MOCKITO_CORE.reset();
+04:39:37.811 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:39:38.641 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:39:38.641 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:43:02.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+04:43:02.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing, - org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions, - org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks]
+04:43:02.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing
+04:43:02.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString
+04:43:02.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions
+04:43:02.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks
+04:43:02.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=0, fp=1, pf=4, pp=Unknown
+04:43:02.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoisyFix found
+04:43:02.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-27/aggregatedSusInfo.profl
+04:43:02.796 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:reset([Ljava/lang/Object;)V in org.mockito.Mockito:1284
+04:43:02.796 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Mockito-27
+04:43:02.838 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: MOCKITO_CORE.reset(MOCKITO_CORE);
+04:43:02.838 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: MOCKITO_CORE.reset(RETURNS_DEFAULTS);
+04:43:02.838 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: MOCKITO_CORE.reset(RETURNS_SMART_NULLS);
+04:43:02.838 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: MOCKITO_CORE.reset(RETURNS_MOCKS);
+04:43:02.838 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: MOCKITO_CORE.reset(RETURNS_DEEP_STUBS);
+04:43:02.838 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: MOCKITO_CORE.reset(CALLS_REAL_METHODS);
+04:43:02.839 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:43:03.643 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:43:03.643 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:46:24.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+04:46:24.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 23, [- org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated, - org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing, - org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString, - org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer, - org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised, - org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions, - org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks, - org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing, - org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState]
+04:46:24.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName
+04:46:24.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely
+04:46:24.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy
+04:46:24.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull
+04:46:24.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies
+04:46:24.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks
+04:46:24.440 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+04:46:24.441 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing
+04:46:24.441 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState
+04:46:24.441 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=22, pp=Unknown
+04:46:24.441 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:46:25.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-27/aggregatedSusInfo.profl
+04:46:25.283 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:reset([Ljava/lang/Object;)V in org.mockito.Mockito:1284
+04:46:25.283 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 23 Mockito-27
+04:46:25.284 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:46:26.080 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:46:26.080 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:49:44.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+04:49:44.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 23, [- org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated, - org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing, - org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString, - org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer, - org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised, - org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions, - org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks, - org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing, - org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState]
+04:49:44.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName
+04:49:44.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely
+04:49:44.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy
+04:49:44.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull
+04:49:44.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised
+04:49:44.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction
+04:49:44.357 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions
+04:49:44.357 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks
+04:49:44.357 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+04:49:44.357 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing
+04:49:44.357 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState
+04:49:44.357 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=22, pp=Unknown
+04:49:44.357 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:50:01.632 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-27/aggregatedSusInfo.profl
+04:50:01.632 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:reset([Ljava/lang/Object;)V in org.mockito.Mockito:1284
+04:50:01.632 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 23 Mockito-27
+04:50:01.661 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:50:02.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:50:02.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:53:22.134 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+04:53:22.134 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 23, [- org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated, - org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing, - org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString, - org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer, - org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised, - org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions, - org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks, - org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing, - org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState]
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString
+04:53:22.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=22, pp=Unknown
+04:53:22.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:59:42.553 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-27/aggregatedSusInfo.profl
+04:59:42.554 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:reset([Ljava/lang/Object;)V in org.mockito.Mockito:1284
+04:59:42.554 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 23 Mockito-27
+04:59:42.555 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:59:43.367 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:59:43.367 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 23, [- org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated, - org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing, - org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString, - org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer, - org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised, - org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions, - org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks, - org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing, - org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState]
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated
+05:03:00.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+05:03:00.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing
+05:03:00.152 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState
+05:03:00.152 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=22, pp=Unknown
+05:03:00.152 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:22:08.830 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-27/aggregatedSusInfo.profl
+07:22:08.830 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:reset([Ljava/lang/Object;)V in org.mockito.Mockito:1284
+07:22:08.831 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 23 Mockito-27
+07:22:08.832 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:22:09.797 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:22:09.797 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 23, [- org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible, - org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated, - org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing, - org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString, - org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer, - org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised, - org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction, - org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions, - org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks, - org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing, - org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState]
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksByName
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldReportNicely
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldIInjectMocksInSpy
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeAnnotatedFieldIfNull
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectSpies
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepInstanceOnInjectMockFieldIfPresent
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksForClassHierarchyIfAnnotated
+07:25:26.097 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldKeepSameInstanceIfFieldInitialized
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInitializeSpyIfNullAndInjectMocks
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInjectMocksIfAnnotated
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldInstantiateInjectMockFieldIfPossible
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionUsingSetterOrPropertyTest::shouldNotInjectIfNotAnnotated
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllStubbing
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldMaintainPreviousDefaultAnswer
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetOngoingStubbingSoThatMoreMeaningfulExceptionsAreRaised
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldStubbingNotBeTreatedAsInteraction
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveAllInteractions
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldResetMultipleMocks
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::shouldResetNotRemoveDefaultStubbing
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::unfinishedStubbingCleansUpTheState
+07:25:26.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=22, pp=Unknown
+07:25:26.099 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

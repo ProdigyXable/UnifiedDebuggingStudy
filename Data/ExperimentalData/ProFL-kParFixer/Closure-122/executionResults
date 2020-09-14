@@ -1,0 +1,186 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-122
+15:58:24.800 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-122 Failed Tests: 3
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/122.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/122.txt
+16:07:04.033 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+16:07:04.100 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-122/generalSusInfo.profl
+16:07:04.139 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-122/aggregatedSusInfo.profl
+16:07:04.145 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+16:07:04.145 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.parsing.IRFactory ===258
+16:07:05.738 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+   * Check to see if the given block comment looks like it should be JSDoc.
+   */
+  private void handleBlockComment(Comment comment) {
+    if (comment.getValue().indexOf("/* @") != -1 || comment.getValue().indexOf("\n * @") != -1) {
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+  }
+16:07:05.796 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.parsing.IRFactory ===252
+16:07:06.005 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (comment.getValue().indexOf("/* @") != -1 || comment.getValue().indexOf("\n * @") != -1) {
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+16:07:06.008 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (comment.getValue().indexOf("/* @") == -1 || comment.getValue().indexOf("\n * @") != -1) {
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+16:07:06.009 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (comment.getValue().indexOf("/* @") != -1 && comment.getValue().indexOf("\n * @") != -1) {
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+16:07:06.009 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (comment.getValue().indexOf("/* @") != -1 || comment.getValue().indexOf("\n * @") == -1) {
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+16:07:06.011 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+16:07:18.251 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+16:07:18.252 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5]
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 30, [- com.google.javascript.jscomp.CheckRequiresForConstructorsTest::testPassWithNoNewNodes, - com.google.javascript.jscomp.CheckSideEffectsTest::testJSDocComments, - com.google.javascript.jscomp.CodePrinterTest::testParsePrintParse, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testNullValue, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testValues, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testUnion, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testReturn, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testExtendedInterface, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testSkipParamOK, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterfaceOrdering, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testConstValue, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testInnerClasses, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterfaceOrderingGoogInherits, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testValue, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testNativeClass, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testQualifiedClass, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testInterface, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testInnerConstructor, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testReturnNothing, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testFunctionType, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testValueWithInnerFn, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testUntypedParam, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterface, - com.google.javascript.jscomp.ScopedAliasesTest::testOkAliasLocal, - com.google.javascript.jscomp.ScopedAliasesTest::testMultipleLocals, - com.google.javascript.jscomp.parsing.IRFactoryTest::testNestedOr, - com.google.javascript.jscomp.parsing.IRFactoryTest::testBitwiseOps, - com.google.javascript.jscomp.parsing.IRFactoryTest::testCommentPositions2, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning1, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning6]
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CheckRequiresForConstructorsTest::testPassWithNoNewNodes
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CheckSideEffectsTest::testJSDocComments
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testParsePrintParse
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testNullValue
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testValues
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testUnion
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testReturn
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testExtendedInterface
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testSkipParamOK
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterfaceOrdering
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testConstValue
+16:11:59.226 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testInnerClasses
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterfaceOrderingGoogInherits
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testValue
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testNativeClass
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testQualifiedClass
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testInterface
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testInnerConstructor
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testReturnNothing
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testFunctionType
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testValueWithInnerFn
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testUntypedParam
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterface
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOkAliasLocal
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testMultipleLocals
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.IRFactoryTest::testNestedOr
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.IRFactoryTest::testBitwiseOps
+16:11:59.227 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.IRFactoryTest::testCommentPositions2
+16:11:59.228 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning1
+16:11:59.228 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning6
+16:11:59.228 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=0, fp=3, pf=30, pp=Unknown
+16:11:59.228 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoisyFix found
+16:11:59.393 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-122/aggregatedSusInfo.profl
+16:11:59.393 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.parsing.IRFactory:handleBlockComment(Lcom/google/javascript/rhino/head/ast/Comment;)V in com.google.javascript.jscomp.parsing.IRFactory:252
+16:11:59.393 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 30 Closure-122
+16:11:59.394 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+16:12:08.322 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+16:12:08.323 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+16:16:40.281 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5]
+16:16:40.281 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning1, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning2, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning6]
+16:16:40.281 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning1
+16:16:40.281 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning2
+16:16:40.281 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3
+16:16:40.281 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4
+16:16:40.282 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5
+16:16:40.282 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning6
+16:16:40.282 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=3, pp=Unknown
+16:16:40.282 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+16:16:41.884 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-122/aggregatedSusInfo.profl
+16:16:41.884 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.parsing.IRFactory:handleBlockComment(Lcom/google/javascript/rhino/head/ast/Comment;)V in com.google.javascript.jscomp.parsing.IRFactory:252
+16:16:41.884 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 6 Closure-122
+16:16:41.885 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+16:16:50.849 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+16:16:50.849 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5]
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 29, [- com.google.javascript.jscomp.CheckRequiresForConstructorsTest::testPassWithNoNewNodes, - com.google.javascript.jscomp.CheckSideEffectsTest::testJSDocComments, - com.google.javascript.jscomp.CodePrinterTest::testParsePrintParse, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testExtendedInterface, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testInnerConstructor, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testReturnNothing, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testFunctionType, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterfaceOrdering, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testConstValue, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testInterface, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testNullValue, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testValues, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testUnion, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testValueWithInnerFn, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterfaceOrderingGoogInherits, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testInnerClasses, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testReturn, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterface, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testSkipParamOK, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testUntypedParam, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testNativeClass, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testValue, - com.google.javascript.jscomp.RuntimeTypeCheckTest::testQualifiedClass, - com.google.javascript.jscomp.ScopedAliasesTest::testOkAliasLocal, - com.google.javascript.jscomp.ScopedAliasesTest::testMultipleLocals, - com.google.javascript.jscomp.parsing.IRFactoryTest::testNestedOr, - com.google.javascript.jscomp.parsing.IRFactoryTest::testBitwiseOps, - com.google.javascript.jscomp.parsing.IRFactoryTest::testCommentPositions2, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning2]
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CheckRequiresForConstructorsTest::testPassWithNoNewNodes
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CheckSideEffectsTest::testJSDocComments
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testParsePrintParse
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testExtendedInterface
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testInnerConstructor
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testReturnNothing
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testFunctionType
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterfaceOrdering
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testConstValue
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testInterface
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testNullValue
+16:21:20.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testValues
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testUnion
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testValueWithInnerFn
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterfaceOrderingGoogInherits
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testInnerClasses
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testReturn
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testImplementedInterface
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testSkipParamOK
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testUntypedParam
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testNativeClass
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testValue
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.RuntimeTypeCheckTest::testQualifiedClass
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOkAliasLocal
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testMultipleLocals
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.IRFactoryTest::testNestedOr
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.IRFactoryTest::testBitwiseOps
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.IRFactoryTest::testCommentPositions2
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning2
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=0, fp=3, pf=29, pp=Unknown
+16:21:20.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoisyFix found
+16:21:55.926 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-122/aggregatedSusInfo.profl
+16:21:55.926 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.parsing.IRFactory:handleBlockComment(Lcom/google/javascript/rhino/head/ast/Comment;)V in com.google.javascript.jscomp.parsing.IRFactory:252
+16:21:55.926 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 29 Closure-122
+16:21:55.927 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (comment.getValue().indexOf("\n * @") != -1) {
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+16:21:55.927 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (comment.getValue().indexOf("/* @") != -1) {
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+16:21:55.928 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+16:22:04.781 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+16:22:04.781 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5]
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning1, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning6]
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning1
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning6
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=2, pp=Unknown
+16:26:33.344 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+16:41:37.917 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-122/aggregatedSusInfo.profl
+16:41:37.917 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.parsing.IRFactory:handleBlockComment(Lcom/google/javascript/rhino/head/ast/Comment;)V in com.google.javascript.jscomp.parsing.IRFactory:252
+16:41:37.918 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Closure-122
+16:41:37.918 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+16:41:46.857 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+16:41:46.857 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+16:46:16.533 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5]
+16:46:16.533 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning2, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5]
+16:46:16.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning2
+16:46:16.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3
+16:46:16.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4
+16:46:16.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5
+16:46:16.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=1, pp=Unknown
+16:46:16.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

@@ -1,0 +1,304 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-49
+14:09:34.759 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-49 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/49.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/49.txt
+14:09:43.351 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+14:09:43.376 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-49/generalSusInfo.profl
+14:09:43.379 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+14:09:43.380 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.MathRuntimeException ===132
+14:09:44.773 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return new MessageFormat(pattern.getLocalizedString(locale), locale).format(arguments);
+14:09:44.774 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.MathRuntimeException:132 ---
+14:09:44.775 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/MathRuntimeException.java 132 ---
+14:09:44.775 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:09:45.055 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern, pattern.getLocalizedString(locale), locale).format(arguments);
+14:09:45.056 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(arguments, pattern.getLocalizedString(locale), locale).format(arguments);
+14:09:45.056 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(this.pattern, pattern.getLocalizedString(locale), locale).format(arguments);
+14:09:45.056 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(this.arguments, pattern.getLocalizedString(locale), locale).format(arguments);
+14:09:45.056 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), pattern, locale).format(arguments);
+14:09:45.056 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), arguments, locale).format(arguments);
+14:09:45.057 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), this.pattern, locale).format(arguments);
+14:09:45.057 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), this.arguments, locale).format(arguments);
+14:09:45.057 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), locale, pattern).format(arguments);
+14:09:45.057 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), locale, arguments).format(arguments);
+14:09:45.057 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), locale, this.pattern).format(arguments);
+14:09:45.057 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), locale, this.arguments).format(arguments);
+14:09:45.057 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(locale).format(arguments);
+14:09:45.057 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale)).format(arguments);
+14:09:45.058 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(), locale).format(arguments);
+---------------- Testing New Patch ----------------
+14:09:45.060 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:46.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:46.769 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:48.423 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:48.424 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:50.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:50.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:51.551 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:51.551 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:52.770 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:52.771 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:54.370 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:54.370 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:55.778 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:55.779 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:57.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:57.129 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:58.417 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:58.418 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:59.709 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:59.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:10:01.125 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:10:01.125 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:10:02.389 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:10:02.390 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:10:03.731 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:10:03.731 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:10:05.068 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:10:05.068 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:11:19.551 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:11:19.552 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:11:19.552 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification
+14:11:19.552 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:11:19.552 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:11:19.563 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-49/aggregatedSusInfo.profl
+14:11:19.563 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.MathRuntimeException:buildMessage(Ljava/util/Locale;Lorg/apache/commons/math/exception/util/Localizable;[Ljava/lang/Object;)Ljava/lang/String; in org.apache.commons.math.MathRuntimeException:132
+14:11:19.563 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-49
+---------------- Testing New Patch ----------------
+14:11:19.563 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:21.068 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(getContextKeys().getLocalizedString(locale), locale).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(getMessage().getLocalizedString(locale), locale).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(getLocalizedMessage().getLocalizedString(locale), locale).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(printStackTrace().getLocalizedString(locale), locale).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(getContextKeys()), locale).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(getMessage()), locale).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(getLocalizedMessage()), locale).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(printStackTrace()), locale).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), getContextKeys()).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), getMessage()).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), getLocalizedMessage()).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), printStackTrace()).format(arguments);
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), locale).format(getContextKeys());
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), locale).format(getMessage());
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), locale).format(getLocalizedMessage());
+14:11:21.316 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new MessageFormat(pattern.getLocalizedString(locale), locale).format(printStackTrace());
+---------------- Testing New Patch ----------------
+14:11:21.317 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:22.697 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:22.698 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:24.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:24.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:25.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:25.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:26.852 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:26.853 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:28.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:28.137 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:29.604 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:29.604 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:31.253 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:31.254 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:32.953 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:32.954 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:34.455 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:34.456 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:36.172 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:36.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:37.803 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:37.803 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:39.410 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:39.410 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:41.197 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:41.198 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:42.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:42.670 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:44.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:44.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:45.815 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (pattern != null) {
+	
+
+	}
+
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (pattern == null) {
+	    throw new IllegalArgumentException("Null 'pattern' argument.");
+	}
+
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (pattern == null) {
+	    return null;
+	}
+
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (pattern == null) pattern = new Localizable();
+ 
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (pattern == null) return new String();
+	 
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (pattern == null) return DEPRECATION_MESSAGE;
+	 
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (locale != null) {
+	
+
+	}
+
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (locale == null) {
+	    throw new IllegalArgumentException("Null 'locale' argument.");
+	}
+
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (locale == null) {
+	    return null;
+	}
+
+14:11:45.891 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (locale == null) locale = new Locale();
+ 
+14:11:45.892 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (locale == null) return new String();
+	 
+14:11:45.892 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (locale == null) return DEPRECATION_MESSAGE;
+	 
+14:11:45.892 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arguments != null) {
+	
+
+	}
+
+14:11:45.892 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arguments == null) {
+	    throw new IllegalArgumentException("Null 'arguments' argument.");
+	}
+
+14:11:45.892 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arguments == null) {
+	    return null;
+	}
+
+14:11:45.892 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arguments == null) arguments = new Object();
+ 
+14:11:45.892 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arguments == null) return new String();
+	 
+14:11:45.892 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arguments == null) return DEPRECATION_MESSAGE;
+	 
+14:11:45.893 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (!(pattern != null && locale != null && arguments != null)) return null;
+	
+---------------- Testing New Patch ----------------
+14:11:45.894 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:47.221 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:47.222 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:48.776 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:11:48.776 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:13:03.284 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:13:03.284 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:13:03.284 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification
+14:13:03.284 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:13:03.284 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:13:03.297 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-49/aggregatedSusInfo.profl
+14:13:03.298 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.MathRuntimeException:buildMessage(Ljava/util/Locale;Lorg/apache/commons/math/exception/util/Localizable;[Ljava/lang/Object;)Ljava/lang/String; in org.apache.commons.math.MathRuntimeException:132
+14:13:03.298 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-49
+---------------- Testing New Patch ----------------
+14:13:03.298 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:13:04.778 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:13:04.778 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:14:23.052 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:14:23.052 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:14:23.052 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification
+14:14:23.053 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:14:23.053 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:14:23.132 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-49/aggregatedSusInfo.profl
+14:14:23.132 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.MathRuntimeException:buildMessage(Ljava/util/Locale;Lorg/apache/commons/math/exception/util/Localizable;[Ljava/lang/Object;)Ljava/lang/String; in org.apache.commons.math.MathRuntimeException:132
+14:14:23.132 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-49
+---------------- Testing New Patch ----------------
+14:14:23.133 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:14:24.422 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:14:24.423 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:14:25.681 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:14:25.681 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:15:39.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:15:39.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:15:39.177 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification
+14:15:39.177 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:15:39.177 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:15:40.119 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-49/aggregatedSusInfo.profl
+14:15:40.119 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.MathRuntimeException:buildMessage(Ljava/util/Locale;Lorg/apache/commons/math/exception/util/Localizable;[Ljava/lang/Object;)Ljava/lang/String; in org.apache.commons.math.MathRuntimeException:132
+14:15:40.119 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-49
+---------------- Testing New Patch ----------------
+14:15:40.120 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:41.493 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:15:41.493 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:16:47.266 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:16:47.266 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:16:47.266 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification
+14:16:47.267 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:16:47.267 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:16:59.367 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-49/aggregatedSusInfo.profl
+14:16:59.367 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.MathRuntimeException:buildMessage(Ljava/util/Locale;Lorg/apache/commons/math/exception/util/Localizable;[Ljava/lang/Object;)Ljava/lang/String; in org.apache.commons.math.MathRuntimeException:132
+14:16:59.367 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-49
+---------------- Testing New Patch ----------------
+14:16:59.368 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:17:00.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:17:00.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:17:01.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:17:01.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:17:55.539 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:17:55.539 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:17:55.539 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification
+14:17:55.539 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:17:55.539 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:20:57.915 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-49/aggregatedSusInfo.profl
+14:20:57.915 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.MathRuntimeException:buildMessage(Ljava/util/Locale;Lorg/apache/commons/math/exception/util/Localizable;[Ljava/lang/Object;)Ljava/lang/String; in org.apache.commons.math.MathRuntimeException:132
+14:20:57.915 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-49
+---------------- Testing New Patch ----------------
+14:20:57.916 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:20:59.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:20:59.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:21:52.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:21:52.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+14:21:52.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification
+14:21:52.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:21:52.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+15:08:11.368 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-49/aggregatedSusInfo.profl
+15:08:11.368 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.MathRuntimeException:buildMessage(Ljava/util/Locale;Lorg/apache/commons/math/exception/util/Localizable;[Ljava/lang/Object;)Ljava/lang/String; in org.apache.commons.math.MathRuntimeException:132
+15:08:11.368 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-49
+---------------- Testing New Patch ----------------
+15:08:11.368 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+15:08:12.434 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-49 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+15:08:12.435 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+15:08:13.720 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+15:08:13.721 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+15:09:01.479 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+15:09:01.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification]
+15:09:01.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.SparseRealVectorTest::testConcurrentModification
+15:09:01.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+15:09:01.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

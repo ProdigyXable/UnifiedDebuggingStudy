@@ -1,0 +1,604 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-131
+14:20:37.060 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/131.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/131.txt
+14:25:33.859 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+14:25:33.916 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-131/generalSusInfo.profl
+14:25:33.979 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-131/aggregatedSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Closure-131/ochiai.txt
+14:25:33.982 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+14:25:33.982 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1286
+14:25:34.961 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+   * Returns a JavaScript representation of the character in a hex escaped
+   * format.
+   *
+   * @param codePoint The code point to append.
+   * @param out The buffer to which the hex representation should be appended.
+   */
+  private static void appendHexJavaScriptRepresentation(
+      int codePoint, Appendable out)
+      throws IOException {
+    if (Character.isSupplementaryCodePoint(codePoint)) {
+      // Handle supplementary Unicode values which are not representable in
+      // JavaScript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from Java to JavaScript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+    out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+  }
+14:25:34.964 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/CodeGenerator.java:1286 ---
+14:25:34.972 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1281
+14:25:35.170 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.171 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/CodeGenerator.java:1281 ---
+14:25:35.172 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: codePoint.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.172 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.ESCAPED_JS_STRINGS.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.172 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.cc.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.outputCharsetEncoder.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.preferSingleQuotes.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.trustedStrings.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(codePoint[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(out[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.ESCAPED_JS_STRINGS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.cc[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.outputCharsetEncoder[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.preferSingleQuotes[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.trustedStrings[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(out >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(this.ESCAPED_JS_STRINGS >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(this.cc >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(this.outputCharsetEncoder >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(this.preferSingleQuotes >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(this.trustedStrings >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(codePoint[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(out[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.ESCAPED_JS_STRINGS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.cc[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.outputCharsetEncoder[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.preferSingleQuotes[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.trustedStrings[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(out >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(this.ESCAPED_JS_STRINGS >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(this.cc >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(this.outputCharsetEncoder >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(this.preferSingleQuotes >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(this.trustedStrings >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(codePoint[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(out[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.ESCAPED_JS_STRINGS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.cc[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.outputCharsetEncoder[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.preferSingleQuotes[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.trustedStrings[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(out >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(this.ESCAPED_JS_STRINGS >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(this.cc >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(this.outputCharsetEncoder >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(this.preferSingleQuotes >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(this.trustedStrings >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(codePoint[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(out[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.ESCAPED_JS_STRINGS[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.cc[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.outputCharsetEncoder[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.preferSingleQuotes[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.trustedStrings[codePoint & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[out & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[this.ESCAPED_JS_STRINGS & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[this.cc & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[this.outputCharsetEncoder & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[this.preferSingleQuotes & 0xf]);
+14:25:35.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[this.trustedStrings & 0xf]);
+---------------- Testing New Patch ----------------
+14:25:35.174 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:25:39.796 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:25:39.797 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:25:46.624 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:25:46.627 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:25:51.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:25:51.413 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:25:55.371 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:25:55.372 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:25:59.438 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:25:59.438 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:03.445 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:03.445 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:07.398 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:07.399 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:11.397 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:11.397 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:15.404 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:15.404 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:19.469 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:19.470 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:23.483 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:23.484 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:27.503 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:27.504 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:31.633 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:31.633 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:35.755 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:35.755 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:39.905 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:39.905 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:44.098 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:44.099 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:48.468 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:48.468 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:52.557 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:52.557 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:26:56.674 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:26:56.675 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:00.836 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:00.837 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:04.868 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:04.869 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:08.922 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:08.922 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:13.037 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:13.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:17.079 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:17.080 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:21.177 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:21.177 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:25.210 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:25.210 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:29.308 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:29.309 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:33.368 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:33.369 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:37.424 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:37.425 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:41.546 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:41.546 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:45.569 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:45.570 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:49.691 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:49.691 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:53.745 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:53.746 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:27:57.817 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:27:57.817 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:01.952 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:01.953 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:06.004 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:06.004 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:10.101 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:10.102 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:14.170 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:14.170 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:18.231 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:18.232 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:22.389 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:22.389 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:26.429 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:26.430 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:30.552 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:30.552 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:34.641 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:34.641 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:38.753 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:38.754 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:42.898 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:42.899 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:46.985 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:46.986 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:51.065 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:51.066 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:55.142 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:55.142 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:28:59.256 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:28:59.256 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:03.304 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:29:03.304 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:07.426 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:29:07.427 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:11.448 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:29:11.448 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:15.604 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:29:15.605 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:19.714 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:29:19.714 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:23.910 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:29:23.911 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:28.046 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:29:28.047 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:32.129 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:29:32.130 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:36.232 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-131 ---Fixer: fix fail because of failed compiling! 
+14:29:36.233 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out != null) {
+	
+
+}
+
+14:29:36.234 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out == null) {
+    throw new IllegalArgumentException("Null 'out' argument.");
+}
+
+14:29:36.234 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out == null) {
+    return;
+}
+
+14:29:36.234 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (HEX_CHARS != null) {
+	
+
+}
+
+14:29:36.234 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (HEX_CHARS == null) {
+    throw new IllegalArgumentException("Null 'HEX_CHARS' argument.");
+}
+
+14:29:36.234 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (HEX_CHARS == null) {
+    return;
+}
+
+---------------- Testing New Patch ----------------
+14:29:36.234 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:29:43.683 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+14:29:43.683 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+14:33:39.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps, com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert]
+14:33:39.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert, - com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps]
+14:33:39.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert
+14:33:39.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps
+14:33:39.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+14:33:39.495 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+14:33:39.728 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-131/aggregatedSusInfo.profl
+14:33:39.728 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1281
+14:33:39.728 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Closure-131
+---------------- Testing New Patch ----------------
+14:33:39.728 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:33:47.241 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+14:33:47.241 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+14:37:40.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps, com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert]
+14:37:40.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert, - com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps]
+14:37:40.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert
+14:37:40.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps
+14:37:40.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+14:37:40.792 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+14:37:45.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-131/aggregatedSusInfo.profl
+14:37:45.800 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1281
+14:37:45.800 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Closure-131
+---------------- Testing New Patch ----------------
+14:37:45.800 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:37:53.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+14:37:53.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+14:41:45.786 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps, com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert]
+14:41:45.786 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert, - com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps]
+14:41:45.786 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert
+14:41:45.786 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps
+14:41:45.786 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+14:41:45.786 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+14:43:57.413 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-131/aggregatedSusInfo.profl
+14:43:57.413 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1281
+14:43:57.413 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Closure-131
+---------------- Testing New Patch ----------------
+14:43:57.414 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:44:04.786 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+14:44:04.786 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+14:47:56.319 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps, com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert]
+14:47:56.319 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert, - com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps]
+14:47:56.319 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert
+14:47:56.319 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps
+14:47:56.319 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+14:47:56.319 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+15:44:07.973 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-131/aggregatedSusInfo.profl
+15:44:07.973 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1281
+15:44:07.973 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Closure-131
+---------------- Testing New Patch ----------------
+15:44:07.973 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+15:44:15.321 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+15:44:15.321 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+15:48:06.631 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps, com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert]
+15:48:06.631 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert, - com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps]
+15:48:06.631 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testDoNotConvert
+15:48:06.631 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ConvertToDottedPropertiesTest::testQuotedProps
+15:48:06.631 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+15:48:06.631 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found

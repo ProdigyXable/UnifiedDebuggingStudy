@@ -1,0 +1,92 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-10
+00:54:33.337 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Mockito-10 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/10.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/10.txt
+00:54:37.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+00:54:37.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-10/generalSusInfo.profl
+00:54:37.848 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-10/aggregatedSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Mockito-10/ochiai.txt
+00:54:37.849 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+00:54:37.849 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.mockito.exceptions.Reporter ===761
+00:54:38.741 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+throw new MockitoException(join(
+                "You are using the setting 'withSettings().serializable()' however the type you are trying to mock '" + classToMock.getSimpleName() + "'",
+                "do not implement Serializable AND do not have a no-arg constructor.",
+                "This combination is requested, otherwise you will get an 'java.io.InvalidClassException' when the mock will be serialized",
+                "",
+                "Also note that as requested by the Java serialization specification, the whole hierarchy need to implements Serializable,",
+                "i.e. the top-most superclass has to implements Serializable.",
+                ""
+        ));
+00:54:38.743 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/mockito/exceptions/Reporter.java:761 ---
+00:54:38.750 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (classToMock != null) {
+	
+
+}
+
+00:54:38.751 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (classToMock == null) {
+    throw new IllegalArgumentException("Null 'classToMock' argument.");
+}
+
+00:54:38.751 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (classToMock == null) {
+    return;
+}
+
+---------------- Testing New Patch ----------------
+00:54:38.751 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+00:54:39.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+00:54:39.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+00:58:25.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub]
+00:58:25.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub]
+00:58:25.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub
+00:58:25.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+00:58:25.065 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+00:58:25.226 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-10/aggregatedSusInfo.profl
+00:58:25.226 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.exceptions.Reporter:serializableWontWorkForObjectsThatDontImplementSerializable(Ljava/lang/Class;)V in org.mockito.exceptions.Reporter:761
+00:58:25.226 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Mockito-10
+---------------- Testing New Patch ----------------
+00:58:25.227 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+00:58:26.112 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+00:58:26.112 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:02:12.343 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub]
+01:02:12.343 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub]
+01:02:12.343 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub
+01:02:12.343 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:02:12.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:02:12.897 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-10/aggregatedSusInfo.profl
+01:02:12.897 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.exceptions.Reporter:serializableWontWorkForObjectsThatDontImplementSerializable(Ljava/lang/Class;)V in org.mockito.exceptions.Reporter:761
+01:02:12.897 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Mockito-10
+---------------- Testing New Patch ----------------
+01:02:12.898 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:02:13.805 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:02:13.805 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:06:01.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub]
+01:06:01.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub]
+01:06:01.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub
+01:06:01.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:06:01.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:06:13.276 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-10/aggregatedSusInfo.profl
+01:06:13.276 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.exceptions.Reporter:serializableWontWorkForObjectsThatDontImplementSerializable(Ljava/lang/Class;)V in org.mockito.exceptions.Reporter:761
+01:06:13.276 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Mockito-10
+01:06:13.277 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:06:13.278 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:06:14.211 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:06:14.211 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:06:23.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub]
+01:06:23.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 0, []
+01:06:23.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=0, fp=1, pf=0, pp=Unknown
+01:06:23.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] CleanFix found
+01:10:26.420 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-10/aggregatedSusInfo.profl
+01:10:26.421 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.exceptions.Reporter:serializableWontWorkForObjectsThatDontImplementSerializable(Ljava/lang/Class;)V in org.mockito.exceptions.Reporter:761
+01:10:26.421 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Succeeded to fix the bug Mockito-10====================
+01:10:26.537 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Finish off fixing======
+02:36:33.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-10/aggregatedSusInfo.profl
+Succeeded to fix bug Mockito-10

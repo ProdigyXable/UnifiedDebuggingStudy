@@ -1,0 +1,333 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-47
+07:06:17.329 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/47.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/47.txt
+07:06:18.636 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+07:06:18.657 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/generalSusInfo.profl
+07:06:18.659 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+07:06:18.659 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.text.StrBuilder ===158
+07:06:20.152 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return nullText;
+07:06:20.153 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.text.StrBuilder:158 ---
+07:06:20.153 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/text/StrBuilder.java 158 ---
+07:06:20.153 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.newLine;
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getNewLineText();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getNullText();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return length();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return capacity();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return minimizeCapacity();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return size();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return isEmpty();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return clear();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return toCharArray();
+07:06:20.443 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return appendNewLine();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return appendNull();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return reverse();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return trim();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return asTokenizer();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return asReader();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return asWriter();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return hashCode();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return toString();
+07:06:20.444 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return toStringBuffer();
+---------------- Testing New Patch ----------------
+07:06:20.447 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:21.729 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:21.729 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:36.094 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:06:36.094 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft, - org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadRight, - org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText, - org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:06:36.094 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft
+07:06:36.094 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadRight
+07:06:36.094 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText
+07:06:36.094 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+07:06:36.094 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+07:06:36.094 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=3, pp=Unknown
+07:06:36.095 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:06:36.096 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:06:36.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:06:36.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Lang-47
+---------------- Testing New Patch ----------------
+07:06:36.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:37.407 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:37.407 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:51.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:06:51.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft, - org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadRight, - org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText, - org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:06:51.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft
+07:06:51.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadRight
+07:06:51.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText
+07:06:51.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+07:06:51.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+07:06:51.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=3, pp=Unknown
+07:06:51.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:06:51.584 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:06:51.584 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:06:51.584 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Lang-47
+---------------- Testing New Patch ----------------
+07:06:51.585 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:52.959 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:52.959 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:08.572 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:07:08.572 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft, - org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadRight, - org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText, - org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:07:08.572 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft
+07:07:08.573 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadRight
+07:07:08.573 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText
+07:07:08.573 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+07:07:08.573 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+07:07:08.573 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=3, pp=Unknown
+07:07:08.573 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:07:08.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:07:08.593 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:07:08.593 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Lang-47
+---------------- Testing New Patch ----------------
+07:07:08.595 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:09.866 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:09.868 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:11.237 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:11.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:12.551 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:12.554 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:13.986 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:13.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:15.353 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:15.354 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:16.727 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:16.729 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:18.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:18.109 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:19.398 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:19.400 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:20.718 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:20.720 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:22.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:22.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:23.772 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:23.773 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:25.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:25.304 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:26.747 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:26.748 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:28.016 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:28.017 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:29.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:29.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:30.853 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:30.853 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:47.879 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:07:47.880 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft, - org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadRight, - org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText]
+07:07:47.880 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft
+07:07:47.880 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadRight
+07:07:47.880 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText
+07:07:47.880 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=2, pf=3, pp=Unknown
+07:07:47.880 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+07:07:47.884 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:07:47.885 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:07:47.885 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-47
+---------------- Testing New Patch ----------------
+07:07:47.887 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:49.048 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+07:07:49.156 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (nullText != null) {
+	
+
+	}
+
+07:07:49.157 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (nullText == null) {
+	    throw new IllegalArgumentException("Null 'nullText' argument.");
+	}
+
+07:07:49.157 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (nullText == null) {
+	    return null;
+	}
+
+07:07:49.157 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (nullText == null) nullText = this.newLine;
+ 
+07:07:49.157 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (nullText == null) nullText = new String();
+ 
+07:07:49.157 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (nullText == null) return new String();
+	 
+07:07:49.157 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (nullText == null) return this.newLine;
+	 
+---------------- Testing New Patch ----------------
+07:07:49.159 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:50.368 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:50.369 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:51.799 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:51.799 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:08.373 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:08:08.373 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText, - org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:08:08.373 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText
+07:08:08.373 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+07:08:08.374 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+07:08:08.374 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=1, pp=Unknown
+07:08:08.374 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:08:08.386 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:08:08.386 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:08:08.386 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-47
+---------------- Testing New Patch ----------------
+07:08:08.388 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:09.763 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:09.763 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:25.529 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:08:25.529 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:08:25.529 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+07:08:25.529 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+07:08:25.529 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:08:25.529 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:08:25.628 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:08:25.628 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:08:25.628 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-47
+---------------- Testing New Patch ----------------
+07:08:25.630 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:26.930 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:26.930 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:42.917 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:08:42.918 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:08:42.918 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+07:08:42.918 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+07:08:42.918 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:08:42.918 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:08:43.824 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:08:43.825 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:08:43.825 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-47
+---------------- Testing New Patch ----------------
+07:08:43.826 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:45.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:45.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:09:01.720 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:09:01.720 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText]
+07:09:01.720 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText
+07:09:01.720 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=2, pf=1, pp=Unknown
+07:09:01.720 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+07:09:11.308 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:09:11.309 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:09:11.309 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Generated new bugs: 1
+---------------- Testing New Patch ----------------
+07:09:11.311 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:09:12.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:09:12.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:09:27.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:09:27.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText]
+07:09:27.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testGetSetNullText
+07:09:27.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=2, pf=1, pp=Unknown
+07:09:27.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+07:10:25.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:10:25.393 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:10:25.393 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Generated new bugs: 1
+---------------- Testing New Patch ----------------
+07:10:25.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:10:26.878 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:10:26.878 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:10:42.104 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:10:42.105 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:10:42.105 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+07:10:42.105 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+07:10:42.105 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:10:42.105 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:18:06.384 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+07:18:06.385 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:getNullText()Ljava/lang/String; in org.apache.commons.lang.text.StrBuilder:158
+07:18:06.385 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-47
+07:18:06.609 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+07:18:06.612 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:18:08.070 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+07:18:08.162 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.text.StrBuilder ===1186
+07:18:08.290 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+int strLen = str.length();
+07:18:08.290 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.text.StrBuilder:1186 ---
+07:18:08.291 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/text/StrBuilder.java 1186 ---
+07:18:08.291 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:18:08.377 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: double strLen = str.length();
+07:18:08.377 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: float strLen = str.length();
+07:18:08.377 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: long strLen = str.length();
+07:18:08.377 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: short strLen = str.length();
+07:18:08.377 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: char strLen = str.length();
+07:18:08.377 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: byte strLen = str.length();
+---------------- Testing New Patch ----------------
+07:18:08.397 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:18:09.991 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:18:09.993 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:18:11.468 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:18:11.469 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:18:12.990 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:18:12.991 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:18:14.411 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:18:14.413 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:18:15.904 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:18:15.905 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:18:17.453 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-47 ---Fixer: fix fail because of failed compiling! 
+07:18:17.536 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = this.nullText.length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = this.newLine.length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = getNewLineText().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = getNullText().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = length().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = capacity().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = minimizeCapacity().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = size().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = isEmpty().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = clear().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = toCharArray().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = appendNewLine().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = appendNull().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = reverse().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = trim().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = asTokenizer().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = asReader().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = asWriter().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = hashCode().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = toString().length();
+07:18:17.537 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: int strLen = toStringBuffer().length();
+---------------- Testing New Patch ----------------
+07:18:17.539 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:18:19.111 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:18:19.112 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:18:38.399 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:18:38.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft, - org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft_int, - org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+07:18:38.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft
+07:18:38.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft_int
+07:18:38.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+07:18:38.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+07:18:38.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+07:18:38.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+08:06:46.431 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-47/aggregatedSusInfo.profl
+08:06:46.432 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.text.StrBuilder:appendFixedWidthPadLeft(Ljava/lang/Object;IC)Lorg/apache/commons/lang/text/StrBuilder; in org.apache.commons.lang.text.StrBuilder:1186
+08:06:46.432 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Lang-47
+---------------- Testing New Patch ----------------
+08:06:46.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+08:06:47.930 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+08:06:47.930 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+08:07:06.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.text.StrBuilderTest::testLang412Left, org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+08:07:06.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft, - org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft_int, - org.apache.commons.lang.text.StrBuilderTest::testLang412Left, - org.apache.commons.lang.text.StrBuilderTest::testLang412Right]
+08:07:06.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft
+08:07:06.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.text.StrBuilderAppendInsertTest::testAppendFixedWidthPadLeft_int
+08:07:06.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Left
+08:07:06.288 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.text.StrBuilderTest::testLang412Right
+08:07:06.288 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+08:07:06.288 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

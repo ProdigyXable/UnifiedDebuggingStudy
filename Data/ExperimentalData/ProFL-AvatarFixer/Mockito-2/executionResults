@@ -1,0 +1,39 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-2
+13:52:35.929 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Mockito-2 Failed Tests: 3
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/2.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/2.txt
+13:52:41.585 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+13:52:41.600 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-2/generalSusInfo.profl
+13:52:41.614 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-2/aggregatedSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Mockito-2/ochiai.txt
+13:52:41.616 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+13:52:41.616 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.mockito.Mockito ===2203
+13:52:42.451 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return new After(millis, VerificationModeFactory.times(1));
+13:52:42.453 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/mockito/Mockito.java:2203 ---
+13:52:42.463 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new After(millis, millis.times(1));
+---------------- Testing New Patch ----------------
+13:52:42.465 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:52:52.930 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+13:52:52.933 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:52:52.934 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:52:53.801 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:52:53.801 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:53:06.152 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 3, [org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+13:53:06.152 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 0, []
+13:53:06.152 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=0, fp=3, pf=0, pp=Unknown
+13:53:06.153 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] CleanFix found
+13:53:06.260 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-2/aggregatedSusInfo.profl
+13:53:06.260 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.Mockito:after(J)Lorg/mockito/verification/VerificationAfterDelay; in org.mockito.Mockito:2203
+13:53:06.260 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Succeeded to fix the bug Mockito-2====================
+13:53:06.378 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Finish off fixing======
+13:53:06.568 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-2/aggregatedSusInfo.profl
+Succeeded to fix bug Mockito-2

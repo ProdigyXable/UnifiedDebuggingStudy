@@ -1,0 +1,183 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-56
+03:24:02.206 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Lang-56 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/56.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/56.txt
+03:24:03.362 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+03:24:03.372 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Lang-56/ochiai.txt
+03:24:03.373 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+03:24:03.373 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang.exception.NestableRuntimeException ===194
+03:24:03.939 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * {@inheritDoc}
+     */
+    public void printStackTrace(PrintWriter out) {
+        delegate.printStackTrace(out);
+    }
+03:24:03.941 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang/exception/NestableRuntimeException.java:194 ---
+03:24:03.947 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang.exception.NestableRuntimeException ===193
+03:24:03.977 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+delegate.printStackTrace(out);
+03:24:03.978 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang/exception/NestableRuntimeException.java:193 ---
+03:24:03.978 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.printStackTrace(out);
+03:24:03.979 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: serialVersionUID.printStackTrace(out);
+03:24:03.979 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.cause.printStackTrace(out);
+03:24:03.979 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: delegate.printStackTrace(serialVersionUID);
+03:24:03.979 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: delegate.printStackTrace(this.delegate);
+03:24:03.979 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: delegate.printStackTrace(this.cause);
+---------------- Testing New Patch ----------------
+03:24:03.979 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:04.660 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-56 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:24:04.660 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:06.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-56 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:24:06.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:07.042 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:24:07.043 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:24:19.305 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:24:19.305 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:24:19.306 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+03:24:19.306 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:24:19.306 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:24:19.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/aggregatedSusInfo.profl
+03:24:19.312 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.exception.NestableRuntimeException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.lang.exception.NestableRuntimeException:193
+03:24:19.312 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-56
+---------------- Testing New Patch ----------------
+03:24:19.313 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:20.024 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-56 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:24:20.024 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:20.766 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-56 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:24:20.766 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:21.483 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-56 ---Fixer: fix fail because of failed compiling! 
+03:24:21.483 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (delegate != null) {
+	
+
+}
+
+03:24:21.483 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (delegate == null) {
+    throw new IllegalArgumentException("Null 'delegate' argument.");
+}
+
+03:24:21.483 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (delegate == null) {
+    return;
+}
+
+03:24:21.483 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out != null) {
+	
+
+}
+
+03:24:21.483 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out == null) {
+    throw new IllegalArgumentException("Null 'out' argument.");
+}
+
+03:24:21.483 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out == null) {
+    return;
+}
+
+---------------- Testing New Patch ----------------
+03:24:21.484 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:22.214 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:24:22.214 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:24:34.109 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:24:34.109 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:24:34.109 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+03:24:34.109 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:24:34.109 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:24:34.124 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/aggregatedSusInfo.profl
+03:24:34.124 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.exception.NestableRuntimeException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.lang.exception.NestableRuntimeException:193
+03:24:34.124 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-56
+---------------- Testing New Patch ----------------
+03:24:34.125 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:34.861 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:24:34.861 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:24:46.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:24:46.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:24:46.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+03:24:46.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:24:46.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:24:46.776 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/aggregatedSusInfo.profl
+03:24:46.776 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.exception.NestableRuntimeException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.lang.exception.NestableRuntimeException:193
+03:24:46.776 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-56
+---------------- Testing New Patch ----------------
+03:24:46.776 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:47.418 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:24:47.418 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:24:59.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:24:59.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:24:59.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+03:24:59.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:24:59.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:24:59.301 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/aggregatedSusInfo.profl
+03:24:59.301 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.exception.NestableRuntimeException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.lang.exception.NestableRuntimeException:193
+03:24:59.301 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-56
+---------------- Testing New Patch ----------------
+03:24:59.302 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:24:59.981 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:24:59.981 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:25:11.827 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:25:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:25:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+03:25:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:25:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:25:12.769 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/aggregatedSusInfo.profl
+03:25:12.769 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.exception.NestableRuntimeException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.lang.exception.NestableRuntimeException:193
+03:25:12.769 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-56
+---------------- Testing New Patch ----------------
+03:25:12.770 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:25:13.424 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:25:13.425 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:25:25.325 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:25:25.326 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:25:25.326 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+03:25:25.326 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:25:25.326 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:25:38.362 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/aggregatedSusInfo.profl
+03:25:38.362 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.exception.NestableRuntimeException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.lang.exception.NestableRuntimeException:193
+03:25:38.362 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-56
+---------------- Testing New Patch ----------------
+03:25:38.362 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:25:38.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:25:38.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:25:50.858 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:25:50.859 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:25:50.859 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+03:25:50.859 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:25:50.859 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:28:20.724 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/aggregatedSusInfo.profl
+03:28:20.724 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.exception.NestableRuntimeException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.lang.exception.NestableRuntimeException:193
+03:28:20.724 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-56
+03:28:20.725 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:28:20.725 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:28:21.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:28:21.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:28:33.188 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:28:33.188 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+03:28:33.188 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+03:28:33.188 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:28:33.188 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+04:01:12.134 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-56/aggregatedSusInfo.profl
+04:01:12.134 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.exception.NestableRuntimeException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.lang.exception.NestableRuntimeException:193
+04:01:12.134 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-56
+04:01:12.135 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+04:01:12.135 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+04:01:12.825 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+04:01:12.825 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+04:01:24.431 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+04:01:24.431 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.time.FastDateFormatTest::testLang303]
+04:01:24.431 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.time.FastDateFormatTest::testLang303
+04:01:24.431 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+04:01:24.431 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found

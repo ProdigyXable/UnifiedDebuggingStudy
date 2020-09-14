@@ -1,0 +1,190 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-17
+01:23:13.953 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-17 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/17.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/17.txt
+01:23:15.992 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+01:23:16.003 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-17/generalSusInfo.profl
+01:23:16.016 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-17/aggregatedSusInfo.profl
+01:23:16.017 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+01:23:16.017 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.internal.util.CreationValidator ===29
+01:23:16.830 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+public void validateExtraInterfaces(Class classToMock, Class ... extraInterfaces) {
+        if (extraInterfaces == null) {
+            return;
+        }
+        
+        for (Class i : extraInterfaces) {
+            if (classToMock == i) {
+                new Reporter().extraInterfacesCannotContainMockedType(classToMock);
+            }
+        }
+    }
+01:23:16.839 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.internal.util.CreationValidator ===25
+01:23:16.855 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (classToMock == i) {
+                new Reporter().extraInterfacesCannotContainMockedType(classToMock);
+            }
+01:23:16.856 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classToMock != i) {
+                new Reporter().extraInterfacesCannotContainMockedType(classToMock);
+            }
+01:23:16.857 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((extraInterfaces == null)) {
+                new Reporter().extraInterfacesCannotContainMockedType(classToMock);
+            }
+01:23:16.857 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:23:17.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+01:23:17.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+01:25:41.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:25:41.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.mockito.internal.util.CreationValidatorTest::shouldNotAllowExtraInterfaceThatIsTheSameAsTheMockedType, - org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldAllowMultipleInterfaces, - org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldScreamWhenTheSameInterfacesPassed, - org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndExtraInterfaces, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeWithRealObjectSpy, - org.mockitousage.basicapi.MocksSerializationTest::shouldStubEvenIfSomeMethodsCalledAfterSerialization, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeAlreadySerializableClass, - org.mockitousage.basicapi.MocksSerializationTest::shouldAllMockAndSerializableValueToBeSerialized, - org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockAndBooleanValueToSerializable, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeRealPartialMock, - org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeMethodCallsUsingAnyStringMatcher, - org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockToBeSerializable, - org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyCalledNTimesForSerializedMock, - org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyCallOrderForSerializedMock, - org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyEvenIfSomeMethodsCalledAfterSerialization, - org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockAndStringValueToBeSerializable, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeMethodCallWithParametersThatAreSerializable, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeWithStubbingCallback, - org.mockitousage.basicapi.MocksSerializationTest::shouldRememberInteractionsForSerializedMock]
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockito.internal.util.CreationValidatorTest::shouldNotAllowExtraInterfaceThatIsTheSameAsTheMockedType
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldAllowMultipleInterfaces
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldScreamWhenTheSameInterfacesPassed
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndExtraInterfaces
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeWithRealObjectSpy
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldStubEvenIfSomeMethodsCalledAfterSerialization
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeAlreadySerializableClass
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldAllMockAndSerializableValueToBeSerialized
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockAndBooleanValueToSerializable
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeRealPartialMock
+01:25:41.796 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeMethodCallsUsingAnyStringMatcher
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockToBeSerializable
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyCalledNTimesForSerializedMock
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyCallOrderForSerializedMock
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyEvenIfSomeMethodsCalledAfterSerialization
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockAndStringValueToBeSerializable
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeMethodCallWithParametersThatAreSerializable
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeWithStubbingCallback
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldRememberInteractionsForSerializedMock
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+01:25:41.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+01:25:41.922 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-17/aggregatedSusInfo.profl
+01:25:41.922 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.util.CreationValidator:validateExtraInterfaces(Ljava/lang/Class;[Ljava/lang/Class;)V in org.mockito.internal.util.CreationValidator:25
+01:25:41.923 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 20 Mockito-17
+01:25:41.923 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:25:42.688 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+01:25:42.688 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+01:28:05.331 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:28:05.331 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.util.CreationValidatorTest::shouldNotAllowExtraInterfaceThatIsTheSameAsTheMockedType, - org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldScreamWhenTheSameInterfacesPassed, - org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:28:05.331 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockito.internal.util.CreationValidatorTest::shouldNotAllowExtraInterfaceThatIsTheSameAsTheMockedType
+01:28:05.331 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldScreamWhenTheSameInterfacesPassed
+01:28:05.331 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces
+01:28:05.331 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:28:05.331 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+01:28:05.399 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-17/aggregatedSusInfo.profl
+01:28:05.399 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.util.CreationValidator:validateExtraInterfaces(Ljava/lang/Class;[Ljava/lang/Class;)V in org.mockito.internal.util.CreationValidator:25
+01:28:05.399 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-17
+01:28:05.401 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((classToMock == i) || (extraInterfaces == null)) {
+                new Reporter().extraInterfacesCannotContainMockedType(classToMock);
+            }
+01:28:05.401 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((classToMock == i) && (extraInterfaces == null)) {
+                new Reporter().extraInterfacesCannotContainMockedType(classToMock);
+            }
+01:28:05.401 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((classToMock == i) || !(extraInterfaces == null)) {
+                new Reporter().extraInterfacesCannotContainMockedType(classToMock);
+            }
+01:28:05.401 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((classToMock == i) && !(extraInterfaces == null)) {
+                new Reporter().extraInterfacesCannotContainMockedType(classToMock);
+            }
+01:28:05.401 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:28:06.126 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+01:28:06.127 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+01:30:27.392 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:30:27.392 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:30:27.392 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces
+01:30:27.392 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:30:27.392 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+01:30:28.327 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-17/aggregatedSusInfo.profl
+01:30:28.327 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.util.CreationValidator:validateExtraInterfaces(Ljava/lang/Class;[Ljava/lang/Class;)V in org.mockito.internal.util.CreationValidator:25
+01:30:28.327 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Mockito-17
+01:30:28.327 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:30:29.055 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+01:30:29.055 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+01:32:50.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:32:50.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.util.CreationValidatorTest::shouldNotAllowExtraInterfaceThatIsTheSameAsTheMockedType, - org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldScreamWhenTheSameInterfacesPassed, - org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:32:50.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockito.internal.util.CreationValidatorTest::shouldNotAllowExtraInterfaceThatIsTheSameAsTheMockedType
+01:32:50.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldScreamWhenTheSameInterfacesPassed
+01:32:50.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces
+01:32:50.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:32:50.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+01:33:06.996 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-17/aggregatedSusInfo.profl
+01:33:06.996 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.util.CreationValidator:validateExtraInterfaces(Ljava/lang/Class;[Ljava/lang/Class;)V in org.mockito.internal.util.CreationValidator:25
+01:33:06.996 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-17
+01:33:06.997 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:33:07.728 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+01:33:07.728 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+01:35:28.750 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 18, [- org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldAllowMultipleInterfaces, - org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndExtraInterfaces, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeWithRealObjectSpy, - org.mockitousage.basicapi.MocksSerializationTest::shouldStubEvenIfSomeMethodsCalledAfterSerialization, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeAlreadySerializableClass, - org.mockitousage.basicapi.MocksSerializationTest::shouldAllMockAndSerializableValueToBeSerialized, - org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockAndBooleanValueToSerializable, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeRealPartialMock, - org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeMethodCallsUsingAnyStringMatcher, - org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockToBeSerializable, - org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyCalledNTimesForSerializedMock, - org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyCallOrderForSerializedMock, - org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyEvenIfSomeMethodsCalledAfterSerialization, - org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockAndStringValueToBeSerializable, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeMethodCallWithParametersThatAreSerializable, - org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeWithStubbingCallback, - org.mockitousage.basicapi.MocksSerializationTest::shouldRememberInteractionsForSerializedMock]
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MockingMultipleInterfacesTest::shouldAllowMultipleInterfaces
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndExtraInterfaces
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeWithRealObjectSpy
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldStubEvenIfSomeMethodsCalledAfterSerialization
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeAlreadySerializableClass
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldAllMockAndSerializableValueToBeSerialized
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockAndBooleanValueToSerializable
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeRealPartialMock
+01:35:28.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeMethodCallsUsingAnyStringMatcher
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockToBeSerializable
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyCalledNTimesForSerializedMock
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyCallOrderForSerializedMock
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldVerifyEvenIfSomeMethodsCalledAfterSerialization
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldAllowMockAndStringValueToBeSerializable
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeMethodCallWithParametersThatAreSerializable
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldSerializeWithStubbingCallback
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldRememberInteractionsForSerializedMock
+01:35:28.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=17, pp=Unknown
+01:35:28.753 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+01:40:14.122 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-17/aggregatedSusInfo.profl
+01:40:14.122 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.util.CreationValidator:validateExtraInterfaces(Ljava/lang/Class;[Ljava/lang/Class;)V in org.mockito.internal.util.CreationValidator:25
+01:40:14.122 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 18 Mockito-17
+01:40:14.123 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:40:14.870 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+01:40:14.870 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+01:42:36.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:42:36.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+01:42:36.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces
+01:42:36.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:42:36.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:06:37.073 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-17/aggregatedSusInfo.profl
+03:06:37.073 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.util.CreationValidator:validateExtraInterfaces(Ljava/lang/Class;[Ljava/lang/Class;)V in org.mockito.internal.util.CreationValidator:25
+03:06:37.073 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Mockito-17
+03:06:37.074 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classToMock != null) {
+	
+
+}
+
+03:06:37.074 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classToMock == null) {
+    throw new IllegalArgumentException("Null 'classToMock' argument.");
+}
+
+03:06:37.074 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classToMock == null) {
+    return;
+}
+
+03:06:37.074 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (i != null) {
+	
+
+}
+
+03:06:37.074 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (i == null) {
+    throw new IllegalArgumentException("Null 'i' argument.");
+}
+
+03:06:37.074 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (i == null) {
+    return;
+}
+
+03:06:37.074 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:06:37.855 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:06:37.855 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:08:58.023 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+03:08:58.023 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces]
+03:08:58.023 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.basicapi.MocksSerializationTest::shouldBeSerializeAndHaveExtraInterfaces
+03:08:58.024 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:58.024 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

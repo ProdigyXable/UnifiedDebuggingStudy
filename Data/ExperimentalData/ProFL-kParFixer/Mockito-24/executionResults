@@ -1,0 +1,214 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-24
+04:40:02.492 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/24.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/24.txt
+04:40:07.756 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+04:40:07.786 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-24/generalSusInfo.profl
+04:40:07.825 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-24/aggregatedSusInfo.profl
+04:40:07.827 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+04:40:07.827 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.internal.verification.SingleRegisteredInvocation ===31
+04:40:08.680 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return invocation == null;
+04:40:08.690 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return invocation != null;
+04:40:08.691 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:40:09.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:40:09.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference]
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- org.mockito.internal.stubbing.InvocationContainerImplTest::should_tell_if_has_invocation_for_potential_stubbing_stub_only, - org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference, - org.mockitousage.performance.StubOnlyAvoidMemoryConsumptionTest::using_stub_only_wont_thrown_an_OutOfMemoryError, - org.mockitousage.stubbing.BasicStubbingTest::test_stub_only_not_verifiable, - org.mockitousage.stubbing.BasicStubbingTest::test_stub_only_not_verifiable]
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.InvocationContainerImplTest::should_tell_if_has_invocation_for_potential_stubbing_stub_only
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.performance.StubOnlyAvoidMemoryConsumptionTest::using_stub_only_wont_thrown_an_OutOfMemoryError
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::test_stub_only_not_verifiable
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::test_stub_only_not_verifiable
+04:43:57.807 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=4, pp=Unknown
+04:43:57.808 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:43:57.985 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-24/aggregatedSusInfo.profl
+04:43:57.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.verification.SingleRegisteredInvocation:isEmpty()Z in org.mockito.internal.verification.SingleRegisteredInvocation:31
+04:43:57.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 6 Mockito-24
+04:43:57.986 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.internal.stubbing.answers.AnswersValidator ===73
+04:43:58.034 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethodName());
+04:43:58.422 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(answer.printReturnType(), methodInfo.getMethodName());
+04:43:58.423 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), methodInfo.getMethodName());
+04:43:58.423 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType());
+04:43:58.423 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:43:59.143 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:43:59.143 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:43:59.870 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:43:59.870 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:00.599 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(answer, answer.printReturnType(), methodInfo.getMethodName());
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo, answer.printReturnType(), methodInfo.getMethodName());
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(this.reporter, answer.printReturnType(), methodInfo.getMethodName());
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer, methodInfo.getMethodName());
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), methodInfo, methodInfo.getMethodName());
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), this.reporter, methodInfo.getMethodName());
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), answer);
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo);
+04:44:00.670 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), this.reporter);
+04:44:00.671 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:01.393 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:01.394 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:02.185 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:02.185 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:02.948 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:02.948 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:03.684 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:03.685 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:04.453 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:04.454 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:05.232 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:05.233 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:05.962 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:05.962 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:06.747 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:06.748 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:07.483 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:07.538 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.getMethod(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.538 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.getMethodName(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.538 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.isVoid(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.538 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.returnsPrimitive(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.538 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.isDeclaredOnInterface(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.538 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.toString(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.getReturnType(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.returnsNull(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.invalidArgumentPositionRangeAtInvocationTime(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.createTooLittleInvocationsMessage(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.incorrectUseOfAdditionalMatchers(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.argumentsAreDifferent(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.tooLittleActualInvocations(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.tooLittleActualInvocationsInOrder(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.cannotInjectDependency(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethodName());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.getMethod());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.printMethodReturnType());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.isVoid());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.returnsPrimitive());
+04:44:07.539 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: reporter.wrongTypeOfReturnValue(methodInfo.printMethodReturnType(), answer.printReturnType(), methodInfo.isDeclaredOnInterface());
+04:44:07.540 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:08.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:44:08.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:44:09.073 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:44:09.074 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:47:58.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference]
+04:47:58.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference, - org.mockitousage.stubbing.StubbingUsingDoReturnTest::shouldDetectInvalidReturnType]
+04:47:58.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself
+04:47:58.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference
+04:47:58.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.StubbingUsingDoReturnTest::shouldDetectInvalidReturnType
+04:47:58.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=1, pp=Unknown
+04:47:58.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:47:59.197 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-24/aggregatedSusInfo.profl
+04:47:59.197 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.stubbing.answers.AnswersValidator:validateReturnValue(Lorg/mockito/internal/stubbing/answers/Returns;Lorg/mockito/internal/stubbing/answers/MethodInfo;)V in org.mockito.internal.stubbing.answers.AnswersValidator:73
+04:47:59.197 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-24
+04:47:59.198 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:47:59.950 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:47:59.951 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:48:00.698 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:48:00.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:48:01.444 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:48:01.445 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:48:02.178 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:48:02.178 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:51:51.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference]
+04:51:51.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference, - org.mockitousage.stubbing.StubbingUsingDoReturnTest::shouldDetectInvalidReturnType]
+04:51:51.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself
+04:51:51.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference
+04:51:51.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.StubbingUsingDoReturnTest::shouldDetectInvalidReturnType
+04:51:51.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=1, pp=Unknown
+04:51:51.795 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:52:14.945 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-24/aggregatedSusInfo.profl
+04:52:14.945 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.stubbing.answers.AnswersValidator:validateReturnValue(Lorg/mockito/internal/stubbing/answers/Returns;Lorg/mockito/internal/stubbing/answers/MethodInfo;)V in org.mockito.internal.stubbing.answers.AnswersValidator:73
+04:52:14.945 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-24
+04:52:14.946 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:15.796 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:15.797 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:16.718 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:16.719 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:17.513 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:17.514 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:18.260 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:18.261 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:19.099 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:19.100 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:19.903 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:19.903 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:20.679 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:20.680 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:21.525 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:21.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:22.315 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:22.315 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:23.132 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+04:52:23.133 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:52:24.009 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:52:24.009 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:56:12.417 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference]
+04:56:12.417 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference, - org.mockitousage.stubbing.StubbingUsingDoReturnTest::shouldDetectInvalidReturnType]
+04:56:12.417 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself
+04:56:12.418 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference
+04:56:12.418 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.StubbingUsingDoReturnTest::shouldDetectInvalidReturnType
+04:56:12.418 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=1, pp=Unknown
+04:56:12.418 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+05:05:12.623 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-24/aggregatedSusInfo.profl
+05:05:12.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.stubbing.answers.AnswersValidator:validateReturnValue(Lorg/mockito/internal/stubbing/answers/Returns;Lorg/mockito/internal/stubbing/answers/MethodInfo;)V in org.mockito.internal.stubbing.answers.AnswersValidator:73
+05:05:12.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-24
+05:05:12.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+05:05:13.460 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+05:05:13.460 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+05:05:14.180 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+05:05:14.180 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+05:05:14.895 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-24 ---Fixer: fix fail because of failed compiling! 
+05:05:14.896 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (reporter != null) {
+	
+
+}
+
+05:05:14.896 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (reporter == null) {
+    throw new IllegalArgumentException("Null 'reporter' argument.");
+}
+
+05:05:14.896 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (reporter == null) {
+    return;
+}
+
+05:05:14.896 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (methodInfo != null) {
+	
+
+}
+
+05:05:14.896 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (methodInfo == null) {
+    throw new IllegalArgumentException("Null 'methodInfo' argument.");
+}
+
+05:05:14.897 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (methodInfo == null) {
+    return;
+}
+
+05:05:14.897 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (answer != null) {
+	
+
+}
+
+05:05:14.897 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (answer == null) {
+    throw new IllegalArgumentException("Null 'answer' argument.");
+}
+
+05:05:14.897 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (answer == null) {
+    return;
+}
+
+05:05:14.897 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+05:05:15.689 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+05:05:15.689 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+05:09:01.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference]
+05:09:01.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself, - org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference]
+05:09:01.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValuesTest::should_return_zero_if_mock_is_compared_to_itself
+05:09:01.606 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ShouldMocksCompareToBeConsistentWithEqualsTest::should_compare_to_be_consistent_with_equals_when_comparing_the_same_reference
+05:09:01.606 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+05:09:01.606 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
