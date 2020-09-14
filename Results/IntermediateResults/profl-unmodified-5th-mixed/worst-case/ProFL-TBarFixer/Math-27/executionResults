@@ -1,0 +1,92 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-27
+10:17:40.874 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-27 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/27.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/27.txt
+10:17:46.589 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+10:17:46.618 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-27/generalSusInfo.profl
+10:17:46.620 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+10:17:46.620 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.fraction.Fraction ===597
+10:17:47.466 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return multiply(100).doubleValue();
+10:17:47.467 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.fraction.Fraction:597 ---
+10:17:47.467 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/fraction/Fraction.java 597 ---
+10:17:47.467 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:17:47.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return compareTo(100).doubleValue();
+10:17:47.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return equals(100).doubleValue();
+10:17:47.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return add(100).doubleValue();
+10:17:47.676 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return subtract(100).doubleValue();
+10:17:47.676 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return divide(100).doubleValue();
+10:17:47.676 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return multiply().doubleValue();
+---------------- Testing New Patch ----------------
+10:17:47.677 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:48.552 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-27 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:17:48.553 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:49.551 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-27 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:17:49.551 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:50.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:17:50.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:18:50.681 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:18:50.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.fraction.FractionTest::testPercentage, - org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:18:50.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testPercentage
+10:18:50.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testMath835
+10:18:50.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:18:50.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:18:50.684 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-27/aggregatedSusInfo.profl
+10:18:50.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.fraction.Fraction:percentageValue()D in org.apache.commons.math3.fraction.Fraction:597
+10:18:50.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-27
+---------------- Testing New Patch ----------------
+10:18:50.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:18:51.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:18:51.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:19:52.255 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:19:52.255 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.fraction.FractionTest::testPercentage, - org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:19:52.255 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testPercentage
+10:19:52.255 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testMath835
+10:19:52.255 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:19:52.255 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:19:52.257 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-27/aggregatedSusInfo.profl
+10:19:52.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.fraction.Fraction:percentageValue()D in org.apache.commons.math3.fraction.Fraction:597
+10:19:52.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-27
+---------------- Testing New Patch ----------------
+10:19:52.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:19:53.481 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:19:53.481 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:21:01.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:21:01.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.fraction.FractionTest::testPercentage, - org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:21:01.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testPercentage
+10:21:01.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testMath835
+10:21:01.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:21:01.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:21:01.278 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-27/aggregatedSusInfo.profl
+10:21:01.278 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.fraction.Fraction:percentageValue()D in org.apache.commons.math3.fraction.Fraction:597
+10:21:01.278 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-27
+---------------- Testing New Patch ----------------
+10:21:01.278 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:02.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-27 ---Fixer: fix fail because of failed compiling! 
+10:21:02.400 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+10:21:02.401 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:03.381 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:21:03.381 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:22:06.038 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:22:06.038 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.fraction.FractionTest::testPercentage, - org.apache.commons.math3.fraction.FractionTest::testMath835]
+10:22:06.039 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testPercentage
+10:22:06.039 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testMath835
+10:22:06.039 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:22:06.039 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:22:06.041 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-27/aggregatedSusInfo.profl
+10:22:06.041 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.fraction.Fraction:percentageValue()D in org.apache.commons.math3.fraction.Fraction:597
+10:22:06.041 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-27
+10:22:06.064 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+10:22:06.075 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-27/aggregatedSusInfo.profl
+Failed to fix bug Math-27
+Repair process completed

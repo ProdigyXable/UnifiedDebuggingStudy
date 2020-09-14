@@ -1,0 +1,622 @@
+Closure-111
+02:27:54.059 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 Failed Tests: 1
+Reading method line coverage from /home/samuel/XiaInformation/AllMethods/Closure/111.txt
+Reading test line coverage from /home/samuel/XiaInformation/LineCoverage/Closure/111.txt
+02:39:14.164 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+02:39:14.238 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-111/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Closure-111/ochiai.txt
+02:39:14.255 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+02:39:14.255 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter ===44
+02:39:15.177 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+public class ClosureReverseAbstractInterpreter
+    extends ChainableReverseAbstractInterpreter {
+
+  /**
+   * For when {@code goog.isArray} returns true.
+   */
+  private final Visitor<JSType> restrictToArrayVisitor =
+      new RestrictByTrueTypeOfResultVisitor() {
+        @Override
+        protected JSType caseTopType(JSType topType) {
+          return topType;
+        }
+
+        @Override
+        public JSType caseObjectType(ObjectType type) {
+          JSType arrayType = getNativeType(ARRAY_TYPE);
+          return arrayType.isSubtype(type) ? arrayType : null;
+        }
+      };
+
+  /**
+   * For when {@code goog.isArray} returns false.
+   */
+  private final Visitor<JSType> restrictToNotArrayVisitor =
+      new RestrictByFalseTypeOfResultVisitor() {
+        @Override
+        public JSType caseObjectType(ObjectType type) {
+          return type.isSubtype(getNativeType(ARRAY_TYPE)) ? null : type;
+        }
+      };
+
+  /**
+   * For when {@code goog.isObject} returns true. This includes functions, but
+   * not {@code null}.
+   */
+  private final Visitor<JSType> restrictToObjectVisitor =
+      new RestrictByTrueTypeOfResultVisitor() {
+        @Override
+        protected JSType caseTopType(JSType topType) {
+          return getNativeType(NO_OBJECT_TYPE);
+        }
+
+        @Override
+        public JSType caseObjectType(ObjectType type) {
+          return type;
+        }
+
+        @Override
+        public JSType caseFunctionType(FunctionType type) {
+          return type;
+        }
+      };
+
+  /**
+   * For when {@code goog.isObject} returns false.
+   */
+  private final Visitor<JSType> restrictToNotObjectVisitor =
+      new RestrictByFalseTypeOfResultVisitor() {
+
+        @Override
+        public JSType caseAllType() {
+          return typeRegistry.createUnionType(
+              getNativeType(NUMBER_STRING_BOOLEAN), getNativeType(NULL_VOID));
+        }
+
+        @Override
+        public JSType caseObjectType(ObjectType type) {
+          return null;
+        }
+
+        @Override
+        public JSType caseFunctionType(FunctionType type) {
+          return null;
+        }
+      };
+
+  /** Functions used to restrict types. */
+  private Map<String, Function<TypeRestriction, JSType>> restricters;
+
+  /**
+   * Creates a {@link ClosureReverseAbstractInterpreter}.
+   */
+  public ClosureReverseAbstractInterpreter(CodingConvention convention,
+      final JSTypeRegistry typeRegistry) {
+    super(convention, typeRegistry);
+    this.restricters =
+      new ImmutableMap.Builder<String, Function<TypeRestriction, JSType>>()
+      .put("isDef", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.outcome) {
+            return getRestrictedWithoutUndefined(p.type);
+          } else {
+            return  p.type != null ?
+                getNativeType(VOID_TYPE).getGreatestSubtype(p.type) : null;
+          }
+         }
+      })
+      .put("isNull", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.outcome) {
+            return p.type != null ?
+                getNativeType(NULL_TYPE).getGreatestSubtype(p.type) : null;
+          } else {
+            return getRestrictedWithoutNull(p.type);
+          }
+        }
+      })
+      .put("isDefAndNotNull", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.outcome) {
+            return getRestrictedWithoutUndefined(
+                getRestrictedWithoutNull(p.type));
+          } else {
+            return p.type != null ?
+                getNativeType(NULL_VOID).getGreatestSubtype(p.type) : null;
+          }
+        }
+      })
+      .put("isString", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          return getRestrictedByTypeOfResult(p.type, "string", p.outcome);
+        }
+      })
+      .put("isBoolean", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          return getRestrictedByTypeOfResult(p.type, "boolean", p.outcome);
+        }
+      })
+      .put("isNumber", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          return getRestrictedByTypeOfResult(p.type, "number", p.outcome);
+        }
+      })
+      .put("isFunction", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          return getRestrictedByTypeOfResult(p.type, "function", p.outcome);
+        }
+      })
+      .put("isArray", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.type == null) {
+            return p.outcome ? getNativeType(ARRAY_TYPE) : null;
+          }
+
+          Visitor<JSType> visitor = p.outcome ? restrictToArrayVisitor :
+              restrictToNotArrayVisitor;
+          return p.type.visit(visitor);
+        }
+      })
+      .put("isObject", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.type == null) {
+            return p.outcome ? getNativeType(OBJECT_TYPE) : null;
+          }
+
+          Visitor<JSType> visitor = p.outcome ? restrictToObjectVisitor :
+              restrictToNotObjectVisitor;
+          return p.type.visit(visitor);
+        }
+      })
+      .build();
+  }
+
+  @Override
+  public FlowScope getPreciserScopeKnowingConditionOutcome(Node condition,
+      FlowScope blindScope, boolean outcome) {
+    if (condition.isCall() && condition.getChildCount() == 2) {
+      Node callee = condition.getFirstChild();
+      Node param = condition.getLastChild();
+      if (callee.isGetProp() && param.isQualifiedName()) {
+        JSType paramType =  getTypeIfRefinable(param, blindScope);
+        Node left = callee.getFirstChild();
+        Node right = callee.getLastChild();
+        if (left.isName() && "goog".equals(left.getString()) &&
+            right.isString()) {
+          Function<TypeRestriction, JSType> restricter =
+              restricters.get(right.getString());
+          if (restricter != null) {
+            return restrictParameter(param, paramType, blindScope, restricter,
+                outcome);
+          }
+        }
+      }
+    }
+    return nextPreciserScopeKnowingConditionOutcome(
+        condition, blindScope, outcome);
+  }
+
+  private FlowScope restrictParameter(Node parameter, JSType type,
+      FlowScope blindScope, Function<TypeRestriction, JSType> restriction,
+      boolean outcome) {
+    // restricting
+    type = restriction.apply(new TypeRestriction(type, outcome));
+
+    // changing the scope
+    if (type != null) {
+      FlowScope informed = blindScope.createChildFlowScope();
+      declareNameInScope(informed, parameter, type);
+      return informed;
+    } else {
+      return blindScope;
+    }
+  }
+
+  private static class TypeRestriction {
+    private final JSType type;
+    private final boolean outcome;
+
+    private TypeRestriction(JSType type, boolean outcome) {
+      this.type = type;
+      this.outcome = outcome;
+    }
+  }
+}
+02:39:15.181 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java:44 ---
+02:39:15.193 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate:     public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof ClosureReverseAbstractInterpreter)) return false;
+        ClosureReverseAbstractInterpreter _var = (ClosureReverseAbstractInterpreter) obj;
+        if (!restricters.equals(_var.restricters)) return false;
+        return true;
+    }
+02:39:15.194 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate:     public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof ClosureReverseAbstractInterpreter)) return false;
+        ClosureReverseAbstractInterpreter _var = (ClosureReverseAbstractInterpreter) obj;
+        if (!restricters.equals(_var.restricters)) return false;
+        return super.equals(obj);
+    }
+---------------- Testing New Patch ----------------
+02:39:15.195 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:39:20.729 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:39:20.730 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:39:25.354 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+02:39:25.355 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.rhino.jstype.AllType ===100
+02:39:25.381 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return visitor.caseAllType();
+02:39:25.381 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/rhino/jstype/AllType.java:100 ---
+02:39:25.382 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return serialVersionUID.caseAllType();
+---------------- Testing New Patch ----------------
+02:39:25.382 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:39:31.793 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+02:39:31.794 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (visitor != null) {
+	
+
+}
+
+02:39:31.794 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (visitor == null) {
+    throw new IllegalArgumentException("Null 'visitor' argument.");
+}
+
+02:39:31.794 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (visitor == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+02:39:31.794 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:39:38.088 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:39:38.088 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:39:39.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:39:39.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:42:40.361 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:42:40.361 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:42:40.361 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+02:42:40.361 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:42:40.362 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+02:42:40.458 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-111/aggregatedSusInfo.profl
+02:42:40.458 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.rhino.jstype.AllType:visit(Lcom/google/javascript/rhino/jstype/Visitor;)Ljava/lang/Object; in com.google.javascript.rhino.jstype.AllType:100
+02:42:40.458 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-111
+---------------- Testing New Patch ----------------
+02:42:40.466 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:42:41.251 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:42:41.251 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:44:56.738 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:44:56.738 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:44:56.739 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+02:44:56.739 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:44:56.739 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+02:44:57.124 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-111/aggregatedSusInfo.profl
+02:44:57.124 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.rhino.jstype.AllType:visit(Lcom/google/javascript/rhino/jstype/Visitor;)Ljava/lang/Object; in com.google.javascript.rhino.jstype.AllType:100
+02:44:57.124 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-111
+02:44:57.155 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:44:57.156 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:01.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+02:45:01.649 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:45:01.649 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:06.413 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:45:06.417 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:10.936 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+02:45:10.937 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:45:10.941 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:15.513 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+02:45:15.513 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:45:15.517 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:20.073 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:45:20.074 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:24.625 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+02:45:24.625 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:45:24.628 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:29.124 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+02:45:29.125 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter ===251
+02:45:29.250 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return informed;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java:251 ---
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return parameter;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return type;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return blindScope;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restriction;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return outcome;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.restrictToArrayVisitor;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.restrictToNotArrayVisitor;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.restrictToObjectVisitor;
+02:45:29.251 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.restrictToNotObjectVisitor;
+02:45:29.252 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.restricters;
+---------------- Testing New Patch ----------------
+02:45:29.252 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:34.519 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:45:34.520 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:39.509 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:45:39.510 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:45:48.565 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:45:48.565 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:48:03.125 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:48:03.125 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 61, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArrayOnNull, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunctionOnNull, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObjectOnNull, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNumber, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsString1, - com.google.javascript.jscomp.LooseTypeCheckTest::testQualifiedNameReduction4, - com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction6, - com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction7, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction8, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction9, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure1, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure2, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure3, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure4, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure5, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure6, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction10, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction11, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction13, - com.google.javascript.jscomp.TypeCheckTest::testQualifiedNameReduction4, - com.google.javascript.jscomp.TypeCheckTest::testInnerFunction6, - com.google.javascript.jscomp.TypeCheckTest::testInnerFunction7, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction8, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction9, - com.google.javascript.jscomp.TypeCheckTest::testClosure1, - com.google.javascript.jscomp.TypeCheckTest::testClosure2, - com.google.javascript.jscomp.TypeCheckTest::testClosure3, - com.google.javascript.jscomp.TypeCheckTest::testClosure4, - com.google.javascript.jscomp.TypeCheckTest::testClosure5, - com.google.javascript.jscomp.TypeCheckTest::testClosure6, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction10, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction11, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction13, - com.google.javascript.jscomp.TypeInferenceTest::testIsDefAndNoResolvedType, - com.google.javascript.jscomp.TypeInferenceTest::testAssertWithIsDefAndNotNull, - com.google.javascript.jscomp.TypeInferenceTest::testAssertWithNotIsNull]
+02:48:03.125 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject2
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject3
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject4
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArrayOnNull
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull1
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull2
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull3
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull1
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull2
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3
+02:48:03.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunctionOnNull
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObjectOnNull
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean1
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean2
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean4
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction2
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction3
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef1
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef2
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray1
+02:48:03.127 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray3
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray4
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNumber
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsString1
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testQualifiedNameReduction4
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction6
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction7
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction8
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction9
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure1
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure2
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure3
+02:48:03.128 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure4
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure5
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure6
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction10
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction11
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction13
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testQualifiedNameReduction4
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testInnerFunction6
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testInnerFunction7
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction8
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction9
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure1
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure2
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure3
+02:48:03.129 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure4
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure5
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure6
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction10
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction11
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction13
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testIsDefAndNoResolvedType
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testAssertWithIsDefAndNotNull
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testAssertWithNotIsNull
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=60, pp=Unknown
+02:48:03.130 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+02:48:10.451 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-111/aggregatedSusInfo.profl
+02:48:10.451 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter:restrictParameter(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/common/base/Function;Z)Lcom/google/javascript/jscomp/type/FlowScope; in com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter:251
+02:48:10.451 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 61 Closure-111
+---------------- Testing New Patch ----------------
+02:48:10.451 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:15.543 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:48:15.544 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:20.466 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:48:20.467 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:25.237 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:48:25.238 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:30.251 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:48:30.252 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:35.068 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:48:35.068 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:39.952 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:48:39.953 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:44.969 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+02:48:44.970 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (informed != null) {
+	
+
+}
+
+02:48:44.971 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (informed == null) {
+    throw new IllegalArgumentException("Null 'informed' argument.");
+}
+
+02:48:44.971 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (informed == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+02:48:44.971 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:49.813 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:48:49.814 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:48:59.173 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:48:59.173 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:51:09.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:51:09.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:51:09.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+02:51:09.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:51:09.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+02:54:32.489 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-111/aggregatedSusInfo.profl
+02:54:32.490 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter:restrictParameter(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/common/base/Function;Z)Lcom/google/javascript/jscomp/type/FlowScope; in com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter:251
+02:54:32.490 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-111
+---------------- Testing New Patch ----------------
+02:54:32.492 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:54:41.462 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:54:41.462 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:56:46.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:56:46.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+02:56:46.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+02:56:46.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:56:46.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+04:21:44.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-111/aggregatedSusInfo.profl
+04:21:44.905 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter:restrictParameter(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/common/base/Function;Z)Lcom/google/javascript/jscomp/type/FlowScope; in com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter:251
+04:21:44.905 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-111
+04:21:44.907 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+04:21:44.907 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+04:21:49.605 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+04:21:49.606 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+04:21:49.606 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+04:21:54.322 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+04:21:54.323 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+04:21:59.111 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+04:21:59.112 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+04:21:59.113 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+04:22:03.771 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+04:22:03.771 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter ===250
+04:22:03.898 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+declareNameInScope(informed, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/type/ClosureReverseAbstractInterpreter.java:250 ---
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(parameter, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(type, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(blindScope, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(restriction, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(outcome, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(this.restrictToArrayVisitor, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(this.restrictToNotArrayVisitor, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(this.restrictToObjectVisitor, parameter, type);
+04:22:03.899 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(this.restrictToNotObjectVisitor, parameter, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(this.restricters, parameter, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, informed, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, type, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, blindScope, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, restriction, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, outcome, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, this.restrictToArrayVisitor, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, this.restrictToNotArrayVisitor, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, this.restrictToObjectVisitor, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, this.restrictToNotObjectVisitor, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, this.restricters, type);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, informed);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, parameter);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, blindScope);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, restriction);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, outcome);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, this.restrictToArrayVisitor);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, this.restrictToNotArrayVisitor);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, this.restrictToObjectVisitor);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, this.restrictToNotObjectVisitor);
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: declareNameInScope(informed, parameter, this.restricters);
+---------------- Testing New Patch ----------------
+04:22:03.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+04:22:08.540 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+04:22:08.540 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+04:22:13.205 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-111 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+04:22:13.206 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+04:22:21.965 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+04:22:21.965 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+04:24:25.981 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+04:24:25.981 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 68, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArrayOnNull, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull5, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunctionOnNull, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObjectOnNull, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNumber, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsString1, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsString2, - com.google.javascript.jscomp.LooseTypeCheckTest::testQualifiedNameReduction4, - com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction6, - com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction7, - com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction8, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction8, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction9, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure1, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure2, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure3, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure4, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure5, - com.google.javascript.jscomp.LooseTypeCheckTest::testClosure6, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction10, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction11, - com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction13, - com.google.javascript.jscomp.TypeCheckTest::testQualifiedNameReduction4, - com.google.javascript.jscomp.TypeCheckTest::testInnerFunction6, - com.google.javascript.jscomp.TypeCheckTest::testInnerFunction7, - com.google.javascript.jscomp.TypeCheckTest::testInnerFunction8, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction8, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction9, - com.google.javascript.jscomp.TypeCheckTest::testClosure1, - com.google.javascript.jscomp.TypeCheckTest::testClosure2, - com.google.javascript.jscomp.TypeCheckTest::testClosure3, - com.google.javascript.jscomp.TypeCheckTest::testClosure4, - com.google.javascript.jscomp.TypeCheckTest::testClosure5, - com.google.javascript.jscomp.TypeCheckTest::testClosure6, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction10, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction11, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction13, - com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction16, - com.google.javascript.jscomp.TypeInferenceTest::testIsDefAndNoResolvedType, - com.google.javascript.jscomp.TypeInferenceTest::testAssertWithIsDefAndNotNull, - com.google.javascript.jscomp.TypeInferenceTest::testAssertWithNotIsNull]
+04:24:25.981 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1
+04:24:25.981 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject2
+04:24:25.981 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject3
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject4
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArrayOnNull
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull1
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull2
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull3
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull5
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull1
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull2
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3
+04:24:25.982 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull4
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunctionOnNull
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObjectOnNull
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean1
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean2
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean4
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction2
+04:24:25.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsFunction3
+04:24:25.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef1
+04:24:25.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef2
+04:24:25.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3
+04:24:25.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef4
+04:24:25.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray1
+04:24:25.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+04:24:25.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray3
+04:24:25.984 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray4
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNumber
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsString1
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsString2
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testQualifiedNameReduction4
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction6
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction7
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testInnerFunction8
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction8
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction9
+04:24:25.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure1
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure2
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure3
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure4
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure5
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testClosure6
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction10
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction11
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testTypeOfReduction13
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testQualifiedNameReduction4
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testInnerFunction6
+04:24:25.986 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testInnerFunction7
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testInnerFunction8
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction8
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction9
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure1
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure2
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure3
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure4
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure5
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testClosure6
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction10
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction11
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction13
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testTypeOfReduction16
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testIsDefAndNoResolvedType
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testAssertWithIsDefAndNotNull
+04:24:25.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testAssertWithNotIsNull
+04:24:25.988 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=67, pp=Unknown
+04:24:25.988 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

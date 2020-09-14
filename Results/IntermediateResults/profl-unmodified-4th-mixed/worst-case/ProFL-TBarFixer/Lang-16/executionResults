@@ -1,0 +1,344 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-16
+01:17:09.173 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/16.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/16.txt
+01:17:12.442 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:17:12.451 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/generalSusInfo.profl
+01:17:12.495 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:17:12.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1693
+01:17:13.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1693
+01:17:13.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1680
+01:17:13.971 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1680
+01:17:13.972 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1679
+01:17:14.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1679
+01:17:14.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1677
+01:17:14.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1677
+01:17:14.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1676
+01:17:14.300 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1676
+01:17:14.300 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1696
+01:17:14.369 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1696
+01:17:14.369 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1699
+01:17:14.430 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1699
+01:17:14.430 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1703
+01:17:14.496 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1703
+01:17:14.496 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1702
+01:17:14.584 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+/**
+     * Determines if two dates are equal up to no more than the specified 
+     * most significant field.
+     * 
+     * @param date1 the first date, not <code>null</code>
+     * @param date2 the second date, not <code>null</code>
+     * @param field the field from {@code Calendar}
+     * @return <code>true</code> if equal; otherwise <code>false</code>
+     * @throws IllegalArgumentException if any argument is <code>null</code>
+     * @see #truncate(Date, int)
+     * @see #truncatedEquals(Calendar, Calendar, int)
+     * @since 3.0
+     */
+    public static boolean truncatedEquals(Date date1, Date date2, int field) {
+        return truncatedCompareTo(date1, date2, field) == 0;
+    }
+01:17:14.585 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang3.time.DateUtils:1702 ---
+01:17:14.585 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/DateUtils.java 1702 ---
+01:17:14.585 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:17:14.670 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+01:17:14.671 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:17:14.676 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:17:15.776 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:17:15.777 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:17:29.280 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:17:29.280 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:17:29.280 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:17:29.280 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:17:29.280 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:17:29.284 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:17:29.284 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:truncatedEquals(Ljava/util/Date;Ljava/util/Date;I)Z in org.apache.commons.lang3.time.DateUtils:1702
+01:17:29.284 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-16
+---------------- Testing New Patch ----------------
+01:17:29.285 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:17:30.509 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:17:30.509 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:17:44.337 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:17:44.337 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:17:44.337 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:17:44.337 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:17:44.337 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:17:44.351 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:17:44.351 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:truncatedEquals(Ljava/util/Date;Ljava/util/Date;I)Z in org.apache.commons.lang3.time.DateUtils:1702
+01:17:44.351 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-16
+01:17:44.352 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1707
+01:17:44.440 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1707
+01:17:44.440 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1685
+01:17:44.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+/**
+     * Determines if two calendars are equal up to no more than the specified 
+     * most significant field.
+     * 
+     * @param cal1 the first calendar, not <code>null</code>
+     * @param cal2 the second calendar, not <code>null</code>
+     * @param field the field from {@code Calendar}
+     * @return <code>true</code> if equal; otherwise <code>false</code>
+     * @throws IllegalArgumentException if any argument is <code>null</code>
+     * @see #truncate(Calendar, int)
+     * @see #truncatedEquals(Date, Date, int)
+     * @since 3.0
+     */
+    public static boolean truncatedEquals(Calendar cal1, Calendar cal2, int field) {
+        return truncatedCompareTo(cal1, cal2, field) == 0;
+    }
+01:17:44.518 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang3.time.DateUtils:1685 ---
+01:17:44.518 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/DateUtils.java 1685 ---
+01:17:44.518 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:17:44.565 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+01:17:44.565 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:17:44.566 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:17:45.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:17:45.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:17:59.864 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:17:59.864 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:17:59.864 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:17:59.864 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:17:59.864 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:17:59.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:17:59.868 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:truncatedEquals(Ljava/util/Calendar;Ljava/util/Calendar;I)Z in org.apache.commons.lang3.time.DateUtils:1685
+01:17:59.868 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-16
+---------------- Testing New Patch ----------------
+01:17:59.869 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:01.393 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:18:01.393 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:18:18.548 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:18:18.548 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:18:18.548 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:18:18.548 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:18:18.548 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:18:18.565 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:18:18.566 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:truncatedEquals(Ljava/util/Calendar;Ljava/util/Calendar;I)Z in org.apache.commons.lang3.time.DateUtils:1685
+01:18:18.566 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-16
+01:18:18.567 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1674
+01:18:18.635 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1674
+01:18:18.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1671
+01:18:18.915 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1671
+01:18:18.915 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1669
+01:18:19.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1669
+01:18:19.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1665
+01:18:19.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+default:
+01:18:19.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+01:18:19.084 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang3.time.DateUtils:1665 ---
+01:18:19.084 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/DateUtils.java 1665 ---
+01:18:19.084 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:18:19.223 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:18:19.225 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:20.648 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+01:18:20.713 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: default:
+	 return 0;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return result;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return millisPerUnit;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_SECOND;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_SECOND;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_MINUTE;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_MINUTE;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_HOUR;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_HOUR;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_DAY;
+
+null
+01:18:20.714 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_DAY;
+
+null
+---------------- Testing New Patch ----------------
+01:18:20.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:22.072 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:22.073 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:23.546 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:23.547 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:25.032 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:25.032 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:26.652 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:26.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:28.121 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:28.122 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:29.548 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:29.549 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:31.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:31.129 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:33.048 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:33.049 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:34.814 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:34.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:36.403 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:36.404 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:38.065 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+01:18:38.066 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/DateUtils.java 1665 ---
+01:18:38.066 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:18:38.215 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("The fragment " - fragment + " is not supported");
+01:18:38.215 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("The fragment " + fragment - " is not supported");
+---------------- Testing New Patch ----------------
+01:18:38.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:39.817 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:39.818 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:41.237 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+01:18:41.409 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("The fragment " + unit + " is not supported");
+---------------- Testing New Patch ----------------
+01:18:41.413 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:43.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:18:43.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:19:00.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:19:00.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:19:00.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:19:00.677 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:19:00.677 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:19:00.816 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:19:00.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+01:19:00.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-16
+01:19:00.967 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+01:19:00.968 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:19:00.969 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:02.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:19:02.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:19:20.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:19:20.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+01:19:20.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:19:20.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+01:19:20.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+01:19:20.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:19:20.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:19:22.029 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:19:22.029 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+01:19:22.029 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-16
+---------------- Testing New Patch ----------------
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+	 return 0;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return result;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return millisPerUnit;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_SECOND;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_SECOND;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_MINUTE;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_MINUTE;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_HOUR;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_HOUR;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_DAY;
+
+null
+01:19:22.081 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_DAY;
+
+null
+---------------- Testing New Patch ----------------
+01:19:22.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:23.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:23.273 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:24.725 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:19:24.725 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:19:42.519 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:19:42.519 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+01:19:42.519 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:19:42.519 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+01:19:42.520 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+01:19:42.520 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:19:42.520 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:19:55.337 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:19:55.338 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+01:19:55.338 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-16
+---------------- Testing New Patch ----------------
+01:19:55.340 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:56.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:19:56.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:20:14.260 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:20:14.260 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+01:20:14.260 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:20:14.261 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+01:20:14.261 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+01:20:14.261 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:20:14.261 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:22:18.217 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:22:18.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+01:22:18.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-16
+---------------- Testing New Patch ----------------
+01:22:18.219 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:19.595 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:22:19.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:22:35.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:22:35.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+01:22:35.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:22:35.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+01:22:35.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+01:22:35.031 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:22:35.031 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:45:56.924 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-16/aggregatedSusInfo.profl
+01:45:56.924 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+01:45:56.924 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-16
+---------------- Testing New Patch ----------------
+01:45:56.926 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:45:58.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:45:58.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:46:13.502 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber]
+01:46:13.503 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+01:46:13.503 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testCreateNumber
+01:46:13.503 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+01:46:13.503 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+01:46:13.503 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:46:13.503 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

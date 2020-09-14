@@ -1,0 +1,369 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Chart-16
+13:24:27.494 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 Failed Tests: 8
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/16.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/16.txt
+13:24:32.940 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+13:24:32.973 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/generalSusInfo.profl
+13:24:33.046 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+13:24:33.046 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.jfree.data.DataUtilities ===133
+13:24:33.882 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return result;
+13:24:33.883 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.jfree.data.DataUtilities:133 ---
+13:24:33.883 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/jfree/data/DataUtilities.java 133 ---
+13:24:33.883 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:24:34.094 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (result != null) {
+	
+
+	}
+
+13:24:34.095 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (result == null) {
+	    throw new IllegalArgumentException("Null 'result' argument.");
+	}
+
+13:24:34.095 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (result == null) {
+	    return null;
+	}
+
+13:24:34.095 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (result == null) result = new Number[][]();
+ 
+13:24:34.095 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (result == null) return new Number[][]();
+	 
+---------------- Testing New Patch ----------------
+13:24:34.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:24:35.106 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:24:35.106 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:24:36.098 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:24:36.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:24:55.794 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:24:55.794 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 8, [- org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:24:55.794 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:24:55.794 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:24:55.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:24:55.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:24:55.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:24:55.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:24:55.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:24:55.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:24:55.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+13:24:55.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+13:24:55.800 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/aggregatedSusInfo.profl
+13:24:55.800 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DataUtilities:createNumberArray2D([[D)[[Ljava/lang/Number; in org.jfree.data.DataUtilities:133
+13:24:55.800 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 8 Chart-16
+---------------- Testing New Patch ----------------
+13:24:55.801 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:24:56.808 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:24:56.808 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:25:19.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:25:19.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 8, [- org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:25:19.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:25:19.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:25:19.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:25:19.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:25:19.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:25:19.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:25:19.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:25:19.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:25:19.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+13:25:19.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+13:25:19.181 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/aggregatedSusInfo.profl
+13:25:19.181 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DataUtilities:createNumberArray2D([[D)[[Ljava/lang/Number; in org.jfree.data.DataUtilities:133
+13:25:19.181 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 8 Chart-16
+---------------- Testing New Patch ----------------
+13:25:19.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:19.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:19.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:20.369 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+13:25:20.501 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+13:25:20.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:21.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:25:21.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:25:43.725 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:25:43.726 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 22, [- org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetSeriesKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount, - org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D]
+13:25:43.726 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo
+13:25:43.726 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryCount
+13:25:43.726 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:25:43.726 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue
+13:25:43.726 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:25:43.726 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnKeys
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesCount
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:25:43.727 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:25:43.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:25:43.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowKeys
+13:25:43.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:25:43.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetSeriesKeys
+13:25:43.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount
+13:25:43.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D
+13:25:43.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=14, pp=Unknown
+13:25:43.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+13:25:43.737 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/aggregatedSusInfo.profl
+13:25:43.737 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DataUtilities:createNumberArray2D([[D)[[Ljava/lang/Number; in org.jfree.data.DataUtilities:133
+13:25:43.737 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 22 Chart-16
+13:25:43.783 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.jfree.data.DataUtilities ===130
+13:25:43.834 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+for (int i = 0; i < l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+13:25:43.835 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.jfree.data.DataUtilities:130 ---
+13:25:43.835 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/jfree/data/DataUtilities.java 130 ---
+13:25:43.835 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:25:43.952 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0d; i < l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+13:25:43.952 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0f; i < l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+---------------- Testing New Patch ----------------
+13:25:43.953 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:45.068 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:45.069 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:46.142 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+13:25:46.281 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0; i==l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+13:25:46.281 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0; i!=l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+13:25:46.281 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0; i<=l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+13:25:46.281 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0; i>l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+13:25:46.281 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0; i>=l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+---------------- Testing New Patch ----------------
+13:25:46.285 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:47.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:25:47.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:26:10.075 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:26:10.075 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 22, [- org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetSeriesKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount, - org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D]
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryCount
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnKeys
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesCount
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning
+13:26:10.076 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowKeys
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetSeriesKeys
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D
+13:26:10.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=14, pp=Unknown
+13:26:10.078 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+13:26:10.141 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/aggregatedSusInfo.profl
+13:26:10.141 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DataUtilities:createNumberArray2D([[D)[[Ljava/lang/Number; in org.jfree.data.DataUtilities:130
+13:26:10.141 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 22 Chart-16
+---------------- Testing New Patch ----------------
+13:26:10.142 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:11.219 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:26:11.219 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:26:32.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:26:32.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 8, [- org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:26:32.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:26:32.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:26:32.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:26:32.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:26:32.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:26:32.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:26:32.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:26:32.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:26:32.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+13:26:32.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+13:26:33.420 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/aggregatedSusInfo.profl
+13:26:33.420 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DataUtilities:createNumberArray2D([[D)[[Ljava/lang/Number; in org.jfree.data.DataUtilities:130
+13:26:33.420 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 8 Chart-16
+---------------- Testing New Patch ----------------
+13:26:33.421 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:34.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:26:34.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:26:57.193 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:26:57.193 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 22, [- org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetSeriesKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount, - org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D]
+13:26:57.193 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryCount
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnKeys
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesCount
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:26:57.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowKeys
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetSeriesKeys
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount
+13:26:57.195 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D
+13:26:57.196 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=14, pp=Unknown
+13:26:57.196 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+13:27:05.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/aggregatedSusInfo.profl
+13:27:05.581 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DataUtilities:createNumberArray2D([[D)[[Ljava/lang/Number; in org.jfree.data.DataUtilities:130
+13:27:05.581 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 22 Chart-16
+---------------- Testing New Patch ----------------
+13:27:05.582 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:27:06.723 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:27:06.723 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:27:28.144 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:27:28.144 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 17, [- org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount, - org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D]
+13:27:28.144 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:27:28.145 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:27:28.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:27:28.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:27:28.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:27:28.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount
+13:27:28.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D
+13:27:28.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=9, pp=Unknown
+13:27:28.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+13:28:58.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/aggregatedSusInfo.profl
+13:28:58.769 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DataUtilities:createNumberArray2D([[D)[[Ljava/lang/Number; in org.jfree.data.DataUtilities:130
+13:28:58.769 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 17 Chart-16
+---------------- Testing New Patch ----------------
+13:28:58.770 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:28:59.730 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:28:59.730 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:29:17.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:29:17.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 22, [- org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetSeriesKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount, - org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D]
+13:29:17.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo
+13:29:17.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryCount
+13:29:17.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:29:17.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue
+13:29:17.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:29:17.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnKeys
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesCount
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowKeys
+13:29:17.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:29:17.274 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetSeriesKeys
+13:29:17.274 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount
+13:29:17.274 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D
+13:29:17.274 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=14, pp=Unknown
+13:29:17.274 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+13:45:16.297 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-16/aggregatedSusInfo.profl
+13:45:16.298 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DataUtilities:createNumberArray2D([[D)[[Ljava/lang/Number; in org.jfree.data.DataUtilities:130
+13:45:16.298 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 22 Chart-16
+13:45:16.336 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0; i < l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+	if (data == null) {
+            throw new IllegalArgumentException("Null 'data' argument.");   
+        }
+        int l1 = data.length;
+        Number[][] result = new Number[l1][];
+        
+null
+13:45:16.336 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0; i < l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+	int l1 = data.length;
+        Number[][] result = new Number[l1][];
+        
+null
+13:45:16.336 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: for (int i = 0; i < l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+	Number[][] result = new Number[l1][];
+        
+null
+13:45:16.336 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+        return result;
+	for (int i = 0; i < l1; i++) {
+            result[i] = createNumberArray(data[i]);
+        }
+
+MOVE-BUGGY-STATEMENT
+---------------- Testing New Patch ----------------
+13:45:16.336 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:45:17.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:45:17.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:45:18.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:45:18.293 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:45:19.243 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:45:19.244 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:45:20.245 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-16 ---Fixer: fix fail because of failed compiling! 
+13:45:20.262 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+13:45:20.262 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+13:45:20.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:45:21.262 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:45:21.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:45:37.427 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2]
+13:45:37.427 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 17, [- org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2, - org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount, - org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D]
+13:45:37.427 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.chart.renderer.category.junit.IntervalBarRendererTests::testDrawWithNullInfo
+13:45:37.427 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetCategoryIndex
+13:45:37.427 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetValue
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetCategoryKeys
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSerialization
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetEndValue
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetSeriesIndex
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testSetStartValue
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testEquals
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowCount
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowIndex
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnCount
+13:45:37.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetColumnIndex
+13:45:37.429 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testCloning2
+13:45:37.429 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.category.junit.DefaultIntervalCategoryDatasetTests::testGetRowAndColumnCount
+13:45:37.429 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.junit.DataUtilitiesTests::testCreateNumberArray2D
+13:45:37.429 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=8, fp=0, pf=9, pp=Unknown
+13:45:37.429 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

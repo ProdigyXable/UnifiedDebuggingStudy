@@ -1,0 +1,219 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-103
+07:34:24.282 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/103.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/103.txt
+07:34:26.176 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+07:34:26.199 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/generalSusInfo.profl
+07:34:26.201 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+07:34:26.201 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.special.Gamma ===180
+07:34:27.252 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+throw new MaxIterationsExceededException(maxIterations);
+07:34:27.290 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: throw MaxIterationsExceededException(maxIterations);
+07:34:27.290 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: throw new maxIterations);
+07:34:27.290 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: throw new MaxIterationsExceededException);
+07:34:27.291 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:28.196 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:34:28.197 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:28.719 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:34:28.720 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:29.178 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:34:29.204 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.MathException ===272
+07:34:29.289 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Prints the stack trace of this exception to the specified writer.
+     *
+     * @param out  the <code>PrintWriter</code> to use for output
+     */
+    public void printStackTrace(PrintWriter out) {
+        synchronized (out) {
+            super.printStackTrace(out);
+            if (rootCause != null && JDK_SUPPORTS_NESTED == false) {
+                out.print("Caused by: ");
+                rootCause.printStackTrace(out);
+            }
+        }
+    }
+07:34:29.290 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.MathException ===271
+07:34:29.353 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+synchronized (out) {
+            super.printStackTrace(out);
+            if (rootCause != null && JDK_SUPPORTS_NESTED == false) {
+                out.print("Caused by: ");
+                rootCause.printStackTrace(out);
+            }
+        }
+07:34:29.354 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out != null) {
+	
+
+}
+
+07:34:29.354 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out == null) {
+    throw new IllegalArgumentException("Null 'out' argument.");
+}
+
+07:34:29.354 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out == null) {
+    return;
+}
+
+07:34:29.355 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:30.414 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:30.414 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:34:42.275 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:34:42.275 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:34:42.275 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:34:42.276 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:34:42.276 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:34:42.281 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/aggregatedSusInfo.profl
+07:34:42.281 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.MathException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.math.MathException:271
+07:34:42.281 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-103
+07:34:42.282 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:43.344 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:43.344 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:34:54.921 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:34:54.921 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:34:54.921 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:34:54.921 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:34:54.922 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:34:54.946 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/aggregatedSusInfo.profl
+07:34:54.947 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.MathException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.math.MathException:271
+07:34:54.947 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-103
+07:34:54.947 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:56.135 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:56.135 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:07.930 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:35:07.930 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:35:07.930 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:35:07.930 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:07.930 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:35:07.936 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/aggregatedSusInfo.profl
+07:35:07.936 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.MathException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.math.MathException:271
+07:35:07.936 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-103
+07:35:07.937 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.MathException ===267
+07:35:07.999 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (rootCause != null && JDK_SUPPORTS_NESTED == false) {
+                out.print("Caused by: ");
+                rootCause.printStackTrace(out);
+            }
+07:35:08.002 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (rootCause == null && JDK_SUPPORTS_NESTED == false) {
+                out.print("Caused by: ");
+                rootCause.printStackTrace(out);
+            }
+07:35:08.002 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (rootCause != null || JDK_SUPPORTS_NESTED == false) {
+                out.print("Caused by: ");
+                rootCause.printStackTrace(out);
+            }
+07:35:08.002 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (rootCause != null && JDK_SUPPORTS_NESTED != false) {
+                out.print("Caused by: ");
+                rootCause.printStackTrace(out);
+            }
+07:35:08.003 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:09.176 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:09.176 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:21.178 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:35:21.178 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:35:21.178 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:35:21.179 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:21.179 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:35:21.224 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/aggregatedSusInfo.profl
+07:35:21.224 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.MathException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.math.MathException:267
+07:35:21.224 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-103
+07:35:21.225 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:22.411 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:22.412 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:33.938 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:35:33.938 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:35:33.938 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:35:33.938 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:33.938 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:35:34.622 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/aggregatedSusInfo.profl
+07:35:34.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.MathException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.math.MathException:267
+07:35:34.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-103
+07:35:34.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:35.743 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:35.743 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:47.013 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:35:47.014 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:35:47.014 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:35:47.014 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:47.014 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:35:54.317 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/aggregatedSusInfo.profl
+07:35:54.317 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.MathException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.math.MathException:267
+07:35:54.317 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-103
+07:35:54.318 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (JDK_SUPPORTS_NESTED == false) {
+                out.print("Caused by: ");
+                rootCause.printStackTrace(out);
+            }
+07:35:54.319 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (rootCause != null) {
+                out.print("Caused by: ");
+                rootCause.printStackTrace(out);
+            }
+07:35:54.319 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:55.514 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:55.514 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:36:06.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:36:06.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:36:06.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:36:06.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:36:06.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:37:32.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/aggregatedSusInfo.profl
+07:37:32.357 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.MathException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.math.MathException:267
+07:37:32.357 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-103
+07:37:32.357 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:37:33.305 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:37:33.305 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:37:42.825 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:37:42.825 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:37:42.825 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:37:42.825 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:37:42.825 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:55:28.266 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-103/aggregatedSusInfo.profl
+07:55:28.266 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.MathException:printStackTrace(Ljava/io/PrintWriter;)V in org.apache.commons.math.MathException:267
+07:55:28.266 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-103
+07:55:28.268 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.MathException ===266
+07:55:28.314 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+super.printStackTrace(out);
+07:55:28.316 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: super.printStackTrace(serialVersionUID);
+07:55:28.316 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: super.printStackTrace(JDK_SUPPORTS_NESTED);
+07:55:28.316 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: super.printStackTrace(cachedResources);
+07:55:28.316 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: super.printStackTrace(this.pattern);
+07:55:28.316 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: super.printStackTrace(this.arguments);
+07:55:28.316 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: super.printStackTrace(this.rootCause);
+07:55:28.316 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:55:29.282 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:55:29.283 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:55:30.183 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:55:30.184 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:55:31.061 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:55:31.061 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:55:31.963 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:55:31.964 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:55:32.848 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:55:32.848 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:55:33.737 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-103 ---Fixer: fix fail because of failed compiling! 
+07:55:33.738 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out != null) {
+	
+
+}
+
+07:55:33.738 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out == null) {
+    throw new IllegalArgumentException("Null 'out' argument.");
+}
+
+07:55:33.738 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out == null) {
+    return;
+}
+
+07:55:33.739 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:55:34.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:55:34.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:55:43.932 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:55:43.932 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues]
+07:55:43.932 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testExtremeValues
+07:55:43.932 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:55:43.932 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

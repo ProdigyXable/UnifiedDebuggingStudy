@@ -1,0 +1,212 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-23
+10:35:05.336 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-23 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/23.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/23.txt
+10:35:14.614 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+10:35:14.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/generalSusInfo.profl
+10:35:14.639 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+10:35:14.640 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.format.DateTimeFormatter ===713
+10:35:16.386 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return newPos;
+10:35:16.425 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.format.DateTimeFormatter ===712
+10:35:16.747 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+instant.setChronology(chrono);
+10:35:16.782 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: instant.setChronology();
+10:35:16.790 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:21.111 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-23 ---Fixer: fix fail because of failed compiling! 
+10:35:21.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: instant.setChronology(this.iChrono);
+10:35:21.131 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:22.714 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:35:22.714 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:35:49.358 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:35:49.358 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.joda.time.TestDateTimeZone::testForID_String_old, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed, - org.joda.time.format.TestDateTimeFormatter::testParseInto_zone, - org.joda.time.format.TestDateTimeFormatter::testParseInto_zone2, - org.joda.time.format.TestDateTimeFormatter::testParseInto_zone3]
+10:35:49.358 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:35:49.358 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:35:49.358 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_zone
+10:35:49.358 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_zone2
+10:35:49.358 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_zone3
+10:35:49.359 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+10:35:49.359 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:35:49.362 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:35:49.363 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:712
+10:35:49.363 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Time-23
+10:35:49.381 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (instant != null) {
+	
+
+}
+
+10:35:49.381 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (instant == null) {
+    throw new IllegalArgumentException("Null 'instant' argument.");
+}
+
+10:35:49.381 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (instant == null) {
+    return 0;
+}
+
+10:35:49.381 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (chrono != null) {
+	
+
+}
+
+10:35:49.381 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (chrono == null) {
+    throw new IllegalArgumentException("Null 'chrono' argument.");
+}
+
+10:35:49.381 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (chrono == null) {
+    return 0;
+}
+
+10:35:49.382 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:51.272 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:35:51.272 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:36:18.037 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:36:18.037 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForID_String_old]
+10:36:18.037 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:36:18.037 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:36:18.037 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:36:18.043 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:36:18.043 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:712
+10:36:18.043 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-23
+10:36:18.044 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:19.536 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:36:19.536 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:36:45.715 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:36:45.715 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForID_String_old]
+10:36:45.716 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:36:45.716 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:36:45.716 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:36:45.722 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:36:45.723 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:712
+10:36:45.723 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-23
+10:36:45.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:47.436 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:36:47.436 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:37:13.862 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:37:13.862 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForID_String_old]
+10:37:13.862 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:37:13.862 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:37:13.862 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:37:13.869 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:37:13.869 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:712
+10:37:13.869 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-23
+10:37:13.870 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:37:15.350 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:37:15.350 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:37:40.746 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:37:40.746 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForID_String_old]
+10:37:40.746 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:37:40.746 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:37:40.746 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:37:40.792 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:37:40.792 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:712
+10:37:40.792 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-23
+10:37:40.793 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:37:42.274 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:37:42.274 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:38:07.315 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:38:07.316 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForID_String_old]
+10:38:07.316 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:38:07.316 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:38:07.316 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:38:07.700 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:38:07.701 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:712
+10:38:07.701 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-23
+10:38:07.701 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:38:09.180 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:38:09.180 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:38:32.524 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:38:32.524 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForID_String_old]
+10:38:32.524 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:38:32.524 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:38:32.524 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:38:35.699 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:38:35.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:712
+10:38:35.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-23
+10:38:35.700 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.format.DateTimeFormatter ===707
+10:38:35.911 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (iOffsetParsed && bucket.getZone() == null) {
+            int parsedOffset = bucket.getOffset();
+            DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
+            chrono = chrono.withZone(parsedZone);
+        }
+10:38:35.914 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (iOffsetParsed && bucket.getZone() != null) {
+            int parsedOffset = bucket.getOffset();
+            DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
+            chrono = chrono.withZone(parsedZone);
+        }
+10:38:35.914 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (iOffsetParsed && (instant == null)) {
+            int parsedOffset = bucket.getOffset();
+            DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
+            chrono = chrono.withZone(parsedZone);
+        }
+10:38:35.914 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((instant == null) && bucket.getZone() == null) {
+            int parsedOffset = bucket.getOffset();
+            DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
+            chrono = chrono.withZone(parsedZone);
+        }
+10:38:35.914 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (iOffsetParsed || bucket.getZone() == null) {
+            int parsedOffset = bucket.getOffset();
+            DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
+            chrono = chrono.withZone(parsedZone);
+        }
+10:38:35.914 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((instant == null)) {
+            int parsedOffset = bucket.getOffset();
+            DateTimeZone parsedZone = DateTimeZone.forOffsetMillis(parsedOffset);
+            chrono = chrono.withZone(parsedZone);
+        }
+10:38:35.915 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:38:37.112 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:38:37.113 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:39:00.201 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:39:00.201 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testForID_String_old, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed]
+10:39:00.202 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:39:00.202 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:39:00.202 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:39:00.202 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:39:28.573 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:39:28.573 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:707
+10:39:28.573 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-23
+10:39:28.574 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:39:29.840 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:39:29.840 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:39:51.218 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:39:51.218 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testForID_String_old, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed]
+10:39:51.218 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:39:51.218 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:39:51.218 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:39:51.219 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:44:38.778 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+10:44:38.779 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:707
+10:44:38.779 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-23
+10:44:38.780 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:44:40.063 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:44:40.064 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:45:01.424 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+10:45:01.424 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testForID_String_old, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed]
+10:45:01.424 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+10:45:01.425 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:45:01.425 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:45:01.425 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+11:38:54.174 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-23/aggregatedSusInfo.profl
+11:38:54.175 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:707
+11:38:54.175 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-23
+11:38:54.176 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+11:38:55.473 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+11:38:55.473 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+11:39:17.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForID_String_old]
+11:39:17.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 7, [- org.joda.time.TestDateTimeZone::testForID_String_old, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed, - org.joda.time.format.TestDateTimeFormatter::testParseInto_simple_precedence, - org.joda.time.format.TestDateTimeFormatter::testParseInto_chrono, - org.joda.time.format.TestDateTimeFormatter::testParseInto_zone, - org.joda.time.format.TestDateTimeFormatter::testParseInto_zone2, - org.joda.time.format.TestDateTimeFormatter::testParseInto_simple]
+11:39:17.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForID_String_old
+11:39:17.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+11:39:17.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_simple_precedence
+11:39:17.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_chrono
+11:39:17.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_zone
+11:39:17.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_zone2
+11:39:17.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_simple
+11:39:17.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+11:39:17.391 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

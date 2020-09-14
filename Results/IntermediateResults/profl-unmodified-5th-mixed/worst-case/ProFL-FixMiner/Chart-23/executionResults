@@ -1,0 +1,32 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Chart-23
+03:16:44.393 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Chart-23 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/23.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/23.txt
+03:16:47.481 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:16:47.495 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Chart-23/generalSusInfo.profl
+03:16:47.502 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Chart-23/aggregatedSusInfo.profl
+03:16:47.503 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+03:16:47.503 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.chart.renderer.category.MinMaxCategoryRenderer ===174
+03:16:48.157 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Sets the flag that controls whether or not lines are drawn to connect
+     * the items within a series and sends a {@link RendererChangeEvent} to 
+     * all registered listeners.
+     *
+     * @param draw  the new value of the flag.
+     * 
+     * @see #isDrawLines()
+     */
+    public void setDrawLines(boolean draw) {
+        if (this.plotLines != draw) {
+            this.plotLines = draw;
+            this.notifyListeners(new RendererChangeEvent(this));
+        }
+        
+    }

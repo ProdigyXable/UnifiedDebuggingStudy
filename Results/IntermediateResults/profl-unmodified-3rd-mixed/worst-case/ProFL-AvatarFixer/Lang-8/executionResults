@@ -1,0 +1,638 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-8
+10:23:33.985 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/8.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/8.txt
+10:23:37.361 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+10:23:37.390 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-8/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Lang-8/ochiai.txt
+10:23:37.392 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+10:23:37.392 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.FastDatePrinter ===541
+10:23:38.333 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDatePrinter --- 541
+10:23:38.333 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.FastDatePrinter ===540
+10:23:38.587 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDatePrinter --- 540
+10:23:38.587 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1693
+10:23:38.799 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+break;
+10:23:38.801 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1693 ---
+10:23:38.808 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:38.811 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:39.700 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:23:39.701 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1680
+10:23:39.840 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1680
+10:23:39.841 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1679
+10:23:39.902 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1679
+10:23:39.902 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1677
+10:23:39.962 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1677
+10:23:39.963 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1676
+10:23:40.003 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1676
+10:23:40.003 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1696
+10:23:40.046 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+break;
+10:23:40.047 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1696 ---
+10:23:40.048 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:40.049 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:40.983 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:23:40.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1699
+10:23:41.023 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+switch (fragment) {
+            // Number of days already calculated for these cases
+            case Calendar.YEAR:
+            case Calendar.MONTH:
+            
+            // The rest of the valid cases
+            case Calendar.DAY_OF_YEAR:
+            case Calendar.DATE:
+                result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.HOUR_OF_DAY:
+                result += (calendar.get(Calendar.MINUTE) * MILLIS_PER_MINUTE) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.MINUTE:
+                result += (calendar.get(Calendar.SECOND) * MILLIS_PER_SECOND) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.SECOND:
+                result += (calendar.get(Calendar.MILLISECOND) * 1) / millisPerUnit;
+                break;
+            case Calendar.MILLISECOND: break;//never useful
+                default: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+        }
+10:23:41.024 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1699 ---
+10:23:41.025 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: switch (result) {
+            // Number of days already calculated for these cases
+            case Calendar.YEAR:
+            case Calendar.MONTH:
+            
+            // The rest of the valid cases
+            case Calendar.DAY_OF_YEAR:
+            case Calendar.DATE:
+                result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.HOUR_OF_DAY:
+                result += (calendar.get(Calendar.MINUTE) * MILLIS_PER_MINUTE) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.MINUTE:
+                result += (calendar.get(Calendar.SECOND) * MILLIS_PER_SECOND) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.SECOND:
+                result += (calendar.get(Calendar.MILLISECOND) * 1) / millisPerUnit;
+                break;
+            case Calendar.MILLISECOND: break;//never useful
+                default: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+        }
+10:23:41.025 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: switch (millisPerUnit) {
+            // Number of days already calculated for these cases
+            case Calendar.YEAR:
+            case Calendar.MONTH:
+            
+            // The rest of the valid cases
+            case Calendar.DAY_OF_YEAR:
+            case Calendar.DATE:
+                result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.HOUR_OF_DAY:
+                result += (calendar.get(Calendar.MINUTE) * MILLIS_PER_MINUTE) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.MINUTE:
+                result += (calendar.get(Calendar.SECOND) * MILLIS_PER_SECOND) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.SECOND:
+                result += (calendar.get(Calendar.MILLISECOND) * 1) / millisPerUnit;
+                break;
+            case Calendar.MILLISECOND: break;//never useful
+                default: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+        }
+10:23:41.025 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: switch (calendar) {
+            // Number of days already calculated for these cases
+            case Calendar.YEAR:
+            case Calendar.MONTH:
+            
+            // The rest of the valid cases
+            case Calendar.DAY_OF_YEAR:
+            case Calendar.DATE:
+                result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.HOUR_OF_DAY:
+                result += (calendar.get(Calendar.MINUTE) * MILLIS_PER_MINUTE) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.MINUTE:
+                result += (calendar.get(Calendar.SECOND) * MILLIS_PER_SECOND) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.SECOND:
+                result += (calendar.get(Calendar.MILLISECOND) * 1) / millisPerUnit;
+                break;
+            case Calendar.MILLISECOND: break;//never useful
+                default: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+        }
+10:23:41.025 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: switch (unit) {
+            // Number of days already calculated for these cases
+            case Calendar.YEAR:
+            case Calendar.MONTH:
+            
+            // The rest of the valid cases
+            case Calendar.DAY_OF_YEAR:
+            case Calendar.DATE:
+                result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.HOUR_OF_DAY:
+                result += (calendar.get(Calendar.MINUTE) * MILLIS_PER_MINUTE) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.MINUTE:
+                result += (calendar.get(Calendar.SECOND) * MILLIS_PER_SECOND) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.SECOND:
+                result += (calendar.get(Calendar.MILLISECOND) * 1) / millisPerUnit;
+                break;
+            case Calendar.MILLISECOND: break;//never useful
+                default: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+        }
+10:23:41.025 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: switch (fields) {
+            // Number of days already calculated for these cases
+            case Calendar.YEAR:
+            case Calendar.MONTH:
+            
+            // The rest of the valid cases
+            case Calendar.DAY_OF_YEAR:
+            case Calendar.DATE:
+                result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.HOUR_OF_DAY:
+                result += (calendar.get(Calendar.MINUTE) * MILLIS_PER_MINUTE) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.MINUTE:
+                result += (calendar.get(Calendar.SECOND) * MILLIS_PER_SECOND) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.SECOND:
+                result += (calendar.get(Calendar.MILLISECOND) * 1) / millisPerUnit;
+                break;
+            case Calendar.MILLISECOND: break;//never useful
+                default: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+        }
+---------------- Testing New Patch ----------------
+10:23:41.025 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:41.894 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:23:41.895 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:42.922 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:23:42.922 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:44.045 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:23:44.046 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:45.287 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:23:45.287 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:24:09.197 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 40, [- org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfHourWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfSecondWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofHourWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofMinuteWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofMinuteWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfSecondWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfHourWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofHourWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfHourWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMinuteWithCalender, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfHourWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMinuteWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, - org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfHourWithCalendar
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfSecondWithCalendar
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofHourWithCalendar
+10:24:09.198 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofMinuteWithDate
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofMinuteWithCalendar
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfSecondWithDate
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate
+10:24:09.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfHourWithCalendar
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofHourWithDate
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfHourWithDate
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMinuteWithCalender
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar
+10:24:09.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+10:24:09.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfHourWithDate
+10:24:09.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMinuteWithDate
+10:24:09.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar
+10:24:09.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected
+10:24:09.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected
+10:24:09.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=38, pp=Unknown
+10:24:09.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:24:09.216 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-8/aggregatedSusInfo.profl
+10:24:09.216 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1699
+10:24:09.216 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 40 Lang-8
+---------------- Testing New Patch ----------------
+10:24:09.217 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:10.555 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:10.557 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: case Calendar.YEAR:
+            case Calendar.MONTH:
+            
+            // The rest of the valid cases
+            case Calendar.DAY_OF_YEAR:
+            case Calendar.DATE:
+                result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.HOUR_OF_DAY:
+                result += (calendar.get(Calendar.MINUTE) * MILLIS_PER_MINUTE) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.MINUTE:
+                result += (calendar.get(Calendar.SECOND) * MILLIS_PER_SECOND) / millisPerUnit;
+                //$FALL-THROUGH$
+            case Calendar.SECOND:
+                result += (calendar.get(Calendar.MILLISECOND) * 1) / millisPerUnit;
+                break;
+            case Calendar.MILLISECOND: break;//never useful
+                default: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+10:24:10.557 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+---------------- Testing New Patch ----------------
+10:24:10.558 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:11.025 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:11.025 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:12.032 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:24:12.033 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 40, [- org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfHourWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfSecondWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofHourWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofMinuteWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofMinuteWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfSecondWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfHourWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofHourWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfHourWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMinuteWithCalender, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfHourWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMinuteWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, - org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfHourWithCalendar
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfSecondWithCalendar
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofHourWithCalendar
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofMinuteWithDate
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofMinuteWithCalendar
+10:24:33.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfSecondWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfHourWithCalendar
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsofHourWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfHourWithDate
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar
+10:24:33.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMinuteWithCalender
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfHourWithDate
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMinuteWithDate
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=38, pp=Unknown
+10:24:33.910 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:24:34.006 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-8/aggregatedSusInfo.profl
+10:24:34.007 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1699
+10:24:34.007 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 40 Lang-8
+10:24:34.007 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:34.008 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:35.007 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:35.008 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:35.010 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:36.021 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:36.022 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:36.944 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:36.945 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:36.946 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:37.918 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:37.919 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1703
+10:24:37.961 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1703
+10:24:37.961 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1702
+10:24:38.003 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+case Calendar.MONTH:
+10:24:38.004 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1702 ---
+10:24:38.005 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:38.005 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:39.000 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:39.001 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:39.002 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:39.961 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:39.962 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:40.953 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:40.953 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:40.954 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:41.957 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:41.958 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:41.959 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:43.098 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:43.099 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:44.217 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:44.218 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:44.219 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:45.276 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+10:24:45.276 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1707
+10:24:45.333 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+10:24:45.334 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1707 ---
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (result.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (millisPerUnit.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (fragment.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (unit.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (fields.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * result) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * millisPerUnit) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * calendar) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * fragment) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * unit) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * fields) / millisPerUnit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / result;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / calendar;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / fragment;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / unit;
+10:24:45.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.HOUR_OF_DAY) * MILLIS_PER_HOUR) / fields;
+---------------- Testing New Patch ----------------
+10:24:45.336 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:46.296 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:46.297 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:47.234 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:47.234 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:48.193 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:48.194 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:49.155 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:49.156 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:50.260 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:50.261 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:51.354 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:24:51.354 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 26, [- org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, - org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+10:25:14.074 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=24, pp=Unknown
+10:25:14.075 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:25:14.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-8/aggregatedSusInfo.profl
+10:25:14.157 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1707
+10:25:14.157 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 26 Lang-8
+---------------- Testing New Patch ----------------
+10:25:14.158 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:15.303 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:25:15.303 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:25:37.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:25:37.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 24, [- org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, - org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:25:37.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+10:25:37.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithCalendar
+10:25:37.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar
+10:25:37.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate
+10:25:37.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar
+10:25:37.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithCalendar
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=22, pp=Unknown
+10:25:37.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:25:39.304 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-8/aggregatedSusInfo.profl
+10:25:39.304 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1707
+10:25:39.304 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 24 Lang-8
+---------------- Testing New Patch ----------------
+10:25:39.305 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:40.332 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:40.333 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:41.343 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:25:41.343 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 26, [- org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, - org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate
+10:26:03.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar
+10:26:03.934 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected
+10:26:03.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected
+10:26:03.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=24, pp=Unknown
+10:26:03.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:26:29.123 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-8/aggregatedSusInfo.profl
+10:26:29.123 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1707
+10:26:29.123 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 26 Lang-8
+---------------- Testing New Patch ----------------
+10:26:29.124 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:26:30.226 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:26:30.226 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:26:51.734 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:26:51.734 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 26, [- org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, - org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:26:51.734 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate
+10:26:51.734 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+10:26:51.734 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+10:26:51.734 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar
+10:26:51.735 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+10:26:51.736 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar
+10:26:51.736 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar
+10:26:51.736 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected
+10:26:51.736 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected
+10:26:51.736 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=24, pp=Unknown
+10:26:51.736 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:33:23.913 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-8/aggregatedSusInfo.profl
+10:33:23.913 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1707
+10:33:23.913 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 26 Lang-8
+---------------- Testing New Patch ----------------
+10:33:23.914 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:33:24.790 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:33:24.790 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:33:25.681 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:33:25.681 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:33:45.208 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 30, [- org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, - org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithCalendar
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithDate
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+10:33:45.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithCalendar
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=28, pp=Unknown
+10:33:45.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+12:31:08.176 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-8/aggregatedSusInfo.profl
+12:31:08.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1707
+12:31:08.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 30 Lang-8
+---------------- Testing New Patch ----------------
+12:31:08.177 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+12:31:09.062 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-8 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+12:31:09.063 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+12:31:10.005 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+12:31:10.005 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+12:31:29.700 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+12:31:29.700 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 28, [- org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected, - org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected]
+12:31:29.700 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithDate
+12:31:29.700 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+12:31:29.700 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+12:31:29.700 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithCalendar
+12:31:29.700 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithCalendar
+12:31:29.700 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfMonthWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDayOfYearFragmentInLargerUnitWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfMonthWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfDayWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfMonthWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfDayWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfMonthWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfDayWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testDateFragmentInLargerUnitWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfDayWithCalendar
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testCalendarTimezoneRespected
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testCalendarTimezoneRespected
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=26, pp=Unknown
+12:31:29.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

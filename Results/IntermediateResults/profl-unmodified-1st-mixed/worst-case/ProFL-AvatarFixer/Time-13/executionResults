@@ -1,0 +1,140 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-13
+01:56:25.249 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Time-13 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/13.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/13.txt
+01:56:30.978 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+01:56:30.997 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-13/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Time-13/ochiai.txt
+01:56:30.999 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+01:56:30.999 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.joda.time.Period ===969
+01:56:32.101 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return new Period(values, getPeriodType());
+01:56:32.104 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/joda/time/Period.java:969 ---
+01:56:32.113 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Period(millis, getPeriodType());
+01:56:32.114 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Period(serialVersionUID, getPeriodType());
+---------------- Testing New Patch ----------------
+01:56:32.116 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:38.156 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:56:38.156 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:56:53.070 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:56:53.071 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:56:53.071 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative
+01:56:53.071 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:56:53.071 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:56:53.088 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-13/aggregatedSusInfo.profl
+01:56:53.089 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.Period:withMillis(I)Lorg/joda/time/Period; in org.joda.time.Period:969
+01:56:53.089 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-13
+---------------- Testing New Patch ----------------
+01:56:53.090 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:58.638 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:56:58.638 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:13.254 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:57:13.254 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestPeriod_Basics::testWith, - org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:57:13.254 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Basics::testWith
+01:57:13.254 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative
+01:57:13.254 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:57:13.254 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+01:57:13.342 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-13/aggregatedSusInfo.profl
+01:57:13.342 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.Period:withMillis(I)Lorg/joda/time/Period; in org.joda.time.Period:969
+01:57:13.342 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Time-13
+01:57:13.343 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (values != null) {
+	
+
+}
+
+01:57:13.343 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (values == null) {
+    throw new IllegalArgumentException("Null 'values' argument.");
+}
+
+01:57:13.343 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (values == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+01:57:13.344 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:15.680 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:15.681 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:21.166 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:57:21.167 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:35.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:57:35.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:57:35.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative
+01:57:35.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:35.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:57:35.412 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-13/aggregatedSusInfo.profl
+01:57:35.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.Period:withMillis(I)Lorg/joda/time/Period; in org.joda.time.Period:969
+01:57:35.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-13
+---------------- Testing New Patch ----------------
+01:57:35.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:40.824 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:57:40.825 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:54.428 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:57:54.429 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:57:54.429 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative
+01:57:54.429 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:54.429 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:57:55.655 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-13/aggregatedSusInfo.profl
+01:57:55.655 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.Period:withMillis(I)Lorg/joda/time/Period; in org.joda.time.Period:969
+01:57:55.655 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-13
+01:57:55.656 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:57:55.657 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:58:01.056 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:58:01.056 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:58:14.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:58:14.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestPeriod_Basics::testWith, - org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:58:14.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Basics::testWith
+01:58:14.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative
+01:58:14.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:58:14.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+01:58:31.913 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-13/aggregatedSusInfo.profl
+01:58:31.913 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.Period:withMillis(I)Lorg/joda/time/Period; in org.joda.time.Period:969
+01:58:31.913 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Time-13
+01:58:31.913 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:58:31.914 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:58:36.921 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:58:36.921 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:58:48.994 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:58:48.994 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestPeriod_Basics::testWith, - org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+01:58:48.994 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Basics::testWith
+01:58:48.994 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative
+01:58:48.994 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:58:48.994 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+02:03:30.246 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-13/aggregatedSusInfo.profl
+02:03:30.247 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.Period:withMillis(I)Lorg/joda/time/Period; in org.joda.time.Period:969
+02:03:30.247 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Time-13
+---------------- Testing New Patch ----------------
+02:03:30.247 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:34.862 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:03:34.862 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:03:46.496 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+02:03:46.496 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestPeriod_Basics::testWith, - org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+02:03:46.496 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Basics::testWith
+02:03:46.496 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative
+02:03:46.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+02:03:46.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+03:22:53.750 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-13/aggregatedSusInfo.profl
+03:22:53.750 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.Period:withMillis(I)Lorg/joda/time/Period; in org.joda.time.Period:969
+03:22:53.750 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Time-13
+03:22:53.750 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:22:53.751 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:22:58.555 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:22:58.555 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:23:10.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+03:23:10.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestPeriod_Basics::testWith, - org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative]
+03:23:10.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Basics::testWith
+03:23:10.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestISOPeriodFormat::testFormatStandard_negative
+03:23:10.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+03:23:10.210 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

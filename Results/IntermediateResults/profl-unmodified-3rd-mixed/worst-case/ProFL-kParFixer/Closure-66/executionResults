@@ -1,0 +1,147 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+Java 7 environment setup completed
+Closure-66
+02:28:32.144 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/66.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/66.txt
+02:31:07.375 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+02:31:07.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-66/generalSusInfo.profl
+02:31:07.559 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-66/aggregatedSusInfo.profl
+02:31:07.563 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+02:31:07.563 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.TypeCheck ===1917
+02:31:08.847 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return (100.0 * typedCount) / total;
+02:31:08.858 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (typedCount != null) {
+	
+
+}
+
+02:31:08.859 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (typedCount == null) {
+    throw new IllegalArgumentException("Null 'typedCount' argument.");
+}
+
+02:31:08.859 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (typedCount == null) {
+    return 0.0;
+}
+
+02:31:08.859 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:31:12.210 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:31:12.210 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:31:15.555 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:31:15.555 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:31:18.882 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:31:18.882 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.TypeCheck ===1914
+02:31:19.028 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (total == 0) {
+      return 0.0;
+    } else {
+      return (100.0 * typedCount) / total;
+    }
+02:31:19.030 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (total != 0) {
+      return 0.0;
+    } else {
+      return (100.0 * typedCount) / total;
+    }
+02:31:19.031 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:31:24.887 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+02:31:24.887 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+02:35:07.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent5, com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent6]
+02:35:07.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 12, [- com.google.javascript.jscomp.LooseTypeCheckTest::testGetTypedPercent1, - com.google.javascript.jscomp.LooseTypeCheckTest::testGetTypedPercent2, - com.google.javascript.jscomp.LooseTypeCheckTest::testGetTypedPercent3, - com.google.javascript.jscomp.LooseTypeCheckTest::testGetTypedPercent4, - com.google.javascript.jscomp.LooseTypeCheckTest::testResolvingNamedTypes, - com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent1, - com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent2, - com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent3, - com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent4, - com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent5, - com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent6, - com.google.javascript.jscomp.TypeCheckTest::testResolvingNamedTypes]
+02:35:07.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testGetTypedPercent1
+02:35:07.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testGetTypedPercent2
+02:35:07.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testGetTypedPercent3
+02:35:07.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testGetTypedPercent4
+02:35:07.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LooseTypeCheckTest::testResolvingNamedTypes
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent1
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent2
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent3
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent4
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent5
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testGetTypedPercent6
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeCheckTest::testResolvingNamedTypes
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=10, pp=Unknown
+02:35:07.540 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+02:35:08.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-66/aggregatedSusInfo.profl
+02:35:08.038 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.TypeCheck:getTypedPercent()D in com.google.javascript.jscomp.TypeCheck:1914
+02:35:08.038 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 12 Closure-66
+02:35:08.039 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.TypeCheck ===1913
+02:35:08.129 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+int total = nullCount + unknownCount + typedCount;
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (nullCount != null) {
+	
+
+}
+
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (nullCount == null) {
+    throw new IllegalArgumentException("Null 'nullCount' argument.");
+}
+
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (nullCount == null) {
+    return 0.0;
+}
+
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (unknownCount != null) {
+	
+
+}
+
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (unknownCount == null) {
+    throw new IllegalArgumentException("Null 'unknownCount' argument.");
+}
+
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (unknownCount == null) {
+    return 0.0;
+}
+
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (typedCount != null) {
+	
+
+}
+
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (typedCount == null) {
+    throw new IllegalArgumentException("Null 'typedCount' argument.");
+}
+
+02:35:08.131 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (typedCount == null) {
+    return 0.0;
+}
+
+02:35:08.132 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:11.610 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:11.611 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:15.070 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:15.070 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:18.566 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:18.567 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:21.935 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:21.935 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:25.359 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:25.360 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:28.701 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:28.702 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:32.166 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:32.166 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:35.595 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:35.596 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:39.044 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:39.045 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.TypeCheck ===943
+02:35:39.129 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+ensureTyped(t, assign, rightType);
+02:35:39.134 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ensureTyped(assign, rightType);
+02:35:39.134 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ensureTyped(t, rightType);
+02:35:39.134 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ensureTyped(t, assign);
+02:35:39.135 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:42.472 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:42.473 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:45.918 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-66 ---Fixer: fix fail because of failed compiling! 
+02:35:45.918 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:35:52.233 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+02:35:52.233 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+./kPAR.sh: line 11: 125825 Killed                  timeout --foreground --signal 9 5h java -Xmx16g -cp kPAR-profl.jar:dependency/* edu.lu.uni.serval.main.Main $bugDataPath $defects4jHome $bugID ${proflMethod} ${proflTest} ${proflFailing}

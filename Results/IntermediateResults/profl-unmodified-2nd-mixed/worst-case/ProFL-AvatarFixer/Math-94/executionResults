@@ -1,0 +1,147 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-94
+07:34:55.756 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-94 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/94.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/94.txt
+07:34:58.228 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+07:34:58.245 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-94/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-94/ochiai.txt
+07:34:58.246 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+07:34:58.246 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.util.MathUtils ===413
+07:34:59.315 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return (Math.abs(u) + Math.abs(v));
+07:34:59.317 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/util/MathUtils.java:413 ---
+07:34:59.324 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (u.abs(u) + Math.abs(v));
+07:34:59.324 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (v.abs(u) + Math.abs(v));
+07:34:59.324 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (Math.abs(v) + Math.abs(v));
+07:34:59.324 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (Math.abs(u) + u.abs(v));
+07:34:59.325 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (Math.abs(u) + v.abs(v));
+07:34:59.325 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (Math.abs(u) + Math.abs(u));
+---------------- Testing New Patch ----------------
+07:34:59.326 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:00.217 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:00.218 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:01.093 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:01.094 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:01.981 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:01.981 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:14.550 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testGcd]
+07:35:14.550 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.fraction.FractionFormatTest::testFormatZero, - org.apache.commons.math.fraction.FractionTest::testSubtract, - org.apache.commons.math.fraction.FractionTest::testConstructor, - org.apache.commons.math.util.MathUtilsTest::testGcd, - org.apache.commons.math.util.MathUtilsTest::testLcm]
+07:35:14.550 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testFormatZero
+07:35:14.550 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionTest::testSubtract
+07:35:14.550 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionTest::testConstructor
+07:35:14.550 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testGcd
+07:35:14.550 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testLcm
+07:35:14.550 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+07:35:14.551 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:14.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-94/aggregatedSusInfo.profl
+07:35:14.552 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:gcd(II)I in org.apache.commons.math.util.MathUtils:413
+07:35:14.552 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 5 Math-94
+---------------- Testing New Patch ----------------
+07:35:14.553 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:15.429 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:15.430 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:16.278 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:16.279 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:17.173 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:17.173 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:29.930 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testGcd]
+07:35:29.930 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.fraction.FractionTest::testEqualsAndHashCode, - org.apache.commons.math.fraction.FractionTest::testConstructor, - org.apache.commons.math.util.MathUtilsTest::testGcd, - org.apache.commons.math.util.MathUtilsTest::testLcm]
+07:35:29.930 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionTest::testEqualsAndHashCode
+07:35:29.930 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionTest::testConstructor
+07:35:29.930 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testGcd
+07:35:29.930 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testLcm
+07:35:29.930 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+07:35:29.931 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:29.931 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-94/aggregatedSusInfo.profl
+07:35:29.931 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:gcd(II)I in org.apache.commons.math.util.MathUtils:413
+07:35:29.931 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-94
+07:35:29.932 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:29.933 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:30.801 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:30.802 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:30.802 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:31.682 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:31.683 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:32.610 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:32.611 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:32.612 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:33.591 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:33.592 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:33.592 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:34.509 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:34.510 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:35.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:35.401 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:35.401 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:36.262 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:36.262 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:36.263 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:37.179 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:37.179 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:38.078 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:38.079 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:38.079 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:39.080 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:39.081 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:39.081 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:40.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:40.039 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:40.941 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:40.942 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:40.942 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:41.845 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:41.846 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:41.846 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:42.728 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:42.729 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:43.680 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:43.681 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:43.681 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:44.645 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+07:35:44.645 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.util.MathUtils ===432
+07:35:44.908 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+k++;
+07:35:44.909 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/util/MathUtils.java:432 ---
+07:35:44.909 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: u++;
+07:35:44.909 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: v++;
+---------------- Testing New Patch ----------------
+07:35:44.910 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:45.887 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:45.887 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.

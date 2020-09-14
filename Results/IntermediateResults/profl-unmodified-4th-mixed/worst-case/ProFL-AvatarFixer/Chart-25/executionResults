@@ -1,0 +1,321 @@
+Chart-25
+22:42:45.166 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 Failed Tests: 4
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/25.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/25.txt
+22:42:49.379 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+22:42:49.441 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Chart-25/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Chart-25/ochiai.txt
+22:42:49.448 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+22:42:49.448 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.jfree.chart.renderer.category.StatisticalBarRenderer ===215
+22:42:50.284 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * Draws the bar with its standard deviation line range for a single 
+     * (series, category) data item.
+     *
+     * @param g2  the graphics device.
+     * @param state  the renderer state.
+     * @param dataArea  the data area.
+     * @param plot  the plot.
+     * @param domainAxis  the domain axis.
+     * @param rangeAxis  the range axis.
+     * @param data  the data.
+     * @param row  the row index (zero-based).
+     * @param column  the column index (zero-based).
+     * @param pass  the pass index.
+     */
+    public void drawItem(Graphics2D g2,
+                         CategoryItemRendererState state,
+                         Rectangle2D dataArea,
+                         CategoryPlot plot,
+                         CategoryAxis domainAxis,
+                         ValueAxis rangeAxis,
+                         CategoryDataset data,
+                         int row,
+                         int column,
+                         int pass) {
+
+        // defensive check
+        if (!(data instanceof StatisticalCategoryDataset)) {
+            throw new IllegalArgumentException(
+                "Requires StatisticalCategoryDataset.");
+        }
+        StatisticalCategoryDataset statData = (StatisticalCategoryDataset) data;
+
+        PlotOrientation orientation = plot.getOrientation();
+        if (orientation == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+    }
+22:42:50.286 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/jfree/chart/renderer/category/StatisticalBarRenderer.java:215 ---
+22:42:50.294 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.jfree.chart.renderer.category.StatisticalBarRenderer ===207
+22:42:50.434 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+if (orientation == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:42:50.434 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/jfree/chart/renderer/category/StatisticalBarRenderer.java:207 ---
+22:42:50.435 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (orientation != PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+---------------- Testing New Patch ----------------
+22:42:50.436 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:42:51.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+22:42:51.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+22:43:06.220 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal]
+22:43:06.221 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical]
+22:43:06.221 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical
+22:43:06.221 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical
+22:43:06.221 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=2, pf=0, pp=Unknown
+22:43:06.221 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] CleanFix found
+22:43:06.290 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Chart-25/aggregatedSusInfo.profl
+22:43:06.291 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.jfree.chart.renderer.category.StatisticalBarRenderer:drawItem(Ljava/awt/Graphics2D;Lorg/jfree/chart/renderer/category/CategoryItemRendererState;Ljava/awt/geom/Rectangle2D;Lorg/jfree/chart/plot/CategoryPlot;Lorg/jfree/chart/axis/CategoryAxis;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/data/category/CategoryDataset;III)V in org.jfree.chart.renderer.category.StatisticalBarRenderer:207
+22:43:06.291 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Partially Succeeded to fix the bug Chart-25====================
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (statData == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (g2 == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (state == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (dataArea == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (plot == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (domainAxis == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (rangeAxis == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (data == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (row == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (column == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (pass == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (serialVersionUID == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (this.errorIndicatorPaint == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:43:06.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (this.errorIndicatorStroke == PlotOrientation.HORIZONTAL) {
+            drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+---------------- Testing New Patch ----------------
+22:43:06.479 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:07.510 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:07.511 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:08.560 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:08.561 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:09.595 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:09.595 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:10.583 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:10.584 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:11.585 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:11.585 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:12.633 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:12.634 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:13.700 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:13.701 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:14.699 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:14.700 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:15.873 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:15.874 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:16.975 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:16.975 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:18.013 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:18.014 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:19.096 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:19.096 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:20.113 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:43:20.114 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:21.126 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+22:43:21.126 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (orientation != null) {
+	
+
+}
+
+22:43:21.126 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (orientation == null) {
+    throw new IllegalArgumentException("Null 'orientation' argument.");
+}
+
+22:43:21.126 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (orientation == null) {
+    return;
+}
+
+---------------- Testing New Patch ----------------
+22:43:21.127 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:22.181 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+22:43:22.181 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+22:43:35.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal]
+22:43:35.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal]
+22:43:35.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical
+22:43:35.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical
+22:43:35.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal
+22:43:35.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal
+22:43:35.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+22:43:35.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+22:43:36.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Chart-25/aggregatedSusInfo.profl
+22:43:36.064 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.jfree.chart.renderer.category.StatisticalBarRenderer:drawItem(Ljava/awt/Graphics2D;Lorg/jfree/chart/renderer/category/CategoryItemRendererState;Ljava/awt/geom/Rectangle2D;Lorg/jfree/chart/plot/CategoryPlot;Lorg/jfree/chart/axis/CategoryAxis;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/data/category/CategoryDataset;III)V in org.jfree.chart.renderer.category.StatisticalBarRenderer:207
+22:43:36.064 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Chart-25
+---------------- Testing New Patch ----------------
+22:43:36.065 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:37.048 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+22:43:37.048 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+22:43:50.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal]
+22:43:50.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal]
+22:43:50.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical
+22:43:50.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical
+22:43:50.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal
+22:43:50.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal
+22:43:50.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+22:43:50.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+22:43:56.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Chart-25/aggregatedSusInfo.profl
+22:43:56.552 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.jfree.chart.renderer.category.StatisticalBarRenderer:drawItem(Ljava/awt/Graphics2D;Lorg/jfree/chart/renderer/category/CategoryItemRendererState;Ljava/awt/geom/Rectangle2D;Lorg/jfree/chart/plot/CategoryPlot;Lorg/jfree/chart/axis/CategoryAxis;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/data/category/CategoryDataset;III)V in org.jfree.chart.renderer.category.StatisticalBarRenderer:207
+22:43:56.552 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Chart-25
+---------------- Testing New Patch ----------------
+22:43:56.553 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:43:57.575 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+22:43:57.575 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+22:44:10.364 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal]
+22:44:10.364 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal, - org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal]
+22:44:10.364 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical
+22:44:10.364 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical
+22:44:10.364 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal
+22:44:10.364 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal
+22:44:10.364 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+22:44:10.364 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+22:46:33.355 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Chart-25/aggregatedSusInfo.profl
+22:46:33.355 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.jfree.chart.renderer.category.StatisticalBarRenderer:drawItem(Ljava/awt/Graphics2D;Lorg/jfree/chart/renderer/category/CategoryItemRendererState;Ljava/awt/geom/Rectangle2D;Lorg/jfree/chart/plot/CategoryPlot;Lorg/jfree/chart/axis/CategoryAxis;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/data/category/CategoryDataset;III)V in org.jfree.chart.renderer.category.StatisticalBarRenderer:207
+22:46:33.355 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Chart-25
+22:46:33.365 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: drawHorizontalItem(g2, state, dataArea, plot, domainAxis, 
+                    rangeAxis, statData, row, column);
+        }
+        else if (orientation == PlotOrientation.VERTICAL) {
+            drawVerticalItem(g2, state, dataArea, plot, domainAxis, rangeAxis, 
+                    statData, row, column);
+        }
+22:46:33.365 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+---------------- Testing New Patch ----------------
+22:46:33.365 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:46:33.705 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Chart-25 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:46:33.705 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+22:46:34.711 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+22:46:34.711 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+22:46:46.914 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationVertical, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullMeanHorizontal, org.jfree.chart.renderer.category.junit.StatisticalBarRendererTests::testDrawWithNullDeviationHorizontal]
+22:46:46.914 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 0, []
+22:46:46.914 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=0, fp=4, pf=0, pp=Unknown
+22:46:46.914 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] CleanFix found
+23:47:54.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Chart-25/aggregatedSusInfo.profl
+23:47:54.869 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.jfree.chart.renderer.category.StatisticalBarRenderer:drawItem(Ljava/awt/Graphics2D;Lorg/jfree/chart/renderer/category/CategoryItemRendererState;Ljava/awt/geom/Rectangle2D;Lorg/jfree/chart/plot/CategoryPlot;Lorg/jfree/chart/axis/CategoryAxis;Lorg/jfree/chart/axis/ValueAxis;Lorg/jfree/data/category/CategoryDataset;III)V in org.jfree.chart.renderer.category.StatisticalBarRenderer:207
+23:47:54.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Succeeded to fix the bug Chart-25====================
+23:47:54.889 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Finish off fixing======

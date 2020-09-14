@@ -1,0 +1,706 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-26
+10:15:39.552 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-26 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/26.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/26.txt
+10:15:53.843 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+10:15:53.914 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/generalSusInfo.profl
+10:15:53.939 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+10:15:53.939 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.exception.MathIllegalStateException ===74
+10:15:55.358 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return context;
+10:15:55.362 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.exception.MathIllegalStateException:74 ---
+10:15:55.363 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/exception/MathIllegalStateException.java 74 ---
+10:15:55.363 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:15:55.475 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getContext();
+10:15:55.475 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getMessage();
+10:15:55.475 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getLocalizedMessage();
+---------------- Testing New Patch ----------------
+10:15:55.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:15:57.094 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:15:57.094 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:17:41.590 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 47, [- org.apache.commons.math3.analysis.integration.IterativeLegendreGaussIntegratorTest::testIssue464, - org.apache.commons.math3.analysis.integration.LegendreGaussIntegratorTest::testIssue464, - org.apache.commons.math3.analysis.solvers.BrentSolverTest::testQuinticZero, - org.apache.commons.math3.analysis.solvers.RegulaFalsiSolverTest::testIssue631, - org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction, - org.apache.commons.math3.exception.MaxCountExceededExceptionTest::testAccessors, - org.apache.commons.math3.exception.TooManyEvaluationsExceptionTest::testMessage, - org.apache.commons.math3.fraction.BigFractionFormatTest::testParseProper, - org.apache.commons.math3.fraction.BigFractionFormatTest::testParseProperNegative, - org.apache.commons.math3.fraction.BigFractionFormatTest::testParseInvalidDenominator, - org.apache.commons.math3.fraction.BigFractionFormatTest::testParseProperInvalidMinus, - org.apache.commons.math3.fraction.BigFractionFormatTest::testParseInvalid, - org.apache.commons.math3.fraction.BigFractionTest::testGoldenRatio, - org.apache.commons.math3.fraction.BigFractionTest::testConstructor, - org.apache.commons.math3.fraction.FractionFormatTest::testParseProper, - org.apache.commons.math3.fraction.FractionFormatTest::testParseProperNegative, - org.apache.commons.math3.fraction.FractionFormatTest::testParseInvalidDenominator, - org.apache.commons.math3.fraction.FractionFormatTest::testParseProperInvalidMinus, - org.apache.commons.math3.fraction.FractionFormatTest::testParseInvalid, - org.apache.commons.math3.fraction.FractionTest::testGoldenRatio, - org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow, - org.apache.commons.math3.linear.ConjugateGradientTest::testPreconditionedResidual, - org.apache.commons.math3.linear.ConjugateGradientTest::testUnpreconditionedResidual, - org.apache.commons.math3.linear.FrenchRealVectorFormatTest::testParseNoComponents, - org.apache.commons.math3.linear.RealMatrixFormatTest::testParseNoComponents, - org.apache.commons.math3.linear.RealVectorFormatTest::testParseNoComponents, - org.apache.commons.math3.ode.nonstiff.AdamsBashforthIntegratorTest::exceedMaxEvaluations, - org.apache.commons.math3.ode.nonstiff.AdamsMoultonIntegratorTest::exceedMaxEvaluations, - org.apache.commons.math3.ode.nonstiff.HighamHall54IntegratorTest::testEventsNoConvergence, - org.apache.commons.math3.optimization.direct.BOBYQAOptimizerTest::testMaxEvaluations, - org.apache.commons.math3.optimization.direct.SimplexOptimizerNelderMeadTest::testMaxIterations, - org.apache.commons.math3.optimization.fitting.PolynomialFitterTest::testMath798WithToleranceTooLow, - org.apache.commons.math3.optimization.fitting.PolynomialFitterTest::testRedundantUnsolvable, - org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testHahn1, - org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testMoreEstimatedParametersSimple, - org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testMoreEstimatedParametersUnsorted, - org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testMaxEvaluations, - org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testCircleFittingBadInit, - org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testNonInvertible, - org.apache.commons.math3.optimization.general.LevenbergMarquardtOptimizerTest::testMath199, - org.apache.commons.math3.optimization.general.LevenbergMarquardtOptimizerTest::testControlParameters, - org.apache.commons.math3.optimization.general.MinpackTest::testMinpackMeyer, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMax, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin, - org.apache.commons.math3.util.IncrementorTest::testAboveMaxCount, - org.apache.commons.math3.util.IncrementorTest::testCanIncrement2, - org.apache.commons.math3.util.IncrementorTest::testAlternateException]
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.integration.IterativeLegendreGaussIntegratorTest::testIssue464
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.integration.LegendreGaussIntegratorTest::testIssue464
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.BrentSolverTest::testQuinticZero
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.RegulaFalsiSolverTest::testIssue631
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.exception.MaxCountExceededExceptionTest::testAccessors
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.exception.TooManyEvaluationsExceptionTest::testMessage
+10:17:41.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionFormatTest::testParseProper
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionFormatTest::testParseProperNegative
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionFormatTest::testParseInvalidDenominator
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionFormatTest::testParseProperInvalidMinus
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionFormatTest::testParseInvalid
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testGoldenRatio
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testConstructor
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionFormatTest::testParseProper
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionFormatTest::testParseProperNegative
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionFormatTest::testParseInvalidDenominator
+10:17:41.592 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionFormatTest::testParseProperInvalidMinus
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionFormatTest::testParseInvalid
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testGoldenRatio
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ConjugateGradientTest::testPreconditionedResidual
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ConjugateGradientTest::testUnpreconditionedResidual
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.FrenchRealVectorFormatTest::testParseNoComponents
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealMatrixFormatTest::testParseNoComponents
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorFormatTest::testParseNoComponents
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.AdamsBashforthIntegratorTest::exceedMaxEvaluations
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.AdamsMoultonIntegratorTest::exceedMaxEvaluations
+10:17:41.593 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.HighamHall54IntegratorTest::testEventsNoConvergence
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.BOBYQAOptimizerTest::testMaxEvaluations
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.SimplexOptimizerNelderMeadTest::testMaxIterations
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.PolynomialFitterTest::testMath798WithToleranceTooLow
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.PolynomialFitterTest::testRedundantUnsolvable
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testHahn1
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testMoreEstimatedParametersSimple
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testMoreEstimatedParametersUnsorted
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testMaxEvaluations
+10:17:41.594 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testCircleFittingBadInit
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.GaussNewtonOptimizerTest::testNonInvertible
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.LevenbergMarquardtOptimizerTest::testMath199
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.LevenbergMarquardtOptimizerTest::testControlParameters
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.general.MinpackTest::testMinpackMeyer
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMax
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.IncrementorTest::testAboveMaxCount
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.IncrementorTest::testCanIncrement2
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.IncrementorTest::testAlternateException
+10:17:41.595 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=46, pp=Unknown
+10:17:41.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:17:41.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+10:17:41.599 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.exception.MathIllegalStateException:getContext()Lorg/apache/commons/math3/exception/util/ExceptionContext; in org.apache.commons.math3.exception.MathIllegalStateException:74
+10:17:41.599 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 47 Math-26
+---------------- Testing New Patch ----------------
+10:17:41.600 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:42.550 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:17:42.551 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:43.569 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-26 ---Fixer: fix fail because of failed compiling! 
+10:17:43.594 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (context != null) {
+	
+
+	}
+
+10:17:43.594 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (context == null) {
+	    throw new IllegalArgumentException("Null 'context' argument.");
+	}
+
+10:17:43.594 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (context == null) {
+	    return null;
+	}
+
+10:17:43.594 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (context == null) context = new ExceptionContext();
+ 
+10:17:43.594 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (context == null) return new ExceptionContext();
+	 
+---------------- Testing New Patch ----------------
+10:17:43.595 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:44.717 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:17:44.718 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:45.646 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:17:45.646 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:19:22.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:19:22.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:19:22.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:19:22.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:19:22.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:19:22.900 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+10:19:22.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.exception.MathIllegalStateException:getContext()Lorg/apache/commons/math3/exception/util/ExceptionContext; in org.apache.commons.math3.exception.MathIllegalStateException:74
+10:19:22.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-26
+---------------- Testing New Patch ----------------
+10:19:22.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:19:23.945 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:19:23.946 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:21:05.931 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:21:05.932 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:21:05.932 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:21:05.932 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:21:05.932 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:21:05.936 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+10:21:05.936 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.exception.MathIllegalStateException:getContext()Lorg/apache/commons/math3/exception/util/ExceptionContext; in org.apache.commons.math3.exception.MathIllegalStateException:74
+10:21:05.936 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-26
+---------------- Testing New Patch ----------------
+10:21:05.941 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:06.898 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:21:06.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:07.882 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-26 ---Fixer: fix fail because of failed compiling! 
+10:21:07.910 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+10:21:07.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:08.771 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-26 ---Fixer: fix fail because of failed compiling! 
+10:21:08.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.util.FastMath ===3255
+10:21:10.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return x*y;
+10:21:10.437 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.util.FastMath:3255 ---
+10:21:10.437 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/util/FastMath.java 3255 ---
+10:21:10.437 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return x;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return PI;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return FastMath.PI;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return E;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return FastMath.E;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return LN_2_A;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return LN_2_B;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return LN_QUICK_COEF;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return LN_HI_PREC_COEF;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return SINE_TABLE_A;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return SINE_TABLE_B;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return COSINE_TABLE_A;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return COSINE_TABLE_B;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return TANGENT_TABLE_A;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return TANGENT_TABLE_B;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return EIGHTHS;
+
+10:21:10.736 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return CBRTTWO;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return TWO_POWER_52;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_3;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_5;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_7;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_9;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_11;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_13;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_15;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_17;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_3_4;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_15_16;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_13_14;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_11_12;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_9_10;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_7_8;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_5_6;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_2;
+
+10:21:10.737 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return F_1_4;
+
+---------------- Testing New Patch ----------------
+10:21:10.740 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:12.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:21:12.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 45, [- org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage, - org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix, - org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted, - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44], - org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle]
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron
+10:22:42.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor
+10:22:42.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth
+10:22:42.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32]
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37]
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44]
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=44, pp=Unknown
+10:22:42.821 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:22:42.835 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+10:22:42.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.FastMath:floor(D)D in org.apache.commons.math3.util.FastMath:3255
+10:22:42.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 45 Math-26
+---------------- Testing New Patch ----------------
+10:22:42.837 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:22:44.160 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:22:44.160 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:24:08.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:24:08.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 70, [- org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage, - org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction, - org.apache.commons.math3.distribution.UniformIntegerDistributionTest::testSampling, - org.apache.commons.math3.fraction.BigFractionTest::testEpsilonLimitConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testDoubleConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testDigitLimitConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testConstructor, - org.apache.commons.math3.fraction.FractionTest::testEpsilonLimitConstructor, - org.apache.commons.math3.fraction.FractionTest::testConstructorDouble, - org.apache.commons.math3.fraction.FractionTest::testDoubleConstructor, - org.apache.commons.math3.fraction.FractionTest::testDigitLimitConstructor, - org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow, - org.apache.commons.math3.fraction.FractionTest::testConstructor, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix, - org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected, - org.apache.commons.math3.linear.SparseFieldVectorTest::testMapFunctions, - org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.GillIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted, - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[45], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[46], - org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle, - org.apache.commons.math3.util.MathUtilsTest::testReduce, - org.apache.commons.math3.util.PrecisionTest::testRoundFloat]
+10:24:08.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.UniformIntegerDistributionTest::testSampling
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testEpsilonLimitConstructor
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testDoubleConstructor
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testDigitLimitConstructor
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testConstructor
+10:24:08.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testEpsilonLimitConstructor
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testConstructorDouble
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testDoubleConstructor
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testDigitLimitConstructor
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testConstructor
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron
+10:24:08.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes
+10:24:08.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection
+10:24:08.647 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseFieldVectorTest::testMapFunctions
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.GillIntegratorTest::testDecreasingSteps
+10:24:08.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError
+10:24:08.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32]
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37]
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44]
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[45]
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[46]
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testReduce
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.PrecisionTest::testRoundFloat
+10:24:08.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=69, pp=Unknown
+10:24:08.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:24:08.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+10:24:08.901 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.FastMath:floor(D)D in org.apache.commons.math3.util.FastMath:3255
+10:24:08.901 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 70 Math-26
+---------------- Testing New Patch ----------------
+10:24:08.903 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:24:10.444 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:24:10.444 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:25:26.669 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 70, [- org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage, - org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction, - org.apache.commons.math3.distribution.UniformIntegerDistributionTest::testSampling, - org.apache.commons.math3.fraction.BigFractionTest::testEpsilonLimitConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testDoubleConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testDigitLimitConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testConstructor, - org.apache.commons.math3.fraction.FractionTest::testEpsilonLimitConstructor, - org.apache.commons.math3.fraction.FractionTest::testConstructorDouble, - org.apache.commons.math3.fraction.FractionTest::testDoubleConstructor, - org.apache.commons.math3.fraction.FractionTest::testDigitLimitConstructor, - org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow, - org.apache.commons.math3.fraction.FractionTest::testConstructor, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix, - org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected, - org.apache.commons.math3.linear.SparseFieldVectorTest::testMapFunctions, - org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.GillIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted, - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[45], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[46], - org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle, - org.apache.commons.math3.util.MathUtilsTest::testReduce, - org.apache.commons.math3.util.PrecisionTest::testRoundFloat]
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.UniformIntegerDistributionTest::testSampling
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testEpsilonLimitConstructor
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testDoubleConstructor
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testDigitLimitConstructor
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testConstructor
+10:25:26.670 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testEpsilonLimitConstructor
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testConstructorDouble
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testDoubleConstructor
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testDigitLimitConstructor
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testConstructor
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780
+10:25:26.671 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520
+10:25:26.672 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseFieldVectorTest::testMapFunctions
+10:25:26.673 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.GillIntegratorTest::testDecreasingSteps
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast
+10:25:26.674 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32]
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37]
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44]
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[45]
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[46]
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testReduce
+10:25:26.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.PrecisionTest::testRoundFloat
+10:25:26.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=69, pp=Unknown
+10:25:26.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:25:28.704 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+10:25:28.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.FastMath:floor(D)D in org.apache.commons.math3.util.FastMath:3255
+10:25:28.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 70 Math-26
+---------------- Testing New Patch ----------------
+10:25:28.706 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:25:30.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:25:30.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:26:39.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:26:39.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 71, [- org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage, - org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction, - org.apache.commons.math3.distribution.UniformIntegerDistributionTest::testSampling, - org.apache.commons.math3.fraction.BigFractionTest::testEpsilonLimitConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testDoubleConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testDigitLimitConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testConstructor, - org.apache.commons.math3.fraction.FractionTest::testEpsilonLimitConstructor, - org.apache.commons.math3.fraction.FractionTest::testConstructorDouble, - org.apache.commons.math3.fraction.FractionTest::testDoubleConstructor, - org.apache.commons.math3.fraction.FractionTest::testDigitLimitConstructor, - org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow, - org.apache.commons.math3.fraction.FractionTest::testConstructor, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix, - org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected, - org.apache.commons.math3.linear.SparseFieldVectorTest::testMapFunctions, - org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.GillIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.HighamHall54IntegratorTest::testEvents, - org.apache.commons.math3.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted, - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[45], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[46], - org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle, - org.apache.commons.math3.util.MathUtilsTest::testReduce, - org.apache.commons.math3.util.PrecisionTest::testRoundFloat]
+10:26:39.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage
+10:26:39.643 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.UniformIntegerDistributionTest::testSampling
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testEpsilonLimitConstructor
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testDoubleConstructor
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testDigitLimitConstructor
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testConstructor
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testEpsilonLimitConstructor
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testConstructorDouble
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testDoubleConstructor
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testDigitLimitConstructor
+10:26:39.644 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testConstructor
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles
+10:26:39.645 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair
+10:26:39.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix
+10:26:39.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform
+10:26:39.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes
+10:26:39.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons
+10:26:39.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference
+10:26:39.648 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric
+10:26:39.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseFieldVectorTest::testMapFunctions
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.GillIntegratorTest::testDecreasingSteps
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.HighamHall54IntegratorTest::testEvents
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither
+10:26:39.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32]
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37]
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44]
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[45]
+10:26:39.651 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[46]
+10:26:39.652 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle
+10:26:39.652 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testReduce
+10:26:39.652 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.PrecisionTest::testRoundFloat
+10:26:39.652 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=70, pp=Unknown
+10:26:39.652 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:27:00.056 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+10:27:00.057 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.FastMath:floor(D)D in org.apache.commons.math3.util.FastMath:3255
+10:27:00.057 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 71 Math-26
+---------------- Testing New Patch ----------------
+10:27:00.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:27:01.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:27:01.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:28:14.226 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 71, [- org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage, - org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction, - org.apache.commons.math3.distribution.UniformIntegerDistributionTest::testSampling, - org.apache.commons.math3.fraction.BigFractionTest::testEpsilonLimitConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testDoubleConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testDigitLimitConstructor, - org.apache.commons.math3.fraction.BigFractionTest::testConstructor, - org.apache.commons.math3.fraction.FractionTest::testEpsilonLimitConstructor, - org.apache.commons.math3.fraction.FractionTest::testConstructorDouble, - org.apache.commons.math3.fraction.FractionTest::testDoubleConstructor, - org.apache.commons.math3.fraction.FractionTest::testDigitLimitConstructor, - org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow, - org.apache.commons.math3.fraction.FractionTest::testConstructor, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix, - org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected, - org.apache.commons.math3.linear.SparseFieldVectorTest::testMapFunctions, - org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.GillIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.HighamHall54IntegratorTest::testEvents, - org.apache.commons.math3.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted, - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[45], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[46], - org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle, - org.apache.commons.math3.util.MathUtilsTest::testReduce, - org.apache.commons.math3.util.PrecisionTest::testRoundFloat]
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.KolmogorovSmirnovDistributionTest::testCumulativeDensityFunction
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.distribution.UniformIntegerDistributionTest::testSampling
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testEpsilonLimitConstructor
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testDoubleConstructor
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testDigitLimitConstructor
+10:28:14.227 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.BigFractionTest::testConstructor
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testEpsilonLimitConstructor
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testConstructorDouble
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testDoubleConstructor
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testDigitLimitConstructor
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testConstructor
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron
+10:28:14.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testEmptyDifference
+10:28:14.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane
+10:28:14.230 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseFieldVectorTest::testMapFunctions
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.GillIntegratorTest::testDecreasingSteps
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.HighamHall54IntegratorTest::testEvents
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast
+10:28:14.231 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32]
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37]
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44]
+10:28:14.232 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[45]
+10:28:14.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[46]
+10:28:14.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle
+10:28:14.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testReduce
+10:28:14.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.PrecisionTest::testRoundFloat
+10:28:14.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=70, pp=Unknown
+10:28:14.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:31:36.710 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+10:31:36.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.FastMath:floor(D)D in org.apache.commons.math3.util.FastMath:3255
+10:31:36.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 71 Math-26
+---------------- Testing New Patch ----------------
+10:31:36.712 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:31:38.012 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:31:38.012 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:32:51.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+10:32:51.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 50, [- org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage, - org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix, - org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither, - org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess, - org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted, - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44], - org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle, - org.apache.commons.math3.util.MathUtilsTest::testReduce, - org.apache.commons.math3.util.PrecisionTest::testRoundFloat]
+10:32:51.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage
+10:32:51.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine
+10:32:51.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage
+10:32:51.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair
+10:32:51.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection
+10:32:51.598 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testConcentric
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulBoth
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulLast
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulNeither
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputOverlapTest::testMulFirst
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulBoth
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulLast
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulNeither
+10:32:51.599 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.ode.sampling.StepNormalizerOutputTest::testMulFirst
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::test1PercentError
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testInitialGuess
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.fitting.HarmonicFitterTest::testUnsorted
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32]
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37]
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44]
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testReduce
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.PrecisionTest::testRoundFloat
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=49, pp=Unknown
+10:32:51.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+11:10:36.243 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-26/aggregatedSusInfo.profl
+11:10:36.243 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.FastMath:floor(D)D in org.apache.commons.math3.util.FastMath:3255
+11:10:36.243 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 50 Math-26
+---------------- Testing New Patch ----------------
+11:10:36.245 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+11:10:37.595 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+11:10:37.595 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+11:11:45.959 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow]
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 38, [- org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine, - org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage, - org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry, - org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair, - org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix, - org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint, - org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected, - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37], - org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44], - org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle, - org.apache.commons.math3.util.MathUtilsTest::testReduce, - org.apache.commons.math3.util.PrecisionTest::testRoundFloat]
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testLessThanOnePeriodCoverage
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testSine
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.interpolation.UnivariatePeriodicInterpolatorTest::testMoreThanOnePeriodCoverage
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.fraction.FractionTest::testIntegerOverflow
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBox
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testCross
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testBuildBox
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testTetrahedron
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIsometry
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.PolyhedronsSetTest::testIssue780
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAxisAngle
+11:11:45.960 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorTwoPairs
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testIdentity
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testAngles
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testVectorOnePair
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.RotationTest::testMatrix
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.LineTest::testTransform
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testOppositeHyperplanes
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDisjointPolygons
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testXor
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20040520
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testBug20041003
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testStair
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnion
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testHole
+11:11:45.961 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testChoppedHexagon
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testLineIntersection
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testDifference
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testIntersection
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testUnlimitedSubHyperplane
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSingularPoint
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.PolygonsSetTest::testSimplyConnected
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[32]
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[37]
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.FastMathStrictComparisonTest::test1[44]
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testNormalizeAngle
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.MathUtilsTest::testReduce
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.util.PrecisionTest::testRoundFloat
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=37, pp=Unknown
+11:11:45.962 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

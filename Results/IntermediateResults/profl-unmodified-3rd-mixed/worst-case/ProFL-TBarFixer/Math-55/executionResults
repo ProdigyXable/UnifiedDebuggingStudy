@@ -1,0 +1,240 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-55
+22:39:49.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-55 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/55.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/55.txt
+22:39:56.761 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+22:39:56.799 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/generalSusInfo.profl
+22:39:56.803 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+22:39:56.803 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.geometry.Vector3D ===473
+22:39:58.371 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return new Vector3D(v1.y * v2.z - v1.z * v2.y, v1.z * v2.x - v1.x * v2.z, v1.x * v2.y - v1.y * v2.x);
+22:39:58.372 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.geometry.Vector3D:473 ---
+22:39:58.372 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/geometry/Vector3D.java 473 ---
+22:39:58.372 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:39:58.620 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return v1;
+
+22:39:58.621 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return v2;
+
+22:39:58.621 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return ZERO;
+
+22:39:58.621 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.ZERO;
+
+22:39:58.621 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return PLUS_I;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.PLUS_I;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MINUS_I;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.MINUS_I;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return PLUS_J;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.PLUS_J;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MINUS_J;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.MINUS_J;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return PLUS_K;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.PLUS_K;
+
+22:39:58.622 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MINUS_K;
+
+22:39:58.623 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.MINUS_K;
+
+22:39:58.623 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return NaN;
+
+22:39:58.623 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.NaN;
+
+22:39:58.623 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return POSITIVE_INFINITY;
+
+22:39:58.623 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.POSITIVE_INFINITY;
+
+22:39:58.623 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return NEGATIVE_INFINITY;
+
+22:39:58.623 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Vector3D.NEGATIVE_INFINITY;
+
+---------------- Testing New Patch ----------------
+22:39:58.625 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:40:00.179 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:40:00.180 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:41:08.253 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:41:08.253 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:41:08.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:41:08.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:41:08.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:41:08.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:41:08.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:41:08.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:41:08.257 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:41:08.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:41:08.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:41:08.258 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:41:09.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:41:09.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:42:18.285 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:42:18.286 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:42:18.286 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:42:18.286 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:42:18.286 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:42:18.286 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:42:18.286 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:42:18.286 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:42:18.288 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:42:18.288 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:42:18.288 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:42:18.289 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:19.549 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:42:19.549 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:43:18.872 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:43:18.872 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:43:18.872 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:43:18.872 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:43:18.872 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:43:18.872 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:43:18.873 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:43:18.873 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:43:18.884 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:43:18.884 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:43:18.884 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:43:18.885 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:43:20.003 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:43:20.003 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:44:15.431 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:44:15.431 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:44:15.431 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:44:15.431 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:44:15.431 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:44:15.431 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:44:15.432 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:44:15.432 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:44:15.435 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:44:15.435 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:44:15.436 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:44:15.436 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:44:16.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:44:16.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:45:13.907 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:45:13.908 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:45:13.908 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:45:13.908 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:45:13.908 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:45:13.908 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:45:13.908 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:45:13.908 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:45:13.920 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:45:13.920 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:45:13.920 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:45:13.921 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:45:15.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:45:15.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:46:10.792 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:46:10.793 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:46:10.793 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:46:10.793 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:46:10.793 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:46:10.793 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:46:10.793 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:46:10.793 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:46:10.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:46:10.889 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:46:10.889 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:46:10.890 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:46:11.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:46:11.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:47:07.326 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:47:07.326 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:47:07.326 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:47:07.326 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:47:07.327 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:47:07.327 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:47:07.327 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:47:07.327 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:47:07.871 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:47:07.871 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:47:07.871 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:47:07.872 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:47:09.102 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:47:09.102 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:47:55.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:47:55.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:47:55.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:47:55.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:47:55.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:47:55.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:47:55.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:47:55.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:47:58.508 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:47:58.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:47:58.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:47:58.509 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:47:59.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:47:59.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:48:45.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:48:45.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:48:45.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:48:45.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:48:45.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:48:45.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:48:45.702 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:48:45.702 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:49:11.537 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:49:11.537 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:49:11.537 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:49:11.538 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:49:12.623 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:49:12.623 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:50:03.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:50:03.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:50:03.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:50:03.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:50:03.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:50:03.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:50:03.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:50:03.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+22:53:25.877 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+22:53:25.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+22:53:25.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+22:53:25.878 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:53:27.079 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:53:27.079 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:54:15.197 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+22:54:15.197 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+22:54:15.197 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+22:54:15.197 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+22:54:15.197 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+22:54:15.197 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+22:54:15.197 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+22:54:15.198 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+23:19:52.752 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-55/aggregatedSusInfo.profl
+23:19:52.753 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.geometry.Vector3D:crossProduct(Lorg/apache/commons/math/geometry/Vector3D;Lorg/apache/commons/math/geometry/Vector3D;)Lorg/apache/commons/math/geometry/Vector3D; in org.apache.commons.math.geometry.Vector3D:473
+23:19:52.753 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-55
+---------------- Testing New Patch ----------------
+23:19:52.754 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+23:19:54.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+23:19:54.092 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+23:20:35.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation]
+23:20:35.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs, - org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts, - org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation, - org.apache.commons.math.geometry.Vector3DTest::testAngle]
+23:20:35.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.RotationTest::testVectorTwoPairs
+23:20:35.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testVectorialProducts
+23:20:35.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testCrossProductCancellation
+23:20:35.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.geometry.Vector3DTest::testAngle
+23:20:35.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+23:20:35.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

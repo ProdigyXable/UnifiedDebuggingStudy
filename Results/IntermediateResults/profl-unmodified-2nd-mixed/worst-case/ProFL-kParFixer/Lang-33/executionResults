@@ -1,0 +1,365 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-33
+23:07:19.443 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-33 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/33.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/33.txt
+23:07:23.133 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+23:07:23.152 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/generalSusInfo.profl
+23:07:23.155 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+23:07:23.155 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===903
+23:07:24.167 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (array == null) {
+            return null;
+        } else if (array.length == 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:07:24.178 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (array != null) {
+            return null;
+        } else if (array.length == 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:07:24.179 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array.length == 0)) {
+            return null;
+        } else if (array.length == 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:07:24.180 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:25.323 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:07:25.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:07:38.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:07:38.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:07:38.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:07:38.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:07:38.081 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:07:38.083 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:07:38.083 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:903
+23:07:38.083 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:07:38.083 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:39.369 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:07:39.369 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:07:53.181 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:07:53.181 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:07:53.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:07:53.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:07:53.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:07:53.186 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:07:53.186 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:903
+23:07:53.186 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:07:53.188 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array == null) || (array.length == 0)) {
+            return null;
+        } else if (array.length == 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:07:53.188 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array == null) && (array.length == 0)) {
+            return null;
+        } else if (array.length == 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:07:53.188 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array == null) || !(array.length == 0)) {
+            return null;
+        } else if (array.length == 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:07:53.188 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array == null) && !(array.length == 0)) {
+            return null;
+        } else if (array.length == 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:07:53.189 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:54.396 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:07:54.396 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:07.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:08:07.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:08:07.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:08:07.733 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:07.733 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:08:07.733 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:08:07.733 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:903
+23:08:07.733 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:08:07.734 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:09.045 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:09.045 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:23.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:08:23.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:08:23.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:08:23.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:23.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:08:23.689 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:08:23.689 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:903
+23:08:23.689 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:08:23.692 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:24.967 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:24.968 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:38.473 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:08:38.473 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:08:38.473 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:08:38.473 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:38.473 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:08:38.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:08:38.475 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:903
+23:08:38.475 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:08:38.476 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:39.814 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:39.815 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:53.158 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:08:53.159 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:08:53.159 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:08:53.159 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:53.159 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:08:53.161 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:08:53.161 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:903
+23:08:53.161 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:08:53.162 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===904
+23:08:53.507 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return null;
+23:08:53.510 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===905
+23:08:53.657 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (array.length == 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:08:53.658 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (array.length != 0) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:08:53.658 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array == null)) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:08:53.658 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:54.901 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:54.901 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:07.533 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:09:07.533 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:09:07.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:09:07.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:07.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:07.536 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:09:07.536 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:905
+23:09:07.536 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:09:07.537 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:08.828 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:08.828 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:21.746 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:09:21.746 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:09:21.746 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:09:21.747 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:21.747 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:21.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:09:21.752 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:905
+23:09:21.752 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:09:21.753 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array.length == 0) || (array == null)) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:09:21.753 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array.length == 0) && (array == null)) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:09:21.753 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array.length == 0) || !(array == null)) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:09:21.753 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((array.length == 0) && !(array == null)) {
+            return ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+23:09:21.754 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:23.134 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:23.134 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:36.060 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:09:36.060 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:09:36.060 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:09:36.060 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:36.060 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:36.074 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:09:36.074 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:905
+23:09:36.074 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:09:36.075 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:37.408 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:37.408 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:50.528 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:09:50.528 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:09:50.528 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:09:50.528 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:50.528 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:50.582 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:09:50.582 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:905
+23:09:50.582 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:09:50.583 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:51.850 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:51.850 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:05.012 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:10:05.012 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:10:05.013 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:10:05.013 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:05.013 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:10:05.112 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:10:05.113 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:905
+23:10:05.113 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:10:05.113 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:06.349 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:10:06.349 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:19.537 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:10:19.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:10:19.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:10:19.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:19.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:10:19.983 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:10:19.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:905
+23:10:19.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:10:19.984 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===906
+23:10:20.055 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return ArrayUtils.EMPTY_CLASS_ARRAY;
+23:10:20.056 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===908
+23:10:20.129 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+Class<?>[] classes = new Class[array.length];
+23:10:20.130 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===909
+23:10:20.176 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+for (int i = 0; i < array.length; i++) {
+            classes[i] = array[i].getClass();
+        }
+23:10:20.177 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===910
+23:10:20.216 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+classes[i] = array[i].getClass();
+23:10:20.217 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classes.length() <= i) {
+	
+
+}
+
+23:10:20.217 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (array.length() <= i) {
+	
+
+}
+
+23:10:20.218 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:21.437 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-33 ---Fixer: fix fail because of failed compiling! 
+23:10:21.438 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:22.676 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-33 ---Fixer: fix fail because of failed compiling! 
+23:10:22.676 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classes != null) {
+	
+
+}
+
+23:10:22.676 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classes == null) {
+    throw new IllegalArgumentException("Null 'classes' argument.");
+}
+
+23:10:22.676 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classes == null) {
+    return null;
+}
+
+23:10:22.677 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (array != null) {
+	
+
+}
+
+23:10:22.677 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (array == null) {
+    throw new IllegalArgumentException("Null 'array' argument.");
+}
+
+23:10:22.677 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (array == null) {
+    return null;
+}
+
+23:10:22.677 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:23.962 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:10:23.962 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:37.374 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:10:37.374 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:10:37.374 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:10:37.374 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:37.375 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:10:39.934 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:10:39.935 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:910
+23:10:39.935 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:10:39.935 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:41.275 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:10:41.276 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:53.958 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:10:53.959 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:10:53.959 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:10:53.959 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:53.959 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:11:02.958 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:11:02.959 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:910
+23:11:02.959 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:11:02.959 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:11:04.231 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:11:04.232 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:11:17.006 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:11:17.006 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:11:17.006 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:11:17.006 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:11:17.007 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:11:46.808 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:11:46.808 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:910
+23:11:46.808 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:11:46.809 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:11:48.067 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:11:48.067 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:12:01.135 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:12:01.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:12:01.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:12:01.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:12:01.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:14:14.376 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:14:14.376 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:910
+23:14:14.376 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:14:14.377 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:14:15.709 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:14:15.709 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:14:28.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:14:28.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:14:28.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:14:28.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:14:28.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:21:58.624 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:21:58.624 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:910
+23:21:58.624 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:21:58.625 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:21:59.871 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:21:59.871 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:22:13.435 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:22:13.435 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:22:13.435 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:22:13.435 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:22:13.435 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:54:41.098 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+23:54:41.098 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:910
+23:54:41.098 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+23:54:41.103 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===912
+23:54:41.141 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return classes;
+23:54:41.141 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classes != null) {
+	
+
+}
+
+23:54:41.141 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classes == null) {
+    throw new IllegalArgumentException("Null 'classes' argument.");
+}
+
+23:54:41.142 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (classes == null) {
+    return null;
+}
+
+23:54:41.142 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:54:42.529 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-33 ---Fixer: fix fail because of failed compiling! 
+23:54:42.530 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:54:44.017 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:54:44.017 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:54:57.859 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:54:57.859 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+23:54:57.860 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+23:54:57.860 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:54:57.860 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+01:58:06.315 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-33/aggregatedSusInfo.profl
+01:58:06.315 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.ClassUtils:toClass([Ljava/lang/Object;)[Ljava/lang/Class; in org.apache.commons.lang3.ClassUtils:912
+01:58:06.315 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-33
+01:58:06.316 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:58:07.712 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+01:58:07.712 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+01:58:21.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+01:58:21.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ClassUtilsTest::testToClass_object]
+01:58:21.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ClassUtilsTest::testToClass_object
+01:58:21.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:58:21.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

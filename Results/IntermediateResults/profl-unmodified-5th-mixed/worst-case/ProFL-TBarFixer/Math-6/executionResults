@@ -1,0 +1,51 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-6
+09:44:33.959 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-6 Failed Tests: 28
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/6.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/6.txt
+09:44:51.069 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+09:44:51.143 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-6/generalSusInfo.profl
+09:44:51.146 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+09:44:51.146 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.optim.BaseOptimizer ===93
+09:44:52.447 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return iterations.getCount();
+09:44:52.448 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.optim.BaseOptimizer:93 ---
+09:44:52.448 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/optim/BaseOptimizer.java 93 ---
+09:44:52.448 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizerTest::testTrivial, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testConstrainedRosen, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testElliRotated, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testEllipse, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testTwoAxes, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testCigar, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testRosen, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testRastrigin, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testDiagonalRosen, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testSsDiffPow, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testMaximize, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testAckley, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testCigTab, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testDiffPow, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testSphere, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testTablet, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testCigarWithBoundaries, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.PowellOptimizerTest::testSumSinc, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest::testMaximize1, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest::testMaximize2, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest::testMinimize1, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest::testMinimize2, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest::testMaximize1, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest::testMaximize2, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest::testMinimize1, - org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest::testMinimize2, - org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizerTest::testGetIterations, - org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizerTest::testGetIterations]
+09:44:52.596 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return iterations.getMaximalCount();
+09:44:52.596 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return iterations.incrementCount();
+09:44:52.596 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return iterations.resetCount();
+09:44:52.596 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return iterations.canIncrement();
+---------------- Testing New Patch ----------------
+09:44:52.599 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:44:53.910 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+09:44:53.910 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+09:48:33.199 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 28, [org.apache.commons.math3.optim.nonlinear.scalar.gradient.NonLinearConjugateGradientOptimizerTest::testTrivial, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testConstrainedRosen, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testElliRotated, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testEllipse, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testTwoAxes, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testCigar, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testRosen, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testRastrigin, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testDiagonalRosen, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testSsDiffPow, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testMaximize, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testAckley, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testCigTab, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testDiffPow, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testSphere, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testTablet, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.CMAESOptimizerTest::testCigarWithBoundaries, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.PowellOptimizerTest::testSumSinc, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest::testMaximize1, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest::testMaximize2, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest::testMinimize1, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerMultiDirectionalTest::testMinimize2, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest::testMaximize1, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest::testMaximize2, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest::testMinimize1, org.apache.commons.math3.optim.nonlinear.scalar.noderiv.SimplexOptimizerNelderMeadTest::testMinimize2, org.apache.commons.math3.optim.nonlinear.vector.jacobian.GaussNewtonOptimizerTest::testGetIterations, org.apache.commons.math3.optim.nonlinear.vector.jacobian.LevenbergMarquardtOptimizerTest::testGetIterations]
+09:48:33.199 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 0, []
+09:48:33.199 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=28, pf=0, pp=Unknown
+09:48:33.200 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+09:48:33.288 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-6/aggregatedSusInfo.profl
+09:48:33.289 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optim.BaseOptimizer:getIterations()I in org.apache.commons.math3.optim.BaseOptimizer:93
+09:48:33.289 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Succeeded to fix the bug Math-6====================
+diff --git a/src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java b/src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java
+index 75c9757ae..263bea80a 100644
+--- a/src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java
++++ b/src/main/java/org/apache/commons/math3/optim/BaseOptimizer.java
+@@ -90,7 +90,7 @@ public abstract class BaseOptimizer<PAIR> {
+      * @return the number of evaluations of the objective function.
+      */
+     public int getIterations() {
+-        return iterations.getCount();
++        return iterations.getMaximalCount();
+     }
+ 
+     /**
+09:48:34.491 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+09:48:34.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-6/aggregatedSusInfo.profl
+Succeeded to fix bug Math-6
+Repair process completed

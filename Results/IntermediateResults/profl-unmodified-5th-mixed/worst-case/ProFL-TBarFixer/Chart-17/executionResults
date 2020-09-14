@@ -1,0 +1,189 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Chart-17
+13:24:30.707 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/17.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/17.txt
+13:24:35.623 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+13:24:35.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-17/generalSusInfo.profl
+13:24:35.701 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+13:24:35.702 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.jfree.data.time.TimeSeries ===880
+13:24:36.791 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+throw new IllegalArgumentException("Requires start <= end.");
+13:24:36.791 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.jfree.data.time.TimeSeries:880 ---
+13:24:36.792 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/jfree/data/time/TimeSeries.java 880 ---
+13:24:36.792 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.jfree.data.time.junit.TimeSeriesTests::testBug1832432]
+13:24:37.248 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+13:24:37.249 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+13:24:37.251 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:24:38.577 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:24:38.577 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:24:59.782 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.time.junit.TimeSeriesTests::testBug1832432]
+13:24:59.782 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.time.junit.TimeSeriesTests::testCreateCopy2]
+13:24:59.783 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testCreateCopy2
+13:24:59.783 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=1, pp=Unknown
+13:24:59.783 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+13:24:59.791 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-17/aggregatedSusInfo.profl
+13:24:59.792 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.time.TimeSeries:createCopy(II)Lorg/jfree/data/time/TimeSeries; in org.jfree.data.time.TimeSeries:880
+13:24:59.792 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Chart-17
+---------------- Testing New Patch ----------------
+13:24:59.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:01.150 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+13:25:01.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.jfree.data.time.TimeSeries ===857
+13:25:01.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+Object clone = createCopy(0, getItemCount() - 1);
+13:25:01.263 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.jfree.data.time.TimeSeries:857 ---
+13:25:01.263 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/jfree/data/time/TimeSeries.java 857 ---
+13:25:01.263 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.jfree.data.time.junit.TimeSeriesTests::testBug1832432]
+13:25:01.436 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = addOrUpdate(0, getItemCount() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = add(0, getItemCount() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = update(0, getItemCount() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = removeAgedItems(0, getItemCount() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = delete(0, getItemCount() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(getItemCount() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getTimePeriods() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getNextTimePeriod() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getMaximumItemCount() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, hashCode() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getDomainDescription() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getRangeDescription() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getTimePeriodClass() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, clear() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getMaximumItemAge() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getItems() - 1);
+13:25:01.437 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, clone() - 1);
+---------------- Testing New Patch ----------------
+13:25:01.438 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:02.783 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:02.784 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:04.202 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:04.203 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:05.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:05.545 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:06.926 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:06.927 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:08.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:08.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:09.695 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:09.696 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:11.119 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:11.120 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:12.480 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:12.481 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:13.897 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:25:13.898 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:15.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:25:15.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:25:37.843 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.time.junit.TimeSeriesTests::testBug1832432]
+13:25:37.843 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.data.time.junit.TimeSeriesTests::testClone, - org.jfree.data.time.junit.TimeSeriesTests::testClone2]
+13:25:37.843 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testClone
+13:25:37.843 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testClone2
+13:25:37.843 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=2, pp=Unknown
+13:25:37.843 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+13:25:37.923 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-17/aggregatedSusInfo.profl
+13:25:37.923 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.time.TimeSeries:clone()Ljava/lang/Object; in org.jfree.data.time.TimeSeries:857
+13:25:37.923 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Chart-17
+---------------- Testing New Patch ----------------
+13:25:37.924 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:39.491 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:25:39.491 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:26:01.871 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.time.junit.TimeSeriesTests::testBug1832432]
+13:26:01.871 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.data.time.junit.TimeSeriesTests::testClone, - org.jfree.data.time.junit.TimeSeriesTests::testClone2]
+13:26:01.871 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testClone
+13:26:01.871 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testClone2
+13:26:01.871 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=2, pp=Unknown
+13:26:01.871 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+13:26:01.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-17/aggregatedSusInfo.profl
+13:26:01.912 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.time.TimeSeries:clone()Ljava/lang/Object; in org.jfree.data.time.TimeSeries:857
+13:26:01.913 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Chart-17
+---------------- Testing New Patch ----------------
+13:26:01.914 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:03.537 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:03.538 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:05.015 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:05.016 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:06.548 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:06.549 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:07.998 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:07.999 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:09.365 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:09.366 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:10.759 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:10.760 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:12.077 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+13:26:12.269 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0d, getItemCount() - 1);
+13:26:12.270 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0f, getItemCount() - 1);
+13:26:12.270 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getItemCount() - 1d);
+13:26:12.270 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getItemCount() - 1f);
+---------------- Testing New Patch ----------------
+13:26:12.271 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:13.779 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:13.779 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:15.129 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:15.130 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:16.436 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:16.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:17.754 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+13:26:17.827 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Object clone = createCopy(0, getItemCount() + 1);
+---------------- Testing New Patch ----------------
+13:26:17.828 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:19.169 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:26:19.170 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:26:39.894 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.time.junit.TimeSeriesTests::testBug1832432]
+13:26:39.894 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.data.time.junit.TimeSeriesTests::testClone, - org.jfree.data.time.junit.TimeSeriesTests::testClone2]
+13:26:39.894 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testClone
+13:26:39.894 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testClone2
+13:26:39.895 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=2, pp=Unknown
+13:26:39.895 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+13:26:40.191 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-17/aggregatedSusInfo.profl
+13:26:40.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.time.TimeSeries:clone()Ljava/lang/Object; in org.jfree.data.time.TimeSeries:857
+13:26:40.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Chart-17
+13:26:40.318 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+13:26:40.318 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+13:26:40.319 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:41.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:41.645 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:43.119 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:26:43.119 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:27:05.271 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.time.junit.TimeSeriesTests::testBug1832432]
+13:27:05.271 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.jfree.data.time.junit.TimeSeriesTests::testClone, - org.jfree.data.time.junit.TimeSeriesTests::testClone2, - org.jfree.data.time.junit.TimeSeriesTests::testBug1832432]
+13:27:05.271 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testClone
+13:27:05.271 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testClone2
+13:27:05.271 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.time.junit.TimeSeriesTests::testBug1832432
+13:27:05.271 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+13:27:05.271 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+13:27:09.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-17/aggregatedSusInfo.profl
+13:27:09.350 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.time.TimeSeries:clone()Ljava/lang/Object; in org.jfree.data.time.TimeSeries:857
+13:27:09.350 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Chart-17
+13:27:09.383 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+13:28:03.554 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-17/aggregatedSusInfo.profl
+Failed to fix bug Chart-17
+Repair process completed

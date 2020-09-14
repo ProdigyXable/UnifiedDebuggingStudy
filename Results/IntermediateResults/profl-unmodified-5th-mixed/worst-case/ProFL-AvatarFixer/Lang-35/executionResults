@@ -1,0 +1,407 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-35
+23:07:30.988 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/35.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/35.txt
+23:07:33.948 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+23:07:33.955 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Lang-35/ochiai.txt
+23:07:33.959 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+23:07:33.959 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===969
+23:07:34.846 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.builder.ToStringStyle --- 969
+23:07:34.846 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===968
+23:07:34.992 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.builder.ToStringStyle --- 968
+23:07:34.992 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===965
+23:07:35.060 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * <p>Append to the <code>toString</code> a <code>long</code>
+     * array.</p>
+     *
+     * @param buffer  the <code>StringBuffer</code> to populate
+     * @param fieldName  the field name
+     * @param array  the array to add to the <code>toString</code>
+     * @param fullDetail  <code>true</code> for detail, <code>false</code>
+     *  for summary info, <code>null</code> for style decides
+     */
+    public void append(StringBuffer buffer, String fieldName, long[] array, Boolean fullDetail) {
+        appendFieldStart(buffer, fieldName);
+
+        if (array == null) {
+            appendNullText(buffer, fieldName);
+
+        } else if (isFullDetail(fullDetail)) {
+            appendDetail(buffer, fieldName, array);
+
+        } else {
+            appendSummary(buffer, fieldName, array);
+        }
+
+        appendFieldEnd(buffer, fieldName);
+    }
+23:07:35.395 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/builder/ToStringStyle.java:965 ---
+23:07:35.407 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===961
+23:07:35.461 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+appendSummary(buffer, fieldName, array);
+23:07:35.462 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/builder/ToStringStyle.java:961 ---
+23:07:35.463 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(fieldName, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(array, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(fullDetail, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(registry, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.useFieldNames, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.useClassName, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.useShortClassName, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.useIdentityHashCode, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.contentStart, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.contentEnd, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.fieldNameValueSeparator, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.fieldSeparatorAtStart, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.fieldSeparatorAtEnd, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.fieldSeparator, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.arrayStart, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.arraySeparator, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.arrayContentDetail, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.arrayEnd, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.defaultFullDetail, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.nullText, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.sizeStartText, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.sizeEndText, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.summaryObjectStartText, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(this.summaryObjectEndText, fieldName, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, buffer, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, array, array);
+23:07:35.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fullDetail, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, registry, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.useFieldNames, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.useClassName, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.useShortClassName, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.useIdentityHashCode, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.contentStart, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.contentEnd, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.fieldNameValueSeparator, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.fieldSeparatorAtStart, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.fieldSeparatorAtEnd, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.fieldSeparator, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.arrayStart, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.arraySeparator, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.arrayContentDetail, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.arrayEnd, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.defaultFullDetail, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.nullText, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.sizeStartText, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.sizeEndText, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.summaryObjectStartText, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, this.summaryObjectEndText, array);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, buffer);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, fieldName);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, fullDetail);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, registry);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.useFieldNames);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.useClassName);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.useShortClassName);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.useIdentityHashCode);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.contentStart);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.contentEnd);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.fieldNameValueSeparator);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.fieldSeparatorAtStart);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.fieldSeparatorAtEnd);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.fieldSeparator);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.arrayStart);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.arraySeparator);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.arrayContentDetail);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.arrayEnd);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.defaultFullDetail);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.nullText);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.sizeStartText);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.sizeEndText);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.summaryObjectStartText);
+23:07:35.465 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.summaryObjectEndText);
+---------------- Testing New Patch ----------------
+23:07:35.467 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:36.374 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:36.375 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:37.229 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:37.229 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:38.126 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:38.127 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:39.035 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:39.036 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:39.991 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:39.992 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:40.928 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:40.928 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:41.919 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:41.920 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:44.041 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:44.042 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:45.037 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:45.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:46.089 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:46.090 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:47.191 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:47.192 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:48.318 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:48.319 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:49.379 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:49.380 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:50.454 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:50.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:51.747 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:51.747 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:52.723 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:52.724 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:53.674 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:53.675 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:54.808 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:54.809 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:55.854 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:55.855 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:56.868 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:56.868 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:57.891 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:57.892 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:07:58.966 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:07:58.967 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:00.065 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:00.066 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:01.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:01.177 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:02.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:02.649 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:03.789 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:03.790 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:04.884 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:04.885 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:05.983 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:05.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:07.023 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:07.024 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:08.131 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:08.132 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:09.179 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:09.180 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:10.145 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:10.145 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:11.212 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:08:11.212 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:08:22.667 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:08:22.667 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:08:22.667 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:08:22.668 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:22.668 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:08:22.669 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:08:22.669 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:08:22.669 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:08:22.670 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:23.687 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:08:23.687 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:08:34.527 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:08:34.527 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:08:34.527 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:08:34.527 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:34.527 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:08:34.528 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:08:34.528 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:08:34.528 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:08:34.529 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:35.591 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:08:35.591 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:08:46.399 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:08:46.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:08:46.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:08:46.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:46.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:08:46.401 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:08:46.401 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:08:46.401 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:08:46.402 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:47.351 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:47.352 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:48.377 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:48.378 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:49.556 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:08:49.556 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:00.604 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:00.604 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:00.604 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:09:00.604 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:00.604 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:09:00.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:09:00.612 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:00.612 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:09:00.612 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:01.608 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:01.608 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:12.844 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:12.844 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:12.844 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:09:12.844 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:12.844 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:09:12.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:09:12.845 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:12.845 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:09:12.846 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:13.859 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:13.859 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:24.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:24.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:24.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:09:24.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:24.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:09:24.842 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:09:24.842 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:24.842 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:09:24.842 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:25.956 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:09:25.957 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:27.029 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:27.029 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:37.698 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:37.698 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:37.699 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:09:37.699 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:37.699 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:09:37.714 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:09:37.715 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:37.715 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:09:37.715 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:38.719 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:09:38.720 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:39.877 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:39.877 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:50.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:50.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:09:50.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:09:50.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:50.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:09:50.581 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:09:50.581 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:50.581 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:09:50.582 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:51.741 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:51.741 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:10:02.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:10:02.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:10:02.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:10:02.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:02.791 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:10:03.287 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:10:03.287 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:10:03.287 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:10:03.288 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:10:04.319 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:10:04.320 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:10:15.020 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:10:15.020 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:10:15.020 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:10:15.020 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:15.020 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:10:18.112 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:10:18.112 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:10:18.112 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:10:18.113 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:10:19.250 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:10:19.251 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:10:29.793 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:10:29.793 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:10:29.793 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:10:29.793 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:29.794 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:10:44.470 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:10:44.470 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:10:44.470 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:10:44.471 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:10:45.481 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:10:45.481 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:10:56.036 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:10:56.036 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:10:56.036 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:10:56.036 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:56.037 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:12:30.411 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:12:30.411 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:12:30.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:12:30.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:12:31.462 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:12:31.463 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:12:41.824 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:12:41.824 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:12:41.824 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:12:41.824 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:12:41.824 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:21:13.094 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+23:21:13.094 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:21:13.094 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+23:21:13.095 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:21:14.162 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:21:14.162 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:21:24.533 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:21:24.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+23:21:24.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+23:21:24.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:21:24.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+00:16:49.994 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-35/aggregatedSusInfo.profl
+00:16:49.994 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+00:16:49.994 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-35
+---------------- Testing New Patch ----------------
+00:16:49.995 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+00:16:51.135 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+00:16:51.135 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+00:17:01.706 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+00:17:01.706 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571]
+00:17:01.706 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testLANG571
+00:17:01.707 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+00:17:01.707 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found

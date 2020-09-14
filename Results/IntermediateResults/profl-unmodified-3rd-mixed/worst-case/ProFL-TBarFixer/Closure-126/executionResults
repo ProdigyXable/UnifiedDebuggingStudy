@@ -1,0 +1,58 @@
+Setting JAVA_HOME to /home/samuel/jdk1.7.0_80
+
+Adding /home/samuel/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-126
+14:36:54.368 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Closure-126 Failed Tests: 2
+Reading method line coverage from /home/samuel/XiaInformation/AllMethods/Closure/126.txt
+Reading test line coverage from /home/samuel/XiaInformation/LineCoverage/Closure/126.txt
+14:42:01.097 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+14:42:01.194 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-126/generalSusInfo.profl
+14:42:01.209 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+14:42:01.209 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.google.javascript.jscomp.MinimizeExitPoints ===143
+14:42:02.069 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+tryMinimizeExits(finallyBlock, exitType, labelName);
+14:42:02.069 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at com.google.javascript.jscomp.MinimizeExitPoints:143 ---
+14:42:02.069 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix com/google/javascript/jscomp/MinimizeExitPoints.java 143 ---
+14:42:02.070 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- com.google.javascript.jscomp.MinimizeExitPointsTest::testDontRemoveBreakInTryFinally, - com.google.javascript.jscomp.MinimizeExitPointsTest::testFunctionReturnOptimization]
+14:42:02.162 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: visit(finallyBlock, exitType, labelName);
+14:42:02.163 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: moveAllFollowing(finallyBlock, exitType, labelName);
+14:42:02.163 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: matchingExitNode(finallyBlock, exitType, labelName);
+14:42:02.163 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: tryMinimizeExits(exitType, labelName);
+14:42:02.163 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: tryMinimizeExits(finallyBlock, labelName);
+14:42:02.163 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: tryMinimizeExits(finallyBlock, exitType);
+---------------- Testing New Patch ----------------
+14:42:02.163 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:42:08.393 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-126 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:42:08.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:42:14.500 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-126 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:42:14.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:42:31.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:42:31.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:44:31.995 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [com.google.javascript.jscomp.MinimizeExitPointsTest::testDontRemoveBreakInTryFinally, com.google.javascript.jscomp.MinimizeExitPointsTest::testFunctionReturnOptimization]
+14:44:31.995 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 0, []
+14:44:31.996 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=2, pf=0, pp=Unknown
+14:44:31.996 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+14:44:32.108 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-126/aggregatedSusInfo.profl
+14:44:32.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.MinimizeExitPoints:tryMinimizeExits(Lcom/google/javascript/rhino/Node;ILjava/lang/String;)V in com.google.javascript.jscomp.MinimizeExitPoints:143
+14:44:32.109 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Succeeded to fix the bug Closure-126====================
+diff --git a/src/com/google/javascript/jscomp/MinimizeExitPoints.java b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+index 4146f17..83acd41 100644
+--- a/src/com/google/javascript/jscomp/MinimizeExitPoints.java
++++ b/src/com/google/javascript/jscomp/MinimizeExitPoints.java
+@@ -140,7 +140,7 @@ class MinimizeExitPoints
+        */
+       if (NodeUtil.hasFinally(n)) {
+         Node finallyBlock = n.getLastChild();
+-        tryMinimizeExits(finallyBlock, exitType, labelName);
++        matchingExitNode(finallyBlock, exitType, labelName);
+       }
+     }
+14:44:32.398 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+14:44:32.855 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-126/aggregatedSusInfo.profl
+Succeeded to fix bug Closure-126
+Repair process completed

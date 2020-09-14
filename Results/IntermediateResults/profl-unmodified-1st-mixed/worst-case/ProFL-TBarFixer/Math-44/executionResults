@@ -1,0 +1,38 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-44
+14:09:08.106 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-44 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/44.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/44.txt
+14:09:15.423 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+14:09:15.458 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-44/generalSusInfo.profl
+14:09:15.468 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+14:09:15.468 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator ===252
+14:09:16.587 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return forward ? initialStep : -initialStep;
+14:09:16.588 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:252 ---
+14:09:16.588 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/ode/nonstiff/AdaptiveStepsizeIntegrator.java 252 ---
+14:09:16.588 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.ode.events.EventStateTest::testIssue695]
+14:09:16.820 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return initialStep;
+14:09:16.820 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return -initialStep;
+---------------- Testing New Patch ----------------
+14:09:16.821 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:18.129 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:09:18.129 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:10:17.612 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::testIssue695]
+14:10:17.613 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.ode.events.EventStateTest::testIssue695, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep]
+14:10:17.613 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::testIssue695
+14:10:17.613 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep
+14:10:17.613 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+14:10:17.613 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:10:17.766 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-44/aggregatedSusInfo.profl
+14:10:17.766 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:initializeStep(ZI[DD[D[D[D[D)D in org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:252
+14:10:17.766 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-44
+---------------- Testing New Patch ----------------
+14:10:17.767 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:10:19.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:10:19.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.

@@ -1,0 +1,238 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-41
+07:05:52.105 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Lang-41 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/41.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/41.txt
+07:05:53.316 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+07:05:53.324 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/generalSusInfo.profl
+07:05:53.325 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+07:05:53.325 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.ClassUtils ===230
+07:05:54.225 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return StringUtils.EMPTY;
+07:05:54.226 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.ClassUtils:230 ---
+07:05:54.226 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/ClassUtils.java 230 ---
+07:05:54.226 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:05:54.397 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return PACKAGE_SEPARATOR;
+
+07:05:54.398 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return ClassUtils.PACKAGE_SEPARATOR;
+
+07:05:54.398 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return INNER_CLASS_SEPARATOR;
+
+07:05:54.398 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return ClassUtils.INNER_CLASS_SEPARATOR;
+
+---------------- Testing New Patch ----------------
+07:05:54.400 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:05:55.446 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:05:55.447 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:05.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:05.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:05.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:06:05.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:06:05.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:06:05.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:06:05.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:06:05.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:06:05.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:06:05.429 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:06.627 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:06.628 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:16.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:16.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:16.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:06:16.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:06:16.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:06:16.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:06:16.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:06:16.946 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:06:16.946 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:06:16.947 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:18.109 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:18.109 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:28.538 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:28.538 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:28.538 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:06:28.538 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:06:28.538 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:06:28.538 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:06:28.542 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:06:28.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:06:28.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:06:28.543 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:29.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:29.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:41.086 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:41.087 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:41.087 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:06:41.087 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:06:41.087 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:06:41.087 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:06:41.089 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:06:41.089 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:06:41.089 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+07:06:41.611 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return PACKAGE_SEPARATOR;
+07:06:41.611 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return ClassUtils.PACKAGE_SEPARATOR;
+07:06:41.611 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return INNER_CLASS_SEPARATOR;
+07:06:41.611 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return ClassUtils.INNER_CLASS_SEPARATOR;
+---------------- Testing New Patch ----------------
+07:06:41.612 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:42.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:42.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:54.348 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:54.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:06:54.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:06:54.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:06:54.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:06:54.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:06:54.354 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:06:54.354 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:06:54.354 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:06:54.355 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:55.583 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:55.583 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:07.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:07:07.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:07:07.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:07:07.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:07:07.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:07:07.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:07:07.200 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:07:07.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:07:07.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:07:07.201 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:08.494 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:08.494 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:20.632 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:07:20.633 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:07:20.633 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:07:20.633 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:07:20.633 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:07:20.633 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:07:20.688 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:07:20.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:07:20.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:07:20.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:22.114 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:22.114 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:34.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:07:34.810 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:07:34.810 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:07:34.810 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:07:34.810 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:07:34.810 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:07:35.213 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:07:35.213 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:07:35.213 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY != null) {
+	
+
+	}
+
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY == null) {
+	    throw new IllegalArgumentException("Null 'StringUtils.EMPTY' argument.");
+	}
+
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY == null) {
+	    return null;
+	}
+
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY == null) StringUtils.EMPTY = new null();
+ 
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY == null) return new String();
+	 
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY == null) return PACKAGE_SEPARATOR;
+	 
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY == null) return ClassUtils.PACKAGE_SEPARATOR;
+	 
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY == null) return INNER_CLASS_SEPARATOR;
+	 
+07:07:35.260 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (StringUtils.EMPTY == null) return ClassUtils.INNER_CLASS_SEPARATOR;
+	 
+---------------- Testing New Patch ----------------
+07:07:35.262 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:36.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:36.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:49.090 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:07:49.091 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:07:49.091 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:07:49.091 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:07:49.091 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:07:49.091 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:07:51.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:07:51.188 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:07:51.188 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:07:51.189 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:52.492 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:52.492 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:04.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:08:04.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:08:04.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:08:04.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:08:04.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:08:04.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:08:17.635 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:08:17.635 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:08:17.635 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:08:17.636 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:18.940 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:18.940 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:30.223 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:08:30.223 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:08:30.223 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:08:30.223 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:08:30.223 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:08:30.224 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:09:52.024 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:09:52.024 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:09:52.024 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:09:52.025 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:09:52.502 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-41 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:09:52.503 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:09:53.765 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:09:53.765 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:10:04.720 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:10:04.721 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:10:04.721 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:10:04.721 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:10:04.721 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:10:04.721 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:17:26.445 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:17:26.445 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:17:26.445 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:17:26.446 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:17:27.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:17:27.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:17:40.678 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:17:40.678 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:17:40.678 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:17:40.678 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:17:40.678 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:17:40.678 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:59:02.329 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-41/aggregatedSusInfo.profl
+07:59:02.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/Class;)Ljava/lang/String; in org.apache.commons.lang.ClassUtils:230
+07:59:02.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-41
+---------------- Testing New Patch ----------------
+07:59:02.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:59:03.716 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:59:03.716 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:59:15.585 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:59:15.585 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class, - org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class]
+07:59:15.585 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getShortClassName_Class
+07:59:15.586 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.ClassUtilsTest::test_getPackageName_Class
+07:59:15.586 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:59:15.586 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

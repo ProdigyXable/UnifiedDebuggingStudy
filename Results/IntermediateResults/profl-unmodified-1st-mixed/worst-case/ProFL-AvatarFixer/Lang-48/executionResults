@@ -1,0 +1,602 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-48
+23:07:59.711 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/48.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/48.txt
+23:08:01.242 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+23:08:01.260 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Lang-48/ochiai.txt
+23:08:01.269 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+23:08:01.269 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang.builder.EqualsBuilder ===372
+23:08:02.366 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return this;
+23:08:02.368 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang/builder/EqualsBuilder.java:372 ---
+23:08:02.375 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:08:02.377 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:03.577 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:08:03.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:08:03.579 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:04.562 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:04.562 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:05.616 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:08:05.617 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:08:05.617 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:06.576 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:08:06.576 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang.builder.EqualsBuilder ===381
+23:08:06.732 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+isEquals = lhs.equals(rhs);
+23:08:06.733 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang/builder/EqualsBuilder.java:381 ---
+23:08:06.733 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: isEquals = lhsClass.equals(rhs);
+23:08:06.734 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: isEquals = rhs.equals(rhs);
+23:08:06.734 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: isEquals = this.isEquals.equals(rhs);
+23:08:06.734 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: isEquals = lhs.equals(lhsClass);
+23:08:06.734 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: isEquals = lhs.equals(lhs);
+23:08:06.734 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: isEquals = lhs.equals(this.isEquals);
+---------------- Testing New Patch ----------------
+23:08:06.734 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:07.693 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:08:07.693 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:08:20.623 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 11, [- org.apache.commons.lang.ArrayUtilsTest::testIsEquals, - org.apache.commons.lang.StringUtilsTest::testSplitByCharacterType, - org.apache.commons.lang.StringUtilsTest::testSplitByCharacterTypeCamelCase, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields, - org.apache.commons.lang.builder.EqualsBuilderTest::testUnrelatedClasses, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testObject]
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.ArrayUtilsTest::testIsEquals
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsTest::testSplitByCharacterType
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsTest::testSplitByCharacterTypeCamelCase
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testUnrelatedClasses
+23:08:20.624 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals
+23:08:20.625 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObject
+23:08:20.625 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=10, pp=Unknown
+23:08:20.625 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+23:08:20.627 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:08:20.627 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:08:20.627 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 11 Lang-48
+---------------- Testing New Patch ----------------
+23:08:20.627 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:21.583 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:08:21.583 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:08:34.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:08:34.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 10, [- org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareExcludeFields, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompare, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareTransients, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testSuper, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testObject]
+23:08:34.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareExcludeFields
+23:08:34.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompare
+23:08:34.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareTransients
+23:08:34.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray
+23:08:34.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals
+23:08:34.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testSuper
+23:08:34.054 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject
+23:08:34.054 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields
+23:08:34.054 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals
+23:08:34.054 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObject
+23:08:34.054 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=0, fp=1, pf=10, pp=Unknown
+23:08:34.054 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoisyFix found
+23:08:34.055 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:08:34.055 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:08:34.055 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 10 Lang-48
+---------------- Testing New Patch ----------------
+23:08:34.055 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:34.957 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:08:34.957 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:35.831 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:08:35.831 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:08:48.856 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:08:48.856 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 11, [- org.apache.commons.lang.ArrayUtilsTest::testIsEquals, - org.apache.commons.lang.StringUtilsTest::testSplitByCharacterType, - org.apache.commons.lang.StringUtilsTest::testSplitByCharacterTypeCamelCase, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields, - org.apache.commons.lang.builder.EqualsBuilderTest::testUnrelatedClasses, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testObject]
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.ArrayUtilsTest::testIsEquals
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsTest::testSplitByCharacterType
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsTest::testSplitByCharacterTypeCamelCase
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testUnrelatedClasses
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObject
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=10, pp=Unknown
+23:08:48.857 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+23:08:48.859 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:08:48.859 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:08:48.859 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 11 Lang-48
+---------------- Testing New Patch ----------------
+23:08:48.859 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:08:49.865 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:08:49.865 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:02.892 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 10, [- org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareExcludeFields, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompare, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareTransients, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testSuper, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testObject]
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareExcludeFields
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompare
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareTransients
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testSuper
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObject
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=0, fp=1, pf=10, pp=Unknown
+23:09:02.893 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoisyFix found
+23:09:02.898 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:09:02.898 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:09:02.899 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 10 Lang-48
+---------------- Testing New Patch ----------------
+23:09:02.899 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:03.853 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:03.853 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:16.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:09:16.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 11, [- org.apache.commons.lang.ArrayUtilsTest::testIsEquals, - org.apache.commons.lang.StringUtilsTest::testSplitByCharacterType, - org.apache.commons.lang.StringUtilsTest::testSplitByCharacterTypeCamelCase, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields, - org.apache.commons.lang.builder.EqualsBuilderTest::testUnrelatedClasses, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testObject]
+23:09:16.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.ArrayUtilsTest::testIsEquals
+23:09:16.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsTest::testSplitByCharacterType
+23:09:16.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsTest::testSplitByCharacterTypeCamelCase
+23:09:16.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray
+23:09:16.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals
+23:09:16.766 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:09:16.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject
+23:09:16.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields
+23:09:16.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testUnrelatedClasses
+23:09:16.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals
+23:09:16.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObject
+23:09:16.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=10, pp=Unknown
+23:09:16.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+23:09:16.769 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:09:16.769 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:09:16.769 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 11 Lang-48
+23:09:16.770 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (lhs != null) {
+	
+
+}
+
+23:09:16.770 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (lhs == null) {
+    throw new IllegalArgumentException("Null 'lhs' argument.");
+}
+
+23:09:16.770 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (lhs == null) {
+    return null;
+}
+
+23:09:16.770 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (rhs != null) {
+	
+
+}
+
+23:09:16.770 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (rhs == null) {
+    throw new IllegalArgumentException("Null 'rhs' argument.");
+}
+
+23:09:16.770 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (rhs == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+23:09:16.771 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:17.705 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:17.705 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:31.085 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:09:31.085 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 24, [- org.apache.commons.lang.ArrayUtilsTest::testIsEquals, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareExcludeFields, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompare, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareTransients, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiCharArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testByteArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal, - org.apache.commons.lang.builder.EqualsBuilderTest::testRaggedArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testShortArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiByteArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiBooleanArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testLongArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testCharArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiFloatArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMixedArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiIntArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testBooleanArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testIntArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiLongArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testFloatArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testDoubleArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiDoubleArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiShortArray]
+23:09:31.085 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.ArrayUtilsTest::testIsEquals
+23:09:31.085 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareExcludeFields
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompare
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareTransients
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiCharArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testByteArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testRaggedArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testShortArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiByteArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiBooleanArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testLongArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testCharArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiFloatArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMixedArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiIntArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBooleanArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testIntArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiLongArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testFloatArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testDoubleArrayHiddenByObject
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiDoubleArray
+23:09:31.086 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiShortArray
+23:09:31.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=23, pp=Unknown
+23:09:31.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+23:09:31.089 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:09:31.090 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:09:31.090 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 24 Lang-48
+---------------- Testing New Patch ----------------
+23:09:31.090 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:32.047 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:32.047 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:44.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:09:44.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:09:44.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:09:44.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:44.909 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:09:44.921 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:09:44.921 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:09:44.921 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-48
+---------------- Testing New Patch ----------------
+23:09:44.922 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:45.842 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:45.842 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:09:58.234 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:09:58.234 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:09:58.234 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:09:58.234 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:58.234 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:09:58.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:09:58.312 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:09:58.312 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-48
+---------------- Testing New Patch ----------------
+23:09:58.313 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:09:59.229 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:09:59.229 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:10:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:10:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:10:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:10:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:11.828 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:10:12.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:10:12.312 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:10:12.312 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-48
+---------------- Testing New Patch ----------------
+23:10:12.312 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:10:13.182 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:10:13.182 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:10:25.739 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:10:25.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:10:25.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:10:25.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:25.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:10:28.410 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:10:28.410 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:10:28.410 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-48
+---------------- Testing New Patch ----------------
+23:10:28.410 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:10:29.282 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:10:29.282 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:10:41.635 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:10:41.635 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:10:41.635 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:10:41.635 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:41.635 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:10:56.794 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:10:56.794 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:381
+23:10:56.794 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-48
+23:10:56.795 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:10:56.796 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:10:57.672 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:10:57.672 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:10:57.673 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:10:58.538 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:10:58.538 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:10:59.478 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:10:59.478 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:10:59.478 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:00.435 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:00.436 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:00.436 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:01.271 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:11:01.271 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:02.153 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:02.154 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:02.154 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:02.989 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:02.990 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:02.990 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:03.906 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:11:03.907 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:04.846 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:04.847 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:04.847 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:05.753 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:05.753 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:05.754 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:06.635 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:11:06.635 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:07.466 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:07.466 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:07.467 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:08.319 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:08.319 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang.builder.EqualsBuilder ===408
+23:11:08.419 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return this;
+23:11:08.419 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang/builder/EqualsBuilder.java:408 ---
+23:11:08.420 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:08.420 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:09.247 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:09.248 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:09.248 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:10.097 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:11:10.097 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:10.986 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:10.987 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+23:11:10.987 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:11.851 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:11.851 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang.builder.EqualsBuilder ===379
+23:11:11.933 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+if (!lhsClass.isArray()) {
+                // The simple case, not an array, just test the element
+                isEquals = lhs.equals(rhs);
+        } else if (lhs.getClass() != rhs.getClass()) {
+            // Here when we compare different dimensions, for example: a boolean[][] to a boolean[] 
+            this.setEquals(false);
+        }
+        // 'Switch' on type of array, to dispatch to the correct handler
+        // This handles multi dimensional arrays of the same depth
+        else if (lhs instanceof long[]) {
+            append((long[]) lhs, (long[]) rhs);
+        } else if (lhs instanceof int[]) {
+            append((int[]) lhs, (int[]) rhs);
+        } else if (lhs instanceof short[]) {
+            append((short[]) lhs, (short[]) rhs);
+        } else if (lhs instanceof char[]) {
+            append((char[]) lhs, (char[]) rhs);
+        } else if (lhs instanceof byte[]) {
+            append((byte[]) lhs, (byte[]) rhs);
+        } else if (lhs instanceof double[]) {
+            append((double[]) lhs, (double[]) rhs);
+        } else if (lhs instanceof float[]) {
+            append((float[]) lhs, (float[]) rhs);
+        } else if (lhs instanceof boolean[]) {
+            append((boolean[]) lhs, (boolean[]) rhs);
+        } else {
+            // Not an array of primitives
+            append((Object[]) lhs, (Object[]) rhs);
+        }
+23:11:11.934 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang/builder/EqualsBuilder.java:379 ---
+23:11:11.936 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (!lhs.isArray()) {
+                // The simple case, not an array, just test the element
+                isEquals = lhs.equals(rhs);
+        } else if (lhs.getClass() != rhs.getClass()) {
+            // Here when we compare different dimensions, for example: a boolean[][] to a boolean[] 
+            this.setEquals(false);
+        }
+        // 'Switch' on type of array, to dispatch to the correct handler
+        // This handles multi dimensional arrays of the same depth
+        else if (lhs instanceof long[]) {
+            append((long[]) lhs, (long[]) rhs);
+        } else if (lhs instanceof int[]) {
+            append((int[]) lhs, (int[]) rhs);
+        } else if (lhs instanceof short[]) {
+            append((short[]) lhs, (short[]) rhs);
+        } else if (lhs instanceof char[]) {
+            append((char[]) lhs, (char[]) rhs);
+        } else if (lhs instanceof byte[]) {
+            append((byte[]) lhs, (byte[]) rhs);
+        } else if (lhs instanceof double[]) {
+            append((double[]) lhs, (double[]) rhs);
+        } else if (lhs instanceof float[]) {
+            append((float[]) lhs, (float[]) rhs);
+        } else if (lhs instanceof boolean[]) {
+            append((boolean[]) lhs, (boolean[]) rhs);
+        } else {
+            // Not an array of primitives
+            append((Object[]) lhs, (Object[]) rhs);
+        }
+23:11:11.936 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (!rhs.isArray()) {
+                // The simple case, not an array, just test the element
+                isEquals = lhs.equals(rhs);
+        } else if (lhs.getClass() != rhs.getClass()) {
+            // Here when we compare different dimensions, for example: a boolean[][] to a boolean[] 
+            this.setEquals(false);
+        }
+        // 'Switch' on type of array, to dispatch to the correct handler
+        // This handles multi dimensional arrays of the same depth
+        else if (lhs instanceof long[]) {
+            append((long[]) lhs, (long[]) rhs);
+        } else if (lhs instanceof int[]) {
+            append((int[]) lhs, (int[]) rhs);
+        } else if (lhs instanceof short[]) {
+            append((short[]) lhs, (short[]) rhs);
+        } else if (lhs instanceof char[]) {
+            append((char[]) lhs, (char[]) rhs);
+        } else if (lhs instanceof byte[]) {
+            append((byte[]) lhs, (byte[]) rhs);
+        } else if (lhs instanceof double[]) {
+            append((double[]) lhs, (double[]) rhs);
+        } else if (lhs instanceof float[]) {
+            append((float[]) lhs, (float[]) rhs);
+        } else if (lhs instanceof boolean[]) {
+            append((boolean[]) lhs, (boolean[]) rhs);
+        } else {
+            // Not an array of primitives
+            append((Object[]) lhs, (Object[]) rhs);
+        }
+23:11:11.936 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (!this.isEquals.isArray()) {
+                // The simple case, not an array, just test the element
+                isEquals = lhs.equals(rhs);
+        } else if (lhs.getClass() != rhs.getClass()) {
+            // Here when we compare different dimensions, for example: a boolean[][] to a boolean[] 
+            this.setEquals(false);
+        }
+        // 'Switch' on type of array, to dispatch to the correct handler
+        // This handles multi dimensional arrays of the same depth
+        else if (lhs instanceof long[]) {
+            append((long[]) lhs, (long[]) rhs);
+        } else if (lhs instanceof int[]) {
+            append((int[]) lhs, (int[]) rhs);
+        } else if (lhs instanceof short[]) {
+            append((short[]) lhs, (short[]) rhs);
+        } else if (lhs instanceof char[]) {
+            append((char[]) lhs, (char[]) rhs);
+        } else if (lhs instanceof byte[]) {
+            append((byte[]) lhs, (byte[]) rhs);
+        } else if (lhs instanceof double[]) {
+            append((double[]) lhs, (double[]) rhs);
+        } else if (lhs instanceof float[]) {
+            append((float[]) lhs, (float[]) rhs);
+        } else if (lhs instanceof boolean[]) {
+            append((boolean[]) lhs, (boolean[]) rhs);
+        } else {
+            // Not an array of primitives
+            append((Object[]) lhs, (Object[]) rhs);
+        }
+---------------- Testing New Patch ----------------
+23:11:11.937 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:12.768 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:11:12.768 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:13.595 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+23:11:13.596 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:14.443 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+23:11:14.444 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (lhsClass != null) {
+	
+
+}
+
+23:11:14.444 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (lhsClass == null) {
+    throw new IllegalArgumentException("Null 'lhsClass' argument.");
+}
+
+23:11:14.444 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (lhsClass == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+23:11:14.444 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:11:15.309 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:11:15.309 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:11:27.978 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:11:27.978 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:11:27.978 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:11:27.978 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:11:27.978 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:13:03.721 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:13:03.721 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:379
+23:13:03.721 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-48
+---------------- Testing New Patch ----------------
+23:13:03.722 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:13:04.573 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:13:04.573 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:13:16.818 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:13:16.818 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:13:16.818 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:13:16.818 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:13:16.818 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+23:22:06.843 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+23:22:06.843 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:379
+23:22:06.843 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-48
+---------------- Testing New Patch ----------------
+23:22:06.843 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+23:22:07.725 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+23:22:07.725 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+23:22:19.899 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:22:19.899 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+23:22:19.899 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal
+23:22:19.899 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:22:19.899 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+00:19:15.740 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-48/aggregatedSusInfo.profl
+00:19:15.740 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang.builder.EqualsBuilder:append(Ljava/lang/Object;Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder; in org.apache.commons.lang.builder.EqualsBuilder:379
+00:19:15.740 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-48
+00:19:15.740 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: isEquals = lhs.equals(rhs);
+        } else if (lhs.getClass() != rhs.getClass()) {
+            // Here when we compare different dimensions, for example: a boolean[][] to a boolean[] 
+            this.setEquals(false);
+        }
+        // 'Switch' on type of array, to dispatch to the correct handler
+        // This handles multi dimensional arrays of the same depth
+        else if (lhs instanceof long[]) {
+            append((long[]) lhs, (long[]) rhs);
+        } else if (lhs instanceof int[]) {
+            append((int[]) lhs, (int[]) rhs);
+        } else if (lhs instanceof short[]) {
+            append((short[]) lhs, (short[]) rhs);
+        } else if (lhs instanceof char[]) {
+            append((char[]) lhs, (char[]) rhs);
+        } else if (lhs instanceof byte[]) {
+            append((byte[]) lhs, (byte[]) rhs);
+        } else if (lhs instanceof double[]) {
+            append((double[]) lhs, (double[]) rhs);
+        } else if (lhs instanceof float[]) {
+            append((float[]) lhs, (float[]) rhs);
+        } else if (lhs instanceof boolean[]) {
+            append((boolean[]) lhs, (boolean[]) rhs);
+        } else {
+            // Not an array of primitives
+            append((Object[]) lhs, (Object[]) rhs);
+        }
+00:19:15.740 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+---------------- Testing New Patch ----------------
+00:19:15.741 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+00:19:16.172 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-48 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+00:19:16.173 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+00:19:17.047 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+00:19:17.047 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+00:19:29.619 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.builder.EqualsBuilderTest::testBigDecimal]
+00:19:29.619 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 29, [- org.apache.commons.lang.ArrayUtilsTest::testIsEquals, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareExcludeFields, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompare, - org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareTransients, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiCharArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testByteArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testRaggedArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testSuper, - org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testShortArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiByteArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiBooleanArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testLongArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testCharArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiFloatArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMixedArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiIntArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testBooleanArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testIntArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiLongArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testFloatArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals, - org.apache.commons.lang.builder.EqualsBuilderTest::testDoubleArrayHiddenByObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testObject, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiDoubleArray, - org.apache.commons.lang.builder.EqualsBuilderTest::testMultiShortArray]
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.ArrayUtilsTest::testIsEquals
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareExcludeFields
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompare
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.CompareToBuilderTest::testReflectionHierarchyCompareTransients
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArray
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiCharArray
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testByteArrayHiddenByObject
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEquals
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testRaggedArray
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testSuper
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObjectArrayHiddenByObject
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testShortArrayHiddenByObject
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiByteArray
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiBooleanArray
+00:19:29.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testLongArrayHiddenByObject
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testCharArrayHiddenByObject
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionEqualsExcludeFields
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiFloatArray
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMixedArray
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiIntArray
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testBooleanArrayHiddenByObject
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testIntArrayHiddenByObject
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiLongArray
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testFloatArrayHiddenByObject
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testReflectionHierarchyEquals
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testDoubleArrayHiddenByObject
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testObject
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiDoubleArray
+00:19:29.621 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.builder.EqualsBuilderTest::testMultiShortArray
+00:19:29.622 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=0, fp=1, pf=29, pp=Unknown
+00:19:29.622 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoisyFix found

@@ -1,0 +1,136 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Chart-19
+06:29:07.933 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Chart-19 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/19.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/19.txt
+06:29:15.415 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+06:29:15.443 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-19/generalSusInfo.profl
+06:29:15.453 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+06:29:15.453 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.chart.plot.CategoryPlot ===981
+06:29:17.860 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return result;
+06:29:17.883 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.chart.plot.CategoryPlot ===976
+06:29:18.260 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (parent instanceof CategoryPlot) {
+                CategoryPlot p = (CategoryPlot) parent;
+                result = p.getRangeAxisIndex(axis);
+            }
+06:29:18.264 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result < 0)) {
+                CategoryPlot p = (CategoryPlot) parent;
+                result = p.getRangeAxisIndex(axis);
+            }
+06:29:18.271 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:29:20.601 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:29:20.601 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:29:45.719 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:29:45.720 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, - org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:29:45.720 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex
+06:29:45.720 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex
+06:29:45.720 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+06:29:45.721 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:29:45.775 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-19/aggregatedSusInfo.profl
+06:29:45.775 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.chart.plot.CategoryPlot:getRangeAxisIndex(Lorg/jfree/chart/axis/ValueAxis;)I in org.jfree.chart.plot.CategoryPlot:976
+06:29:45.775 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Chart-19
+06:29:45.778 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((parent instanceof CategoryPlot) || (result < 0)) {
+                CategoryPlot p = (CategoryPlot) parent;
+                result = p.getRangeAxisIndex(axis);
+            }
+06:29:45.778 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((parent instanceof CategoryPlot) && (result < 0)) {
+                CategoryPlot p = (CategoryPlot) parent;
+                result = p.getRangeAxisIndex(axis);
+            }
+06:29:45.778 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((parent instanceof CategoryPlot) || !(result < 0)) {
+                CategoryPlot p = (CategoryPlot) parent;
+                result = p.getRangeAxisIndex(axis);
+            }
+06:29:45.778 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((parent instanceof CategoryPlot) && !(result < 0)) {
+                CategoryPlot p = (CategoryPlot) parent;
+                result = p.getRangeAxisIndex(axis);
+            }
+06:29:45.780 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:29:47.759 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:29:47.761 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:30:10.634 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:30:10.635 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, - org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:30:10.635 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex
+06:30:10.635 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex
+06:30:10.635 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+06:30:10.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:30:10.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-19/aggregatedSusInfo.profl
+06:30:10.767 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.chart.plot.CategoryPlot:getRangeAxisIndex(Lorg/jfree/chart/axis/ValueAxis;)I in org.jfree.chart.plot.CategoryPlot:976
+06:30:10.768 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Chart-19
+06:30:10.769 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:30:12.943 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:30:12.943 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:30:35.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:30:35.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, - org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:30:35.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex
+06:30:35.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex
+06:30:35.455 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+06:30:35.455 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:30:35.702 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-19/aggregatedSusInfo.profl
+06:30:35.702 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.chart.plot.CategoryPlot:getRangeAxisIndex(Lorg/jfree/chart/axis/ValueAxis;)I in org.jfree.chart.plot.CategoryPlot:976
+06:30:35.702 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Chart-19
+06:30:35.703 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:30:37.685 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:30:37.685 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:30:59.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:30:59.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, - org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:30:59.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex
+06:30:59.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex
+06:30:59.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+06:30:59.156 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:31:02.668 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-19/aggregatedSusInfo.profl
+06:31:02.668 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.chart.plot.CategoryPlot:getRangeAxisIndex(Lorg/jfree/chart/axis/ValueAxis;)I in org.jfree.chart.plot.CategoryPlot:976
+06:31:02.668 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Chart-19
+06:31:02.670 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:31:04.628 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:31:04.628 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:31:26.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:31:26.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, - org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:31:26.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex
+06:31:26.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex
+06:31:26.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+06:31:26.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:32:35.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-19/aggregatedSusInfo.profl
+06:32:35.182 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.chart.plot.CategoryPlot:getRangeAxisIndex(Lorg/jfree/chart/axis/ValueAxis;)I in org.jfree.chart.plot.CategoryPlot:976
+06:32:35.182 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Chart-19
+06:32:35.185 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (parent != null) {
+	
+
+}
+
+06:32:35.186 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (parent == null) {
+    throw new IllegalArgumentException("Null 'parent' argument.");
+}
+
+06:32:35.186 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (parent == null) {
+    return 0;
+}
+
+06:32:35.188 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:32:37.039 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:32:37.039 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:32:55.367 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:32:55.367 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, - org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:32:55.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex
+06:32:55.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex
+06:32:55.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+06:32:55.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:49:47.149 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-19/aggregatedSusInfo.profl
+06:49:47.150 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.chart.plot.CategoryPlot:getRangeAxisIndex(Lorg/jfree/chart/axis/ValueAxis;)I in org.jfree.chart.plot.CategoryPlot:976
+06:49:47.150 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Chart-19
+06:49:47.152 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:49:49.028 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:49:49.028 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:50:10.467 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:50:10.467 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex, - org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex]
+06:50:10.467 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetRangeAxisIndex
+06:50:10.467 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.chart.plot.junit.CategoryPlotTests::testGetDomainAxisIndex
+06:50:10.467 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+06:50:10.467 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

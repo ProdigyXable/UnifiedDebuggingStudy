@@ -1,0 +1,225 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-24
+10:51:52.820 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-24 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/24.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/24.txt
+10:52:02.935 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+10:52:02.964 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-24/generalSusInfo.profl
+10:52:02.966 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+10:52:02.966 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.analysis.FunctionUtils ===141
+10:52:04.159 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return new UnivariateFunction() {
+            /** {@inheritDoc} */
+            public double value(double x) {
+                double r = f[0].value(x);
+                for (int i = 1; i < f.length; i++) {
+                    r += f[i].value(x);
+                }
+                return r;
+            }
+        };
+10:52:04.174 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new UnivariateFunction() {
+            f
+        };
+10:52:04.177 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:52:04.768 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-24 ---Fixer: fix fail because of failed compiling! 
+10:52:04.769 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.analysis.function.StepFunction ===99
+10:52:04.813 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return fx;
+10:52:04.814 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.analysis.function.StepFunction ===96
+10:52:04.848 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+fx = ordinate[0];
+10:52:04.850 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (ordinate != null) {
+	
+
+}
+
+10:52:04.850 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (ordinate == null) {
+    throw new IllegalArgumentException("Null 'ordinate' argument.");
+}
+
+10:52:04.850 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (ordinate == null) {
+    return 0.0;
+}
+
+10:52:04.850 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:52:06.019 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:52:06.019 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:53:51.639 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:53:51.639 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:53:51.639 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:53:51.639 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:53:51.640 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:53:51.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-24/aggregatedSusInfo.profl
+10:53:51.655 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.analysis.function.StepFunction:value(D)D in org.apache.commons.math3.analysis.function.StepFunction:96
+10:53:51.655 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-24
+10:53:51.656 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:53:52.616 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:53:52.616 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:55:35.643 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:55:35.644 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:55:35.644 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:55:35.644 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:55:35.644 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:55:35.818 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-24/aggregatedSusInfo.profl
+10:55:35.819 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.analysis.function.StepFunction:value(D)D in org.apache.commons.math3.analysis.function.StepFunction:96
+10:55:35.819 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-24
+10:55:35.819 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:55:36.926 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:55:36.927 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:57:19.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:57:19.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:57:19.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:57:19.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:57:19.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:57:19.314 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-24/aggregatedSusInfo.profl
+10:57:19.314 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.analysis.function.StepFunction:value(D)D in org.apache.commons.math3.analysis.function.StepFunction:96
+10:57:19.314 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-24
+10:57:19.320 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (ordinate.length() <= 0) {
+	
+
+}
+
+10:57:19.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:57:20.370 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-24 ---Fixer: fix fail because of failed compiling! 
+10:57:20.371 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.analysis.function.StepFunction ===90
+10:57:20.399 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (index >= 0) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+10:57:20.403 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (index > 0) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+10:57:20.403 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (index < 0) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+10:57:20.403 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (index <= 0) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+10:57:20.404 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((index < -1)) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+10:57:20.404 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:57:21.626 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:57:21.626 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:58:50.034 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:58:50.034 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:58:50.035 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:58:50.035 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:58:50.035 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:58:51.205 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-24/aggregatedSusInfo.profl
+10:58:51.205 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.analysis.function.StepFunction:value(D)D in org.apache.commons.math3.analysis.function.StepFunction:90
+10:58:51.205 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-24
+10:58:51.205 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:58:52.228 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:58:52.228 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+11:00:27.501 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:00:27.501 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math3.analysis.function.StepFunctionTest::testSomeValues, - org.apache.commons.math3.analysis.function.StepFunctionTest::testEndpointBehavior, - org.apache.commons.math3.analysis.function.StepFunctionTest::testHeaviside, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:00:27.501 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testSomeValues
+11:00:27.501 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testEndpointBehavior
+11:00:27.502 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testHeaviside
+11:00:27.502 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+11:00:27.502 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+11:00:27.502 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+11:00:53.882 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-24/aggregatedSusInfo.profl
+11:00:53.883 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.analysis.function.StepFunction:value(D)D in org.apache.commons.math3.analysis.function.StepFunction:90
+11:00:53.883 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Math-24
+11:00:53.883 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+11:00:54.937 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+11:00:54.937 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+11:02:27.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:02:27.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math3.analysis.function.StepFunctionTest::testSomeValues, - org.apache.commons.math3.analysis.function.StepFunctionTest::testEndpointBehavior, - org.apache.commons.math3.analysis.function.StepFunctionTest::testHeaviside, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:02:27.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testSomeValues
+11:02:27.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testEndpointBehavior
+11:02:27.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testHeaviside
+11:02:27.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+11:02:27.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+11:02:27.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+11:08:33.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-24/aggregatedSusInfo.profl
+11:08:33.744 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.analysis.function.StepFunction:value(D)D in org.apache.commons.math3.analysis.function.StepFunction:90
+11:08:33.744 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Math-24
+11:08:33.744 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+11:08:34.922 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+11:08:34.923 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+11:09:43.842 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:09:43.842 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math3.analysis.function.StepFunctionTest::testSomeValues, - org.apache.commons.math3.analysis.function.StepFunctionTest::testEndpointBehavior, - org.apache.commons.math3.analysis.function.StepFunctionTest::testHeaviside, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:09:43.842 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testSomeValues
+11:09:43.842 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testEndpointBehavior
+11:09:43.842 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.function.StepFunctionTest::testHeaviside
+11:09:43.842 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+11:09:43.842 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+11:09:43.843 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+12:45:17.814 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-24/aggregatedSusInfo.profl
+12:45:17.814 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.analysis.function.StepFunction:value(D)D in org.apache.commons.math3.analysis.function.StepFunction:90
+12:45:17.814 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Math-24
+12:45:17.816 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((index >= 0) || (index < -1)) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+12:45:17.816 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((index >= 0) && (index < -1)) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+12:45:17.816 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((index >= 0) || !(index < -1)) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+12:45:17.816 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((index >= 0) && !(index < -1)) {
+            // "x" is exactly "abscissa[index]".
+            fx = ordinate[index];
+        } else {
+            // Otherwise, "x" is smaller than the first value in "abscissa"
+            // (hence the returned value should be "ordinate[0]").
+            fx = ordinate[0];
+        }
+12:45:17.816 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+12:45:18.705 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+12:45:18.705 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+12:46:26.735 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+12:46:26.735 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.optimization.direct.CMAESOptimizerTest::testMaximize, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+12:46:26.735 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.CMAESOptimizerTest::testMaximize
+12:46:26.735 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+12:46:26.735 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+12:46:26.735 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

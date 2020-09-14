@@ -1,0 +1,278 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-105
+01:55:10.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-105 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/105.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/105.txt
+01:55:13.411 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:55:13.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/generalSusInfo.profl
+01:55:13.503 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:55:13.503 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.stat.regression.SimpleRegression ===264
+01:55:15.617 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return sumYY - sumXY * sumXY / sumXX;
+01:55:15.618 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.stat.regression.SimpleRegression:264 ---
+01:55:15.618 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/stat/regression/SimpleRegression.java 264 ---
+01:55:15.619 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:55:15.775 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.sumX;
+
+01:55:15.775 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.sumXX;
+
+01:55:15.775 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.sumY;
+
+01:55:15.775 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.sumYY;
+
+01:55:15.776 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.sumXY;
+
+01:55:15.776 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.xbar;
+
+01:55:15.776 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.ybar;
+
+---------------- Testing New Patch ----------------
+01:55:15.777 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:17.734 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:17.734 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:55:31.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=6, pp=Unknown
+01:55:31.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+01:55:31.808 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:55:31.808 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:55:31.808 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-105
+---------------- Testing New Patch ----------------
+01:55:31.809 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:34.019 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:34.019 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:55:47.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:55:47.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+01:55:47.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+01:55:47.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:55:47.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+01:55:47.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:55:47.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:55:47.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=5, pp=Unknown
+01:55:47.296 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+01:55:47.297 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:55:47.297 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:55:47.297 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-105
+---------------- Testing New Patch ----------------
+01:55:47.298 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:49.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:49.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:03.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:56:03.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+01:56:03.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+01:56:03.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:56:03.682 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+01:56:03.683 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:56:03.683 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:56:03.683 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=5, pp=Unknown
+01:56:03.683 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+01:56:03.684 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:56:03.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:56:03.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-105
+---------------- Testing New Patch ----------------
+01:56:03.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:05.682 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:05.682 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:18.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:56:18.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+01:56:18.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+01:56:18.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:56:18.228 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+01:56:18.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:56:18.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:56:18.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=5, pp=Unknown
+01:56:18.229 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+01:56:18.255 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:56:18.255 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:56:18.255 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-105
+---------------- Testing New Patch ----------------
+01:56:18.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:20.165 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:20.165 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:33.767 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:56:33.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testRandom]
+01:56:33.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+01:56:33.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:56:33.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+01:56:33.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative
+01:56:33.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:56:33.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:56:33.768 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testRandom
+01:56:33.769 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=7, pp=Unknown
+01:56:33.769 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+01:56:33.771 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:56:33.771 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:56:33.771 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 7 Math-105
+---------------- Testing New Patch ----------------
+01:56:33.772 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:35.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:35.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:47.377 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:56:47.377 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+01:56:47.377 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+01:56:47.378 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:56:47.378 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+01:56:47.378 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative
+01:56:47.378 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:56:47.378 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:56:47.378 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=6, pp=Unknown
+01:56:47.378 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+01:56:47.385 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:56:47.385 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:56:47.385 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-105
+---------------- Testing New Patch ----------------
+01:56:47.386 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:49.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:49.257 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:01.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:57:01.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+01:57:01.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+01:57:01.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:57:01.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+01:57:01.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:57:01.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:57:01.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=5, pp=Unknown
+01:57:01.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+01:57:01.947 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:57:01.956 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:57:01.956 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-105
+01:57:02.094 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY - sumXY * sumXY / (double)sumXX;
+01:57:02.094 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY - sumXY * sumXY / (float)sumXX;
+01:57:02.094 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY - (double)sumXY * sumXY / sumXX;
+01:57:02.094 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY - (float)sumXY * sumXY / sumXX;
+---------------- Testing New Patch ----------------
+01:57:02.095 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:03.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:03.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:16.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:57:16.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:57:16.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative
+01:57:16.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:16.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:57:17.219 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:57:17.219 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:57:17.220 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-105
+---------------- Testing New Patch ----------------
+01:57:17.221 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:18.942 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:18.942 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:30.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:57:30.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfect, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+01:57:30.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:57:30.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfect
+01:57:30.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative
+01:57:30.786 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:57:30.786 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:57:30.786 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=5, pp=Unknown
+01:57:30.786 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+01:57:32.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:57:32.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:57:32.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-105
+---------------- Testing New Patch ----------------
+01:57:32.048 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:33.887 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:33.887 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:46.062 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:57:46.062 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:57:46.062 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative
+01:57:46.062 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:46.062 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:57:52.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:57:52.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:57:52.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-105
+---------------- Testing New Patch ----------------
+01:57:52.892 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:54.801 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:54.801 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:58:06.548 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:58:06.548 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfect, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+01:58:06.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+01:58:06.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfect
+01:58:06.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative
+01:58:06.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative
+01:58:06.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+01:58:06.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+01:58:06.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=5, pp=Unknown
+01:58:06.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:58:45.816 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+01:58:45.817 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+01:58:45.817 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-105
+01:58:45.930 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY - sumXY * (sumXY / sumXX);
+01:58:45.930 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (sumYY - sumXY * sumXY) / sumXX;
+01:58:45.932 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY - sumXY / sumXY / sumXX;
+01:58:45.932 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY - sumXY * sumXY * sumXX;
+01:58:45.932 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY - sumXY * sumXY % sumXX;
+01:58:45.932 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return sumYY + sumXY * sumXY / sumXX;
+---------------- Testing New Patch ----------------
+01:58:45.933 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:47.008 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:58:47.008 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:58:56.906 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:58:56.906 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+01:58:56.906 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative
+01:58:56.907 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:58:56.907 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+02:02:24.958 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+02:02:24.958 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+02:02:24.958 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-105
+---------------- Testing New Patch ----------------
+02:02:24.959 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:02:25.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:02:25.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:02:34.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+02:02:34.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfect, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+02:02:34.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+02:02:34.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+02:02:34.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+02:02:34.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfect
+02:02:34.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative
+02:02:34.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+02:02:34.583 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+02:02:34.583 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=7, pp=Unknown
+02:02:34.583 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+02:15:27.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+02:15:27.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+02:15:27.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 7 Math-105
+---------------- Testing New Patch ----------------
+02:15:27.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:15:28.401 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:15:28.401 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:15:37.483 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+02:15:37.483 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+02:15:37.483 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+02:15:37.483 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+02:15:37.483 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+02:15:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative
+02:15:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+02:15:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+02:15:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=5, pp=Unknown
+02:15:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+04:39:23.965 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-105/aggregatedSusInfo.profl
+04:39:23.966 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.regression.SimpleRegression:getSumSquaredErrors()D in org.apache.commons.math.stat.regression.SimpleRegression:264
+04:39:23.966 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-105
+---------------- Testing New Patch ----------------
+04:39:23.967 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+04:39:25.077 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+04:39:25.077 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+04:39:33.626 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.regression.SimpleRegressionTest::testSSENonNegative]
+04:39:33.626 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfect, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testClear
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testCorr
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNaNs
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfect
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testPerfectNegative
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testNorris
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=7, pp=Unknown
+04:39:33.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found

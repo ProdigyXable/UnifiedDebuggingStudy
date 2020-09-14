@@ -1,0 +1,165 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-4
+01:56:17.699 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Time-4 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/4.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/4.txt
+01:56:23.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+01:56:23.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-4/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Time-4/ochiai.txt
+01:56:23.614 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+01:56:23.614 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.joda.time.field.ZeroIsMaxDateTimeField ===178
+01:56:24.288 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return getWrappedField().getMaximumValue(instant, values) + 1;
+01:56:24.291 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/joda/time/field/ZeroIsMaxDateTimeField.java:178 ---
+01:56:24.299 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return getWrappedField().getMaximumValue(values, values) + 1;
+01:56:24.300 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return getWrappedField().getMaximumValue(serialVersionUID, values) + 1;
+01:56:24.300 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return getWrappedField().getMaximumValue(instant, instant) + 1;
+01:56:24.300 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return getWrappedField().getMaximumValue(instant, serialVersionUID) + 1;
+---------------- Testing New Patch ----------------
+01:56:24.301 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:26.637 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-4 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:26.637 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:28.971 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-4 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:28.972 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:31.155 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-4 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:31.155 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:33.344 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-4 ---Fixer: fix fail because of failed compiling! 
+01:56:33.345 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (instant != null) {
+	
+
+}
+
+01:56:33.345 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (instant == null) {
+    throw new IllegalArgumentException("Null 'instant' argument.");
+}
+
+01:56:33.345 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (instant == null) {
+    return 0;
+}
+
+01:56:33.345 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (values != null) {
+	
+
+}
+
+01:56:33.345 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (values == null) {
+    throw new IllegalArgumentException("Null 'values' argument.");
+}
+
+01:56:33.345 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (values == null) {
+    return 0;
+}
+
+---------------- Testing New Patch ----------------
+01:56:33.345 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:35.530 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-4 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:35.530 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:36.340 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:56:36.340 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:56:51.530 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestPartial_Basics::testWith3]
+01:56:51.530 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestPartial_Basics::testWith3]
+01:56:51.530 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestPartial_Basics::testWith3
+01:56:51.530 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:56:51.530 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:56:51.543 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-4/aggregatedSusInfo.profl
+01:56:51.543 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.field.ZeroIsMaxDateTimeField:getMaximumValue(Lorg/joda/time/ReadablePartial;[I)I in org.joda.time.field.ZeroIsMaxDateTimeField:178
+01:56:51.543 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-4
+---------------- Testing New Patch ----------------
+01:56:51.544 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:52.372 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:56:52.372 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:07.669 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestPartial_Basics::testWith3]
+01:57:07.669 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestPartial_Basics::testWith3]
+01:57:07.669 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestPartial_Basics::testWith3
+01:57:07.669 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:07.669 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:57:07.726 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-4/aggregatedSusInfo.profl
+01:57:07.726 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.field.ZeroIsMaxDateTimeField:getMaximumValue(Lorg/joda/time/ReadablePartial;[I)I in org.joda.time.field.ZeroIsMaxDateTimeField:178
+01:57:07.726 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-4
+---------------- Testing New Patch ----------------
+01:57:07.727 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:09.973 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-4 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:09.974 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:10.766 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:57:10.766 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:25.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestPartial_Basics::testWith3]
+01:57:25.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestPartial_Basics::testWith3]
+01:57:25.504 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestPartial_Basics::testWith3
+01:57:25.504 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:25.504 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:57:25.560 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-4/aggregatedSusInfo.profl
+01:57:25.560 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.field.ZeroIsMaxDateTimeField:getMaximumValue(Lorg/joda/time/ReadablePartial;[I)I in org.joda.time.field.ZeroIsMaxDateTimeField:178
+01:57:25.560 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-4
+---------------- Testing New Patch ----------------
+01:57:25.560 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:26.429 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:57:26.429 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:41.339 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestPartial_Basics::testWith3]
+01:57:41.339 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestPartial_Basics::testWith3]
+01:57:41.339 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestPartial_Basics::testWith3
+01:57:41.340 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:41.340 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:57:41.826 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-4/aggregatedSusInfo.profl
+01:57:41.826 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.field.ZeroIsMaxDateTimeField:getMaximumValue(Lorg/joda/time/ReadablePartial;[I)I in org.joda.time.field.ZeroIsMaxDateTimeField:178
+01:57:41.826 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-4
+01:57:41.827 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:57:41.827 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:42.653 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:57:42.653 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:56.871 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestPartial_Basics::testWith3]
+01:57:56.872 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestPartial_Basics::testWith3]
+01:57:56.872 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestPartial_Basics::testWith3
+01:57:56.872 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:56.872 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:58:04.917 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-4/aggregatedSusInfo.profl
+01:58:04.918 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.field.ZeroIsMaxDateTimeField:getMaximumValue(Lorg/joda/time/ReadablePartial;[I)I in org.joda.time.field.ZeroIsMaxDateTimeField:178
+01:58:04.918 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-4
+01:58:04.918 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:58:04.918 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:58:05.646 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:58:05.646 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:58:19.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestPartial_Basics::testWith3]
+01:58:19.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestPartial_Basics::testWith3]
+01:58:19.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestPartial_Basics::testWith3
+01:58:19.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:58:19.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+02:00:21.631 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-4/aggregatedSusInfo.profl
+02:00:21.631 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.field.ZeroIsMaxDateTimeField:getMaximumValue(Lorg/joda/time/ReadablePartial;[I)I in org.joda.time.field.ZeroIsMaxDateTimeField:178
+02:00:21.631 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-4
+---------------- Testing New Patch ----------------
+02:00:21.632 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:00:22.315 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:00:22.315 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:00:34.370 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestPartial_Basics::testWith3]
+02:00:34.371 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestPartial_Basics::testWith3]
+02:00:34.371 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestPartial_Basics::testWith3
+02:00:34.371 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:00:34.371 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+02:33:41.179 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-4/aggregatedSusInfo.profl
+02:33:41.180 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.field.ZeroIsMaxDateTimeField:getMaximumValue(Lorg/joda/time/ReadablePartial;[I)I in org.joda.time.field.ZeroIsMaxDateTimeField:178
+02:33:41.180 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Time-4
+02:33:41.180 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:33:41.180 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:33:41.969 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:33:41.969 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:33:54.193 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestPartial_Basics::testWith3]
+02:33:54.193 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestPartial_Basics::testWith3]
+02:33:54.193 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestPartial_Basics::testWith3
+02:33:54.193 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:33:54.193 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found

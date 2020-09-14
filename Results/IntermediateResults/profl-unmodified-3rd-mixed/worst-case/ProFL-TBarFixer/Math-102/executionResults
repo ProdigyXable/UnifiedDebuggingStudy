@@ -1,0 +1,237 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-102
+01:55:16.263 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-102 Failed Tests: 6
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/102.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/102.txt
+01:55:19.567 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:55:19.585 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-102/generalSusInfo.profl
+01:55:19.589 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:55:19.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.stat.inference.ChiSquareTestImpl ===98
+01:55:21.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return 1.0 - distribution.cumulativeProbability(
+            chiSquare(expected, observed));
+01:55:21.397 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.stat.inference.ChiSquareTestImpl:98 ---
+01:55:21.397 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/stat/inference/ChiSquareTestImpl.java 98 ---
+01:55:21.397 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:55:22.156 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 + distribution.cumulativeProbability(
+            chiSquare(expected, observed));
+---------------- Testing New Patch ----------------
+01:55:22.159 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:24.121 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:24.121 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:55:44.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:55:44.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:55:44.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic
+01:55:44.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+01:55:44.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic
+01:55:44.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+01:55:44.393 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic
+01:55:44.393 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+01:55:44.393 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+01:55:44.393 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:55:44.432 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-102/aggregatedSusInfo.profl
+01:55:44.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.inference.ChiSquareTestImpl:chiSquareTest([D[J)D in org.apache.commons.math.stat.inference.ChiSquareTestImpl:98
+01:55:44.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-102
+01:55:45.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 - distribution.cumulativeProbability(
+            chiSquareTest(expected, observed));
+01:55:45.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 - distribution.cumulativeProbability(
+            chiSquareDataSetsComparison(expected, observed));
+01:55:45.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 - distribution.cumulativeProbability(
+            chiSquareTestDataSetsComparison(expected, observed));
+01:55:45.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 - distribution.cumulativeProbability(
+            chiSquare(observed));
+01:55:45.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 - distribution.cumulativeProbability(
+            chiSquare(expected));
+---------------- Testing New Patch ----------------
+01:55:45.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:47.104 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:47.104 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:09.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:56:09.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:56:09.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic
+01:56:09.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+01:56:09.442 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic
+01:56:09.442 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+01:56:09.442 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic
+01:56:09.442 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+01:56:09.442 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+01:56:09.442 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:56:09.719 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-102/aggregatedSusInfo.profl
+01:56:09.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.inference.ChiSquareTestImpl:chiSquareTest([D[J)D in org.apache.commons.math.stat.inference.ChiSquareTestImpl:98
+01:56:09.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-102
+---------------- Testing New Patch ----------------
+01:56:09.720 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:11.795 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:11.796 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:13.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:13.645 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:15.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:15.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:17.274 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+01:56:17.479 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 - getDistributionFactory().cumulativeProbability(
+            chiSquare(expected, observed));
+01:56:17.479 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 - distribution.cumulativeProbability(
+            chiSquare(getDistributionFactory(), observed));
+01:56:17.479 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 1.0 - distribution.cumulativeProbability(
+            chiSquare(expected, getDistributionFactory()));
+---------------- Testing New Patch ----------------
+01:56:17.480 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:19.294 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:19.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:21.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:21.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:23.330 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+01:56:23.373 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (distribution != null) {
+	
+
+	}
+
+01:56:23.382 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (distribution == null) {
+	    throw new IllegalArgumentException("Null 'distribution' argument.");
+	}
+
+01:56:23.382 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (distribution == null) {
+	    return 0.0;
+	}
+
+01:56:23.382 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (distribution == null) distribution = new ChiSquaredDistribution();
+ 
+01:56:23.382 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (expected != null) {
+	
+
+	}
+
+01:56:23.383 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (expected == null) {
+	    throw new IllegalArgumentException("Null 'expected' argument.");
+	}
+
+01:56:23.383 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (expected == null) {
+	    return 0.0;
+	}
+
+01:56:23.383 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (expected == null) expected = new double[]();
+ 
+01:56:23.383 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (observed != null) {
+	
+
+	}
+
+01:56:23.383 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (observed == null) {
+	    throw new IllegalArgumentException("Null 'observed' argument.");
+	}
+
+01:56:23.383 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (observed == null) {
+	    return 0.0;
+	}
+
+01:56:23.383 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (observed == null) observed = new long[]();
+ 
+01:56:23.384 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (!(distribution != null && expected != null && observed != null)) return 0.0;
+
+---------------- Testing New Patch ----------------
+01:56:23.385 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:25.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:25.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:27.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:27.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:46.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:56:46.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:56:46.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic
+01:56:46.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+01:56:46.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic
+01:56:46.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+01:56:46.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic
+01:56:46.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+01:56:46.457 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+01:56:46.457 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:56:46.631 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-102/aggregatedSusInfo.profl
+01:56:46.631 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.inference.ChiSquareTestImpl:chiSquareTest([D[J)D in org.apache.commons.math.stat.inference.ChiSquareTestImpl:98
+01:56:46.631 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-102
+---------------- Testing New Patch ----------------
+01:56:46.638 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:48.739 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:48.739 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:07.684 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:57:07.684 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:57:07.684 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic
+01:57:07.685 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+01:57:07.685 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic
+01:57:07.685 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+01:57:07.685 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic
+01:57:07.685 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+01:57:07.685 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+01:57:07.685 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:57:09.989 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-102/aggregatedSusInfo.profl
+01:57:09.990 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.inference.ChiSquareTestImpl:chiSquareTest([D[J)D in org.apache.commons.math.stat.inference.ChiSquareTestImpl:98
+01:57:09.990 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-102
+---------------- Testing New Patch ----------------
+01:57:09.991 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:12.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:12.148 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:14.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:14.509 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:16.455 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:16.455 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:34.808 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:57:34.808 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:57:34.808 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic
+01:57:34.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+01:57:34.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic
+01:57:34.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+01:57:34.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic
+01:57:34.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+01:57:34.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+01:57:34.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:58:12.085 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-102/aggregatedSusInfo.profl
+01:58:12.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.inference.ChiSquareTestImpl:chiSquareTest([D[J)D in org.apache.commons.math.stat.inference.ChiSquareTestImpl:98
+01:58:12.086 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-102
+---------------- Testing New Patch ----------------
+01:58:12.087 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:13.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:58:13.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:58:30.911 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:58:30.911 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+01:58:30.911 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic
+01:58:30.911 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+01:58:30.911 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic
+01:58:30.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+01:58:30.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic
+01:58:30.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+01:58:30.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+01:58:30.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+02:06:08.308 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-102/aggregatedSusInfo.profl
+02:06:08.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.stat.inference.ChiSquareTestImpl:chiSquareTest([D[J)D in org.apache.commons.math.stat.inference.ChiSquareTestImpl:98
+02:06:08.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Math-102
+---------------- Testing New Patch ----------------
+02:06:08.309 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:06:08.859 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:06:08.860 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:06:09.923 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-102 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:06:09.924 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:06:10.859 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:06:10.859 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:06:23.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+02:06:23.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+02:06:23.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareLargeTestStatistic
+02:06:23.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+02:06:23.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareLargeTestStatistic
+02:06:23.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+02:06:23.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareLargeTestStatistic
+02:06:23.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+02:06:23.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+02:06:23.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

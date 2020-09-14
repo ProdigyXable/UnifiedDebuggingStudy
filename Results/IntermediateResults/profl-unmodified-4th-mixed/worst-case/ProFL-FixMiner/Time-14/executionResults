@@ -1,0 +1,394 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-14
+15:18:19.489 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 Failed Tests: 8
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/14.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/14.txt
+15:18:28.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+15:18:28.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Time-14/generalSusInfo.profl
+15:18:28.324 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+15:18:28.325 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.IllegalFieldValueException ===314
+15:18:29.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return iMessage;
+if (iMessage != null) {
+
+
+}
+
+15:18:29.393 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:18:30.759 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+if (iMessage == null) {
+    return null;
+}
+
+if (iMessage == null) {
+    throw new IllegalArgumentException("Empty variable: " + iMessage);
+}
+
+15:18:30.761 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:18:32.202 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+15:18:32.202 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+15:18:52.388 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:18:52.388 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:18:52.388 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap
+15:18:52.388 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap
+15:18:52.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap
+15:18:52.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust
+15:18:52.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust
+15:18:52.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap
+15:18:52.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap
+15:18:52.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap
+15:18:52.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+15:18:52.389 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+15:18:52.429 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Time-14/aggregatedSusInfo.profl
+15:18:52.429 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.IllegalFieldValueException:getMessage()Ljava/lang/String; in org.joda.time.IllegalFieldValueException:314
+15:18:52.429 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 8 Time-14
+15:18:52.429 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:18:53.743 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+15:18:53.743 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+15:19:13.809 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:19:13.809 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+15:19:13.810 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+15:19:13.877 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Time-14/aggregatedSusInfo.profl
+15:19:13.877 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.IllegalFieldValueException:getMessage()Ljava/lang/String; in org.joda.time.IllegalFieldValueException:314
+15:19:13.877 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 8 Time-14
+
+15:19:13.880 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:15.255 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:15.255 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.MonthDay ===519
+15:19:15.534 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+newValues = getField(index).add(this, index, newValues, amount);
+newValues = getField(index).add(true, this, index, newValues, amount);
+newValues = getField(index).add(false, this, index, newValues, amount);
+newValues = getField(index).add(this, true, index, newValues, amount);
+newValues = getField(index).add(this, false, index, newValues, amount);
+newValues = getField(index).add(this, index, true, newValues, amount);
+newValues = getField(index).add(this, index, false, newValues, amount);
+newValues = getField(index).add(this, index, newValues, true, amount);
+newValues = getField(index).add(this, index, newValues, false, amount);
+newValues = getField(index).add(this, index, newValues, amount, true);
+newValues = getField(index).add(this, index, newValues, amount, false);
+15:19:15.539 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:16.853 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:16.854 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:18.294 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:18.295 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:19.976 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:19.977 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:21.461 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:21.462 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:22.842 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:22.842 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:24.304 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:24.304 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:25.645 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:25.645 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:27.251 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:27.251 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:28.874 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:28.874 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:30.382 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+if (newValues != null) {
+
+
+}
+
+15:19:30.385 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:31.870 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+if (newValues == null) {
+    return null;
+}
+
+if (newValues == null) {
+    throw new IllegalArgumentException("Empty variable: " + newValues);
+}
+
+15:19:31.871 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:33.418 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:33.419 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:35.083 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+if (index == 0) {
+    new IllegalArgumentException("");
+}
+
+if (index != 0) {
+
+    
+}
+
+if (index > 0) {
+
+    
+}
+
+if (index == 0) {
+    new IllegalArgumentException("");
+}
+
+if (index != 0) {
+
+    
+}
+
+if (index > 0) {
+
+    
+}
+
+if (amount == 0) {
+    new IllegalArgumentException("");
+}
+
+if (amount != 0) {
+
+    
+}
+
+if (amount > 0) {
+
+    
+}
+
+15:19:35.084 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:36.574 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:36.574 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:38.046 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:38.047 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:39.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:39.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:41.032 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:41.033 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:42.450 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:42.451 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:43.870 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:43.871 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:45.243 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:45.244 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:46.664 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:46.665 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:48.252 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+newValues = getField(index).add(this, index, newValues, amount);
+	int index = indexOfSupported(fieldType);
+        if (amount == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        
+null
+newValues = getField(index).add(this, index, newValues, amount);
+	if (amount == 0) {
+            return this;
+        }
+        int[] newValues = getValues();
+        
+null
+newValues = getField(index).add(this, index, newValues, amount);
+	int[] newValues = getValues();
+        
+null
+
+        return new MonthDay(this, newValues);
+	newValues = getField(index).add(this, index, newValues, amount);
+
+MOVE-BUGGY-STATEMENT
+15:19:48.254 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:49.749 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:49.750 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:51.290 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:51.294 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:52.711 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:52.712 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:54.011 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+
+15:19:54.012 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:55.355 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:55.356 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.MonthDay ===518
+15:19:55.478 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+int[] newValues = getValues();
+int[] newValues = getValues(newValues);
+int[] newValues = getValues(index);
+int[] newValues = getValues(fieldType);
+int[] newValues = getValues(amount);
+int[] newValues = getValues(FIELD_TYPES);
+int[] newValues = getValues(PARSER);
+int[] newValues = getValues(MONTH_OF_YEAR);
+int[] newValues = getValues(DAY_OF_MONTH);
+15:19:55.481 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:56.850 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:56.850 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:58.356 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:58.357 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:19:59.679 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:19:59.680 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:00.990 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:00.990 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:02.296 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:02.297 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:03.572 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:03.573 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:04.905 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:04.906 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:06.278 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+
+15:20:06.282 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:07.585 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:07.586 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.chrono.BasicMonthOfYearDateTimeField ===213
+15:20:07.762 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+instant = partial.getFieldType(i).getField(iChronology).set(instant, values[i]);
+instant = partial.getFieldType(i).getField(iChronology).set(true, instant, values[i]);
+instant = partial.getFieldType(i).getField(iChronology).set(false, instant, values[i]);
+instant = partial.getFieldType(i).getField(iChronology).set(instant, true, values[i]);
+instant = partial.getFieldType(i).getField(iChronology).set(instant, false, values[i]);
+instant = partial.getFieldType(i).getField(iChronology).set(instant, values[i], true);
+instant = partial.getFieldType(i).getField(iChronology).set(instant, values[i], false);
+15:20:07.764 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:09.225 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:09.226 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:10.367 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:10.368 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:11.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:11.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:12.919 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:12.919 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:14.021 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+15:20:14.021 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:15.332 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-14 ---Fixer: fix fail because of failed compiling! 
+if (partial != null) {
+
+
+}
+
+if (iChronology != null) {
+
+
+}
+
+if (values != null) {
+
+
+}
+
+15:20:15.334 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:16.584 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+15:20:16.584 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+15:20:36.236 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:20:36.236 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:20:36.236 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap
+15:20:36.236 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap
+15:20:36.236 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap
+15:20:36.236 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust
+15:20:36.237 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust
+15:20:36.237 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap
+15:20:36.237 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap
+15:20:36.237 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap
+15:20:36.237 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+15:20:36.237 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+15:20:36.867 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Time-14/aggregatedSusInfo.profl
+15:20:36.868 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.chrono.BasicMonthOfYearDateTimeField:add(Lorg/joda/time/ReadablePartial;I[II)[I in org.joda.time.chrono.BasicMonthOfYearDateTimeField:213
+15:20:36.868 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 8 Time-14
+15:20:36.868 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:20:38.078 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+15:20:38.078 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+15:20:56.869 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:20:56.869 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:20:56.869 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap
+15:20:56.869 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap
+15:20:56.869 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap
+15:20:56.870 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust
+15:20:56.870 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust
+15:20:56.870 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap
+15:20:56.870 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap
+15:20:56.870 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap
+15:20:56.870 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+15:20:56.870 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+15:21:11.922 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Time-14/aggregatedSusInfo.profl
+15:21:11.922 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.chrono.BasicMonthOfYearDateTimeField:add(Lorg/joda/time/ReadablePartial;I[II)[I in org.joda.time.chrono.BasicMonthOfYearDateTimeField:213
+15:21:11.922 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 8 Time-14
+15:21:11.922 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:21:12.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+15:21:12.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+15:21:30.035 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:21:30.035 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:21:30.035 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap
+15:21:30.035 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap
+15:21:30.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap
+15:21:30.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust
+15:21:30.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust
+15:21:30.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap
+15:21:30.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap
+15:21:30.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap
+15:21:30.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+15:21:30.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+15:26:00.988 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Time-14/aggregatedSusInfo.profl
+15:26:00.988 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.chrono.BasicMonthOfYearDateTimeField:add(Lorg/joda/time/ReadablePartial;I[II)[I in org.joda.time.chrono.BasicMonthOfYearDateTimeField:213
+15:26:00.988 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 8 Time-14
+if (partial == null) {
+    return null;
+}
+
+if (partial == null) {
+    throw new IllegalArgumentException("Empty variable: " + partial);
+}
+
+if (iChronology == null) {
+    return null;
+}
+
+if (iChronology == null) {
+    throw new IllegalArgumentException("Empty variable: " + iChronology);
+}
+
+if (values == null) {
+    return null;
+}
+
+if (values == null) {
+    throw new IllegalArgumentException("Empty variable: " + values);
+}
+
+15:26:00.989 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+15:26:01.851 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+15:26:01.851 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+15:26:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+17:10:12.772 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Time-14/aggregatedSusInfo.profl
+17:10:12.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.chrono.BasicMonthOfYearDateTimeField:add(Lorg/joda/time/ReadablePartial;I[II)[I in org.joda.time.chrono.BasicMonthOfYearDateTimeField:213
+17:10:12.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 8 Time-14
+17:10:12.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+17:10:13.743 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+17:10:13.743 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap, - org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap, - org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap]
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeFromLeap
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusDays_int_negativeFromLeap
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_fromLeap
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusMonths_int_negativeEndOfMonthAdjust
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_endOfMonthAdjust
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_negativeFromLeap
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testMinusMonths_int_fromLeap
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMonthDay_Basics::testPlusDays_int_fromLeap
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=8, fp=0, pf=0, pp=Unknown
+17:10:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

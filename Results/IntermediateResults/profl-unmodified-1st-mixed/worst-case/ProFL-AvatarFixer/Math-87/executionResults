@@ -1,0 +1,244 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-87
+03:07:33.627 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-87 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/87.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/87.txt
+03:07:36.343 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+03:07:36.379 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-87/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-87/ochiai.txt
+03:07:36.391 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+03:07:36.392 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.linear.SimplexTableau ===291
+03:07:37.254 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return;
+03:07:37.256 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/linear/SimplexTableau.java:291 ---
+03:07:37.262 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:07:37.264 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:38.345 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:07:38.345 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:07:51.500 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:07:51.500 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 12, [- org.apache.commons.math.optimization.linear.SimplexSolverTest::testRestrictVariablesToNonNegative, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testEpsilon, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testUnboundedSolution, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testSimplexSolver, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testTrivialModel, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testMath272, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testModelWithNoArtificialVars, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testMinimization, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testLargeModel, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testSolutionWithNegativeDecisionVariable, - org.apache.commons.math.optimization.linear.SimplexTableauTest::testdiscardArtificialVariables]
+03:07:51.500 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testRestrictVariablesToNonNegative
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testEpsilon
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testUnboundedSolution
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSimplexSolver
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testTrivialModel
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testMath272
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testModelWithNoArtificialVars
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testMinimization
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testLargeModel
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSolutionWithNegativeDecisionVariable
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexTableauTest::testdiscardArtificialVariables
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=11, pp=Unknown
+03:07:51.501 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+03:07:51.513 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-87/aggregatedSusInfo.profl
+03:07:51.514 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.linear.SimplexTableau:discardArtificialVariables()V in org.apache.commons.math.optimization.linear.SimplexTableau:291
+03:07:51.514 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 12 Math-87
+03:07:51.514 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.linear.SimplexSolver ===168
+03:07:51.573 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return;
+03:07:51.574 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/linear/SimplexSolver.java:168 ---
+03:07:51.574 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:07:51.574 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:52.352 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:07:52.352 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.linear.SimplexSolver ===190
+03:07:52.399 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+doIteration(tableau);
+03:07:52.400 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/linear/SimplexSolver.java:190 ---
+03:07:52.401 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: doIteration(this.epsilon);
+---------------- Testing New Patch ----------------
+03:07:52.402 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:53.249 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:07:53.249 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (tableau != null) {
+	
+
+}
+
+03:07:53.249 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (tableau == null) {
+    throw new IllegalArgumentException("Null 'tableau' argument.");
+}
+
+03:07:53.249 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (tableau == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+03:07:53.249 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:54.080 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:07:54.081 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:08:08.158 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:08:08.158 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:08:08.158 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint
+03:08:08.158 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:08.159 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:08:08.185 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-87/aggregatedSusInfo.profl
+03:08:08.185 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.linear.SimplexSolver:doOptimize()Lorg/apache/commons/math/optimization/RealPointValuePair; in org.apache.commons.math.optimization.linear.SimplexSolver:190
+03:08:08.185 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-87
+---------------- Testing New Patch ----------------
+03:08:08.185 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:09.082 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:08:09.083 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:08:22.671 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:08:22.671 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:08:22.672 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint
+03:08:22.672 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:22.672 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:08:22.787 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-87/aggregatedSusInfo.profl
+03:08:22.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.linear.SimplexSolver:doOptimize()Lorg/apache/commons/math/optimization/RealPointValuePair; in org.apache.commons.math.optimization.linear.SimplexSolver:190
+03:08:22.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-87
+---------------- Testing New Patch ----------------
+03:08:22.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:23.757 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:08:23.757 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:08:37.300 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:08:37.300 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:08:37.301 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint
+03:08:37.301 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:37.301 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:08:38.997 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-87/aggregatedSusInfo.profl
+03:08:38.997 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.linear.SimplexSolver:doOptimize()Lorg/apache/commons/math/optimization/RealPointValuePair; in org.apache.commons.math.optimization.linear.SimplexSolver:190
+03:08:38.997 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-87
+03:08:38.997 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:08:38.998 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:39.841 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:08:39.841 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:08:39.842 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:40.727 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:40.727 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:41.549 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:08:41.550 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:08:41.550 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:42.480 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:08:42.481 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:08:42.481 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:43.399 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:43.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:44.447 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:08:44.448 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:08:44.448 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:45.454 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:08:45.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.linear.SimplexSolver ===151
+03:08:45.498 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return false;
+03:08:45.499 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/linear/SimplexSolver.java:151 ---
+03:08:45.499 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:08:45.499 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:46.639 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:08:46.640 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:08:46.640 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:47.643 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:47.644 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:48.590 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:08:48.590 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:08:48.591 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:49.548 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+03:08:49.549 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.linear.SimplexTableau ===458
+03:08:49.662 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return restrictToNonNegative ? numDecisionVariables : numDecisionVariables - 1;
+03:08:49.663 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/linear/SimplexTableau.java:458 ---
+03:08:49.664 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return numDecisionVariables;
+03:08:49.664 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return numDecisionVariables - 1;
+---------------- Testing New Patch ----------------
+03:08:49.664 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:50.793 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:08:50.793 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:09:04.008 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:09:04.008 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.optimization.linear.SimplexSolverTest::testEpsilon, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testSimplexSolver, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testModelWithNoArtificialVars, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testMinimization, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testSolutionWithNegativeDecisionVariable]
+03:09:04.008 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testEpsilon
+03:09:04.008 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint
+03:09:04.008 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSimplexSolver
+03:09:04.008 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testModelWithNoArtificialVars
+03:09:04.009 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testMinimization
+03:09:04.009 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSolutionWithNegativeDecisionVariable
+03:09:04.009 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=5, pp=Unknown
+03:09:04.009 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+03:09:38.793 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-87/aggregatedSusInfo.profl
+03:09:38.793 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.linear.SimplexTableau:getOriginalNumDecisionVariables()I in org.apache.commons.math.optimization.linear.SimplexTableau:458
+03:09:38.793 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 6 Math-87
+---------------- Testing New Patch ----------------
+03:09:38.793 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:09:39.695 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:09:39.695 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.optimization.linear.SimplexSolverTest::testRestrictVariablesToNonNegative, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testTrivialModel, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testMath272, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testLargeModel]
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testRestrictVariablesToNonNegative
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testTrivialModel
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testMath272
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testLargeModel
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+03:09:49.965 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+03:21:11.180 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-87/aggregatedSusInfo.profl
+03:21:11.180 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.linear.SimplexTableau:getOriginalNumDecisionVariables()I in org.apache.commons.math.optimization.linear.SimplexTableau:458
+03:21:11.180 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 5 Math-87
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? serialVersionUID : numDecisionVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? this.f : numDecisionVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? this.constraints : numDecisionVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? this.restrictToNonNegative : numDecisionVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? this.tableau : numDecisionVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? this.numSlackVariables : numDecisionVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? this.numArtificialVariables : numDecisionVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? this.epsilon : numDecisionVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? numDecisionVariables : serialVersionUID - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? numDecisionVariables : this.f - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? numDecisionVariables : this.constraints - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? numDecisionVariables : this.restrictToNonNegative - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? numDecisionVariables : this.tableau - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? numDecisionVariables : this.numSlackVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? numDecisionVariables : this.numArtificialVariables - 1;
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return restrictToNonNegative ? numDecisionVariables : this.epsilon - 1;
+---------------- Testing New Patch ----------------
+03:21:11.181 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:21:11.979 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:21:11.979 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:21:12.782 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:21:12.782 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:21:13.587 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:21:13.587 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:21:14.407 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:21:14.408 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:21:15.275 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-87 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:21:15.275 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:21:16.105 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:21:16.106 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:21:25.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint]
+03:21:25.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.optimization.linear.SimplexSolverTest::testRestrictVariablesToNonNegative, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testTrivialModel, - org.apache.commons.math.optimization.linear.SimplexSolverTest::testLargeModel]
+03:21:25.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testRestrictVariablesToNonNegative
+03:21:25.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint
+03:21:25.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testTrivialModel
+03:21:25.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.linear.SimplexSolverTest::testLargeModel
+03:21:25.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+03:21:25.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

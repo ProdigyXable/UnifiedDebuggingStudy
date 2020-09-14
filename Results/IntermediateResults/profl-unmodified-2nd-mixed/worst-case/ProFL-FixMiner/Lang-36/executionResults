@@ -1,0 +1,45 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-36
+03:09:03.791 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-36 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/36.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/36.txt
+03:09:06.489 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:09:06.498 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-36/generalSusInfo.profl
+03:09:06.500 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-36/aggregatedSusInfo.profl
+03:09:06.501 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+03:09:06.501 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===969
+03:09:07.399 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.builder.ToStringStyle --- 969
+03:09:07.400 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===968
+03:09:07.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.builder.ToStringStyle --- 968
+03:09:07.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===965
+03:09:07.748 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * <p>Append to the <code>toString</code> a <code>long</code>
+     * array.</p>
+     *
+     * @param buffer  the <code>StringBuffer</code> to populate
+     * @param fieldName  the field name
+     * @param array  the array to add to the <code>toString</code>
+     * @param fullDetail  <code>true</code> for detail, <code>false</code>
+     *  for summary info, <code>null</code> for style decides
+     */
+    public void append(StringBuffer buffer, String fieldName, long[] array, Boolean fullDetail) {
+        appendFieldStart(buffer, fieldName);
+
+        if (array == null) {
+            appendNullText(buffer, fieldName);
+
+        } else if (isFullDetail(fullDetail)) {
+            appendDetail(buffer, fieldName, array);
+
+        } else {
+            appendSummary(buffer, fieldName, array);
+        }
+
+        appendFieldEnd(buffer, fieldName);
+    }

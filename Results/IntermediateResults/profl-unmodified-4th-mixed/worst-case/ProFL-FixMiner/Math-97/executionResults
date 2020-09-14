@@ -1,0 +1,178 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-97
+18:14:25.935 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/97.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/97.txt
+18:14:27.334 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+18:14:27.349 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-97/generalSusInfo.profl
+18:14:27.350 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+18:14:27.350 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.analysis.BrentSolver ===141
+18:14:28.307 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+throw new IllegalArgumentException
+                ("Function values at endpoints do not have different signs." +
+                        "  Endpoints: [" + min + "," + max + "]" + 
+                        "  Values: [" + yMin + "," + yMax + "]");
+
+        } else {
+            // solve using only the first endpoint as initial guess
+            ret = solve(min, yMin, max, yMax, min, yMin);
+	throw new IllegalArgumentException
+                ("Function values at endpoints do not have different signs." +
+                        "  Endpoints: [" + min + "," + max + "]" + 
+                        "  Values: [" + yMin + "," + yMax + "]");
+
+MOVE-BUGGY-STATEMENT
+18:14:28.322 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:29.223 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:14:29.224 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:14:38.320 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints]
+18:14:38.320 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 30, [- org.apache.commons.math.analysis.BrentSolverTest::testBadEndpoints, - org.apache.commons.math.analysis.BrentSolverTest::testInitialGuess, - org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints, - org.apache.commons.math.analysis.BrentSolverTest::testQuinticZero, - org.apache.commons.math.analysis.BrentSolverTest::testSinZero, - org.apache.commons.math.analysis.UnivariateRealSolverUtilsTest::testSolveNoRoot, - org.apache.commons.math.analysis.UnivariateRealSolverUtilsTest::testSolveSin, - org.apache.commons.math.analysis.UnivariateRealSolverUtilsTest::testSolveAccuracySin, - org.apache.commons.math.distribution.ChiSquareDistributionTest::testSmallDf, - org.apache.commons.math.distribution.ChiSquareDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.FDistributionTest::testLargeDegreesOfFreedom, - org.apache.commons.math.distribution.FDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testValues, - org.apache.commons.math.distribution.GammaDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.NormalDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.TDistributionTest::testSmallDf, - org.apache.commons.math.distribution.TDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testEvents, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testUnstableDerivative, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testEvents, - org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testDecreasingSteps, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testUnstableDerivative, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testUnstableDerivative, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testEvents, - org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testEvents, - org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps, - org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference]
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.BrentSolverTest::testBadEndpoints
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.BrentSolverTest::testInitialGuess
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.BrentSolverTest::testQuinticZero
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.BrentSolverTest::testSinZero
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.UnivariateRealSolverUtilsTest::testSolveNoRoot
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.UnivariateRealSolverUtilsTest::testSolveSin
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.UnivariateRealSolverUtilsTest::testSolveAccuracySin
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.ChiSquareDistributionTest::testSmallDf
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.ChiSquareDistributionTest::testInverseCumulativeProbabilities
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.FDistributionTest::testLargeDegreesOfFreedom
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.FDistributionTest::testInverseCumulativeProbabilities
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testValues
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testInverseCumulativeProbabilities
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testInverseCumulativeProbabilities
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.TDistributionTest::testSmallDf
+18:14:38.321 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.TDistributionTest::testInverseCumulativeProbabilities
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testDecreasingSteps
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testEvents
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testUnstableDerivative
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testEvents
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testDecreasingSteps
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testDecreasingSteps
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testUnstableDerivative
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testUnstableDerivative
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testEvents
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testEvents
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testDecreasingSteps
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testDecreasingSteps
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.regression.SimpleRegressionTest::testInference
+18:14:38.322 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=29, pp=Unknown
+18:14:38.323 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:14:38.324 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-97/aggregatedSusInfo.profl
+18:14:38.325 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.analysis.BrentSolver:solve(DD)D in org.apache.commons.math.analysis.BrentSolver:141
+18:14:38.325 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 30 Math-97
+
+18:14:38.325 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:39.260 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:14:39.260 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:14:48.760 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints]
+18:14:48.761 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.analysis.BrentSolverTest::testBadEndpoints, - org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints, - org.apache.commons.math.analysis.UnivariateRealSolverUtilsTest::testSolveNoRoot]
+18:14:48.761 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.BrentSolverTest::testBadEndpoints
+18:14:48.761 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints
+18:14:48.761 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.UnivariateRealSolverUtilsTest::testSolveNoRoot
+18:14:48.761 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+18:14:48.761 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:14:48.764 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-97/aggregatedSusInfo.profl
+18:14:48.764 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.analysis.BrentSolver:solve(DD)D in org.apache.commons.math.analysis.BrentSolver:141
+18:14:48.764 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Math-97
+18:14:48.764 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.analysis.BrentSolver ===194
+18:14:48.835 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return result;
+if (result != null) {
+
+
+}
+
+18:14:48.838 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:49.581 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+if (result == null) {
+    return 0.0;
+}
+
+if (result == null) {
+    throw new IllegalArgumentException("Empty variable: " + result);
+}
+
+18:14:49.582 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:50.323 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+18:14:50.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:51.086 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+
+18:14:51.087 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:51.903 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:14:51.903 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:15:01.018 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints]
+18:15:01.018 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints]
+18:15:01.018 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.analysis.BrentSolverTest::testRootEndpoints
+18:15:01.018 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+18:15:01.018 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+18:15:01.020 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-97/aggregatedSusInfo.profl
+18:15:01.020 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.analysis.BrentSolver:solve(DDDDDD)D in org.apache.commons.math.analysis.BrentSolver:194
+18:15:01.020 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-97
+18:15:01.020 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.analysis.BrentSolver ===193
+18:15:01.071 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+setResult(x1, i);
+setResult(true, x1, i);
+setResult(false, x1, i);
+setResult(x1, true, i);
+setResult(x1, false, i);
+setResult(x1, i, true);
+setResult(x1, i, false);
+18:15:01.074 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:01.782 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+18:15:01.783 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:02.482 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+18:15:02.483 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:03.213 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+18:15:03.214 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:03.969 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+18:15:03.969 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:04.709 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+18:15:04.709 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:05.471 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-97 ---Fixer: fix fail because of failed compiling! 
+setResult(oldDelta, i);
+setResult(delta, i);
+setResult(x0, i);
+setResult(y0, i);
+setResult(y1, i);
+setResult(x2, i);
+setResult(y2, i);
+setResult( i);
+setResult(oldDelta, x1, i);
+setResult(delta, x1, i);
+setResult(x0, x1, i);
+setResult(y0, x1, i);
+setResult(y1, x1, i);
+setResult(x2, x1, i);
+setResult(y2, x1, i);
+setResult(x1, oldDelta);
+setResult(x1, delta);
+setResult(x1, x0);
+setResult(x1, y0);
+setResult(x1, y1);
+setResult(x1, x2);
+setResult(x1, y2);
+setResult(x1, );
+setResult(x1, oldDelta, i);
+setResult(x1, delta, i);
+setResult(x1, x0, i);
+setResult(x1, y0, i);
+setResult(x1, y1, i);
+setResult(x1, x2, i);
+setResult(x1, y2, i);
+setResult(x1, i, oldDelta);
+setResult(x1, i, delta);
+setResult(x1, i, x0);
+setResult(x1, i, y0);
+setResult(x1, i, y1);
+setResult(x1, i, x2);
+setResult(x1, i, y2);
+18:15:05.472 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:06.299 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:15:06.300 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.

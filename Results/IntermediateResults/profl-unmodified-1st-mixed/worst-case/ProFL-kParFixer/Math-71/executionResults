@@ -1,0 +1,366 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-71
+18:56:39.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/71.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/71.txt
+18:56:43.601 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+18:56:43.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-71/generalSusInfo.profl
+18:56:43.632 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+18:56:43.632 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.nonstiff.EmbeddedRungeKuttaIntegrator ===300
+18:56:44.751 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+loop     = false;
+18:56:44.765 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.nonstiff.RungeKuttaIntegrator ===180
+18:56:44.859 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+loop     = false;
+18:56:44.860 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator ===211
+18:56:45.040 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return forward ? initialStep : -initialStep;
+18:56:45.041 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (initialStep != null) {
+	
+
+}
+
+18:56:45.042 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (initialStep == null) {
+    throw new IllegalArgumentException("Null 'initialStep' argument.");
+}
+
+18:56:45.042 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (initialStep == null) {
+    return 0.0;
+}
+
+18:56:45.043 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:56:46.312 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:56:46.313 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:56:47.502 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:56:47.503 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:56:48.672 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:56:48.673 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator ===155
+18:56:48.816 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/** Set the initial step size.
+   * <p>This method allows the user to specify an initial positive
+   * step size instead of letting the integrator guess it by
+   * itself. If this method is not called before integration is
+   * started, the initial step size will be estimated by the
+   * integrator.</p>
+   * @param initialStepSize initial step size to use (must be positive even
+   * for backward integration ; providing a negative value or a value
+   * outside of the min/max step interval will lead the integrator to
+   * ignore the value and compute the initial step size by itself)
+   */
+  public void setInitialStepSize(final double initialStepSize) {
+    if ((initialStepSize < minStep) || (initialStepSize > maxStep)) {
+      initialStep = -1.0;
+    } else {
+      initialStep = initialStepSize;
+    }
+  }
+18:56:48.816 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator ===153
+18:56:48.914 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+initialStep = initialStepSize;
+18:56:48.916 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator ===150
+18:56:49.004 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if ((initialStepSize < minStep) || (initialStepSize > maxStep)) {
+      initialStep = -1.0;
+    } else {
+      initialStep = initialStepSize;
+    }
+18:56:49.007 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((initialStepSize < minStep) && (initialStepSize > maxStep)) {
+      initialStep = -1.0;
+    } else {
+      initialStep = initialStepSize;
+    }
+18:56:49.007 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:56:50.272 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:56:50.273 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:57:11.621 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+18:57:11.622 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+18:57:11.622 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent
+18:57:11.622 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent
+18:57:11.622 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+18:57:11.623 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+18:57:11.647 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-71/aggregatedSusInfo.profl
+18:57:11.647 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:setInitialStepSize(D)V in org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:150
+18:57:11.647 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-71
+18:57:11.648 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((initialStepSize < minStep)) {
+      initialStep = -1.0;
+    } else {
+      initialStep = initialStepSize;
+    }
+18:57:11.648 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((initialStepSize > maxStep)) {
+      initialStep = -1.0;
+    } else {
+      initialStep = initialStepSize;
+    }
+18:57:11.648 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:57:12.873 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:57:12.873 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:57:34.329 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+18:57:34.330 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+18:57:34.330 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent
+18:57:34.330 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent
+18:57:34.330 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+18:57:34.330 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+18:57:34.614 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-71/aggregatedSusInfo.profl
+18:57:34.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:setInitialStepSize(D)V in org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:150
+18:57:34.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-71
+18:57:34.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:57:36.043 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:57:36.043 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:57:55.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+18:57:55.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+18:57:55.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent
+18:57:55.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent
+18:57:55.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+18:57:55.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+18:57:55.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-71/aggregatedSusInfo.profl
+18:57:55.670 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:setInitialStepSize(D)V in org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator:150
+18:57:55.670 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-71
+18:57:55.672 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (minStep != null) {
+	
+
+}
+
+18:57:55.672 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (minStep == null) {
+    throw new IllegalArgumentException("Null 'minStep' argument.");
+}
+
+18:57:55.672 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (minStep == null) {
+    return;
+}
+
+18:57:55.672 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (maxStep != null) {
+	
+
+}
+
+18:57:55.672 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (maxStep == null) {
+    throw new IllegalArgumentException("Null 'maxStep' argument.");
+}
+
+18:57:55.672 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (maxStep == null) {
+    return;
+}
+
+18:57:55.673 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:57:56.811 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:57:56.812 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:57:57.911 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:57:57.912 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:57:59.024 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:57:59.024 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:00.208 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:58:00.209 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:01.481 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:58:01.482 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:02.824 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:58:02.825 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.nonstiff.AdaptiveStepsizeIntegrator ===292
+18:58:02.863 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+filteredH = maxStep;
+18:58:02.864 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (maxStep != null) {
+	
+
+}
+
+18:58:02.864 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (maxStep == null) {
+    throw new IllegalArgumentException("Null 'maxStep' argument.");
+}
+
+18:58:02.864 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (maxStep == null) {
+    return 0.0;
+}
+
+18:58:02.864 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:04.105 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:58:04.106 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:05.424 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:58:05.425 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:06.682 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-71 ---Fixer: fix fail because of failed compiling! 
+18:58:06.683 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.sampling.DummyStepInterpolator ===109
+18:58:06.732 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/** Compute the state at the interpolated time.
+   * In this class, this method does nothing: the interpolated state
+   * is always the state at the end of the current step.
+   * @param theta normalized interpolation abscissa within the step
+   * (theta is zero at the previous time step and one at the current time step)
+   * @param oneMinusThetaH time gap between the interpolated time and
+   * the current time
+   * @throws DerivativeException this exception is propagated to the caller if the
+   * underlying user function triggers one
+   */
+  @Override
+  protected void computeInterpolatedStateAndDerivatives(final double theta, final double oneMinusThetaH)
+    throws DerivativeException {
+      System.arraycopy(currentState,      0, interpolatedState,       0, currentState.length);
+      System.arraycopy(currentDerivative, 0, interpolatedDerivatives, 0, currentDerivative.length);
+  }
+18:58:06.744 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.ode.sampling.DummyStepInterpolator ===108
+18:58:06.782 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+System.arraycopy(currentDerivative, 0, interpolatedDerivatives, 0, currentDerivative.length);
+18:58:06.786 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, interpolatedDerivatives, 1, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 1, interpolatedDerivatives, 0, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(theta, 0, interpolatedDerivatives, 0, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(oneMinusThetaH, 0, interpolatedDerivatives, 0, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(serialVersionUID, 0, interpolatedDerivatives, 0, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(this.currentDerivative, 0, interpolatedDerivatives, 0, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, theta, 0, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, oneMinusThetaH, 0, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, serialVersionUID, 0, currentDerivative.length);
+18:58:06.787 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, this.currentDerivative, 0, currentDerivative.length);
+18:58:06.788 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, interpolatedDerivatives, 0, theta);
+18:58:06.788 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, interpolatedDerivatives, 0, oneMinusThetaH);
+18:58:06.788 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, interpolatedDerivatives, 0, serialVersionUID);
+18:58:06.788 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: System.arraycopy(currentDerivative, 0, interpolatedDerivatives, 0, this.currentDerivative);
+18:58:06.788 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:07.933 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:58:07.933 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:58:27.219 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+18:58:27.219 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 28, [- org.apache.commons.math.ode.ContinuousOutputModelTest::testErrorConditions, - org.apache.commons.math.ode.FirstOrderConverterTest::testSmallStep, - org.apache.commons.math.ode.FirstOrderConverterTest::testDecreasingSteps, - org.apache.commons.math.ode.FirstOrderConverterTest::testBigStep, - org.apache.commons.math.ode.events.EventStateTest::closeEvents, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testLowAccuracyExternalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testHighAccuracyExternalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testAnalyticalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testStepHandlerResult, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testFinalResult, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testVariableSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testVariableSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testNoDenseOutput, - org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testStepSize, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testSerialization, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testFixedState, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testNoReset]
+18:58:27.219 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.ContinuousOutputModelTest::testErrorConditions
+18:58:27.219 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testSmallStep
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testDecreasingSteps
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testBigStep
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testLowAccuracyExternalDifferentiation
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testHighAccuracyExternalDifferentiation
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testAnalyticalDifferentiation
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testStepHandlerResult
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testFinalResult
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent
+18:58:27.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testKepler
+18:58:27.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testStepSize
+18:58:27.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep
+18:58:27.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testVariableSteps
+18:58:27.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testVariableSteps
+18:58:27.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent
+18:58:27.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testNoDenseOutput
+18:58:27.221 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testStepSize
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testKepler
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testStepSize
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testKepler
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testStepSize
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testKepler
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testStepSize
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testSerialization
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testFixedState
+18:58:27.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testNoReset
+18:58:27.223 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=26, pp=Unknown
+18:58:27.223 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:58:31.734 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-71/aggregatedSusInfo.profl
+18:58:31.735 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.ode.sampling.DummyStepInterpolator:computeInterpolatedStateAndDerivatives(DD)V in org.apache.commons.math.ode.sampling.DummyStepInterpolator:108
+18:58:31.735 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 28 Math-71
+18:58:31.736 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:33.042 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:58:33.042 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:58:52.904 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+18:58:52.904 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 28, [- org.apache.commons.math.ode.ContinuousOutputModelTest::testErrorConditions, - org.apache.commons.math.ode.FirstOrderConverterTest::testSmallStep, - org.apache.commons.math.ode.FirstOrderConverterTest::testDecreasingSteps, - org.apache.commons.math.ode.FirstOrderConverterTest::testBigStep, - org.apache.commons.math.ode.events.EventStateTest::closeEvents, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testLowAccuracyExternalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testHighAccuracyExternalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testAnalyticalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testStepHandlerResult, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testFinalResult, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testVariableSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testVariableSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testNoDenseOutput, - org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testStepSize, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testSerialization, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testFixedState, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testNoReset]
+18:58:52.904 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.ContinuousOutputModelTest::testErrorConditions
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testSmallStep
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testDecreasingSteps
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testBigStep
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testLowAccuracyExternalDifferentiation
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testHighAccuracyExternalDifferentiation
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testAnalyticalDifferentiation
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testStepHandlerResult
+18:58:52.905 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testFinalResult
+18:58:52.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent
+18:58:52.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testKepler
+18:58:52.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testStepSize
+18:58:52.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep
+18:58:52.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testVariableSteps
+18:58:52.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testVariableSteps
+18:58:52.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent
+18:58:52.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testNoDenseOutput
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testStepSize
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testKepler
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testStepSize
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testKepler
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testStepSize
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testKepler
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testStepSize
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testSerialization
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testFixedState
+18:58:52.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testNoReset
+18:58:52.908 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=26, pp=Unknown
+18:58:52.908 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+19:00:23.081 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-71/aggregatedSusInfo.profl
+19:00:23.081 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.ode.sampling.DummyStepInterpolator:computeInterpolatedStateAndDerivatives(DD)V in org.apache.commons.math.ode.sampling.DummyStepInterpolator:108
+19:00:23.081 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 28 Math-71
+19:00:23.082 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:00:24.157 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+19:00:24.157 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 28, [- org.apache.commons.math.ode.ContinuousOutputModelTest::testErrorConditions, - org.apache.commons.math.ode.FirstOrderConverterTest::testSmallStep, - org.apache.commons.math.ode.FirstOrderConverterTest::testDecreasingSteps, - org.apache.commons.math.ode.FirstOrderConverterTest::testBigStep, - org.apache.commons.math.ode.events.EventStateTest::closeEvents, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testLowAccuracyExternalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testHighAccuracyExternalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testAnalyticalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testStepHandlerResult, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testFinalResult, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testVariableSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testVariableSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testNoDenseOutput, - org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testStepSize, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testSerialization, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testFixedState, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testNoReset]
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.ContinuousOutputModelTest::testErrorConditions
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testSmallStep
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testDecreasingSteps
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testBigStep
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testLowAccuracyExternalDifferentiation
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testHighAccuracyExternalDifferentiation
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testAnalyticalDifferentiation
+19:00:40.377 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testStepHandlerResult
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testFinalResult
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testKepler
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testStepSize
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testVariableSteps
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testVariableSteps
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testNoDenseOutput
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testStepSize
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testKepler
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testStepSize
+19:00:40.378 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testKepler
+19:00:40.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testStepSize
+19:00:40.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testKepler
+19:00:40.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testStepSize
+19:00:40.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testSerialization
+19:00:40.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testFixedState
+19:00:40.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testNoReset
+19:00:40.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=26, pp=Unknown
+19:00:40.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+19:22:58.805 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-71/aggregatedSusInfo.profl
+19:22:58.805 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.ode.sampling.DummyStepInterpolator:computeInterpolatedStateAndDerivatives(DD)V in org.apache.commons.math.ode.sampling.DummyStepInterpolator:108
+19:22:58.805 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 28 Math-71
+19:22:58.806 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:22:59.791 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+19:22:59.791 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+19:23:12.549 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent]
+19:23:12.549 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 28, [- org.apache.commons.math.ode.ContinuousOutputModelTest::testErrorConditions, - org.apache.commons.math.ode.FirstOrderConverterTest::testSmallStep, - org.apache.commons.math.ode.FirstOrderConverterTest::testDecreasingSteps, - org.apache.commons.math.ode.FirstOrderConverterTest::testBigStep, - org.apache.commons.math.ode.events.EventStateTest::closeEvents, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testLowAccuracyExternalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testHighAccuracyExternalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testAnalyticalDifferentiation, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testStepHandlerResult, - org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testFinalResult, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep, - org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testVariableSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testVariableSteps, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent, - org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testNoDenseOutput, - org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testStepSize, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testKepler, - org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testStepSize, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testSerialization, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testFixedState, - org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testNoReset]
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.ContinuousOutputModelTest::testErrorConditions
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testSmallStep
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testDecreasingSteps
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.FirstOrderConverterTest::testBigStep
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testLowAccuracyExternalDifferentiation
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testHighAccuracyExternalDifferentiation
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testAnalyticalDifferentiation
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testStepHandlerResult
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.jacobians.FirstOrderIntegratorWithJacobiansTest::testFinalResult
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testMissedEndEvent
+19:23:12.550 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testKepler
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ClassicalRungeKuttaIntegratorTest::testStepSize
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testSmallLastStep
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince54IntegratorTest::testVariableSteps
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testVariableSteps
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testMissedEndEvent
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testNoDenseOutput
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.EulerIntegratorTest::testStepSize
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testKepler
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GillIntegratorTest::testStepSize
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.HighamHall54IntegratorTest::testKepler
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.MidpointIntegratorTest::testStepSize
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testKepler
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.ThreeEighthesIntegratorTest::testStepSize
+19:23:12.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testSerialization
+19:23:12.552 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testFixedState
+19:23:12.552 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.sampling.DummyStepInterpolatorTest::testNoReset
+19:23:12.552 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=26, pp=Unknown
+19:23:12.552 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

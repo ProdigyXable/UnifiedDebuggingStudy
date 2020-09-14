@@ -1,0 +1,146 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-16
+10:34:55.271 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-16 Failed Tests: 7
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/16.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/16.txt
+10:35:06.088 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+10:35:06.189 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-16/generalSusInfo.profl
+10:35:06.213 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+10:35:06.213 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.format.DateTimeFormatter ===723
+10:35:07.885 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return newPos;
+10:35:07.944 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.format.DateTimeFormatter ===720
+10:35:08.242 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (iZone != null) {
+            instant.setZone(iZone);
+        }
+10:35:08.245 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (iZone == null) {
+            instant.setZone(iZone);
+        }
+10:35:08.246 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((instant == null)) {
+            instant.setZone(iZone);
+        }
+10:35:08.246 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((iOffsetParsed && bucket.getOffsetInteger() != null)) {
+            instant.setZone(iZone);
+        }
+10:35:08.246 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((bucket.getOffsetInteger() != null)) {
+            instant.setZone(iZone);
+        }
+10:35:08.246 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((bucket.getZone() != null)) {
+            instant.setZone(iZone);
+        }
+10:35:08.246 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((iOffsetParsed)) {
+            instant.setZone(iZone);
+        }
+10:35:08.247 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:09.988 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:35:09.989 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:35:37.716 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 7, [org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:35:37.716 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 9, [- org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_chrono, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:35:37.716 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear
+10:35:37.716 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear
+10:35:37.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear
+10:35:37.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:35:37.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly
+10:35:37.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29
+10:35:37.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29
+10:35:37.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_chrono
+10:35:37.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear
+10:35:37.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=7, fp=0, pf=2, pp=Unknown
+10:35:37.718 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:35:37.852 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-16/aggregatedSusInfo.profl
+10:35:37.853 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:720
+10:35:37.853 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 9 Time-16
+10:35:37.854 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:39.618 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:35:39.618 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:36:06.829 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 7, [org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:36:06.829 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 7, [- org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:36:06.829 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear
+10:36:06.829 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear
+10:36:06.829 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear
+10:36:06.829 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly
+10:36:06.830 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29
+10:36:06.830 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29
+10:36:06.830 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear
+10:36:06.830 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=7, fp=0, pf=0, pp=Unknown
+10:36:06.830 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:36:07.178 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-16/aggregatedSusInfo.profl
+10:36:07.178 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:720
+10:36:07.178 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 7 Time-16
+10:36:07.179 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:08.713 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:36:08.713 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:36:35.654 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 7, [org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:36:35.654 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:36:35.654 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear
+10:36:35.654 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear
+10:36:35.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear
+10:36:35.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:36:35.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly
+10:36:35.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29
+10:36:35.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29
+10:36:35.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear
+10:36:35.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=7, fp=0, pf=1, pp=Unknown
+10:36:35.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:36:37.180 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-16/aggregatedSusInfo.profl
+10:36:37.181 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:720
+10:36:37.181 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 8 Time-16
+10:36:37.182 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:38.962 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:36:38.962 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:37:05.711 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 7, [org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 9, [- org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_chrono, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_chrono
+10:37:05.712 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear
+10:37:05.713 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=7, fp=0, pf=2, pp=Unknown
+10:37:05.713 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:37:43.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-16/aggregatedSusInfo.profl
+10:37:43.136 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:720
+10:37:43.137 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 9 Time-16
+10:37:43.138 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:37:44.594 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:37:44.594 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:38:09.993 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 7, [org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:38:09.994 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 9, [- org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_chrono, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:38:09.994 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear
+10:38:09.994 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear
+10:38:09.994 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear
+10:38:09.994 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:38:09.994 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly
+10:38:09.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29
+10:38:09.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29
+10:38:09.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_chrono
+10:38:09.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear
+10:38:09.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=7, fp=0, pf=2, pp=Unknown
+10:38:09.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:48:27.772 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-16/aggregatedSusInfo.profl
+10:48:27.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:720
+10:48:27.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 9 Time-16
+10:48:27.773 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:48:29.125 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:48:29.126 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:48:50.496 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 7, [org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear, - org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29, - org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear]
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseStartYear
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseStartYear
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_baseEndYear
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_offsetParsed
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_withDefaultYear_feb29
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthDay_feb29
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testParseInto_monthOnly_parseEndYear
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=7, fp=0, pf=1, pp=Unknown
+10:48:50.497 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

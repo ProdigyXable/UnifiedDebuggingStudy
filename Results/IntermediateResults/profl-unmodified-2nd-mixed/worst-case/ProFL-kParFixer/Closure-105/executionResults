@@ -1,0 +1,133 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-105
+01:45:04.903 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-105 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/105.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/105.txt
+01:47:47.079 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+01:47:47.130 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-105/generalSusInfo.profl
+01:47:47.196 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-105/aggregatedSusInfo.profl
+01:47:47.201 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+01:47:47.201 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.Compiler ===183
+01:47:48.621 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return new CompilerOptions();
+01:47:48.839 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return CompilerOptions();
+01:47:48.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new();
+01:47:48.841 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:47:52.625 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-105 ---Fixer: fix fail because of failed compiling! 
+01:47:52.626 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:47:54.442 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-105 ---Fixer: fix fail because of failed compiling! 
+01:47:54.537 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.rhino.Node ===503
+01:47:54.770 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return new StringNode(type, str);
+01:47:54.776 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (str != null) {
+	
+
+}
+
+01:47:54.776 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (str == null) {
+    throw new IllegalArgumentException("Null 'str' argument.");
+}
+
+01:47:54.776 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (str == null) {
+    return null;
+}
+
+01:47:54.777 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:47:57.747 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-105 ---Fixer: fix fail because of failed compiling! 
+01:47:57.748 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+01:48:01.777 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+01:48:01.777 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+02:05:02.597 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+02:05:02.598 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2, - com.google.javascript.jscomp.CompilerRunnerTest::testDefineFlag, - com.google.javascript.jscomp.CompilerRunnerTest::testCheckSymbolsOffForDefault, - com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+02:05:02.598 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2
+02:05:02.598 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testDefineFlag
+02:05:02.598 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testCheckSymbolsOffForDefault
+02:05:02.598 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd
+02:05:02.598 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+02:05:02.599 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+02:05:02.875 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-105/aggregatedSusInfo.profl
+02:05:02.875 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.Node:newString(ILjava/lang/String;)Lcom/google/javascript/rhino/Node; in com.google.javascript.rhino.Node:503
+02:05:02.875 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Closure-105
+02:05:02.883 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:05:07.860 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+02:05:07.860 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+02:07:52.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+02:07:52.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2, - com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+02:07:52.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2
+02:07:52.012 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd
+02:07:52.012 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+02:07:52.012 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+02:07:56.780 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-105/aggregatedSusInfo.profl
+02:07:56.780 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.Node:newString(ILjava/lang/String;)Lcom/google/javascript/rhino/Node; in com.google.javascript.rhino.Node:503
+02:07:56.780 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Closure-105
+02:07:56.791 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.rhino.Node ===589
+02:07:56.928 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+public void addChildToBack(Node child) {
+        Preconditions.checkArgument(child.parent == null);
+        Preconditions.checkArgument(child.next == null);
+        child.parent = this;
+        child.next = null;
+        if (last == null) {
+            first = last = child;
+            return;
+        }
+        last.next = child;
+        last = child;
+    }
+02:07:56.931 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.rhino.Node ===588
+02:07:57.038 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+last = child;
+02:07:57.040 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (child != null) {
+	
+
+}
+
+02:07:57.040 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (child == null) {
+    throw new IllegalArgumentException("Null 'child' argument.");
+}
+
+02:07:57.040 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (child == null) {
+    return;
+}
+
+02:07:57.042 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:08:00.813 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+02:08:00.813 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+02:10:27.072 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+02:10:27.072 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- com.google.javascript.jscomp.CompilerRunnerTest::testCheckSymbolsOffForDefault, - com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2, - com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+02:10:27.072 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testCheckSymbolsOffForDefault
+02:10:27.072 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2
+02:10:27.072 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd
+02:10:27.073 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+02:10:27.073 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+02:12:22.916 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-105/aggregatedSusInfo.profl
+02:12:22.916 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.Node:addChildToBack(Lcom/google/javascript/rhino/Node;)V in com.google.javascript.rhino.Node:588
+02:12:22.916 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Closure-105
+02:12:22.917 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:12:26.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+02:12:26.663 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+02:14:53.266 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+02:14:53.266 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- com.google.javascript.jscomp.CompilerRunnerTest::testCheckSymbolsOffForDefault, - com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2, - com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+02:14:53.266 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testCheckSymbolsOffForDefault
+02:14:53.266 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2
+02:14:53.266 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd
+02:14:53.266 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+02:14:53.266 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:03:02.901 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-105/aggregatedSusInfo.profl
+03:03:02.901 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.Node:addChildToBack(Lcom/google/javascript/rhino/Node;)V in com.google.javascript.rhino.Node:588
+03:03:02.901 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Closure-105
+03:03:02.903 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:03:06.668 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:03:06.668 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:05:32.754 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+03:05:32.754 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- com.google.javascript.jscomp.CompilerRunnerTest::testCheckSymbolsOffForDefault, - com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2, - com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd]
+03:05:32.754 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testCheckSymbolsOffForDefault
+03:05:32.754 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.CompilerRunnerTest::testTypeCheckOverride2
+03:05:32.754 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.FoldConstantsTest::testStringJoinAdd
+03:05:32.754 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+03:05:32.755 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

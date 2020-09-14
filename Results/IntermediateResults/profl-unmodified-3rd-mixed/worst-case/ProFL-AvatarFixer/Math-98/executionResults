@@ -1,0 +1,429 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-98
+07:34:55.053 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-98 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/98.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/98.txt
+07:34:56.750 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+07:34:56.764 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-98/ochiai.txt
+07:34:56.766 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+07:34:56.766 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.linear.BigMatrixImpl ===997
+07:34:58.156 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+out[row] = sum;
+07:34:58.158 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/linear/BigMatrixImpl.java:997 ---
+07:34:58.168 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out != null) {
+	
+
+}
+
+07:34:58.169 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out == null) {
+    throw new IllegalArgumentException("Null 'out' argument.");
+}
+
+07:34:58.169 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out == null) {
+    return null;
+}
+
+07:34:58.169 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (sum != null) {
+	
+
+}
+
+07:34:58.169 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (sum == null) {
+    throw new IllegalArgumentException("Null 'sum' argument.");
+}
+
+07:34:58.169 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (sum == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+07:34:58.172 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:34:59.298 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:34:59.298 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:08.974 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:08.974 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:08.975 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:35:08.975 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:35:08.975 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:35:08.975 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:08.978 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:35:08.978 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:997
+07:35:08.978 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-98
+---------------- Testing New Patch ----------------
+07:35:08.978 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:10.158 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:10.159 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:19.779 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:19.779 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:19.779 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:35:19.779 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:35:19.779 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:35:19.780 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:19.784 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:35:19.785 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:997
+07:35:19.785 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-98
+---------------- Testing New Patch ----------------
+07:35:19.785 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:20.829 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:20.829 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:30.582 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:30.582 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:30.582 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:35:30.582 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:35:30.582 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:35:30.582 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:30.584 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:35:30.584 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:997
+07:35:30.584 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-98
+---------------- Testing New Patch ----------------
+07:35:30.585 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:31.609 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:31.609 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:41.233 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:41.233 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:41.233 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:35:41.233 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:35:41.233 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:35:41.233 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:41.239 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:35:41.239 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:997
+07:35:41.239 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-98
+---------------- Testing New Patch ----------------
+07:35:41.239 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:42.271 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:42.271 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:51.846 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:51.846 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:35:51.846 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:35:51.846 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:35:51.847 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:35:51.847 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:51.911 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:35:51.911 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:997
+07:35:51.911 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-98
+---------------- Testing New Patch ----------------
+07:35:51.912 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:52.937 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:52.937 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:02.768 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:36:02.768 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:36:02.768 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:36:02.768 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:36:02.768 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+07:36:02.768 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:36:03.205 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:36:03.205 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:997
+07:36:03.205 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-98
+07:36:03.206 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:03.206 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:04.224 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:04.225 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:04.225 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:05.256 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:05.257 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:06.284 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:06.284 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:06.285 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:07.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:07.401 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:07.402 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:08.420 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:08.421 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:09.490 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:09.491 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:09.492 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:10.483 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:10.483 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:10.484 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:11.339 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:11.340 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:12.205 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:12.205 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:12.206 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:13.126 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:13.127 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:13.128 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:14.023 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:14.023 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:14.921 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:14.921 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:14.922 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:15.750 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+07:36:15.750 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.linear.BigMatrixImpl ===995
+07:36:15.981 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+sum = sum.add(data[row][i].multiply(v[i]));
+07:36:15.982 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/linear/BigMatrixImpl.java:995 ---
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = i.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = row.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = out.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = nCols.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = nRows.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = v.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = serialVersionUID.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = this.data.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = this.lu.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = this.permutation.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = this.parity.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = this.roundingMode.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = this.scale.add(data[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(i[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(sum[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(row[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(out[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(nCols[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(nRows[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(v[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(serialVersionUID[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(this.lu[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(this.permutation[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(this.parity[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(this.roundingMode[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(this.scale[row][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[i][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[sum][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[out][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[nCols][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[nRows][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[v][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[serialVersionUID][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[this.data][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[this.lu][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[this.permutation][i].multiply(v[i]));
+07:36:15.983 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[this.parity][i].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[this.roundingMode][i].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[this.scale][i].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][sum].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][row].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][out].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][nCols].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][nRows].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][v].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][serialVersionUID].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][this.data].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][this.lu].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][this.permutation].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][this.parity].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][this.roundingMode].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][this.scale].multiply(v[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(i[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(sum[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(row[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(out[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(nCols[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(nRows[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(serialVersionUID[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(this.data[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(this.lu[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(this.permutation[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(this.parity[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(this.roundingMode[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(this.scale[i]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[sum]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[row]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[out]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[nCols]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[nRows]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[v]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[serialVersionUID]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[this.data]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[this.lu]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[this.permutation]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[this.parity]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[this.roundingMode]));
+07:36:15.984 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum = sum.add(data[row][i].multiply(v[this.scale]));
+---------------- Testing New Patch ----------------
+07:36:15.985 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:16.943 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:16.944 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:17.863 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:17.866 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:18.877 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:18.878 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:19.870 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:19.870 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:20.777 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:20.778 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:21.713 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:21.714 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:22.716 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:22.717 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:23.712 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:23.713 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:24.637 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:24.637 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:25.561 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:25.562 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:26.544 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:26.545 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:27.436 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:27.436 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:28.428 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:28.429 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:29.464 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:29.465 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:30.389 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:30.390 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:31.372 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:31.372 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:32.429 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:32.430 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:33.364 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:33.365 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:34.288 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:34.289 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:35.199 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:35.200 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:36.149 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:36.150 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:37.087 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:37.088 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:46.458 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:36:46.458 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.linear.BigMatrixImplTest::testOperate, - org.apache.commons.math.linear.BigMatrixImplTest::testSolve, - org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:36:46.458 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testOperate
+07:36:46.458 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testSolve
+07:36:46.459 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:36:46.459 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:36:46.459 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+07:36:46.459 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:50.944 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:36:50.944 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:995
+07:36:50.944 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-98
+---------------- Testing New Patch ----------------
+07:36:50.945 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:51.834 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:51.835 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:52.722 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:52.723 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:53.582 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:53.582 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:54.485 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:54.485 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:55.385 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:55.385 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:37:04.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:37:04.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.linear.BigMatrixImplTest::testOperate, - org.apache.commons.math.linear.BigMatrixImplTest::testSolve, - org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:37:04.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testOperate
+07:37:04.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testSolve
+07:37:04.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:37:04.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:37:04.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+07:37:04.157 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:37:45.826 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:37:45.826 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:995
+07:37:45.826 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-98
+---------------- Testing New Patch ----------------
+07:37:45.827 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:46.685 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:37:46.685 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:47.502 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:37:47.503 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:48.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:37:48.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:37:56.467 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:37:56.467 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.linear.BigMatrixImplTest::testOperate, - org.apache.commons.math.linear.BigMatrixImplTest::testSolve, - org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:37:56.467 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testOperate
+07:37:56.467 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testSolve
+07:37:56.467 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:37:56.467 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:37:56.467 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+07:37:56.467 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:44:43.234 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+07:44:43.234 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:995
+07:44:43.234 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-98
+---------------- Testing New Patch ----------------
+07:44:43.235 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:44:44.110 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:44:44.110 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:44:51.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:44:51.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.linear.BigMatrixImplTest::testOperate, - org.apache.commons.math.linear.BigMatrixImplTest::testSolve, - org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+07:44:51.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testOperate
+07:44:51.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testSolve
+07:44:51.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+07:44:51.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+07:44:51.846 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+07:44:51.846 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+08:53:34.972 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-98/aggregatedSusInfo.profl
+08:53:34.972 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.linear.BigMatrixImpl:operate([Ljava/math/BigDecimal;)[Ljava/math/BigDecimal; in org.apache.commons.math.linear.BigMatrixImpl:995
+08:53:34.973 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-98
+---------------- Testing New Patch ----------------
+08:53:34.973 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:53:35.893 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+08:53:35.894 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:53:36.662 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+08:53:36.663 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:53:37.434 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+08:53:37.435 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:53:38.284 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+08:53:38.285 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:53:39.082 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-98 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+08:53:39.082 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:53:39.913 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+08:53:39.914 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+08:53:47.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.BigMatrixImplTest::testMath209, org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+08:53:47.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.linear.BigMatrixImplTest::testOperate, - org.apache.commons.math.linear.BigMatrixImplTest::testSolve, - org.apache.commons.math.linear.BigMatrixImplTest::testMath209, - org.apache.commons.math.linear.RealMatrixImplTest::testMath209]
+08:53:47.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testOperate
+08:53:47.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testSolve
+08:53:47.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.BigMatrixImplTest::testMath209
+08:53:47.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testMath209
+08:53:47.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+08:53:47.676 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

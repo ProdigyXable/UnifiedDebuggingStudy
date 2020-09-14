@@ -1,0 +1,454 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-23
+10:15:36.872 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-23 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/23.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/23.txt
+10:15:51.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+10:15:51.978 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-23/generalSusInfo.profl
+10:15:51.981 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+10:15:51.981 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.analysis.FunctionUtils ===141
+10:15:53.608 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return new UnivariateFunction() {
+            /** {@inheritDoc} */
+            public double value(double x) {
+                double r = f[0].value(x);
+                for (int i = 1; i < f.length; i++) {
+                    r += f[i].value(x);
+                }
+                return r;
+            }
+        };
+10:15:53.609 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.analysis.FunctionUtils:141 ---
+10:15:53.609 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/analysis/FunctionUtils.java 141 ---
+10:15:53.609 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:15:53.952 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return f;
+
+---------------- Testing New Patch ----------------
+10:15:53.954 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:15:55.699 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-23 ---Fixer: fix fail because of failed compiling! 
+10:15:56.310 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+10:15:56.311 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:15:57.611 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:15:57.611 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:17:43.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:17:43.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:17:43.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:17:43.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest
+10:17:43.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:17:43.277 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+10:17:43.277 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:17:43.290 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-23/aggregatedSusInfo.profl
+10:17:43.291 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.analysis.FunctionUtils:add([Lorg/apache/commons/math3/analysis/UnivariateFunction;)Lorg/apache/commons/math3/analysis/UnivariateFunction; in org.apache.commons.math3.analysis.FunctionUtils:141
+10:17:43.291 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Math-23
+10:17:43.335 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.optimization.univariate.BrentOptimizer ===193
+10:17:43.408 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+d = -tol1;
+10:17:43.408 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.optimization.univariate.BrentOptimizer:193 ---
+10:17:43.408 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/optimization/univariate/BrentOptimizer.java 193 ---
+10:17:43.408 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:17:43.456 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d += -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d -= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d *= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d /= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d %= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d &= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d ^= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d |= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d <<= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d >>= -tol1;
+10:17:43.457 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d >>>= -tol1;
+---------------- Testing New Patch ----------------
+10:17:43.458 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:44.584 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:17:44.584 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:19:23.520 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:19:23.521 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 37, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector, - org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc, - org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable, - org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832, - org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero, - org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType, - org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.RealVectorTest::testUnitize, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf, - org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtract, - org.apache.commons.math3.linear.RealVectorTest::testMapDivide, - org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapAdd, - org.apache.commons.math3.linear.RealVectorTest::testUnitVector, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide, - org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded, - org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:19:23.521 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector
+10:19:23.521 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments
+10:19:23.521 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable
+10:19:23.521 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:19:23.521 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc
+10:19:23.522 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable
+10:19:23.522 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine
+10:19:23.522 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply
+10:19:23.522 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable
+10:19:23.522 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832
+10:19:23.522 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero
+10:19:23.522 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes
+10:19:23.522 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType
+10:19:23.523 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType
+10:19:23.523 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf
+10:19:23.523 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf
+10:19:23.523 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes
+10:19:23.523 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiply
+10:19:23.523 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitize
+10:19:23.523 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf
+10:19:23.523 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtract
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivide
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAdd
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitVector
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf
+10:19:23.524 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=36, pp=Unknown
+10:19:23.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:19:23.705 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-23/aggregatedSusInfo.profl
+10:19:23.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.univariate.BrentOptimizer:doOptimize()Lorg/apache/commons/math3/optimization/univariate/UnivariatePointValuePair; in org.apache.commons.math3.optimization.univariate.BrentOptimizer:193
+10:19:23.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 37 Math-23
+---------------- Testing New Patch ----------------
+10:19:23.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:19:24.765 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:19:24.765 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:21:06.472 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:21:06.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 40, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector, - org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc, - org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable, - org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832, - org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero, - org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType, - org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.RealVectorTest::testUnitize, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf, - org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtract, - org.apache.commons.math3.linear.RealVectorTest::testMapDivide, - org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapAdd, - org.apache.commons.math3.linear.RealVectorTest::testUnitVector, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide, - org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded, - org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMinStatistics, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin, - org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin]
+10:21:06.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector
+10:21:06.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments
+10:21:06.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable
+10:21:06.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:21:06.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc
+10:21:06.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable
+10:21:06.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine
+10:21:06.474 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply
+10:21:06.474 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable
+10:21:06.474 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832
+10:21:06.474 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero
+10:21:06.474 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes
+10:21:06.474 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType
+10:21:06.474 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType
+10:21:06.474 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiply
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitize
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtract
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivide
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf
+10:21:06.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAdd
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitVector
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide
+10:21:06.476 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded
+10:21:06.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc
+10:21:06.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest
+10:21:06.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMinStatistics
+10:21:06.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:21:06.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin
+10:21:06.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin
+10:21:06.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=39, pp=Unknown
+10:21:06.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:21:06.560 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-23/aggregatedSusInfo.profl
+10:21:06.560 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.univariate.BrentOptimizer:doOptimize()Lorg/apache/commons/math3/optimization/univariate/UnivariatePointValuePair; in org.apache.commons.math3.optimization.univariate.BrentOptimizer:193
+10:21:06.560 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 40 Math-23
+---------------- Testing New Patch ----------------
+10:21:06.568 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:07.662 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:21:07.662 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:22:40.177 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:22:40.178 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 37, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector, - org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc, - org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable, - org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832, - org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero, - org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType, - org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.RealVectorTest::testUnitize, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf, - org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtract, - org.apache.commons.math3.linear.RealVectorTest::testMapDivide, - org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapAdd, - org.apache.commons.math3.linear.RealVectorTest::testUnitVector, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide, - org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded, - org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:22:40.178 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector
+10:22:40.178 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments
+10:22:40.178 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable
+10:22:40.181 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:22:40.181 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc
+10:22:40.181 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf
+10:22:40.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiply
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitize
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtract
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivide
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAdd
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitVector
+10:22:40.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest
+10:22:40.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:22:40.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=36, pp=Unknown
+10:22:40.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:22:41.540 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-23/aggregatedSusInfo.profl
+10:22:41.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.univariate.BrentOptimizer:doOptimize()Lorg/apache/commons/math3/optimization/univariate/UnivariatePointValuePair; in org.apache.commons.math3.optimization.univariate.BrentOptimizer:193
+10:22:41.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 37 Math-23
+---------------- Testing New Patch ----------------
+10:22:41.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:22:42.658 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:22:42.658 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:24:04.320 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:24:04.320 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 41, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector, - org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc, - org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable, - org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832, - org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero, - org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType, - org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.RealVectorTest::testUnitize, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf, - org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtract, - org.apache.commons.math3.linear.RealVectorTest::testMapDivide, - org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapAdd, - org.apache.commons.math3.linear.RealVectorTest::testUnitVector, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide, - org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded, - org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMinStatistics, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin, - org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin, - org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testSinMin]
+10:24:04.320 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector
+10:24:04.320 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType
+10:24:04.321 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiply
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitize
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtract
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivide
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAdd
+10:24:04.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitVector
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMinStatistics
+10:24:04.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:24:04.324 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin
+10:24:04.324 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin
+10:24:04.324 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testSinMin
+10:24:04.324 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=40, pp=Unknown
+10:24:04.324 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:24:28.623 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-23/aggregatedSusInfo.profl
+10:24:28.624 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.univariate.BrentOptimizer:doOptimize()Lorg/apache/commons/math3/optimization/univariate/UnivariatePointValuePair; in org.apache.commons.math3.optimization.univariate.BrentOptimizer:193
+10:24:28.624 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 41 Math-23
+---------------- Testing New Patch ----------------
+10:24:28.625 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:24:29.890 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:24:29.890 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:25:52.979 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:25:52.979 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 39, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector, - org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc, - org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable, - org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832, - org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero, - org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType, - org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.RealVectorTest::testUnitize, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf, - org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtract, - org.apache.commons.math3.linear.RealVectorTest::testMapDivide, - org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapAdd, - org.apache.commons.math3.linear.RealVectorTest::testUnitVector, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide, - org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded, - org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin, - org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin]
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType
+10:25:52.980 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiply
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitize
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtract
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivide
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAdd
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitVector
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf
+10:25:52.981 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=38, pp=Unknown
+10:25:52.982 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+10:31:26.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-23/aggregatedSusInfo.profl
+10:31:26.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.univariate.BrentOptimizer:doOptimize()Lorg/apache/commons/math3/optimization/univariate/UnivariatePointValuePair; in org.apache.commons.math3.optimization.univariate.BrentOptimizer:193
+10:31:26.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 39 Math-23
+---------------- Testing New Patch ----------------
+10:31:26.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:31:27.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-23 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:31:27.293 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:31:28.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-23 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:31:28.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:31:29.237 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-23 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:31:29.237 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:31:30.156 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-23 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:31:30.156 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:31:31.077 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-23 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:31:31.078 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:31:31.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-23 ---Fixer: fix fail because of failed compiling! 
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -tol2;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -lo;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -this.relativeThreshold;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -this.absoluteThreshold;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -u;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -r;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -q;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -p;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -m;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -fw;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -fv;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -fx;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -e;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -d;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -w;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -v;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -x;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -b;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -a;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -hi;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -mid;
+10:31:32.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: d = -doOptimize();
+---------------- Testing New Patch ----------------
+10:31:32.030 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:31:33.076 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:31:33.076 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:32:44.395 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+10:32:44.395 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 39, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector, - org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc, - org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable, - org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832, - org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero, - org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType, - org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.RealVectorTest::testUnitize, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf, - org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtract, - org.apache.commons.math3.linear.RealVectorTest::testMapDivide, - org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapAdd, - org.apache.commons.math3.linear.RealVectorTest::testUnitVector, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide, - org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded, - org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMinStatistics, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855, - org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin]
+10:32:44.395 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector
+10:32:44.395 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments
+10:32:44.395 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf
+10:32:44.396 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiply
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitize
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtract
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivide
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAdd
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitVector
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply
+10:32:44.397 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMinStatistics
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=38, pp=Unknown
+10:32:44.398 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+12:13:41.573 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-23/aggregatedSusInfo.profl
+12:13:41.573 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.univariate.BrentOptimizer:doOptimize()Lorg/apache/commons/math3/optimization/univariate/UnivariatePointValuePair; in org.apache.commons.math3.optimization.univariate.BrentOptimizer:193
+12:13:41.573 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 39 Math-23
+---------------- Testing New Patch ----------------
+12:13:41.574 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+12:13:42.584 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+12:13:42.584 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest]
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 41, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector, - org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc, - org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable, - org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine, - org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply, - org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable, - org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832, - org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero, - org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType, - org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.RealVectorTest::testUnitize, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf, - org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.RealVectorTest::testMapSubtract, - org.apache.commons.math3.linear.RealVectorTest::testMapDivide, - org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf, - org.apache.commons.math3.linear.RealVectorTest::testMapAdd, - org.apache.commons.math3.linear.RealVectorTest::testUnitVector, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf, - org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply, - org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes, - org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide, - org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded, - org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMinStatistics, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin, - org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin, - org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testSinMin]
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCollector
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testFixingArguments
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiplyDifferentiable
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testSinc
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testComposeDifferentiable
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testCombine
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testMultiply
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAddDifferentiable
+12:14:54.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.BrentSolverTest::testMath832
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.solvers.NewtonSolverTest::testSinZero
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.ArrayRealVectorTest::testProjectionMixedTypes
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionSameType
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractSameType
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivideToSelf
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiplyToSelf
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testSubtractMixedTypes
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapMultiply
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitize
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtractToSelf
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testProjectionMixedTypes
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapSubtract
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapDivide
+12:14:54.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAddToSelf
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testMapAdd
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.RealVectorTest::testUnitVector
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionSameType
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivideToSelf
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiplyToSelf
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testSubtractMixedTypes
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapMultiply
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testProjectionMixedTypes
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.SparseRealVectorTest::testMapDivide
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.linear.UnmodifiableOpenMapRealVectorTest::testAllButExcluded
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.direct.PowellOptimizerTest::testSumSinc
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testKeepInitIfBest
+12:14:54.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testQuinticMinStatistics
+12:14:54.296 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+12:14:54.296 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testSinMin
+12:14:54.296 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testQuinticMin
+12:14:54.296 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.univariate.UnivariateMultiStartOptimizerTest::testSinMin
+12:14:54.296 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=40, pp=Unknown
+12:14:54.296 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

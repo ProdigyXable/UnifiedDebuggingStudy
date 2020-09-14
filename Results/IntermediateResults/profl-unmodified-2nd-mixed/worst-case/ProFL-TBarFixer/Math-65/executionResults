@@ -1,0 +1,189 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-65
+22:39:26.063 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-65 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/65.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/65.txt
+22:39:31.517 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+22:39:31.603 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-65/generalSusInfo.profl
+22:39:31.605 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+22:39:31.605 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer ===323
+22:39:32.921 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return errors;
+22:39:32.922 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:323 ---
+22:39:32.922 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/optimization/general/AbstractLeastSquaresOptimizer.java 323 ---
+22:39:32.922 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:39:33.253 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.residuals;
+22:39:33.253 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.targetValues;
+22:39:33.253 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.residualsWeights;
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.point;
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.objective;
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getMaxIterations();
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getIterations();
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getMaxEvaluations();
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getEvaluations();
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getJacobianEvaluations();
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getConvergenceChecker();
+22:39:33.254 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getRMS();
+22:39:33.255 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getChiSquare();
+---------------- Testing New Patch ----------------
+22:39:33.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:39:34.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:39:34.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:39:59.844 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:39:59.845 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:39:59.845 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting
+22:39:59.845 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:39:59.845 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+22:39:59.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-65/aggregatedSusInfo.profl
+22:39:59.890 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:guessParametersErrors()[D in org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:323
+22:39:59.890 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-65
+---------------- Testing New Patch ----------------
+22:39:59.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:40:01.587 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:40:01.587 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:40:27.026 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:40:27.026 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:40:27.026 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting
+22:40:27.026 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:40:27.026 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+22:40:27.262 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-65/aggregatedSusInfo.profl
+22:40:27.262 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:guessParametersErrors()[D in org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:323
+22:40:27.262 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-65
+---------------- Testing New Patch ----------------
+22:40:27.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:40:29.061 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:40:29.062 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:40:53.534 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:40:53.534 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:40:53.534 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting
+22:40:53.534 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:40:53.534 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+22:40:53.646 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-65/aggregatedSusInfo.profl
+22:40:53.646 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:guessParametersErrors()[D in org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:323
+22:40:53.646 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-65
+---------------- Testing New Patch ----------------
+22:40:53.647 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:40:55.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:40:55.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:41:20.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:41:20.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:41:20.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting
+22:41:20.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:41:20.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+22:41:22.004 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-65/aggregatedSusInfo.profl
+22:41:22.005 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:guessParametersErrors()[D in org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:323
+22:41:22.005 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-65
+---------------- Testing New Patch ----------------
+22:41:22.006 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:41:23.821 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:41:23.821 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:41:48.204 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:41:48.204 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:41:48.204 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting
+22:41:48.204 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:41:48.204 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+22:42:15.708 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-65/aggregatedSusInfo.profl
+22:42:15.709 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:guessParametersErrors()[D in org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:323
+22:42:15.709 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-65
+---------------- Testing New Patch ----------------
+22:42:15.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:16.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:42:16.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:18.002 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:42:18.004 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:19.206 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:42:19.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:20.409 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:42:20.410 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:21.898 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:42:21.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:23.169 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:42:23.171 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:24.620 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:42:24.620 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:25.971 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors != null) {
+	
+
+	}
+
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) {
+	    throw new IllegalArgumentException("Null 'errors' argument.");
+	}
+
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) {
+	    return null;
+	}
+
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) errors = this.targetValues;
+ 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) errors = this.residualsWeights;
+ 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) errors = this.point;
+ 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) errors = this.objective;
+ 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) errors = this.residuals;
+ 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) errors = new double[]();
+ 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) return new double[]();
+	 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) return this.targetValues;
+	 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) return this.residualsWeights;
+	 
+22:42:26.071 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) return this.point;
+	 
+22:42:26.072 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) return this.objective;
+	 
+22:42:26.072 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (errors == null) return this.residuals;
+	 
+---------------- Testing New Patch ----------------
+22:42:26.073 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:27.470 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-65 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+22:42:27.471 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:42:29.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:42:29.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:42:52.531 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:42:52.531 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:42:52.531 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting
+22:42:52.531 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:42:52.532 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+22:50:32.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-65/aggregatedSusInfo.profl
+22:50:32.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:guessParametersErrors()[D in org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:323
+22:50:32.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-65
+---------------- Testing New Patch ----------------
+22:50:32.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:50:34.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:50:34.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:50:53.102 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:50:53.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+22:50:53.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting
+22:50:53.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:50:53.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+00:45:17.922 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-65/aggregatedSusInfo.profl
+00:45:17.923 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:guessParametersErrors()[D in org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:323
+00:45:17.923 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-65
+---------------- Testing New Patch ----------------
+00:45:17.924 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+00:45:19.152 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+00:45:19.152 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+00:45:38.658 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+00:45:38.658 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting]
+00:45:38.658 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.general.LevenbergMarquardtOptimizerTest::testCircleFitting
+00:45:38.658 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+00:45:38.658 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

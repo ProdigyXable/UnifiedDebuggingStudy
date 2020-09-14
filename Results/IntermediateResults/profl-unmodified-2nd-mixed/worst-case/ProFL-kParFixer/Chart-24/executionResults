@@ -1,0 +1,35 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Chart-24
+06:29:25.427 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Chart-24 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/24.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/24.txt
+06:29:32.462 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+06:29:32.487 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-24/generalSusInfo.profl
+06:29:32.489 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+06:29:32.489 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.chart.renderer.GrayPaintScale ===128
+06:29:33.573 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return new Color(g, g, g);
+06:29:33.596 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.chart.renderer.GrayPaintScale ===126
+06:29:33.638 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+int g = (int) ((value - this.lowerBound) / (this.upperBound 
+                - this.lowerBound) * 255.0);
+06:29:33.640 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: Object _tempVar = ((value - this.lowerBound) / (this.upperBound 
+                - this.lowerBound) * 255.0);
+if (_temVar instanceof int) {
+	
+
+} else {
+	throw new IllegalArgumentException("Illegal argument: ((value - this.lowerBound) / (this.upperBound 
+                - this.lowerBound) * 255.0)");
+}
+
+06:29:33.641 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:29:34.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Chart-24 ---Fixer: fix fail because of failed compiling! 
+06:29:34.288 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Finish off fixing======
+06:29:34.291 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-24/aggregatedSusInfo.profl
+Failed to fix bug Chart-24

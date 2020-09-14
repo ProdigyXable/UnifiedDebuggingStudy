@@ -1,0 +1,373 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-37
+03:18:23.219 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 Failed Tests: 4
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/37.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/37.txt
+03:18:28.008 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:18:28.018 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/generalSusInfo.profl
+03:18:28.019 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+03:18:28.019 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.complex.Complex ===1182
+03:18:28.814 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return new Complex(realPart, imaginaryPart);
+
+03:18:28.829 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:29.775 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:18:29.775 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.complex.Complex ===1178
+03:18:29.982 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (Double.isNaN(realPart) ||
+            Double.isNaN(imaginaryPart)) {
+            return NaN;
+        }
+if (Double.isNaN(realPart) && Double.isNaN(imaginaryPart)) {
+            return NaN;
+        }
+03:18:29.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:30.946 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:18:30.946 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:19:16.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:19:16.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:19:16.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+03:19:16.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+03:19:16.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+03:19:16.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+03:19:16.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+03:19:16.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:19:16.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/aggregatedSusInfo.profl
+03:19:16.454 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1178
+03:19:16.454 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Math-37
+
+        return new Complex(realPart, imaginaryPart);
+	if (Double.isNaN(realPart) ||
+            Double.isNaN(imaginaryPart)) {
+            return NaN;
+        }
+
+MOVE-BUGGY-STATEMENT
+03:19:16.465 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:17.392 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+
+03:19:17.393 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:18.394 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:19:18.394 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:20:01.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:20:01.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:20:01.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+03:20:01.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+03:20:01.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+03:20:01.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+03:20:01.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+03:20:01.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:20:02.013 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/aggregatedSusInfo.profl
+03:20:02.013 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1178
+03:20:02.013 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Math-37
+03:20:02.013 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.util.FastMath ===453
+03:20:02.701 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return exp(x)/2.0;
+
+03:20:02.708 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:03.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:20:03.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testCoshInf, - org.apache.commons.math.complex.ComplexTest::testCosInf, - org.apache.commons.math.complex.ComplexTest::testSinhInf, - org.apache.commons.math.complex.ComplexTest::testSinInf, - org.apache.commons.math.complex.ComplexTest::testTanInf, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[47]]
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testCoshInf
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testCosInf
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSinhInf
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSinInf
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+03:20:45.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[47]
+03:20:45.476 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=5, pp=Unknown
+03:20:45.476 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:20:45.484 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/aggregatedSusInfo.profl
+03:20:45.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:sinh(D)D in org.apache.commons.math.util.FastMath:453
+03:20:45.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 9 Math-37
+03:20:45.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.util.FastMath ===393
+03:20:45.643 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return exp(x)/2.0;
+
+03:20:45.648 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:46.654 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:20:46.654 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testCoshInf, - org.apache.commons.math.complex.ComplexTest::testCosInf, - org.apache.commons.math.complex.ComplexTest::testSinhInf, - org.apache.commons.math.complex.ComplexTest::testSinInf, - org.apache.commons.math.complex.ComplexTest::testTanInf, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[35]]
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testCoshInf
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testCosInf
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSinhInf
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSinInf
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[35]
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=5, pp=Unknown
+03:21:26.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:21:26.793 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/aggregatedSusInfo.profl
+03:21:26.793 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:cosh(D)D in org.apache.commons.math.util.FastMath:393
+03:21:26.793 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 9 Math-37
+03:21:26.794 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.complex.Complex ===1070
+03:21:26.819 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(d, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(imaginary2, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(real2, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(I, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(NaN, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(INF, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(ONE, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(ZERO, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(this.imaginary, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(this.real, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(this.isNaN, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(this.isInfinite, FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             d, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             imaginary2, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             real2, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             I, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             NaN, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             INF, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             ONE, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             ZERO, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             this.imaginary, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             this.real, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             this.isNaN, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             this.isInfinite, FastMath.sin(imaginary2) / d);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, d);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, imaginary2);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, real2);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, I);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, NaN);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, INF);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, ONE);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, ZERO);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, this.imaginary);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, this.real);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, this.isNaN);
+return createComplex(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d, this.isInfinite);
+03:21:26.822 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:27.666 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:27.667 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:28.535 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:28.535 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:29.356 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:29.357 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:30.206 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:30.206 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:31.107 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:31.107 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:31.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:31.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:32.732 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:32.733 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:33.571 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:33.571 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:34.387 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:34.388 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:35.223 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:35.224 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:36.030 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:36.030 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:36.810 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:36.810 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:37.644 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:37.644 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:38.465 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:38.465 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:39.292 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:39.293 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:40.150 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:40.151 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:40.982 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:40.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:41.825 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:41.825 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:42.650 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:42.650 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:43.529 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:43.530 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:44.375 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:44.376 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:45.162 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:45.163 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:45.950 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:45.951 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:46.771 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:46.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:47.596 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:47.596 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:48.404 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:48.405 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:49.223 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:49.223 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:50.125 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:50.126 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:50.899 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:50.899 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:51.715 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:51.715 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:52.510 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:52.510 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:53.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:53.321 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:54.169 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:54.170 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:55.020 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:55.021 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:55.928 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:21:55.929 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:56.799 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+return valueOf(FastMath.sinh(real2) / d,
+                             FastMath.sin(imaginary2) / d);
+03:21:56.802 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:57.726 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:21:57.726 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:22:36.686 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:22:36.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanhCritical, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:22:36.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+03:22:36.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+03:22:36.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+03:22:36.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhCritical
+03:22:36.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+03:22:36.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=1, pp=Unknown
+03:22:36.687 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:22:37.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/aggregatedSusInfo.profl
+03:22:37.475 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:tanh()Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1070
+03:22:37.475 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Math-37
+return abs();
+return conjugate();
+return reciprocal();
+return hashCode();
+return getImaginary();
+return getReal();
+return isNaN();
+return isInfinite();
+return negate();
+return acos();
+return asin();
+return atan();
+return cos();
+return cosh();
+return exp();
+return log();
+return sin();
+return sinh();
+return sqrt();
+return sqrt1z();
+return tan();
+return tanh();
+return getArgument();
+return readResolve();
+return getField();
+return toString();
+03:22:37.477 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:22:38.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:22:38.289 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:22:39.207 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:22:39.207 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:23:16.852 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:23:16.852 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanhCritical, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:23:16.852 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+03:23:16.853 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+03:23:16.853 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+03:23:16.853 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhCritical
+03:23:16.853 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+03:23:16.853 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=1, pp=Unknown
+03:23:16.853 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:23:28.442 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/aggregatedSusInfo.profl
+03:23:28.442 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:tanh()Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1070
+03:23:28.442 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Math-37
+03:23:28.442 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:23:29.328 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:23:29.328 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanhCritical, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhCritical
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=1, pp=Unknown
+03:24:07.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:26:43.403 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/aggregatedSusInfo.profl
+03:26:43.403 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:tanh()Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1070
+03:26:43.403 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Math-37
+03:26:43.403 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:26:44.208 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:26:44.208 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:26:44.963 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:26:44.963 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:26:45.710 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:26:45.711 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:26:46.463 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:26:46.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:26:47.241 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+03:26:47.242 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:26:48.112 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:26:48.112 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:27:26.010 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:27:26.010 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanhCritical, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+03:27:26.010 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+03:27:26.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+03:27:26.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+03:27:26.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhCritical
+03:27:26.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+03:27:26.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=1, pp=Unknown
+03:27:26.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:04:26.464 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-37/aggregatedSusInfo.profl
+04:04:26.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:tanh()Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1070
+04:04:26.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Math-37
+04:04:26.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:04:27.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:04:27.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanhCritical, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhCritical
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=4, fp=0, pf=1, pp=Unknown
+04:05:05.339 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

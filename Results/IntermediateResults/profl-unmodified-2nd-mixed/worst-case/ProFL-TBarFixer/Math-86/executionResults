@@ -1,0 +1,204 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-86
+01:54:53.827 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-86 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/86.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/86.txt
+01:54:59.469 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:54:59.549 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/generalSusInfo.profl
+01:54:59.554 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:54:59.554 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.linear.AbstractRealMatrix ===1013
+01:55:02.078 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return res.toString();
+01:55:02.079 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.linear.AbstractRealMatrix:1013 ---
+01:55:02.079 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/linear/AbstractRealMatrix.java 1013 ---
+01:55:02.080 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:55:02.994 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return copy().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getData().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getNorm().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getFrobeniusNorm().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return transpose().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return isSquare().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return isSingular().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getRowDimension().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getColumnDimension().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return toString().toString();
+01:55:02.995 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return hashCode().toString();
+---------------- Testing New Patch ----------------
+01:55:03.008 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:05.970 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:05.970 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite, - org.apache.commons.math.linear.DenseRealMatrixTest::testToString, - org.apache.commons.math.linear.RealMatrixImplTest::testToString, - org.apache.commons.math.linear.SparseRealMatrixTest::testToString]
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.DenseRealMatrixTest::testToString
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testToString
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.SparseRealMatrixTest::testToString
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=3, pp=Unknown
+01:55:33.061 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:55:33.102 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/aggregatedSusInfo.profl
+01:55:33.102 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String; in org.apache.commons.math.linear.AbstractRealMatrix:1013
+01:55:33.105 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-86
+---------------- Testing New Patch ----------------
+01:55:33.118 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:36.114 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:36.114 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:02.652 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:56:02.652 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite, - org.apache.commons.math.linear.DenseRealMatrixTest::testToString, - org.apache.commons.math.linear.RealMatrixImplTest::testToString, - org.apache.commons.math.linear.SparseRealMatrixTest::testToString]
+01:56:02.652 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+01:56:02.653 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+01:56:02.653 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.DenseRealMatrixTest::testToString
+01:56:02.653 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testToString
+01:56:02.653 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.SparseRealMatrixTest::testToString
+01:56:02.653 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=3, pp=Unknown
+01:56:02.653 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:56:02.750 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/aggregatedSusInfo.profl
+01:56:02.764 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String; in org.apache.commons.math.linear.AbstractRealMatrix:1013
+01:56:02.764 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-86
+---------------- Testing New Patch ----------------
+01:56:02.765 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:05.562 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:05.564 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:08.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:08.208 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:10.954 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:10.954 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:36.773 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:56:36.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite, - org.apache.commons.math.linear.DenseRealMatrixTest::testToString, - org.apache.commons.math.linear.RealMatrixImplTest::testToString, - org.apache.commons.math.linear.SparseRealMatrixTest::testToString]
+01:56:36.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+01:56:36.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+01:56:36.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.DenseRealMatrixTest::testToString
+01:56:36.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testToString
+01:56:36.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.SparseRealMatrixTest::testToString
+01:56:36.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=3, pp=Unknown
+01:56:36.775 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:56:36.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/aggregatedSusInfo.profl
+01:56:36.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String; in org.apache.commons.math.linear.AbstractRealMatrix:1013
+01:56:36.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-86
+---------------- Testing New Patch ----------------
+01:56:36.807 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:39.053 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:39.054 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:40.993 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:40.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:43.281 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:43.282 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:45.520 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:45.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:47.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:47.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:11.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:57:11.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite, - org.apache.commons.math.linear.DenseRealMatrixTest::testToString, - org.apache.commons.math.linear.RealMatrixImplTest::testToString, - org.apache.commons.math.linear.SparseRealMatrixTest::testToString]
+01:57:11.675 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+01:57:11.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+01:57:11.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.DenseRealMatrixTest::testToString
+01:57:11.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.RealMatrixImplTest::testToString
+01:57:11.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.linear.SparseRealMatrixTest::testToString
+01:57:11.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=3, pp=Unknown
+01:57:11.676 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:57:12.070 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/aggregatedSusInfo.profl
+01:57:12.071 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String; in org.apache.commons.math.linear.AbstractRealMatrix:1013
+01:57:12.071 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-86
+---------------- Testing New Patch ----------------
+01:57:12.072 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:14.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+01:57:14.639 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (res != null) {
+	
+
+	}
+
+01:57:14.639 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (res == null) {
+	    throw new IllegalArgumentException("Null 'res' argument.");
+	}
+
+01:57:14.639 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (res == null) {
+	    return null;
+	}
+
+01:57:14.639 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (res == null) res = new StringBuffer();
+ 
+01:57:14.639 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (res == null) return new String();
+	 
+01:57:14.639 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (res == null) return shortClassName;
+	 
+01:57:14.639 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (res == null) return fullClassName;
+	 
+---------------- Testing New Patch ----------------
+01:57:14.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:16.634 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:16.635 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:18.824 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:18.824 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:42.004 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:57:42.004 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:57:42.004 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+01:57:42.004 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+01:57:42.005 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+01:57:42.005 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:57:46.223 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/aggregatedSusInfo.profl
+01:57:46.224 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String; in org.apache.commons.math.linear.AbstractRealMatrix:1013
+01:57:46.224 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-86
+---------------- Testing New Patch ----------------
+01:57:46.225 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:48.049 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:48.050 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:58:09.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:58:09.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:58:09.649 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+01:58:09.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+01:58:09.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+01:58:09.650 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:59:06.574 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/aggregatedSusInfo.profl
+01:59:06.574 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String; in org.apache.commons.math.linear.AbstractRealMatrix:1013
+01:59:06.574 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-86
+---------------- Testing New Patch ----------------
+01:59:06.575 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:59:08.481 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-86 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:59:08.482 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:59:10.568 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:59:10.568 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:59:30.070 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:59:30.070 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+01:59:30.070 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+01:59:30.070 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+01:59:30.071 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+01:59:30.071 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+02:11:44.083 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/aggregatedSusInfo.profl
+02:11:44.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String; in org.apache.commons.math.linear.AbstractRealMatrix:1013
+02:11:44.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-86
+---------------- Testing New Patch ----------------
+02:11:44.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:11:45.555 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:11:45.555 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:12:01.125 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+02:12:01.125 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+02:12:01.125 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+02:12:01.125 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+02:12:01.125 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+02:12:01.126 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+04:25:04.215 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-86/aggregatedSusInfo.profl
+04:25:04.216 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String; in org.apache.commons.math.linear.AbstractRealMatrix:1013
+04:25:04.216 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-86
+---------------- Testing New Patch ----------------
+04:25:04.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+04:25:05.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+04:25:05.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+04:25:21.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+04:25:21.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274, - org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite]
+04:25:21.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testMath274
+04:25:21.559 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.linear.CholeskyDecompositionImplTest::testNotPositiveDefinite
+04:25:21.559 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+04:25:21.559 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

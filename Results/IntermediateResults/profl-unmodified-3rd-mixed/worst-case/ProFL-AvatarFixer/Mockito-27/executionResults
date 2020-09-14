@@ -1,0 +1,203 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-27
+01:22:48.177 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/27.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/27.txt
+01:22:51.698 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+01:22:51.718 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-27/generalSusInfo.profl
+01:22:51.745 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-27/aggregatedSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Mockito-27/ochiai.txt
+01:22:51.746 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+01:22:51.746 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.mockito.Mockito ===1285
+01:22:52.444 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * Smart Mockito users hardly use this feature because they know it could be a sign of poor tests.
+     * Normally, you don't need to reset your mocks, just create new mocks for each test method.
+     * <p>
+     * Instead of reset() please consider writing simple, small and focused test methods over lengthy, over-specified tests.
+     * <b>First potential code smell is reset() in the middle of the test method.</b> This probably means you're testing too much.
+     * Follow the whisper of your test methods: "Please keep us small & focused on single behavior".
+     * There are several threads about it on mockito mailing list.
+     * <p>
+     * The only reason we added reset() method is to
+     * make it possible to work with container-injected mocks.
+     * See issue 55 (<a href="http://code.google.com/p/mockito/issues/detail?id=55">here</a>)
+     * or FAQ (<a href="http://code.google.com/p/mockito/wiki/FAQ">here</a>).
+     * <p>
+     * <b>Don't harm yourself.</b> reset() in the middle of the test method is a code smell (you're probably testing too much).
+     * <pre>
+     *   List mock = mock(List.class);
+     *   when(mock.size()).thenReturn(10);
+     *   mock.add(1);
+     *
+     *   reset(mock);
+     *   //at this point the mock forgot any interactions & stubbing
+     * </pre>
+     *
+     * @param <T>
+     * @param mocks to be reset
+     */
+    public static <T> void reset(T ... mocks) {
+        MOCKITO_CORE.reset(mocks);
+    }
+01:22:52.446 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/mockito/Mockito.java:1285 ---
+01:22:52.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.mockito.Mockito ===1284
+01:22:52.547 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+MOCKITO_CORE.reset(mocks);
+01:22:52.548 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/mockito/Mockito.java:1284 ---
+01:22:52.549 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: mocks.reset(mocks);
+---------------- Testing New Patch ----------------
+01:22:52.550 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:22:56.373 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+01:22:56.374 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (mocks != null) {
+	
+
+}
+
+01:22:56.374 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (mocks == null) {
+    throw new IllegalArgumentException("Null 'mocks' argument.");
+}
+
+01:22:56.374 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (mocks == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+01:22:56.374 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:23:06.811 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:23:06.811 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:26:12.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+01:26:12.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+01:26:12.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+01:26:12.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:26:12.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:26:12.441 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-27/aggregatedSusInfo.profl
+01:26:12.441 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.Mockito:reset([Ljava/lang/Object;)V in org.mockito.Mockito:1284
+01:26:12.441 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Mockito-27
+---------------- Testing New Patch ----------------
+01:26:12.441 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:26:13.195 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:26:13.195 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:29:15.603 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+01:29:15.603 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+01:29:15.603 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+01:29:15.603 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:29:15.603 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+01:29:16.309 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-27/aggregatedSusInfo.profl
+01:29:16.309 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.Mockito:reset([Ljava/lang/Object;)V in org.mockito.Mockito:1284
+01:29:16.309 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Mockito-27
+---------------- Testing New Patch ----------------
+01:29:16.310 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:20.046 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+01:29:20.047 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:29:20.047 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:23.819 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+01:29:23.820 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:29:23.821 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:27.603 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:27.604 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:31.387 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+01:29:31.388 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:29:31.388 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:35.205 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+01:29:35.206 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:29:35.207 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:38.973 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:38.973 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:42.716 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+01:29:42.716 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:29:42.717 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:46.481 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-27 ---Fixer: fix fail because of failed compiling! 
+01:29:46.481 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.mockito.exceptions.Reporter ===269
+01:29:46.621 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+throw new WantedButNotInvoked(message + allInvocations);
+01:29:46.622 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/mockito/exceptions/Reporter.java:269 ---
+01:29:46.622 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw new WantedButNotInvoked(allInvocations + allInvocations);
+01:29:46.622 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw new WantedButNotInvoked(wanted + allInvocations);
+01:29:46.622 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw new WantedButNotInvoked(invocations + allInvocations);
+01:29:46.622 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw new WantedButNotInvoked(message + message);
+01:29:46.622 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw new WantedButNotInvoked(message + wanted);
+01:29:46.622 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw new WantedButNotInvoked(message + invocations);
+---------------- Testing New Patch ----------------
+01:29:46.623 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:29:56.672 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:29:56.672 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.matchers.CapturingArgumentsTest::shouldPrintCaptorMatcher, - org.mockitousage.matchers.MatchersTest::shouldArrayEqualsDealWithNullArray, - org.mockitousage.matchers.MatchersTest::deltaMatcherPrintsItself, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodNameAndArguments, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldNeverBreakMethodStringWhenNoArgsInMethod, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodNameWhenVerifyingAtLeastOnce, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodWhenMatcherUsed, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodName]
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.matchers.CapturingArgumentsTest::shouldPrintCaptorMatcher
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.matchers.MatchersTest::shouldArrayEqualsDealWithNullArray
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.matchers.MatchersTest::deltaMatcherPrintsItself
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodNameAndArguments
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldNeverBreakMethodStringWhenNoArgsInMethod
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodNameWhenVerifyingAtLeastOnce
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodWhenMatcherUsed
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodName
+01:32:58.890 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+01:32:58.891 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+01:33:19.417 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-27/aggregatedSusInfo.profl
+01:33:19.417 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.exceptions.Reporter:wantedButNotInvoked(Lorg/mockito/exceptions/PrintableInvocation;Ljava/util/List;)V in org.mockito.exceptions.Reporter:269
+01:33:19.417 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Mockito-27
+---------------- Testing New Patch ----------------
+01:33:19.418 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:33:20.293 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:33:20.293 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:36:21.302 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+01:36:21.302 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodWhenMatcherUsed, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodName]
+01:36:21.302 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+01:36:21.302 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodWhenMatcherUsed
+01:36:21.302 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodName
+01:36:21.302 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:36:21.302 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+01:44:48.519 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-27/aggregatedSusInfo.profl
+01:44:48.519 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.exceptions.Reporter:wantedButNotInvoked(Lorg/mockito/exceptions/PrintableInvocation;Ljava/util/List;)V in org.mockito.exceptions.Reporter:269
+01:44:48.519 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 3 Mockito-27
+---------------- Testing New Patch ----------------
+01:44:48.519 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:44:49.313 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:44:49.313 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:47:49.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.matchers.CapturingArgumentsTest::shouldPrintCaptorMatcher, - org.mockitousage.matchers.MatchersTest::shouldArrayEqualsDealWithNullArray, - org.mockitousage.matchers.MatchersTest::deltaMatcherPrintsItself, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodNameAndArguments, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldNeverBreakMethodStringWhenNoArgsInMethod, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodNameWhenVerifyingAtLeastOnce, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodWhenMatcherUsed, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodName]
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.matchers.CapturingArgumentsTest::shouldPrintCaptorMatcher
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.matchers.MatchersTest::shouldArrayEqualsDealWithNullArray
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.matchers.MatchersTest::deltaMatcherPrintsItself
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodNameAndArguments
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldNeverBreakMethodStringWhenNoArgsInMethod
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodNameWhenVerifyingAtLeastOnce
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodWhenMatcherUsed
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodName
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+01:47:49.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+05:10:42.571 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-27/aggregatedSusInfo.profl
+05:10:42.571 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.exceptions.Reporter:wantedButNotInvoked(Lorg/mockito/exceptions/PrintableInvocation;Ljava/util/List;)V in org.mockito.exceptions.Reporter:269
+05:10:42.571 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Mockito-27
+---------------- Testing New Patch ----------------
+05:10:42.571 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+05:10:43.415 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+05:10:43.415 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+05:13:43.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.ListenersLostOnResetMockTest::listener]
+05:13:43.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.mockitousage.bugs.ListenersLostOnResetMockTest::listener, - org.mockitousage.verification.OrdinaryVerificationPrintsAllInteractionsTest::shouldNotShowAllInteractionsOnDifferentMock, - org.mockitousage.verification.OrdinaryVerificationPrintsAllInteractionsTest::shouldShowAllInteractionsOnMockWhenOrdinaryVerificationFail, - org.mockitousage.verification.OrdinaryVerificationPrintsAllInteractionsTest::shouldNotShowAllInteractionsHeaderWhenNoOtherInteractions]
+05:13:43.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ListenersLostOnResetMockTest::listener
+05:13:43.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.OrdinaryVerificationPrintsAllInteractionsTest::shouldNotShowAllInteractionsOnDifferentMock
+05:13:43.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.OrdinaryVerificationPrintsAllInteractionsTest::shouldShowAllInteractionsOnMockWhenOrdinaryVerificationFail
+05:13:43.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.OrdinaryVerificationPrintsAllInteractionsTest::shouldNotShowAllInteractionsHeaderWhenNoOtherInteractions
+05:13:43.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+05:13:43.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

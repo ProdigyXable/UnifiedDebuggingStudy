@@ -1,0 +1,37 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-62
+10:53:03.143 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-62 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/62.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/62.txt
+10:53:06.017 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+10:53:06.031 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-62/generalSusInfo.profl
+10:53:06.040 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-62/aggregatedSusInfo.profl
+10:53:06.044 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+10:53:06.044 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer ===205
+10:53:06.663 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Sort the optima from best to worst, followed by {@code null} elements.
+     *
+     * @param goal Goal type.
+     */
+    private void sortPairs(final GoalType goal) {
+        Arrays.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+    }

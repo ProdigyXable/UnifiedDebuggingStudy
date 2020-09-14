@@ -1,0 +1,168 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-85
+03:06:27.735 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-85 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/85.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/85.txt
+03:06:32.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:06:32.175 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/generalSusInfo.profl
+03:06:32.177 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+03:06:32.177 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.analysis.solvers.UnivariateRealSolverUtils ===199
+03:06:33.317 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+throw new ConvergenceException(
+                      "number of iterations={0}, maximum iterations={1}, " +
+                      "initial={2}, lower bound={3}, upper bound={4}, final a value={5}, " +
+                      "final b value={6}, f(a)={7}, f(b)={8}",
+                      numIterations, maximumIterations, initial,
+                      lowerBound, upperBound, a, b, fa, fb);
+03:06:33.611 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.distribution.AbstractContinuousDistribution ===104
+03:06:33.670 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+throw new MathException(ex);
+03:06:33.750 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: throw MathException(ex);
+03:06:33.753 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: throw new ex);
+03:06:33.753 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: throw new MathException);
+03:06:33.754 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:06:34.911 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-85 ---Fixer: fix fail because of failed compiling! 
+03:06:34.912 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:06:35.476 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-85 ---Fixer: fix fail because of failed compiling! 
+03:06:35.476 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:06:36.031 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-85 ---Fixer: fix fail because of failed compiling! 
+03:06:36.108 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (ex != null) {
+	
+
+}
+
+03:06:36.108 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (ex == null) {
+    throw new IllegalArgumentException("Null 'ex' argument.");
+}
+
+03:06:36.108 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (ex == null) {
+    return 0.0;
+}
+
+03:06:36.109 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:06:37.299 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:06:37.299 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:06:57.108 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:06:57.108 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:06:57.108 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+03:06:57.108 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:06:57.109 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:06:57.118 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/aggregatedSusInfo.profl
+03:06:57.118 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.distribution.AbstractContinuousDistribution:inverseCumulativeProbability(D)D in org.apache.commons.math.distribution.AbstractContinuousDistribution:104
+03:06:57.118 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-85
+03:06:57.119 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:06:58.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:06:58.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:07:16.555 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:07:16.555 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:07:16.555 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+03:07:16.555 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:07:16.556 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:07:16.621 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/aggregatedSusInfo.profl
+03:07:16.621 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.distribution.AbstractContinuousDistribution:inverseCumulativeProbability(D)D in org.apache.commons.math.distribution.AbstractContinuousDistribution:104
+03:07:16.621 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-85
+03:07:16.621 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:07:17.656 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:07:17.656 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:07:35.499 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:07:35.499 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:07:35.499 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+03:07:35.499 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:07:35.499 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:07:35.530 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/aggregatedSusInfo.profl
+03:07:35.531 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.distribution.AbstractContinuousDistribution:inverseCumulativeProbability(D)D in org.apache.commons.math.distribution.AbstractContinuousDistribution:104
+03:07:35.531 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-85
+03:07:35.531 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.distribution.AbstractContinuousDistribution ===100
+03:07:35.560 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (Math.abs(rootFindingFunction.value(upperBound)) < 1E-6) {
+                return upperBound;
+            }
+03:07:35.563 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (Math.abs(rootFindingFunction.value(upperBound)) <= 1E-6) {
+                return upperBound;
+            }
+03:07:35.563 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (Math.abs(rootFindingFunction.value(upperBound)) >= 1E-6) {
+                return upperBound;
+            }
+03:07:35.563 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (Math.abs(rootFindingFunction.value(upperBound)) > 1E-6) {
+                return upperBound;
+            }
+03:07:35.563 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((Math.abs(rootFindingFunction.value(lowerBound)) < 1E-6)) {
+                return upperBound;
+            }
+03:07:35.563 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((p < 0.0 || p > 1.0)) {
+                return upperBound;
+            }
+03:07:35.563 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((p < 0.0)) {
+                return upperBound;
+            }
+03:07:35.563 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((p > 1.0)) {
+                return upperBound;
+            }
+03:07:35.563 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:07:36.641 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:07:36.642 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:07:53.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:07:53.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:07:53.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+03:07:53.326 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:07:53.326 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:07:53.627 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/aggregatedSusInfo.profl
+03:07:53.628 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.distribution.AbstractContinuousDistribution:inverseCumulativeProbability(D)D in org.apache.commons.math.distribution.AbstractContinuousDistribution:100
+03:07:53.628 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-85
+03:07:53.628 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:07:54.744 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:07:54.744 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:08:11.414 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:08:11.414 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:08:11.414 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+03:08:11.414 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:11.415 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:08:15.253 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/aggregatedSusInfo.profl
+03:08:15.254 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.distribution.AbstractContinuousDistribution:inverseCumulativeProbability(D)D in org.apache.commons.math.distribution.AbstractContinuousDistribution:100
+03:08:15.254 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-85
+03:08:15.255 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:08:16.340 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:08:16.340 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:08:31.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:08:31.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:08:31.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+03:08:31.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:31.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:09:20.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/aggregatedSusInfo.profl
+03:09:20.454 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.distribution.AbstractContinuousDistribution:inverseCumulativeProbability(D)D in org.apache.commons.math.distribution.AbstractContinuousDistribution:100
+03:09:20.454 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-85
+03:09:20.455 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:09:21.355 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:09:21.355 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:09:35.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:09:35.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:09:35.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+03:09:35.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:09:35.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:20:10.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/aggregatedSusInfo.profl
+03:20:10.638 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.distribution.AbstractContinuousDistribution:inverseCumulativeProbability(D)D in org.apache.commons.math.distribution.AbstractContinuousDistribution:100
+03:20:10.638 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-85
+03:20:10.638 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:11.530 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:20:11.530 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:20:23.063 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:20:23.063 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+03:20:23.063 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+03:20:23.063 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:20:23.063 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:03:45.635 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-85/aggregatedSusInfo.profl
+06:03:45.635 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.distribution.AbstractContinuousDistribution:inverseCumulativeProbability(D)D in org.apache.commons.math.distribution.AbstractContinuousDistribution:100
+06:03:45.635 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-85
+06:03:45.636 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:03:46.555 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:03:46.555 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:03:58.436 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+06:03:58.437 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.distribution.NormalDistributionTest::testMath280]
+06:03:58.437 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.distribution.NormalDistributionTest::testMath280
+06:03:58.437 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:03:58.437 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

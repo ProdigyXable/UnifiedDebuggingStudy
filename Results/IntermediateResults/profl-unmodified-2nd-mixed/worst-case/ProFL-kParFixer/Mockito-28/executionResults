@@ -1,0 +1,131 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-28
+04:39:15.102 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-28 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/28.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/28.txt
+04:39:18.202 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+04:39:18.234 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-28/generalSusInfo.profl
+04:39:18.279 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-28/aggregatedSusInfo.profl
+04:39:18.285 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+04:39:18.285 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues ===70
+04:39:19.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return name.toString();
+04:39:19.587 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return name.isSurrogate();
+04:39:19.589 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:39:20.920 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:39:20.920 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:42:28.616 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+04:42:28.616 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 7, [- org.mockitousage.annotation.AnnotationsTest::shouldInitMocksWithGivenSettings, - org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndExtraInterfaces, - org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndSmartNulls, - org.mockitousage.basicapi.MocksCreationTest::shouldSpecifyMockNameViaSettings, - org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName, - org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type, - org.mockitousage.stubbing.BasicStubbingTest::shouldToStringMockName]
+04:42:28.616 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.AnnotationsTest::shouldInitMocksWithGivenSettings
+04:42:28.616 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndExtraInterfaces
+04:42:28.616 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndSmartNulls
+04:42:28.616 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksCreationTest::shouldSpecifyMockNameViaSettings
+04:42:28.617 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName
+04:42:28.617 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type
+04:42:28.617 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::shouldToStringMockName
+04:42:28.617 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+04:42:28.617 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:42:28.724 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-28/aggregatedSusInfo.profl
+04:42:28.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:answer(Lorg/mockito/invocation/InvocationOnMock;)Ljava/lang/Object; in org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:70
+04:42:28.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 7 Mockito-28
+04:42:28.727 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (name != null) {
+	
+
+}
+
+04:42:28.727 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (name == null) {
+    throw new IllegalArgumentException("Null 'name' argument.");
+}
+
+04:42:28.728 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (name == null) {
+    return null;
+}
+
+04:42:28.728 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:42:29.744 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:42:29.744 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:45:34.541 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+04:45:34.541 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+04:45:34.541 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type
+04:45:34.541 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+04:45:34.542 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+04:45:35.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-28/aggregatedSusInfo.profl
+04:45:35.209 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:answer(Lorg/mockito/invocation/InvocationOnMock;)Ljava/lang/Object; in org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:70
+04:45:35.209 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Mockito-28
+04:45:35.209 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:45:36.214 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:45:36.214 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:48:40.779 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+04:48:40.779 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+04:48:40.779 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type
+04:48:40.779 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+04:48:40.779 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+04:48:54.390 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-28/aggregatedSusInfo.profl
+04:48:54.390 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:answer(Lorg/mockito/invocation/InvocationOnMock;)Ljava/lang/Object; in org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:70
+04:48:54.390 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Mockito-28
+04:48:54.390 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:48:55.369 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:48:55.369 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:51:59.064 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+04:51:59.064 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+04:51:59.064 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type
+04:51:59.064 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+04:51:59.064 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+04:56:47.842 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-28/aggregatedSusInfo.profl
+04:56:47.842 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:answer(Lorg/mockito/invocation/InvocationOnMock;)Ljava/lang/Object; in org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:70
+04:56:47.842 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Mockito-28
+04:56:47.843 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues ===67
+04:56:47.882 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (name.isSurrogate()) {
+                return "Mock for " + ClassNameFinder.classNameForMock(mock) + ", hashCode: " + mock.hashCode();
+            } else {
+                return name.toString();
+            }
+04:56:47.884 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((methodsGuru.isToString(invocation.getMethod()))) {
+                return "Mock for " + ClassNameFinder.classNameForMock(mock) + ", hashCode: " + mock.hashCode();
+            } else {
+                return name.toString();
+            }
+04:56:47.884 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((methodsGuru.isCompareToMethod(invocation.getMethod()))) {
+                return "Mock for " + ClassNameFinder.classNameForMock(mock) + ", hashCode: " + mock.hashCode();
+            } else {
+                return name.toString();
+            }
+04:56:47.885 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:56:48.891 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:56:48.891 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 7, [- org.mockitousage.annotation.AnnotationsTest::shouldInitMocksWithGivenSettings, - org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndExtraInterfaces, - org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndSmartNulls, - org.mockitousage.basicapi.MocksCreationTest::shouldSpecifyMockNameViaSettings, - org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName, - org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type, - org.mockitousage.stubbing.BasicStubbingTest::shouldToStringMockName]
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.AnnotationsTest::shouldInitMocksWithGivenSettings
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndExtraInterfaces
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksCreationTest::shouldCombineMockNameAndSmartNulls
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.MocksCreationTest::shouldSpecifyMockNameViaSettings
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::shouldToStringMockName
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+04:59:51.183 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+06:40:41.791 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-28/aggregatedSusInfo.profl
+06:40:41.791 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:answer(Lorg/mockito/invocation/InvocationOnMock;)Ljava/lang/Object; in org.mockito.internal.stubbing.defaultanswers.ReturnsEmptyValues:67
+06:40:41.791 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 7 Mockito-28
+06:40:41.793 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:40:42.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:40:42.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type]
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 9, [- org.mockitousage.basicapi.ReplacingObjectMethodsTest::shouldProvideMockyImplementationOfToString, - org.mockitousage.basicapi.ReplacingObjectMethodsTest::shouldReplaceObjectMethodsWhenOverridden, - org.mockitousage.basicapi.ReplacingObjectMethodsTest::shouldReplaceObjectMethods, - org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName, - org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString, - org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type, - org.mockitousage.stubbing.BasicStubbingTest::shouldToStringMockName, - org.mockitousage.stubbing.BasicStubbingTest::shouldAllowStubbingToString, - org.mockitousage.stubbing.DeprecatedStubbingTest::shouldAllowStubbingToString]
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ReplacingObjectMethodsTest::shouldProvideMockyImplementationOfToString
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ReplacingObjectMethodsTest::shouldReplaceObjectMethodsWhenOverridden
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ReplacingObjectMethodsTest::shouldReplaceObjectMethods
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldNotAffectMockName
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.basicapi.ResetTest::shouldRemoveStubbingToString
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.InjectionByTypeShouldFirstLookForExactTypeThenAncestorTest::mock_should_be_injected_once_and_in_the_best_matching_type
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::shouldToStringMockName
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.BasicStubbingTest::shouldAllowStubbingToString
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeprecatedStubbingTest::shouldAllowStubbingToString
+06:43:44.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+06:43:44.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

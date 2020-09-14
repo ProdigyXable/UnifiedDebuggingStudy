@@ -1,0 +1,476 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-17
+13:56:30.355 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-17 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/17.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/17.txt
+13:56:34.589 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+13:56:34.616 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/generalSusInfo.profl
+13:56:34.618 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+13:56:34.618 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1693
+13:56:36.512 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1693
+13:56:36.512 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1680
+13:56:36.786 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1680
+13:56:36.786 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1679
+13:56:36.906 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1679
+13:56:36.907 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1677
+13:56:37.009 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1677
+13:56:37.009 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1676
+13:56:37.088 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1676
+13:56:37.088 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1696
+13:56:37.153 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1696
+13:56:37.153 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1699
+13:56:37.216 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1699
+13:56:37.216 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1703
+13:56:37.270 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1703
+13:56:37.270 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1702
+13:56:37.366 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Determines if two dates are equal up to no more than the specified 
+     * most significant field.
+     * 
+     * @param date1 the first date, not <code>null</code>
+     * @param date2 the second date, not <code>null</code>
+     * @param field the field from {@code Calendar}
+     * @return <code>true</code> if equal; otherwise <code>false</code>
+     * @throws IllegalArgumentException if any argument is <code>null</code>
+     * @see #truncate(Date, int)
+     * @see #truncatedEquals(Calendar, Calendar, int)
+     * @since 3.0
+     */
+    public static boolean truncatedEquals(Date date1, Date date2, int field) {
+        return truncatedCompareTo(date1, date2, field) == 0;
+    }
+13:56:37.379 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1707
+13:56:37.456 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1707
+13:56:37.456 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1685
+13:56:37.528 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Determines if two calendars are equal up to no more than the specified 
+     * most significant field.
+     * 
+     * @param cal1 the first calendar, not <code>null</code>
+     * @param cal2 the second calendar, not <code>null</code>
+     * @param field the field from {@code Calendar}
+     * @return <code>true</code> if equal; otherwise <code>false</code>
+     * @throws IllegalArgumentException if any argument is <code>null</code>
+     * @see #truncate(Calendar, int)
+     * @see #truncatedEquals(Date, Date, int)
+     * @since 3.0
+     */
+    public static boolean truncatedEquals(Calendar cal1, Calendar cal2, int field) {
+        return truncatedCompareTo(cal1, cal2, field) == 0;
+    }
+13:56:37.529 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1674
+13:56:37.603 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1674
+13:56:37.603 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1671
+13:56:37.682 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1671
+13:56:37.682 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1669
+13:56:37.749 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1669
+13:56:37.749 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1665
+13:56:37.813 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+default:
+13:56:37.814 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===309
+13:56:37.826 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 309
+13:56:37.826 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===297
+13:56:37.837 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 297
+13:56:37.837 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===388
+13:56:37.852 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 388
+13:56:37.853 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===387
+13:56:37.862 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 387
+13:56:37.862 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DurationFormatUtils ===82
+13:56:37.964 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DurationFormatUtils --- 82
+13:56:37.964 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.FastDateFormat ===587
+13:56:38.135 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDateFormat --- 587
+13:56:38.136 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.FastDateFormat ===179
+13:56:38.302 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDateFormat --- 179
+13:56:38.302 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1650
+13:56:38.465 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1650
+13:56:38.465 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1649
+13:56:38.525 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1649
+13:56:38.525 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1648
+13:56:38.584 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case Calendar.MONTH:
+13:56:38.585 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1647
+13:56:38.644 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case Calendar.YEAR:
+13:56:38.645 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.FormatCache ===84
+13:56:38.663 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (previousValue != null) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:56:38.666 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (previousValue == null) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:56:38.666 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((format == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:56:38.666 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((pattern == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:56:38.667 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((timeZone == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:56:38.667 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((locale == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:56:38.668 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:56:39.947 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:56:39.947 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:56:55.757 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:56:55.757 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 46, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMilliSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDayOfMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMinute, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSemiMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMinute, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSemiMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundAmPm, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDate, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHour, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMilliSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHourOfDay, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHourOfDay, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateAmPm, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDate, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHour, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateYear, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDayOfMonth, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538, - org.apache.commons.lang3.time.FastDateFormatTest::testLang645, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone_Locale, - org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateInstance, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_Locale, - org.apache.commons.lang3.time.FastDateFormatTest::testFormat, - org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance]
+13:56:55.757 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:56:55.757 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+13:56:55.758 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO
+13:56:55.758 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+13:56:55.758 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+13:56:55.764 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+13:56:55.764 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO
+13:56:55.764 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+13:56:55.764 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMilliSecond
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDayOfMonth
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMinute
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSecond
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMonth
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSemiMonth
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMinute
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSemiMonth
+13:56:55.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSecond
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundAmPm
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDate
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHour
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMilliSecond
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHourOfDay
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMonth
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHourOfDay
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateAmPm
+13:56:55.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDate
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHour
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateYear
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDayOfMonth
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+13:56:55.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang645
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone_Locale
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateInstance
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_Locale
+13:56:55.768 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testFormat
+13:56:55.769 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance
+13:56:55.769 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=45, pp=Unknown
+13:56:55.769 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+13:56:55.772 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:56:55.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:56:55.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 46 Lang-17
+13:56:55.773 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:56:56.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:56:56.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:57:12.513 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:57:12.513 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:57:12.514 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:57:12.514 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+13:57:12.514 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+13:57:12.516 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:57:12.516 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:57:12.516 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+13:57:12.517 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:57:13.967 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:57:13.967 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:57:29.077 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:57:29.077 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:57:29.077 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:57:29.077 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+13:57:29.078 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+13:57:29.103 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:57:29.104 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:57:29.104 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+13:57:29.104 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:57:30.272 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:57:30.272 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:57:45.437 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:57:45.438 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:57:45.438 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:57:45.438 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+13:57:45.438 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+13:57:45.442 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:57:45.443 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:57:45.443 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+13:57:45.443 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:57:46.670 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:57:46.670 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:58:00.446 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:58:00.446 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:58:00.446 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:58:00.446 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+13:58:00.446 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+13:58:00.458 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:58:00.458 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:58:00.458 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) || (format == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) && (format == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) || !(format == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) && !(format == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) || (pattern == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) && (pattern == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) || !(pattern == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) && !(pattern == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) || (timeZone == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) && (timeZone == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) || !(timeZone == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) && !(timeZone == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) || (locale == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) && (locale == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) || !(locale == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.459 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((previousValue != null) && !(locale == null)) {
+                // another thread snuck in and did the same work
+                // we should return the instance that is in ConcurrentMap
+                format= previousValue;              
+            }
+13:58:00.460 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:58:01.731 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:58:01.731 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:58:16.684 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:58:16.684 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:58:16.684 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:58:16.684 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+13:58:16.684 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+13:58:16.789 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:58:16.789 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:58:16.789 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+13:58:16.789 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:58:17.963 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:58:17.963 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:58:32.154 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:58:32.154 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:58:32.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:58:32.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+13:58:32.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+13:58:32.928 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:58:32.928 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:58:32.929 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+13:58:32.929 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:58:34.063 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:58:34.063 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:58:48.964 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:58:48.965 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 46, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMilliSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDayOfMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMinute, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSemiMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMinute, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSemiMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundAmPm, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDate, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHour, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMilliSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHourOfDay, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHourOfDay, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateAmPm, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDate, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHour, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateYear, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDayOfMonth, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538, - org.apache.commons.lang3.time.FastDateFormatTest::testLang645, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone_Locale, - org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateInstance, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_Locale, - org.apache.commons.lang3.time.FastDateFormatTest::testFormat, - org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance]
+13:58:48.965 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:58:48.965 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+13:58:48.965 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO
+13:58:48.965 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+13:58:48.965 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMilliSecond
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDayOfMonth
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMinute
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSecond
+13:58:48.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMonth
+13:58:48.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSemiMonth
+13:58:48.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMinute
+13:58:48.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSemiMonth
+13:58:48.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSecond
+13:58:48.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundAmPm
+13:58:48.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDate
+13:58:48.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHour
+13:58:48.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMilliSecond
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHourOfDay
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMonth
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHourOfDay
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateAmPm
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDate
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHour
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateYear
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDayOfMonth
+13:58:48.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+13:58:48.969 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+13:58:48.969 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+13:58:48.969 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+13:58:48.969 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+13:58:48.969 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance
+13:58:48.969 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+13:58:48.969 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+13:58:48.969 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang645
+13:58:48.970 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone_Locale
+13:58:48.970 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateInstance
+13:58:48.970 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String
+13:58:48.970 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone
+13:58:48.970 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_Locale
+13:58:48.970 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testFormat
+13:58:48.970 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance
+13:58:48.971 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=45, pp=Unknown
+13:58:48.971 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+13:58:55.007 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:58:55.007 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:58:55.007 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 46 Lang-17
+13:58:55.008 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:58:56.114 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:58:56.114 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+13:59:09.701 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:59:09.701 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+13:59:09.701 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+13:59:09.701 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+13:59:09.702 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+13:59:57.945 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+13:59:57.945 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+13:59:57.945 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+13:59:57.946 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+13:59:58.942 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+13:59:58.942 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:00:12.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+14:00:12.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+14:00:12.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+14:00:12.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:00:12.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:06:05.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+14:06:05.629 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+14:06:05.629 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+14:06:05.630 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:06:06.879 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:06:06.879 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:06:21.498 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+14:06:21.498 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+14:06:21.498 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+14:06:21.498 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:06:21.498 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:46:19.591 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-17/aggregatedSusInfo.profl
+14:46:19.591 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:84
+14:46:19.591 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-17
+14:46:19.591 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:46:20.848 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:46:20.849 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:46:34.669 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.StringEscapeUtilsTest::testLang720]
+14:46:34.669 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 46, [- org.apache.commons.lang3.StringEscapeUtilsTest::testLang720, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMilliSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDayOfMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMinute, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSemiMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMinute, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSemiMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundAmPm, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDate, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHour, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMilliSecond, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHourOfDay, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMonth, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHourOfDay, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateAmPm, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDate, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHour, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateYear, - org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDayOfMonth, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538, - org.apache.commons.lang3.time.FastDateFormatTest::testLang645, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone_Locale, - org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateInstance, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone, - org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_Locale, - org.apache.commons.lang3.time.FastDateFormatTest::testFormat, - org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance]
+14:46:34.669 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.StringEscapeUtilsTest::testLang720
+14:46:34.669 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+14:46:34.669 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMilliSecond
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDayOfMonth
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMinute
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSecond
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundMonth
+14:46:34.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSemiMonth
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMinute
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundSemiMonth
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateSecond
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundAmPm
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundDate
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHour
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMilliSecond
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHourOfDay
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateMonth
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testRoundHourOfDay
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateAmPm
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDate
+14:46:34.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateHour
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateYear
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsRoundingTest::testTruncateDayOfMonth
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang645
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone_Locale
+14:46:34.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateInstance
+14:46:34.673 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String
+14:46:34.673 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_TimeZone
+14:46:34.673 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_getInstance_String_Locale
+14:46:34.673 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testFormat
+14:46:34.673 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::test_changeDefault_Locale_DateTimeInstance
+14:46:34.673 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=45, pp=Unknown
+14:46:34.673 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

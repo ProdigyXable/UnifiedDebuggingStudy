@@ -1,0 +1,70 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-75
+05:54:10.350 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Closure-75 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/75.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/75.txt
+05:58:13.832 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+05:58:13.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Closure-75/generalSusInfo.profl
+05:58:13.958 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Closure-75/aggregatedSusInfo.profl
+05:58:13.962 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+05:58:13.962 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.google.javascript.jscomp.NodeUtil ===375
+05:58:15.352 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return TernaryValue.TRUE;
+05:58:15.352 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at com.google.javascript.jscomp.NodeUtil:375 ---
+05:58:15.352 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix com/google/javascript/jscomp/NodeUtil.java 375 ---
+05:58:15.352 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- com.google.javascript.jscomp.PeepholeFoldConstantsTest::testIEString]
+05:58:15.728 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (TernaryValue.TRUE != null) {
+	
+
+	}
+
+05:58:15.728 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (TernaryValue.TRUE == null) {
+	    throw new IllegalArgumentException("Null 'TernaryValue.TRUE' argument.");
+	}
+
+05:58:15.728 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (TernaryValue.TRUE == null) {
+	    return null;
+	}
+
+05:58:15.728 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (TernaryValue.TRUE == null) TernaryValue.TRUE = new null();
+ 
+05:58:15.728 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (TernaryValue.TRUE == null) return new TernaryValue();
+	 
+---------------- Testing New Patch ----------------
+05:58:15.730 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+05:58:18.192 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-75 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+05:58:18.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+06:11:33.277 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-75 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+06:11:33.281 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+06:11:39.832 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+06:11:39.832 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+06:15:09.574 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.PeepholeFoldConstantsTest::testIEString]
+06:15:09.574 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.PeepholeFoldConstantsTest::testIEString]
+06:15:09.574 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.PeepholeFoldConstantsTest::testIEString
+06:15:09.575 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:15:09.575 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+06:15:09.910 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Closure-75/aggregatedSusInfo.profl
+06:15:09.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.NodeUtil:isStrWhiteSpaceChar(I)Lcom/google/javascript/rhino/jstype/TernaryValue; in com.google.javascript.jscomp.NodeUtil:375
+06:15:09.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Closure-75
+---------------- Testing New Patch ----------------
+06:15:09.912 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+06:15:11.996 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-75 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+06:15:11.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+06:15:15.600 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-75 ---Fixer: fix fail because of failed compiling! 
+06:15:15.817 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+06:15:15.818 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+06:15:19.475 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-75 ---Fixer: fix fail because of failed compiling! 
+06:15:19.546 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+06:15:23.654 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Closure-75/aggregatedSusInfo.profl
+Failed to fix bug Closure-75
+Repair process completed

@@ -1,0 +1,145 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-106
+07:34:56.473 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-106 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/106.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/106.txt
+07:34:57.687 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+07:34:57.703 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-106/ochiai.txt
+07:34:57.705 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+07:34:57.705 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.util.MathUtils ===680
+07:34:58.689 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return (x == 0) ? 0 : (x > 0) ? 1 : -1;
+07:34:58.691 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/util/MathUtils.java:680 ---
+07:34:58.701 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (x == 0) ? 0 : (x >= 0) ? 1 : -1;
+07:34:58.701 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (x == 0) ? 0 : (x <= 0) ? 1 : -1;
+07:34:58.701 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (x == 0) ? 0 : (x < 0) ? 1 : -1;
+07:34:58.701 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (x != 0) ? 0 : (x > 0) ? 1 : -1;
+---------------- Testing New Patch ----------------
+07:34:58.703 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:34:59.571 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:34:59.571 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:06.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:06.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:06.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+07:35:06.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:06.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:06.316 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/aggregatedSusInfo.profl
+07:35:06.316 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:sign(I)I in org.apache.commons.math.util.MathUtils:680
+07:35:06.316 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-106
+---------------- Testing New Patch ----------------
+07:35:06.316 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:07.320 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:07.320 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:14.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:14.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProper, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:14.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProper
+07:35:14.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative
+07:35:14.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+07:35:14.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+07:35:14.612 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:14.630 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/aggregatedSusInfo.profl
+07:35:14.630 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:sign(I)I in org.apache.commons.math.util.MathUtils:680
+07:35:14.630 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 3 Math-106
+---------------- Testing New Patch ----------------
+07:35:14.631 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:15.467 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:15.467 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:22.524 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:22.524 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProper, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:22.524 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProper
+07:35:22.524 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative
+07:35:22.524 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+07:35:22.524 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+07:35:22.524 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:22.537 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/aggregatedSusInfo.profl
+07:35:22.538 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:sign(I)I in org.apache.commons.math.util.MathUtils:680
+07:35:22.538 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 3 Math-106
+---------------- Testing New Patch ----------------
+07:35:22.538 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:23.488 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:23.488 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:30.314 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:30.315 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProper, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:30.315 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProper
+07:35:30.315 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative
+07:35:30.315 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+07:35:30.315 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+07:35:30.315 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:30.412 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/aggregatedSusInfo.profl
+07:35:30.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:sign(I)I in org.apache.commons.math.util.MathUtils:680
+07:35:30.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 3 Math-106
+07:35:30.413 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 0;
+07:35:30.413 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (x > 0) ? 1 : -1;
+07:35:30.413 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (x == 0) ? 0 : 1;
+07:35:30.413 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (x == 0) ? 0 : -1;
+---------------- Testing New Patch ----------------
+07:35:30.414 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:31.223 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:31.223 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:38.207 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:38.207 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProper, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:38.207 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProper
+07:35:38.207 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative
+07:35:38.208 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+07:35:38.208 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+07:35:38.208 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:39.411 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/aggregatedSusInfo.profl
+07:35:39.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:sign(I)I in org.apache.commons.math.util.MathUtils:680
+07:35:39.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 3 Math-106
+---------------- Testing New Patch ----------------
+07:35:39.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:40.336 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:40.336 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:47.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:47.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:35:47.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+07:35:47.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:47.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:36:01.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/aggregatedSusInfo.profl
+07:36:01.425 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:sign(I)I in org.apache.commons.math.util.MathUtils:680
+07:36:01.425 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-106
+---------------- Testing New Patch ----------------
+07:36:01.425 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:02.182 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:02.182 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:09.161 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:36:09.161 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:36:09.161 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative
+07:36:09.161 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+07:36:09.161 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:09.161 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:38:43.747 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/aggregatedSusInfo.profl
+07:38:43.747 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:sign(I)I in org.apache.commons.math.util.MathUtils:680
+07:38:43.747 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-106
+---------------- Testing New Patch ----------------
+07:38:43.748 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:38:44.496 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:38:44.496 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:38:50.491 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:38:50.492 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProper, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+07:38:50.492 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProper
+07:38:50.492 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+07:38:50.492 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:38:50.492 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+08:10:50.474 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-106/aggregatedSusInfo.profl
+08:10:50.474 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:sign(I)I in org.apache.commons.math.util.MathUtils:680
+08:10:50.474 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-106
+08:10:50.476 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+08:10:50.476 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:10:51.275 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+08:10:51.275 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+08:10:57.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+08:10:57.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.fraction.FractionFormatTest::testParseProper, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative, - org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus]
+08:10:57.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProper
+08:10:57.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperNegative
+08:10:57.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.fraction.FractionFormatTest::testParseProperInvalidMinus
+08:10:57.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+08:10:57.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

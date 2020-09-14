@@ -1,0 +1,129 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-8
+19:46:13.207 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Time-8 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/8.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/8.txt
+19:46:20.063 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+19:46:20.082 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-8/generalSusInfo.profl
+19:46:20.084 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+19:46:20.084 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.joda.time.DateTimeZone ===280
+19:46:21.367 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+throw new IllegalArgumentException("Minutes out of range: " + minutesOffset);
+19:46:21.367 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.joda.time.DateTimeZone:280 ---
+19:46:21.367 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/joda/time/DateTimeZone.java 280 ---
+19:46:21.367 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:46:21.790 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " - minutesOffset);
+---------------- Testing New Patch ----------------
+19:46:21.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:46:26.273 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-8 ---Fixer: fix fail because of failed compiling! 
+19:46:26.503 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + hoursOffset);
+19:46:26.503 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + getDefault());
+19:46:26.503 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + getAvailableIDs());
+19:46:26.503 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + getProvider());
+19:46:26.503 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + getDefaultProvider());
+19:46:26.503 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + getNameProvider());
+19:46:26.504 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + getDefaultNameProvider());
+19:46:26.504 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + offsetFormatter());
+19:46:26.504 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + getID());
+19:46:26.504 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + isFixed());
+19:46:26.504 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + toTimeZone());
+19:46:26.504 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + hashCode());
+19:46:26.504 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("Minutes out of range: " + toString());
+---------------- Testing New Patch ----------------
+19:46:26.505 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:46:34.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:46:34.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:46:53.369 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:46:53.370 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:46:53.370 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int
+19:46:53.370 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:46:53.370 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:46:53.383 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-8/aggregatedSusInfo.profl
+19:46:53.383 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:forOffsetHoursMinutes(II)Lorg/joda/time/DateTimeZone; in org.joda.time.DateTimeZone:280
+19:46:53.383 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Time-8
+---------------- Testing New Patch ----------------
+19:46:53.384 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:47:02.968 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:47:02.969 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:47:31.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:47:31.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:47:31.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int
+19:47:31.559 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:47:31.559 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:47:31.661 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-8/aggregatedSusInfo.profl
+19:47:31.661 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:forOffsetHoursMinutes(II)Lorg/joda/time/DateTimeZone; in org.joda.time.DateTimeZone:280
+19:47:31.661 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Time-8
+---------------- Testing New Patch ----------------
+19:47:31.662 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:47:44.285 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:47:44.285 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:48:12.140 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:48:12.141 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:48:12.141 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int
+19:48:12.141 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:48:12.141 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:48:12.180 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-8/aggregatedSusInfo.profl
+19:48:12.180 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:forOffsetHoursMinutes(II)Lorg/joda/time/DateTimeZone; in org.joda.time.DateTimeZone:280
+19:48:12.180 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Time-8
+---------------- Testing New Patch ----------------
+19:48:12.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:24.001 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:48:24.001 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:48:52.920 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:48:52.920 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:48:52.920 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int
+19:48:52.920 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:48:52.920 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:48:53.473 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-8/aggregatedSusInfo.profl
+19:48:53.473 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:forOffsetHoursMinutes(II)Lorg/joda/time/DateTimeZone; in org.joda.time.DateTimeZone:280
+19:48:53.473 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Time-8
+---------------- Testing New Patch ----------------
+19:48:53.475 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:05.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:49:05.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:49:30.587 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:49:30.587 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:49:30.587 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int
+19:49:30.587 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:49:30.587 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:49:38.744 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-8/aggregatedSusInfo.profl
+19:49:38.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:forOffsetHoursMinutes(II)Lorg/joda/time/DateTimeZone; in org.joda.time.DateTimeZone:280
+19:49:38.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Time-8
+---------------- Testing New Patch ----------------
+19:49:38.746 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:48.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:49:48.978 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:50:11.952 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:50:11.952 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:50:11.952 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int
+19:50:11.952 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:50:11.952 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:51:57.747 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-8/aggregatedSusInfo.profl
+19:51:57.747 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:forOffsetHoursMinutes(II)Lorg/joda/time/DateTimeZone; in org.joda.time.DateTimeZone:280
+19:51:57.747 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Time-8
+---------------- Testing New Patch ----------------
+19:51:57.748 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:52:06.553 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:52:06.553 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:52:25.879 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:52:25.879 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+19:52:25.879 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int
+19:52:25.879 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:52:25.879 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+20:19:48.177 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-8/aggregatedSusInfo.profl
+20:19:48.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:forOffsetHoursMinutes(II)Lorg/joda/time/DateTimeZone; in org.joda.time.DateTimeZone:280
+20:19:48.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Time-8
+---------------- Testing New Patch ----------------
+20:19:48.178 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+20:19:57.775 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+20:19:57.775 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+20:20:20.265 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+20:20:20.265 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int]
+20:20:20.265 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZone::testForOffsetHoursMinutes_int_int
+20:20:20.265 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+20:20:20.265 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

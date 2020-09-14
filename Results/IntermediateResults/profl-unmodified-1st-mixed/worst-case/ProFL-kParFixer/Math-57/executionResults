@@ -1,0 +1,425 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-57
+18:56:53.965 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/57.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/57.txt
+18:56:59.923 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+18:56:59.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/generalSusInfo.profl
+18:56:59.968 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+18:56:59.968 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer ===194
+18:57:01.329 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+while (resultSet.size() < k) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:57:01.344 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: while (resultSet.size() <= k) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:57:01.345 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: while (resultSet.size() >= k) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:57:01.345 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: while (resultSet.size() > k) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:57:01.345 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: while ((dx2[i] >= r)) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:57:01.347 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:57:02.888 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:57:02.888 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:58:02.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+18:58:02.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testPerformClusterAnalysisDegenerate, - org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testCertainSpace, - org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances, - org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::dimension2]
+18:58:02.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testPerformClusterAnalysisDegenerate
+18:58:02.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testCertainSpace
+18:58:02.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+18:58:02.733 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::dimension2
+18:58:02.733 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+18:58:02.733 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:58:02.738 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/aggregatedSusInfo.profl
+18:58:02.739 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List; in org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:194
+18:58:02.739 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Math-57
+18:58:02.739 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:58:04.076 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:58:04.076 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:59:01.898 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+18:59:01.898 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testPerformClusterAnalysisDegenerate, - org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testCertainSpace, - org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances, - org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::dimension2]
+18:59:01.898 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testPerformClusterAnalysisDegenerate
+18:59:01.899 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testCertainSpace
+18:59:01.899 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+18:59:01.899 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::dimension2
+18:59:01.899 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+18:59:01.899 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:59:01.919 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/aggregatedSusInfo.profl
+18:59:01.920 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List; in org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:194
+18:59:01.920 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 4 Math-57
+18:59:01.920 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:03.059 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:59:03.060 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:59:51.432 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+18:59:51.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testCertainSpace, - org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances, - org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::dimension2]
+18:59:51.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testCertainSpace
+18:59:51.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+18:59:51.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::dimension2
+18:59:51.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+18:59:51.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:59:51.439 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/aggregatedSusInfo.profl
+18:59:51.439 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List; in org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:194
+18:59:51.439 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Math-57
+18:59:51.439 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:52.558 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+18:59:52.559 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: while ((resultSet.size() < k) || (dx2[i] >= r)) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:59:52.560 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: while ((resultSet.size() < k) && (dx2[i] >= r)) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:59:52.560 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: while ((resultSet.size() < k) || !(dx2[i] >= r)) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:59:52.560 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: while ((resultSet.size() < k) && !(dx2[i] >= r)) {
+            // For each data point x, compute D(x), the distance between x and
+            // the nearest center that has already been chosen.
+            int sum = 0;
+            for (int i = 0; i < pointSet.size(); i++) {
+                final T p = pointSet.get(i);
+                final Cluster<T> nearest = getNearestCluster(resultSet, p);
+                final double d = p.distanceFrom(nearest.getCenter());
+                sum += d * d;
+                dx2[i] = sum;
+            }
+
+            // Add one new data point as a center. Each point x is chosen with
+            // probability proportional to D(x)2
+            final double r = random.nextDouble() * sum;
+            for (int i = 0 ; i < dx2.length; i++) {
+                if (dx2[i] >= r) {
+                    final T p = pointSet.remove(i);
+                    resultSet.add(new Cluster<T>(p));
+                    break;
+                }
+            }
+        }
+18:59:52.560 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:53.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+18:59:53.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:54.948 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+18:59:54.949 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:55.955 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+18:59:55.955 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:57.124 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+18:59:57.132 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (resultSet != null) {
+	
+
+}
+
+18:59:57.133 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (resultSet == null) {
+    throw new IllegalArgumentException("Null 'resultSet' argument.");
+}
+
+18:59:57.133 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (resultSet == null) {
+    return null;
+}
+
+18:59:57.133 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:58.271 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+18:59:58.272 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:59.426 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:59:59.427 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+19:00:50.994 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:00:50.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:00:50.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+19:00:50.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:00:50.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+19:00:51.031 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/aggregatedSusInfo.profl
+19:00:51.031 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List; in org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:194
+19:00:51.031 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-57
+19:00:51.031 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:00:52.170 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+19:00:52.170 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+19:01:33.739 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:01:33.739 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:01:33.739 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+19:01:33.739 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:01:33.739 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+19:01:34.231 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/aggregatedSusInfo.profl
+19:01:34.231 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List; in org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:194
+19:01:34.231 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-57
+19:01:34.232 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer ===191
+19:01:34.398 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+break;
+19:01:34.399 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer ===190
+19:01:34.549 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+resultSet.add(new Cluster<T>(p));
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(p);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(i);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(r);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(i);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(sum);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(dx2);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(firstPoint);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(resultSet);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(pointSet);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(points);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(k);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(random);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(this.random);
+19:01:34.552 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: resultSet.add(this.emptyStrategy);
+19:01:34.553 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:35.530 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:35.531 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:36.504 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:36.505 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:37.518 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:37.518 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:38.598 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:38.598 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:39.651 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:39.651 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:40.682 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:40.683 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:41.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:41.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:42.722 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:42.723 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:43.703 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:43.703 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:44.790 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:44.791 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:45.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:45.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:46.754 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:46.755 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:47.876 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:47.876 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:48.886 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-57 ---Fixer: fix fail because of failed compiling! 
+19:01:48.887 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (resultSet != null) {
+	
+
+}
+
+19:01:48.887 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (resultSet == null) {
+    throw new IllegalArgumentException("Null 'resultSet' argument.");
+}
+
+19:01:48.887 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (resultSet == null) {
+    return null;
+}
+
+19:01:48.887 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (p != null) {
+	
+
+}
+
+19:01:48.887 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (p == null) {
+    throw new IllegalArgumentException("Null 'p' argument.");
+}
+
+19:01:48.887 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (p == null) {
+    return null;
+}
+
+19:01:48.888 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:01:50.033 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+19:01:50.034 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+19:02:29.726 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:02:29.726 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:02:29.726 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+19:02:29.726 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:02:29.727 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+19:02:35.358 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/aggregatedSusInfo.profl
+19:02:35.358 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List; in org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:190
+19:02:35.358 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-57
+19:02:35.359 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:02:36.379 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+19:02:36.379 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+19:03:14.212 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:03:14.213 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:03:14.213 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+19:03:14.213 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:03:14.213 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+19:04:35.682 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/aggregatedSusInfo.profl
+19:04:35.682 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List; in org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:190
+19:04:35.682 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-57
+19:04:35.683 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:04:36.660 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+19:04:36.660 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+19:05:12.109 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:05:12.109 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:05:12.109 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+19:05:12.109 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:05:12.109 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+19:20:06.024 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-57/aggregatedSusInfo.profl
+19:20:06.025 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List; in org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:190
+19:20:06.025 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-57
+19:20:06.025 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+19:20:06.958 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+19:20:06.959 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+19:20:43.300 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:20:43.300 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances]
+19:20:43.300 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.clustering.KMeansPlusPlusClustererTest::testSmallDistances
+19:20:43.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:20:43.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

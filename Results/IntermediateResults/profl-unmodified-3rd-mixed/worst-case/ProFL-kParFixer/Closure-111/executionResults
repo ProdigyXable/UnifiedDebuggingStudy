@@ -1,0 +1,352 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+Java 7 environment setup completed
+Closure-111
+03:10:02.228 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-111 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/111.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/111.txt
+03:16:45.508 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:16:45.571 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-111/generalSusInfo.profl
+03:16:45.641 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-111/aggregatedSusInfo.profl
+03:16:45.645 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+03:16:45.645 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.type.ClosureReverseAbstractInterpreter ===44
+03:16:46.405 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+public class ClosureReverseAbstractInterpreter
+    extends ChainableReverseAbstractInterpreter {
+
+  /**
+   * For when {@code goog.isArray} returns true.
+   */
+  private final Visitor<JSType> restrictToArrayVisitor =
+      new RestrictByTrueTypeOfResultVisitor() {
+        @Override
+        protected JSType caseTopType(JSType topType) {
+          return topType;
+        }
+
+        @Override
+        public JSType caseObjectType(ObjectType type) {
+          JSType arrayType = getNativeType(ARRAY_TYPE);
+          return arrayType.isSubtype(type) ? arrayType : null;
+        }
+      };
+
+  /**
+   * For when {@code goog.isArray} returns false.
+   */
+  private final Visitor<JSType> restrictToNotArrayVisitor =
+      new RestrictByFalseTypeOfResultVisitor() {
+        @Override
+        public JSType caseObjectType(ObjectType type) {
+          return type.isSubtype(getNativeType(ARRAY_TYPE)) ? null : type;
+        }
+      };
+
+  /**
+   * For when {@code goog.isObject} returns true. This includes functions, but
+   * not {@code null}.
+   */
+  private final Visitor<JSType> restrictToObjectVisitor =
+      new RestrictByTrueTypeOfResultVisitor() {
+        @Override
+        protected JSType caseTopType(JSType topType) {
+          return getNativeType(NO_OBJECT_TYPE);
+        }
+
+        @Override
+        public JSType caseObjectType(ObjectType type) {
+          return type;
+        }
+
+        @Override
+        public JSType caseFunctionType(FunctionType type) {
+          return type;
+        }
+      };
+
+  /**
+   * For when {@code goog.isObject} returns false.
+   */
+  private final Visitor<JSType> restrictToNotObjectVisitor =
+      new RestrictByFalseTypeOfResultVisitor() {
+
+        @Override
+        public JSType caseAllType() {
+          return typeRegistry.createUnionType(
+              getNativeType(NUMBER_STRING_BOOLEAN), getNativeType(NULL_VOID));
+        }
+
+        @Override
+        public JSType caseObjectType(ObjectType type) {
+          return null;
+        }
+
+        @Override
+        public JSType caseFunctionType(FunctionType type) {
+          return null;
+        }
+      };
+
+  /** Functions used to restrict types. */
+  private Map<String, Function<TypeRestriction, JSType>> restricters;
+
+  /**
+   * Creates a {@link ClosureReverseAbstractInterpreter}.
+   */
+  public ClosureReverseAbstractInterpreter(CodingConvention convention,
+      final JSTypeRegistry typeRegistry) {
+    super(convention, typeRegistry);
+    this.restricters =
+      new ImmutableMap.Builder<String, Function<TypeRestriction, JSType>>()
+      .put("isDef", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.outcome) {
+            return getRestrictedWithoutUndefined(p.type);
+          } else {
+            return  p.type != null ?
+                getNativeType(VOID_TYPE).getGreatestSubtype(p.type) : null;
+          }
+         }
+      })
+      .put("isNull", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.outcome) {
+            return p.type != null ?
+                getNativeType(NULL_TYPE).getGreatestSubtype(p.type) : null;
+          } else {
+            return getRestrictedWithoutNull(p.type);
+          }
+        }
+      })
+      .put("isDefAndNotNull", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.outcome) {
+            return getRestrictedWithoutUndefined(
+                getRestrictedWithoutNull(p.type));
+          } else {
+            return p.type != null ?
+                getNativeType(NULL_VOID).getGreatestSubtype(p.type) : null;
+          }
+        }
+      })
+      .put("isString", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          return getRestrictedByTypeOfResult(p.type, "string", p.outcome);
+        }
+      })
+      .put("isBoolean", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          return getRestrictedByTypeOfResult(p.type, "boolean", p.outcome);
+        }
+      })
+      .put("isNumber", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          return getRestrictedByTypeOfResult(p.type, "number", p.outcome);
+        }
+      })
+      .put("isFunction", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          return getRestrictedByTypeOfResult(p.type, "function", p.outcome);
+        }
+      })
+      .put("isArray", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.type == null) {
+            return p.outcome ? getNativeType(ARRAY_TYPE) : null;
+          }
+
+          Visitor<JSType> visitor = p.outcome ? restrictToArrayVisitor :
+              restrictToNotArrayVisitor;
+          return p.type.visit(visitor);
+        }
+      })
+      .put("isObject", new Function<TypeRestriction, JSType>() {
+        @Override
+        public JSType apply(TypeRestriction p) {
+          if (p.type == null) {
+            return p.outcome ? getNativeType(OBJECT_TYPE) : null;
+          }
+
+          Visitor<JSType> visitor = p.outcome ? restrictToObjectVisitor :
+              restrictToNotObjectVisitor;
+          return p.type.visit(visitor);
+        }
+      })
+      .build();
+  }
+
+  @Override
+  public FlowScope getPreciserScopeKnowingConditionOutcome(Node condition,
+      FlowScope blindScope, boolean outcome) {
+    if (condition.isCall() && condition.getChildCount() == 2) {
+      Node callee = condition.getFirstChild();
+      Node param = condition.getLastChild();
+      if (callee.isGetProp() && param.isQualifiedName()) {
+        JSType paramType =  getTypeIfRefinable(param, blindScope);
+        Node left = callee.getFirstChild();
+        Node right = callee.getLastChild();
+        if (left.isName() && "goog".equals(left.getString()) &&
+            right.isString()) {
+          Function<TypeRestriction, JSType> restricter =
+              restricters.get(right.getString());
+          if (restricter != null) {
+            return restrictParameter(param, paramType, blindScope, restricter,
+                outcome);
+          }
+        }
+      }
+    }
+    return nextPreciserScopeKnowingConditionOutcome(
+        condition, blindScope, outcome);
+  }
+
+  private FlowScope restrictParameter(Node parameter, JSType type,
+      FlowScope blindScope, Function<TypeRestriction, JSType> restriction,
+      boolean outcome) {
+    // restricting
+    type = restriction.apply(new TypeRestriction(type, outcome));
+
+    // changing the scope
+    if (type != null) {
+      FlowScope informed = blindScope.createChildFlowScope();
+      declareNameInScope(informed, parameter, type);
+      return informed;
+    } else {
+      return blindScope;
+    }
+  }
+
+  private static class TypeRestriction {
+    private final JSType type;
+    private final boolean outcome;
+
+    private TypeRestriction(JSType type, boolean outcome) {
+      this.type = type;
+      this.outcome = outcome;
+    }
+  }
+}
+03:16:46.424 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.rhino.jstype.AllType ===100
+03:16:46.445 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return visitor.caseAllType();
+03:16:46.484 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return visitor.caseNoType();
+03:16:46.485 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return visitor.caseBooleanType();
+03:16:46.485 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return visitor.caseNoObjectType();
+03:16:46.485 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return visitor.caseUnknownType();
+03:16:46.485 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return visitor.caseNullType();
+03:16:46.485 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return visitor.caseNumberType();
+03:16:46.485 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return visitor.caseStringType();
+03:16:46.485 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return visitor.caseVoidType();
+03:16:46.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:16:47.271 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:16:47.271 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:21:22.835 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+03:21:22.835 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 12, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testInstanceOf4, - com.google.javascript.jscomp.TypeInferenceTest::testSwitch4, - com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedArrayChain, - com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedArrayChain2, - com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedObjectChain]
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testInstanceOf4
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testSwitch4
+03:21:22.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedArrayChain
+03:21:22.837 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedArrayChain2
+03:21:22.837 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedObjectChain
+03:21:22.837 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=11, pp=Unknown
+03:21:22.837 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:21:23.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-111/aggregatedSusInfo.profl
+03:21:23.150 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.jstype.AllType:visit(Lcom/google/javascript/rhino/jstype/Visitor;)Ljava/lang/Object; in com.google.javascript.rhino.jstype.AllType:100
+03:21:23.150 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 12 Closure-111
+03:21:23.151 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:23.978 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:21:23.978 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 9, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testInstanceOf4, - com.google.javascript.jscomp.TypeInferenceTest::testSwitch2, - com.google.javascript.jscomp.TypeInferenceTest::testSwitch4]
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testInstanceOf4
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testSwitch2
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testSwitch4
+03:25:57.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+03:25:57.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:26:02.577 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-111/aggregatedSusInfo.profl
+03:26:02.577 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.jstype.AllType:visit(Lcom/google/javascript/rhino/jstype/Visitor;)Ljava/lang/Object; in com.google.javascript.rhino.jstype.AllType:100
+03:26:02.577 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 9 Closure-111
+03:26:02.578 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:26:03.338 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:26:03.338 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:30:35.070 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+03:30:35.070 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 11, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testInstanceOf4, - com.google.javascript.jscomp.TypeInferenceTest::testSwitch2, - com.google.javascript.jscomp.TypeInferenceTest::testSwitch4, - com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedArrayChain2]
+03:30:35.070 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3
+03:30:35.070 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3
+03:30:35.070 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4
+03:30:35.070 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3
+03:30:35.070 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+03:30:35.070 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1
+03:30:35.071 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2
+03:30:35.071 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testInstanceOf4
+03:30:35.071 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testSwitch2
+03:30:35.071 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testSwitch4
+03:30:35.071 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedArrayChain2
+03:30:35.071 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=10, pp=Unknown
+03:30:35.071 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:32:32.613 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-111/aggregatedSusInfo.profl
+03:32:32.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.jstype.AllType:visit(Lcom/google/javascript/rhino/jstype/Visitor;)Ljava/lang/Object; in com.google.javascript.rhino.jstype.AllType:100
+03:32:32.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 11 Closure-111
+03:32:32.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:32:33.446 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:32:33.446 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:37:07.396 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+03:37:07.396 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 10, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2, - com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedObjectChain, - com.google.javascript.rhino.jstype.JSTypeTest::testMixedTemplatizedTypeChain, - com.google.javascript.rhino.jstype.TemplatizedTypeTest::testCustomTemplatizedType]
+03:37:07.396 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3
+03:37:07.396 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.rhino.jstype.JSTypeTest::testTemplatizedObjectChain
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.rhino.jstype.JSTypeTest::testMixedTemplatizedTypeChain
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.rhino.jstype.TemplatizedTypeTest::testCustomTemplatizedType
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=9, pp=Unknown
+03:37:07.397 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+04:30:00.404 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-111/aggregatedSusInfo.profl
+04:30:00.405 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.jstype.AllType:visit(Lcom/google/javascript/rhino/jstype/Visitor;)Ljava/lang/Object; in com.google.javascript.rhino.jstype.AllType:100
+04:30:00.405 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 10 Closure-111
+04:30:00.405 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+04:30:01.234 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+04:30:01.235 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+04:34:35.193 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2]
+04:34:35.193 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 10, [- com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2, - com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2, - com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testInstanceOf4, - com.google.javascript.jscomp.TypeInferenceTest::testSwitch2, - com.google.javascript.jscomp.TypeInferenceTest::testSwitch4]
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDef3
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsNull3
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsDefAndNotNull4
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsBoolean3
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsArray2
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ClosureReverseAbstractInterpreterTest::testGoogIsObject1
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testTypeof2
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SemanticReverseAbstractInterpreterTest::testInstanceOf4
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testSwitch2
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.TypeInferenceTest::testSwitch4
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=9, pp=Unknown
+04:34:35.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

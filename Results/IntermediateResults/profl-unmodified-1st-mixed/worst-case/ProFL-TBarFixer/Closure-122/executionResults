@@ -1,0 +1,40 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-122
+16:36:47.207 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Closure-122 Failed Tests: 3
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/122.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/122.txt
+16:41:34.640 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+16:41:34.684 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Closure-122/generalSusInfo.profl
+16:41:34.723 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Closure-122/aggregatedSusInfo.profl
+16:41:34.726 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+16:41:34.726 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.google.javascript.jscomp.parsing.IRFactory ===258
+16:41:35.928 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+/**
+   * Check to see if the given block comment looks like it should be JSDoc.
+   */
+  private void handleBlockComment(Comment comment) {
+    if (comment.getValue().indexOf("/* @") != -1 || comment.getValue().indexOf("\n * @") != -1) {
+      errorReporter.warning(
+          SUSPICIOUS_COMMENT_WARNING,
+          sourceName,
+          comment.getLineno(), "", 0);
+    }
+  }
+16:41:35.929 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at com.google.javascript.jscomp.parsing.IRFactory:258 ---
+16:41:35.929 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix com/google/javascript/jscomp/parsing/IRFactory.java 258 ---
+16:41:35.929 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning3, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning4, - com.google.javascript.jscomp.parsing.ParserTest::testSuspiciousBlockCommentWarning5]
+16:41:36.046 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+16:41:36.046 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+16:41:36.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+16:41:41.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-122 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+16:41:41.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+16:41:50.409 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+16:41:50.409 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.

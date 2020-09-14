@@ -1,0 +1,32 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Chart-18
+03:10:19.987 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Chart-18 Failed Tests: 4
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/18.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/18.txt
+03:10:23.333 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:10:23.352 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Chart-18/generalSusInfo.profl
+03:10:23.356 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Chart-18/aggregatedSusInfo.profl
+03:10:23.358 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+03:10:23.358 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.DefaultKeyedValues ===338
+03:10:23.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Removes a value from the collection.
+     *
+     * @param key  the item key (<code>null</code> not permitted).
+     * 
+     * @throws IllegalArgumentException if <code>key</code> is 
+     *     <code>null</code>.
+     * @throws UnknownKeyException if <code>key</code> is not recognised.
+     */
+    public void removeValue(Comparable key) {
+        int index = getIndex(key);
+        if (index < 0) {
+			return;
+        }
+        removeValue(index);
+    }

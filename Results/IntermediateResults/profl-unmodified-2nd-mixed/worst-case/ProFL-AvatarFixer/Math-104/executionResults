@@ -1,0 +1,205 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-104
+07:34:59.288 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-104 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/104.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/104.txt
+07:35:00.642 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+07:35:00.660 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-104/ochiai.txt
+07:35:00.661 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+07:35:00.661 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.special.Gamma ===200
+07:35:01.446 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return regularizedGammaQ(a, x, DEFAULT_EPSILON, Integer.MAX_VALUE);
+07:35:01.447 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/special/Gamma.java:200 ---
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(x, x, DEFAULT_EPSILON, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(serialVersionUID, x, DEFAULT_EPSILON, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(lanczos, x, DEFAULT_EPSILON, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(a, a, DEFAULT_EPSILON, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(a, serialVersionUID, DEFAULT_EPSILON, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(a, lanczos, DEFAULT_EPSILON, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(a, x, a, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(a, x, x, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(a, x, serialVersionUID, Integer.MAX_VALUE);
+07:35:01.454 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return regularizedGammaQ(a, x, lanczos, Integer.MAX_VALUE);
+---------------- Testing New Patch ----------------
+07:35:01.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:02.220 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:02.220 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:12.399 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:35:12.399 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+07:35:12.399 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:35:12.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive
+07:35:12.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+07:35:12.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive
+07:35:12.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+07:35:12.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+07:35:12.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:12.403 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:35:12.403 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:35:12.403 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 5 Math-104
+---------------- Testing New Patch ----------------
+07:35:12.404 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:13.207 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:13.207 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:23.453 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:35:23.453 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+07:35:23.453 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:35:23.453 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+07:35:23.453 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:23.453 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:23.461 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:35:23.461 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:35:23.461 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-104
+---------------- Testing New Patch ----------------
+07:35:23.461 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:24.288 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:24.289 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:25.057 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:25.057 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:34.999 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:35:34.999 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+07:35:35.000 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:35:35.000 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative
+07:35:35.000 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan
+07:35:35.000 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+07:35:35.000 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+07:35:35.000 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:35.004 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:35:35.004 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:35:35.004 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-104
+---------------- Testing New Patch ----------------
+07:35:35.005 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:35.861 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:35.861 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:45.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:35:45.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+07:35:45.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:35:45.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+07:35:45.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:45.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:45.855 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:35:45.856 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:35:45.856 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-104
+---------------- Testing New Patch ----------------
+07:35:45.856 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:46.658 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:46.658 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:47.489 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:47.489 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:57.682 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:35:57.682 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:35:57.682 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:35:57.682 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:57.682 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:57.758 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:35:57.759 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:35:57.759 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-104
+---------------- Testing New Patch ----------------
+07:35:57.759 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:58.590 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:58.590 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:08.502 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:36:08.502 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:36:08.502 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:36:08.502 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:36:08.502 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:36:09.439 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:36:09.439 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:36:09.439 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-104
+---------------- Testing New Patch ----------------
+07:36:09.440 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:10.262 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:10.262 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:19.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:36:19.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:36:19.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:36:19.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:36:19.933 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:36:28.102 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:36:28.102 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:36:28.102 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-104
+---------------- Testing New Patch ----------------
+07:36:28.103 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:28.855 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+07:36:28.856 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:28.857 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:29.651 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:29.651 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:39.105 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+07:36:39.106 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:37:51.962 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:37:51.962 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:37:51.962 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-104
+07:37:51.962 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:37:51.963 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:52.680 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:37:52.680 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:38:01.224 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:38:01.224 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+07:38:01.224 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:38:01.224 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative
+07:38:01.224 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive
+07:38:01.224 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+07:38:01.224 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive
+07:38:01.224 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan
+07:38:01.225 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+07:38:01.225 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+07:38:01.225 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:49:24.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+07:49:24.201 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+07:49:24.201 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-104
+---------------- Testing New Patch ----------------
+07:49:24.201 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:49:24.893 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:49:24.893 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:49:33.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+07:49:33.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+07:49:33.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+07:49:33.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative
+07:49:33.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive
+07:49:33.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+07:49:33.199 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive
+07:49:33.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan
+07:49:33.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+07:49:33.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+07:49:33.200 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+09:42:07.357 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-104/aggregatedSusInfo.profl
+09:42:07.357 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+09:42:07.357 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-104
+09:42:07.357 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:42:07.358 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:42:08.046 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+09:42:08.046 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+09:42:16.246 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+09:42:16.246 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+09:42:16.246 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+09:42:16.246 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative
+09:42:16.246 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive
+09:42:16.246 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+09:42:16.247 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive
+09:42:16.247 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan
+09:42:16.247 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+09:42:16.247 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+09:42:16.247 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

@@ -1,0 +1,117 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-4
+09:44:01.684 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-4 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/4.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/4.txt
+09:44:20.151 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+09:44:20.203 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-4/generalSusInfo.profl
+09:44:20.206 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+09:44:20.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.geometry.euclidean.twod.SubLine ===120
+09:44:21.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+Location loc1 = getRemainingRegion().checkPoint(line1.toSubSpace(v2D));
+09:44:21.512 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.geometry.euclidean.twod.SubLine:120 ---
+09:44:21.512 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/geometry/euclidean/twod/SubLine.java 120 ---
+09:44:21.513 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.geometry.euclidean.threed.SubLineTest::testIntersectionNotIntersecting, - org.apache.commons.math3.geometry.euclidean.twod.SubLineTest::testIntersectionParallel]
+09:44:21.731 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Location loc1 = getRemainingRegion().checkPoint(line2.toSubSpace(v2D));
+09:44:21.731 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Location loc1 = getRemainingRegion().checkPoint(getSegments().toSubSpace(v2D));
+09:44:21.732 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: Location loc1 = getRemainingRegion().checkPoint(line1.toSubSpace(getSegments()));
+---------------- Testing New Patch ----------------
+09:44:21.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:44:23.399 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+09:44:23.399 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+09:46:42.133 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.geometry.euclidean.threed.SubLineTest::testIntersectionNotIntersecting, org.apache.commons.math3.geometry.euclidean.twod.SubLineTest::testIntersectionParallel]
+09:46:42.134 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math3.geometry.euclidean.threed.SubLineTest::testIntersectionNotIntersecting, - org.apache.commons.math3.geometry.euclidean.twod.SubLineTest::testIntersectionParallel, - org.apache.commons.math3.geometry.euclidean.twod.SubLineTest::testIntersectionInsideInside]
+09:46:42.134 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.geometry.euclidean.threed.SubLineTest::testIntersectionNotIntersecting
+09:46:42.134 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.SubLineTest::testIntersectionParallel
+09:46:42.134 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.geometry.euclidean.twod.SubLineTest::testIntersectionInsideInside
+09:46:42.134 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=1, pp=Unknown
+09:46:42.134 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+09:46:42.147 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-4/aggregatedSusInfo.profl
+09:46:42.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.geometry.euclidean.twod.SubLine:intersection(Lorg/apache/commons/math3/geometry/euclidean/twod/SubLine;Z)Lorg/apache/commons/math3/geometry/euclidean/twod/Vector2D; in org.apache.commons.math3.geometry.euclidean.twod.SubLine:120
+09:46:42.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Math-4
+---------------- Testing New Patch ----------------
+09:46:42.148 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:46:43.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-4 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:46:43.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:46:45.407 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-4 ---Fixer: fix fail because of failed compiling! 
+09:46:45.525 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (line1 != null) {
+	
+
+	}
+
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (line1 == null) {
+	    throw new IllegalArgumentException("Null 'line1' argument.");
+	}
+
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (line1 == null) {
+	    return null;
+	}
+
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (line1 == null) line1 = line2;
+ 
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (line1 == null) line1 = new Line();
+ 
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (line1 == null) return new Vector2D();
+	 
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (v2D != null) {
+	
+
+	}
+
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (v2D == null) {
+	    throw new IllegalArgumentException("Null 'v2D' argument.");
+	}
+
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (v2D == null) {
+	    return null;
+	}
+
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (v2D == null) v2D = new Vector2D();
+ 
+09:46:45.526 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (v2D == null) return new Vector2D();
+	 
+09:46:45.542 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (line1 != null && v2D != null) {
+	
+
+	}
+
+---------------- Testing New Patch ----------------
+09:46:45.543 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:46:47.194 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-4 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:46:47.195 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:46:48.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+09:46:48.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+09:47:04.875 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.geometry.euclidean.threed.SubLineTest::testIntersectionNotIntersecting, org.apache.commons.math3.geometry.euclidean.twod.SubLineTest::testIntersectionParallel]
+09:47:04.875 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 0, []
+09:47:04.875 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=2, pf=0, pp=Unknown
+09:47:04.875 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+09:47:05.099 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-4/aggregatedSusInfo.profl
+09:47:05.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.geometry.euclidean.twod.SubLine:intersection(Lorg/apache/commons/math3/geometry/euclidean/twod/SubLine;Z)Lorg/apache/commons/math3/geometry/euclidean/twod/Vector2D; in org.apache.commons.math3.geometry.euclidean.twod.SubLine:120
+09:47:05.099 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Succeeded to fix the bug Math-4====================
+diff --git a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java
+index a9d621a44..29ed72bc4 100644
+--- a/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java
++++ b/src/main/java/org/apache/commons/math3/geometry/euclidean/twod/SubLine.java
+@@ -117,7 +117,10 @@ public class SubLine extends AbstractSubHyperplane<Euclidean2D, Euclidean1D> {
+         Vector2D v2D = line1.intersection(line2);
+ 
+         // check location of point with respect to first sub-line
+-        Location loc1 = getRemainingRegion().checkPoint(line1.toSubSpace(v2D));
++        if (line1 == null) {
++	    throw new IllegalArgumentException("Null 'line1' argument.");
++	}
++Location loc1 = getRemainingRegion().checkPoint(line1.toSubSpace(v2D));
+ 
+         // check location of point with respect to second sub-line
+         Location loc2 = subLine.getRemainingRegion().checkPoint(line2.toSubSpace(v2D));
+09:47:06.361 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+09:47:06.507 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-4/aggregatedSusInfo.profl
+Succeeded to fix bug Math-4
+Repair process completed

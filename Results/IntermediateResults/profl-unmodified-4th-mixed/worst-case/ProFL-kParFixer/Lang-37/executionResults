@@ -1,0 +1,390 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-37
+23:07:31.493 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/37.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/37.txt
+23:07:34.925 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+23:07:34.952 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/generalSusInfo.profl
+23:07:34.955 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+23:07:34.955 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===969
+23:07:36.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.builder.ToStringStyle --- 969
+23:07:36.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===968
+23:07:36.808 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.builder.ToStringStyle --- 968
+23:07:36.808 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===965
+23:07:37.041 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * <p>Append to the <code>toString</code> a <code>long</code>
+     * array.</p>
+     *
+     * @param buffer  the <code>StringBuffer</code> to populate
+     * @param fieldName  the field name
+     * @param array  the array to add to the <code>toString</code>
+     * @param fullDetail  <code>true</code> for detail, <code>false</code>
+     *  for summary info, <code>null</code> for style decides
+     */
+    public void append(StringBuffer buffer, String fieldName, long[] array, Boolean fullDetail) {
+        appendFieldStart(buffer, fieldName);
+
+        if (array == null) {
+            appendNullText(buffer, fieldName);
+
+        } else if (isFullDetail(fullDetail)) {
+            appendDetail(buffer, fieldName, array);
+
+        } else {
+            appendSummary(buffer, fieldName, array);
+        }
+
+        appendFieldEnd(buffer, fieldName);
+    }
+23:07:37.053 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.builder.ToStringStyle ===961
+23:07:37.197 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+appendSummary(buffer, fieldName, array);
+23:07:37.204 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(fieldName, array);
+23:07:37.205 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, array);
+23:07:37.205 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName);
+23:07:37.209 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:38.472 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:07:38.474 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:39.656 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:07:39.658 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:40.895 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.contentStart, array);
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.contentEnd, array);
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.fieldNameValueSeparator, array);
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.fieldSeparator, array);
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.arrayStart, array);
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.arraySeparator, array);
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.arrayEnd, array);
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.nullText, array);
+23:07:40.898 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.sizeStartText, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.sizeEndText, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.summaryObjectStartText, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, this.summaryObjectEndText, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(fieldName, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(array, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(fullDetail, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(DEFAULT_STYLE, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(MULTI_LINE_STYLE, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(NO_FIELD_NAMES_STYLE, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(SHORT_PREFIX_STYLE, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(SIMPLE_STYLE, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(registry, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.useFieldNames, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.useClassName, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.useShortClassName, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.useIdentityHashCode, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.contentStart, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.contentEnd, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.fieldNameValueSeparator, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.fieldSeparatorAtStart, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.fieldSeparatorAtEnd, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.fieldSeparator, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.arrayStart, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.arraySeparator, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.arrayContentDetail, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.arrayEnd, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.defaultFullDetail, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.nullText, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.sizeStartText, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.sizeEndText, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.summaryObjectStartText, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(this.summaryObjectEndText, fieldName, array);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, buffer);
+23:07:40.899 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, fieldName);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, fullDetail);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, DEFAULT_STYLE);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, MULTI_LINE_STYLE);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, NO_FIELD_NAMES_STYLE);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, SHORT_PREFIX_STYLE);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, SIMPLE_STYLE);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, registry);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.useFieldNames);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.useClassName);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.useShortClassName);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.useIdentityHashCode);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.contentStart);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.contentEnd);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.fieldNameValueSeparator);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.fieldSeparatorAtStart);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.fieldSeparatorAtEnd);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.fieldSeparator);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.arrayStart);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.arraySeparator);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.arrayContentDetail);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.arrayEnd);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.defaultFullDetail);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.nullText);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.sizeStartText);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.sizeEndText);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.summaryObjectStartText);
+23:07:40.900 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendSummary(buffer, fieldName, this.summaryObjectEndText);
+23:07:40.902 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:42.340 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:07:42.340 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:07:54.676 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:07:54.676 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:07:54.676 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:07:54.677 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:07:54.677 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:07:54.679 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:07:54.679 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:07:54.679 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:07:54.683 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:56.185 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:07:56.185 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:08.603 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:08:08.603 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:08:08.603 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:08:08.603 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:08.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:08:08.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:08:08.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:08:08.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:08:08.607 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:10.027 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:10.027 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:22.515 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:08:22.515 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:08:22.515 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:08:22.515 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:22.515 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:08:22.517 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:08:22.517 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:08:22.517 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:08:22.520 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:23.942 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:23.942 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:36.199 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:08:36.199 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:08:36.199 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:08:36.199 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:36.200 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:08:36.201 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:08:36.201 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:08:36.201 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:08:36.203 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:37.566 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:37.567 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:49.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:08:49.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:08:49.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:08:49.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:08:49.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:08:49.675 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:08:49.676 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:08:49.676 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:08:49.680 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:51.078 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:51.078 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:02.481 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:02.481 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:02.482 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:09:02.482 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:02.482 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:02.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:09:02.484 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:02.484 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:09:02.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:03.808 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:03.808 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:15.432 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:15.432 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:15.432 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:09:15.432 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:15.432 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:15.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:09:15.434 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:15.434 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:09:15.435 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:16.784 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:16.784 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:28.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:28.172 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:28.172 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:09:28.172 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:28.172 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:28.180 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:09:28.180 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:28.180 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:09:28.181 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:30.395 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:30.395 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:41.495 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:41.495 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:41.495 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:09:41.495 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:41.495 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:41.508 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:09:41.508 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:41.508 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:09:41.509 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:42.874 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:42.875 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:54.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:54.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:09:54.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:09:54.150 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:09:54.151 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:09:54.205 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:09:54.205 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:09:54.205 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:09:54.206 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:55.649 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:55.649 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:07.431 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:10:07.431 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:10:07.431 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:10:07.432 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:07.432 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:10:07.865 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:10:07.865 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:10:07.865 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:10:07.866 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:09.258 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:10:09.258 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:20.588 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:10:20.588 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:10:20.588 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:10:20.588 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:10:20.589 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:10:21.437 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:10:21.437 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:10:21.437 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:10:21.438 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:22.601 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:22.603 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:23.842 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:23.843 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:25.037 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:25.039 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:26.331 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:26.332 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:27.498 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:27.499 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:28.860 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:28.862 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:30.149 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:30.151 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:31.487 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:31.488 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:32.877 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:32.878 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:34.031 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:34.033 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:35.188 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:35.189 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:36.585 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:36.586 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:37.757 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:37.758 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:39.068 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:39.069 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:40.906 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:40.907 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:42.277 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:42.278 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:43.476 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:43.478 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:44.771 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:44.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:45.908 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:45.909 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:47.117 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:47.118 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:48.474 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:48.475 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:49.688 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:49.690 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:51.045 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:51.047 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:52.310 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:52.312 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:53.694 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:53.696 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:55.042 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:55.044 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:56.383 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:56.384 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:57.792 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:57.794 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:59.210 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-37 ---Fixer: fix fail because of failed compiling! 
+23:10:59.212 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:11:00.675 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:11:00.676 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:11:12.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:11:12.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:11:12.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:11:12.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:11:12.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:11:19.961 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:11:19.961 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:11:19.961 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:11:19.963 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:11:21.228 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:11:21.229 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:11:33.469 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:11:33.469 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:11:33.469 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:11:33.469 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:11:33.470 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:11:54.666 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:11:54.666 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:11:54.666 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:11:54.667 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:11:56.279 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:11:56.279 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:12:07.372 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:12:07.372 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:12:07.372 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:12:07.373 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:12:07.373 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:13:17.275 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:13:17.275 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:13:17.275 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:13:17.276 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:13:18.525 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:13:18.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:13:29.709 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:13:29.709 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:13:29.709 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:13:29.709 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:13:29.709 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:17:42.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:17:42.797 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:17:42.797 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:17:42.799 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:17:44.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:17:44.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:17:56.506 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:17:56.506 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:17:56.506 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:17:56.507 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:17:56.507 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+23:39:51.402 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+23:39:51.402 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+23:39:51.403 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+23:39:51.404 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:39:52.878 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:39:52.879 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:40:04.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:40:04.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+23:40:04.906 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+23:40:04.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+23:40:04.907 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+00:41:09.576 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-37/aggregatedSusInfo.profl
+00:41:09.576 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.builder.ToStringStyle:append(Ljava/lang/StringBuffer;Ljava/lang/String;[JLjava/lang/Boolean;)V in org.apache.commons.lang3.builder.ToStringStyle:961
+00:41:09.576 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-37
+00:41:09.578 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+00:41:11.045 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+00:41:11.045 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+00:41:23.465 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+00:41:23.465 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.ArrayUtilsAddTest::testJira567]
+00:41:23.465 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.ArrayUtilsAddTest::testJira567
+00:41:23.466 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+00:41:23.466 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

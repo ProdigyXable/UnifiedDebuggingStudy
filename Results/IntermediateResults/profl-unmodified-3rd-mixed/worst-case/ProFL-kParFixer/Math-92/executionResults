@@ -1,0 +1,341 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-92
+07:34:15.560 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-92 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/92.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/92.txt
+07:34:18.470 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+07:34:18.504 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/generalSusInfo.profl
+07:34:18.506 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+07:34:18.506 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.util.MathUtils ===208
+07:34:19.946 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return result;
+07:34:19.962 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.util.MathUtils ===182
+07:34:20.365 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return n;
+07:34:20.366 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.util.MathUtils ===185
+07:34:20.530 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (result == Long.MAX_VALUE) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.533 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (result != Long.MAX_VALUE) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.534 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((n < k)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.534 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((n == k) || (k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.534 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((n < 0)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.534 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((k == 1) || (k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.534 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.535 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.535 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((n == k))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.535 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((k == 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:34:20.537 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:21.920 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:21.920 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:34:36.586 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:34:36.586 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficient, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:34:36.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficient
+07:34:36.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:34:36.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:34:36.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+07:34:36.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:34:36.590 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:34:36.590 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:34:36.590 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Math-92
+07:34:36.591 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:37.757 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:37.758 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:34:52.057 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:34:52.057 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:34:52.057 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:34:52.057 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:34:52.057 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:34:52.057 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:34:52.059 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:34:52.060 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:34:52.060 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:34:52.060 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:53.237 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:53.238 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:07.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:35:07.655 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:35:07.656 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:35:07.656 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:35:07.656 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:07.656 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:35:07.661 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:35:07.661 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:35:07.661 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:35:07.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:08.762 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:08.762 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:22.845 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:35:22.845 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:35:22.845 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:35:22.845 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:35:22.845 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:22.845 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:35:22.847 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:35:22.847 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:35:22.847 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:35:22.848 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:24.007 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:24.007 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:38.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:35:38.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:35:38.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:35:38.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:35:38.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:38.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:35:38.170 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:35:38.170 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:35:38.170 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:35:38.170 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:39.295 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:39.295 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:53.471 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:35:53.471 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:35:53.472 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:35:53.472 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:35:53.472 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:53.472 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:35:53.536 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:35:53.536 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:35:53.537 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:35:53.537 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:54.530 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:54.530 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:36:07.856 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:36:07.856 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:36:07.856 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:36:07.856 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:36:07.856 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:07.856 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:36:08.243 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:36:08.243 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:36:08.243 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:36:08.244 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:36:09.210 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:36:09.211 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:36:22.694 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:36:22.694 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:36:22.694 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:36:22.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:36:22.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:22.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:36:25.066 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:36:25.067 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:36:25.067 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:36:25.067 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:36:25.977 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:36:25.977 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:36:37.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:36:37.974 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:36:37.974 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:36:37.974 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:36:37.974 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:37.974 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:36:53.658 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:36:53.658 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:36:53.658 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:36:53.660 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || (n < k)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.660 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && (n < k)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.660 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || !(n < k)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && !(n < k)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || ((n == k) || (k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && ((n == k) || (k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || !((n == k) || (k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && !((n == k) || (k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || (n < 0)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && (n < 0)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || !(n < 0)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && !(n < 0)) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || ((k == 1) || (k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && ((k == 1) || (k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || !((k == 1) || (k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && !((k == 1) || (k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || ((k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && ((k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || !((k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && !((k == n - 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || ((k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && ((k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || !((k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && !((k == 0))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || ((n == k))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && ((n == k))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || !((n == k))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && !((n == k))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || ((k == 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && ((k == 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) || !((k == 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.661 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((result == Long.MAX_VALUE) && !((k == 1))) {
+            throw new ArithmeticException(
+                "result too large to represent in a long integer");
+        }
+07:36:53.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:36:54.598 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:36:54.599 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:37:06.872 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:37:06.873 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:37:06.873 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:37:06.873 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:37:06.873 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:39:21.086 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:39:21.087 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:39:21.087 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-92
+07:39:21.087 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:39:22.014 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:39:22.014 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:39:33.562 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:39:33.562 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail]
+07:39:33.562 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:39:33.562 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientFail
+07:39:33.562 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:39:33.563 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+07:55:25.643 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+07:55:25.644 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+07:55:25.644 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+07:55:25.644 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:55:26.559 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:55:26.559 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:55:37.951 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:55:37.951 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficient, - org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+07:55:37.951 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficient
+07:55:37.951 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+07:55:37.951 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:55:37.951 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:13:34.862 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-92/aggregatedSusInfo.profl
+10:13:34.863 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J in org.apache.commons.math.util.MathUtils:185
+10:13:34.863 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-92
+10:13:34.863 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:13:35.802 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:13:35.802 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:13:47.200 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+10:13:47.200 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge]
+10:13:47.201 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testBinomialCoefficientLarge
+10:13:47.201 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:13:47.201 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

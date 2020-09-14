@@ -1,0 +1,42 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-131
+18:46:18.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-131 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/131.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/131.txt
+18:51:02.934 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+18:51:02.995 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Closure-131/generalSusInfo.profl
+18:51:03.056 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Closure-131/aggregatedSusInfo.profl
+18:51:03.058 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+18:51:03.058 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1286
+18:51:04.042 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+   * Returns a JavaScript representation of the character in a hex escaped
+   * format.
+   *
+   * @param codePoint The code point to append.
+   * @param out The buffer to which the hex representation should be appended.
+   */
+  private static void appendHexJavaScriptRepresentation(
+      int codePoint, Appendable out)
+      throws IOException {
+    if (Character.isSupplementaryCodePoint(codePoint)) {
+      // Handle supplementary Unicode values which are not representable in
+      // JavaScript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from Java to JavaScript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+    out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+  }

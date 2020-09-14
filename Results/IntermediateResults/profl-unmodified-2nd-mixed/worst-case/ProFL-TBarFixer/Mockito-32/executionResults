@@ -1,0 +1,164 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-32
+19:19:51.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Mockito-32 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/32.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/32.txt
+19:19:54.051 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+19:19:54.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-32/generalSusInfo.profl
+19:19:54.113 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-32/aggregatedSusInfo.profl
+19:19:54.113 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+19:19:54.113 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.mockito.internal.configuration.SpyAnnotationEngine ===55
+19:19:54.756 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+try {
+                    Object instance = field.get(testClass);
+                    if (instance == null) {
+                        throw new MockitoException("Cannot create a @Spy for '" + field.getName() + "' field because the *instance* is missing\n" +
+                        		  "The instance must be created *before* initMocks();\n" +
+                                  "Example of correct usage of @Spy:\n" +
+                            	  "   @Spy List mock = new LinkedList();\n" +
+                            	  "   //also, don't forget about MockitoAnnotations.initMocks();");
+
+                    }
+                    if (new MockUtil().isMock(instance)) { 
+                        // instance has been spied earlier
+                        Mockito.reset(instance);
+                    } else {
+                        field.set(testClass, Mockito.spy(instance));
+                    }
+                } catch (IllegalAccessException e) {
+                    throw new MockitoException("Problems initiating spied field " + field.getName(), e);
+                } finally {
+                    field.setAccessible(wasAccessible);
+                }
+19:19:54.756 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.mockito.internal.configuration.SpyAnnotationEngine:55 ---
+19:19:54.756 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/mockito/internal/configuration/SpyAnnotationEngine.java 55 ---
+19:19:54.756 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:19:54.826 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+19:19:54.826 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+19:19:54.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:55.734 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:19:55.734 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 13, [- org.mockitousage.annotation.MockInjectionTest::shouldInjectMocksByName, - org.mockitousage.annotation.MockInjectionTest::shouldInjectSpies, - org.mockitousage.annotation.MockInjectionTest::shouldInjectMocksForClassHierarchyIfAnnotated, - org.mockitousage.annotation.MockInjectionTest::shouldInjectMocksIfAnnotated, - org.mockitousage.annotation.MockInjectionTest::shouldProvideDecentExceptionWhenInjectMockInstanceIsNull, - org.mockitousage.annotation.MockInjectionTest::shouldNotInjectIfNotAnnotated, - org.mockitousage.annotation.SpyAnnotationInitializedInBaseClassTest$SubTest::shouldInitSpiesInHierarchy, - org.mockitousage.annotation.SpyAnnotationInitializedInBaseClassTest$SubTest::shouldInitSpiesInBaseClass, - org.mockitousage.annotation.SpyAnnotationInitializedInBaseClassTest::shouldInitSpiesInBaseClass, - org.mockitousage.annotation.SpyAnnotationTest::shouldFailIfFieldIsNotInitialized, - org.mockitousage.annotation.SpyAnnotationTest::shouldInitSpies, - org.mockitousage.annotation.SpyAnnotationTest::shouldInitSpies, - org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionTest::shouldInjectMocksByName
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionTest::shouldInjectSpies
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionTest::shouldInjectMocksForClassHierarchyIfAnnotated
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionTest::shouldInjectMocksIfAnnotated
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionTest::shouldProvideDecentExceptionWhenInjectMockInstanceIsNull
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.MockInjectionTest::shouldNotInjectIfNotAnnotated
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.SpyAnnotationInitializedInBaseClassTest$SubTest::shouldInitSpiesInHierarchy
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.SpyAnnotationInitializedInBaseClassTest$SubTest::shouldInitSpiesInBaseClass
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.SpyAnnotationInitializedInBaseClassTest::shouldInitSpiesInBaseClass
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.SpyAnnotationTest::shouldFailIfFieldIsNotInitialized
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.SpyAnnotationTest::shouldInitSpies
+19:22:50.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.annotation.SpyAnnotationTest::shouldInitSpies
+19:22:50.414 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName
+19:22:50.414 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=12, pp=Unknown
+19:22:50.414 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+19:22:50.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-32/aggregatedSusInfo.profl
+19:22:50.516 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.configuration.SpyAnnotationEngine:process(Ljava/lang/Class;Ljava/lang/Object;)V in org.mockito.internal.configuration.SpyAnnotationEngine:55
+19:22:50.516 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 13 Mockito-32
+---------------- Testing New Patch ----------------
+19:22:50.516 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:22:54.822 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-32 ---Fixer: fix fail because of failed compiling! 
+19:22:54.842 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.mockito.internal.configuration.SpyAnnotationEngine ===54
+19:22:54.868 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+field.setAccessible(wasAccessible);
+19:22:54.868 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.mockito.internal.configuration.SpyAnnotationEngine:54 ---
+19:22:54.868 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/mockito/internal/configuration/SpyAnnotationEngine.java 54 ---
+19:22:54.868 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:22:54.956 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (field != null) {
+	
+
+	}
+
+19:22:54.956 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (field == null) {
+	    throw new IllegalArgumentException("Null 'field' argument.");
+	}
+
+19:22:54.956 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (field == null) {
+	    return;
+	}
+
+19:22:54.956 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (field == null) field = new Field();
+ 
+19:22:54.957 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (field == null) continue;
+	
+19:22:54.957 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (field != null && wasAccessible != null) {
+	
+
+	}
+
+---------------- Testing New Patch ----------------
+19:22:54.958 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:22:55.884 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:22:55.884 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:25:49.754 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:25:49.754 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:25:49.755 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName
+19:25:49.755 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:25:49.755 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:25:50.851 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-32/aggregatedSusInfo.profl
+19:25:50.851 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.configuration.SpyAnnotationEngine:process(Ljava/lang/Class;Ljava/lang/Object;)V in org.mockito.internal.configuration.SpyAnnotationEngine:54
+19:25:50.851 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Mockito-32
+---------------- Testing New Patch ----------------
+19:25:50.851 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:25:51.802 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:25:51.802 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:28:46.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:28:46.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:28:46.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName
+19:28:46.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:28:46.146 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:29:06.235 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-32/aggregatedSusInfo.profl
+19:29:06.235 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.configuration.SpyAnnotationEngine:process(Ljava/lang/Class;Ljava/lang/Object;)V in org.mockito.internal.configuration.SpyAnnotationEngine:54
+19:29:06.235 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Mockito-32
+---------------- Testing New Patch ----------------
+19:29:06.235 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:29:07.227 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:29:07.227 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:32:00.493 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:32:00.493 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:32:00.493 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName
+19:32:00.493 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:32:00.493 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:39:12.259 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-32/aggregatedSusInfo.profl
+19:39:12.259 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.configuration.SpyAnnotationEngine:process(Ljava/lang/Class;Ljava/lang/Object;)V in org.mockito.internal.configuration.SpyAnnotationEngine:54
+19:39:12.259 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Mockito-32
+---------------- Testing New Patch ----------------
+19:39:12.260 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:39:16.517 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-32 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:39:16.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:39:17.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:39:17.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:42:06.518 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:42:06.518 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+19:42:06.518 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName
+19:42:06.518 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:42:06.518 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+22:14:05.264 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-32/aggregatedSusInfo.profl
+22:14:05.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.configuration.SpyAnnotationEngine:process(Ljava/lang/Class;Ljava/lang/Object;)V in org.mockito.internal.configuration.SpyAnnotationEngine:54
+22:14:05.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Mockito-32
+---------------- Testing New Patch ----------------
+22:14:05.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:14:09.481 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-32 ---Fixer: fix fail because of failed compiling! 
+22:14:09.511 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+22:14:09.511 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+22:14:09.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+22:14:10.404 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+22:14:10.404 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+22:17:00.741 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+22:17:00.741 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName]
+22:17:00.741 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.SpyShouldHaveNiceNameTest::shouldPrintNiceName
+22:17:00.741 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:17:00.741 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

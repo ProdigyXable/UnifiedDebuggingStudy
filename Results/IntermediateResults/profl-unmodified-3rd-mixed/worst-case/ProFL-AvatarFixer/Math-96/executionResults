@@ -1,0 +1,251 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-96
+07:34:55.548 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-96 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/96.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/96.txt
+07:34:57.563 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+07:34:57.585 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-96/ochiai.txt
+07:34:57.591 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+07:34:57.591 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.complex.Complex ===280
+07:34:58.607 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+07:34:58.609 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/complex/Complex.java:280 ---
+07:34:58.619 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * serialVersionUID.hash(imaginary) + 
+            MathUtils.hash(real));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * this.imaginary.hash(imaginary) + 
+            MathUtils.hash(real));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * this.real.hash(imaginary) + 
+            MathUtils.hash(real));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * MathUtils.hash(serialVersionUID) + 
+            MathUtils.hash(real));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * MathUtils.hash(this.real) + 
+            MathUtils.hash(real));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            serialVersionUID.hash(real));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            this.imaginary.hash(real));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            this.real.hash(real));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(serialVersionUID));
+07:34:58.620 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(this.imaginary));
+---------------- Testing New Patch ----------------
+07:34:58.622 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:34:59.523 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:34:59.523 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:00.273 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:00.273 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:01.112 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:01.112 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:01.943 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:01.943 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:13.000 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:35:13.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:35:13.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:35:13.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:35:13.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:13.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:13.003 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:35:13.003 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:35:13.004 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+07:35:13.004 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:13.930 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:13.930 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:25.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:35:25.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:35:25.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:35:25.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:35:25.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:25.494 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:25.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:35:25.497 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:35:25.498 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+07:35:25.498 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:26.311 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:26.311 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:27.132 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:27.133 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:27.960 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:27.961 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:28.902 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:28.902 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:39.907 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:35:39.907 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:35:39.907 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:35:39.907 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:35:39.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:39.908 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:39.932 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:35:39.932 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:35:39.932 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+07:35:39.932 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:40.794 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:40.794 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:51.826 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:35:51.826 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:35:51.826 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:35:51.826 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:35:51.826 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:51.826 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:51.831 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:35:51.831 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:35:51.831 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+07:35:51.832 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (imaginary != null) {
+	
+
+}
+
+07:35:51.832 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (imaginary == null) {
+    throw new IllegalArgumentException("Null 'imaginary' argument.");
+}
+
+07:35:51.832 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (imaginary == null) {
+    return 0;
+}
+
+07:35:51.832 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (real != null) {
+	
+
+}
+
+07:35:51.832 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (real == null) {
+    throw new IllegalArgumentException("Null 'real' argument.");
+}
+
+07:35:51.832 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (real == null) {
+    return 0;
+}
+
+---------------- Testing New Patch ----------------
+07:35:51.833 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:52.689 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:52.690 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:53.559 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:53.560 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:54.405 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:54.406 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:55.305 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:55.306 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:56.199 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:56.200 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:56.991 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+07:35:56.992 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:56.992 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:57.857 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:57.857 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:09.294 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:36:09.294 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:36:09.294 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:36:09.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:36:09.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:09.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:09.334 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:36:09.334 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:36:09.334 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+07:36:09.335 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:09.335 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:10.193 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:10.193 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:21.034 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:36:21.035 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:36:21.035 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:36:21.035 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:36:21.035 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:21.035 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:21.517 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:36:21.517 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:36:21.517 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+07:36:21.518 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:22.243 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:22.243 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:33.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:36:33.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:36:33.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:36:33.201 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:36:33.202 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:33.202 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:37.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:36:37.360 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:36:37.360 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+07:36:37.361 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:37.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:38.232 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:38.232 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:48.992 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:36:48.992 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:36:48.993 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:36:48.993 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:36:48.993 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:48.993 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:37:26.400 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:37:26.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:37:26.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+07:37:26.400 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:37:26.401 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:27.265 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:37:27.265 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:37:36.697 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:37:36.698 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:37:36.698 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:37:36.698 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:37:36.698 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:37:36.698 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:43:34.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+07:43:34.531 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+07:43:34.531 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+07:43:34.531 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:43:35.276 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:43:35.276 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:43:44.340 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+07:43:44.340 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+07:43:44.340 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+07:43:44.340 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+07:43:44.340 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:43:44.340 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+08:43:28.143 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-96/aggregatedSusInfo.profl
+08:43:28.143 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+08:43:28.143 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+08:43:28.143 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+08:43:28.144 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:43:28.869 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+08:43:28.869 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+08:43:37.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+08:43:37.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+08:43:37.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+08:43:37.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+08:43:37.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+08:43:37.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

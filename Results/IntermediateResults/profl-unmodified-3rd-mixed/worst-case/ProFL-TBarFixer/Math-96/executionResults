@@ -1,0 +1,275 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-96
+01:55:08.270 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-96 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/96.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/96.txt
+01:55:12.147 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:55:12.177 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/generalSusInfo.profl
+01:55:12.187 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:55:12.188 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.complex.Complex ===280
+01:55:14.455 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+01:55:14.456 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.complex.Complex:280 ---
+01:55:14.456 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/complex/Complex.java 280 ---
+01:55:14.456 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.complex.ComplexTest::testMath221]
+01:55:15.383 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * (MathUtils.hash(imaginary) + 
+            MathUtils.hash(real)));
+01:55:15.386 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (37 * 17 * MathUtils.hash(imaginary)) + 
+            MathUtils.hash(real);
+01:55:15.387 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 / MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+01:55:15.387 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) - MathUtils.hash(real));
+01:55:15.387 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 / (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+---------------- Testing New Patch ----------------
+01:55:15.390 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:17.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:17.256 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:55:39.510 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:55:39.510 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.complex.ComplexTest::testMath221]
+01:55:39.510 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:55:39.510 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:55:39.510 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:55:39.513 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+01:55:39.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+01:55:39.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-96
+---------------- Testing New Patch ----------------
+01:55:39.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:41.814 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:41.814 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:06.041 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:56:06.041 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.complex.ComplexTest::testMath221]
+01:56:06.041 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:56:06.041 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:56:06.041 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:56:06.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+01:56:06.044 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+01:56:06.044 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-96
+---------------- Testing New Patch ----------------
+01:56:06.045 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:08.248 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:08.248 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:30.557 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:56:30.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+01:56:30.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:56:30.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+01:56:30.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:56:30.558 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:56:30.640 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+01:56:30.654 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+01:56:30.654 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+01:56:30.655 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:32.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:32.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:52.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:56:52.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.complex.ComplexTest::testMath221]
+01:56:52.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:56:52.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:56:52.774 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:56:52.784 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+01:56:52.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+01:56:52.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-96
+---------------- Testing New Patch ----------------
+01:56:52.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:54.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:54.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:16.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:57:16.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+01:57:16.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:57:16.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+01:57:16.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:57:16.077 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:57:16.154 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+01:57:16.154 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+01:57:16.154 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+01:57:16.362 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37d * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+01:57:16.363 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37f * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+01:57:16.363 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17d * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+01:57:16.363 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17f * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+---------------- Testing New Patch ----------------
+01:57:16.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:18.075 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:18.075 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:19.622 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:19.622 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:20.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:20.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:22.709 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+01:57:22.897 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(this.real) + 
+            MathUtils.hash(real));
+01:57:22.897 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(this.imaginary));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(abs()) + 
+            MathUtils.hash(real));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(conjugate()) + 
+            MathUtils.hash(real));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(hashCode()) + 
+            MathUtils.hash(real));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(getImaginary()) + 
+            MathUtils.hash(real));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(getReal()) + 
+            MathUtils.hash(real));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(isNaN()) + 
+            MathUtils.hash(real));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(isInfinite()) + 
+            MathUtils.hash(real));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(negate()) + 
+            MathUtils.hash(real));
+01:57:22.898 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(acos()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(asin()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(atan()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(cos()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(cosh()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(exp()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(log()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(sin()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(sinh()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(sqrt()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(sqrt1z()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(tan()) + 
+            MathUtils.hash(real));
+01:57:22.904 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(tanh()) + 
+            MathUtils.hash(real));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(abs()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(conjugate()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(hashCode()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(getImaginary()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(getReal()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(isNaN()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(isInfinite()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(negate()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(acos()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(asin()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(atan()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(cos()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(cosh()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(exp()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(log()));
+01:57:22.905 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(sin()));
+01:57:22.906 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(sinh()));
+01:57:22.906 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(sqrt()));
+01:57:22.906 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(sqrt1z()));
+01:57:22.906 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(tan()));
+01:57:22.906 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(tanh()));
+---------------- Testing New Patch ----------------
+01:57:22.907 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:24.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:24.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:43.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:57:43.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+01:57:43.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:57:43.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+01:57:43.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:57:43.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:57:44.375 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+01:57:44.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+01:57:44.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+01:57:44.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:45.956 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:45.956 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:58:04.596 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:58:04.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+01:58:04.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:58:04.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+01:58:04.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:58:04.597 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:58:12.054 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+01:58:12.055 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+01:58:12.055 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+01:58:12.056 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:13.485 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:58:13.485 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:58:31.781 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:58:31.781 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.complex.ComplexTest::testMath221]
+01:58:31.781 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:58:31.781 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:58:31.781 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:59:40.356 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+01:59:40.356 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+01:59:40.356 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-96
+---------------- Testing New Patch ----------------
+01:59:40.357 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:59:41.557 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:59:41.558 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:59:42.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:59:42.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:59:57.718 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+01:59:57.718 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+01:59:57.718 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+01:59:57.718 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+01:59:57.718 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:59:57.718 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+02:07:37.257 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+02:07:37.258 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+02:07:37.258 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-96
+---------------- Testing New Patch ----------------
+02:07:37.258 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:07:38.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:07:38.392 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:07:52.464 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+02:07:52.464 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.complex.ComplexTest::testMath221]
+02:07:52.464 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+02:07:52.465 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:07:52.465 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+03:49:47.551 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-96/aggregatedSusInfo.profl
+03:49:47.552 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:280
+03:49:47.552 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-96
+---------------- Testing New Patch ----------------
+03:49:47.553 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:49:48.743 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+03:49:48.744 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+03:50:03.253 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+03:50:03.253 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+03:50:03.253 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+03:50:03.253 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+03:50:03.253 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+03:50:03.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

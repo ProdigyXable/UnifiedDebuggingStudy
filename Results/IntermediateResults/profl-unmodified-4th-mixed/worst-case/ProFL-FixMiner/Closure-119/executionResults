@@ -1,0 +1,33 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-119
+15:58:07.028 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-119 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/119.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/119.txt
+16:03:55.887 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+16:03:55.952 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Closure-119/generalSusInfo.profl
+16:03:56.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Closure-119/aggregatedSusInfo.profl
+16:03:56.039 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+16:03:56.040 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CheckGlobalNames ===220
+16:03:56.802 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+name = name.parent;
+
+16:03:56.819 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+16:03:58.145 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-119 ---Fixer: fix fail because of failed compiling! 
+16:03:58.146 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CheckGlobalNames ===226
+16:03:58.220 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+private void reportRefToUndefinedName(Name name, Ref ref) {
+    // grab the highest undefined ancestor to output in the warning message.
+    while (name.parent != null &&
+           name.parent.globalSets + name.parent.localSets == 0) {
+      name = name.parent;
+    }
+
+    compiler.report(
+        JSError.make(ref.getSourceName(), ref.node, level,
+            UNDEFINED_NAME_WARNING, name.getFullName()));
+  }

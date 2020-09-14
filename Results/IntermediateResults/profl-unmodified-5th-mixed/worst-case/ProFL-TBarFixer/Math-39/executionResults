@@ -1,0 +1,127 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-39
+14:08:43.696 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-39 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/39.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/39.txt
+14:08:52.301 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+14:08:52.342 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-39/generalSusInfo.profl
+14:08:52.387 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+14:08:52.388 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.util.FastMath ===3259
+14:08:55.434 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+14:08:55.435 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.util.FastMath:3259 ---
+14:08:55.435 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/util/FastMath.java 3259 ---
+14:08:55.436 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:08:55.923 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return -Double.MIN_VALUE;
+14:08:55.924 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Double.MIN_VALUE;
+---------------- Testing New Patch ----------------
+14:08:55.931 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:08:57.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:08:57.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:09:55.029 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:09:55.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases]
+14:09:55.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+14:09:55.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+14:09:55.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42]
+14:09:55.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+14:09:55.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+14:09:55.030 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:09:55.053 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-39/aggregatedSusInfo.profl
+14:09:55.053 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3259
+14:09:55.053 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-39
+---------------- Testing New Patch ----------------
+14:09:55.055 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:56.682 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:09:56.682 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:10:52.040 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:10:52.040 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases]
+14:10:52.040 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+14:10:52.040 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep
+14:10:52.040 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+14:10:52.040 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+14:10:52.040 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+14:10:52.040 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:10:52.265 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-39/aggregatedSusInfo.profl
+14:10:52.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3259
+14:10:52.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-39
+14:10:52.648 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (direction==0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+14:10:52.648 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (direction!=0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+14:10:52.648 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (direction<=0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+14:10:52.648 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (direction>0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+14:10:52.648 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (direction>=0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+---------------- Testing New Patch ----------------
+14:10:52.651 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:10:54.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:10:54.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:11:47.976 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:11:47.976 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases]
+14:11:47.976 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+14:11:47.976 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep
+14:11:47.976 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+14:11:47.976 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+14:11:47.976 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+14:11:47.977 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:11:48.199 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-39/aggregatedSusInfo.profl
+14:11:48.199 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3259
+14:11:48.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-39
+---------------- Testing New Patch ----------------
+14:11:48.201 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:50.015 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:11:50.015 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:12:49.138 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:12:49.138 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases]
+14:12:49.138 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+14:12:49.138 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+14:12:49.139 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42]
+14:12:49.139 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+14:12:49.139 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+14:12:49.139 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:12:53.369 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-39/aggregatedSusInfo.profl
+14:12:53.370 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3259
+14:12:53.370 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-39
+---------------- Testing New Patch ----------------
+14:12:53.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:12:55.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:12:55.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:13:52.306 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:13:52.306 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:13:52.307 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+14:13:52.307 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:13:52.307 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:15:01.854 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-39/aggregatedSusInfo.profl
+14:15:01.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3259
+14:15:01.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-39
+---------------- Testing New Patch ----------------
+14:15:01.857 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:03.281 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:15:03.281 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:15:56.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:15:56.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases]
+14:15:56.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+14:15:56.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep
+14:15:56.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+14:15:56.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42]
+14:15:56.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+14:15:56.805 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+14:15:56.806 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:32:09.835 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-39/aggregatedSusInfo.profl
+14:32:09.835 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3259
+14:32:09.835 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-39
+---------------- Testing New Patch ----------------
+14:32:09.838 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:32:11.371 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:32:11.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:32:57.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+14:32:57.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases]
+14:32:57.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+14:32:57.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep
+14:32:57.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+14:32:57.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42]
+14:32:57.998 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+14:32:57.998 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+14:32:57.998 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

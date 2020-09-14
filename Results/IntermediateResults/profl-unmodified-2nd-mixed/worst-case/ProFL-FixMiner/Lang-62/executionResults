@@ -1,0 +1,462 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-62
+08:29:49.413 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/62.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/62.txt
+08:29:50.618 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+08:29:50.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/generalSusInfo.profl
+08:29:50.631 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+08:29:50.631 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang.Entities ===853
+08:29:51.503 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (entityName.length() == 1) {
+                        entityValue = -1;
+                    } else {
+                        char charAt1 = entityName.charAt(1);
+                        try {
+                            if (charAt1 == 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+                        } catch (NumberFormatException ex) {
+                            entityValue = -1;
+                        }
+                    }
+if (entityName.length() != 1) {
+                        entityValue = -1;
+                    } else {
+                        char charAt1 = entityName.charAt(1);
+                        try {
+                            if (charAt1 == 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+                        } catch (NumberFormatException ex) {
+                            entityValue = -1;
+                        }
+                    }
+08:29:51.515 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:29:52.430 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:29:52.430 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:30:06.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:30:06.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow, - org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeXml]
+08:30:06.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:30:06.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous
+08:30:06.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeXml
+08:30:06.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+08:30:06.252 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+08:30:06.255 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:30:06.255 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:853
+08:30:06.255 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Lang-62
+if (entityName != null) {
+
+
+}
+
+08:30:06.260 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:07.237 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+if (entityName == null) {
+    return null;
+}
+
+if (entityName == null) {
+    throw new IllegalArgumentException("Empty variable: " + entityName);
+}
+
+08:30:07.240 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:08.145 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:30:08.145 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:30:21.006 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:30:21.006 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:30:21.006 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:30:21.007 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+08:30:21.007 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:30:21.011 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:30:21.011 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:853
+08:30:21.011 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-62
+08:30:21.012 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:21.931 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:30:21.931 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:30:35.335 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:30:35.335 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:30:35.335 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:30:35.335 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+08:30:35.335 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:30:35.379 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:30:35.379 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:853
+08:30:35.379 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-62
+
+                } else {
+                    entityValue = this.entityValue(entityName);
+	if (entityName.length() == 1) {
+                        entityValue = -1;
+                    } else {
+                        char charAt1 = entityName.charAt(1);
+                        try {
+                            if (charAt1 == 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+                        } catch (NumberFormatException ex) {
+                            entityValue = -1;
+                        }
+                    }
+
+MOVE-BUGGY-STATEMENT
+08:30:35.382 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:36.240 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+
+08:30:36.241 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:37.116 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+08:30:37.116 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang.Entities ===852
+08:30:37.376 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+try {
+                            if (charAt1 == 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+                        } catch (NumberFormatException ex) {
+                            entityValue = -1;
+                        }
+try {
+                            if (charAt1 == 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+                        } catch (NumberFormatException ex) {
+                            entityValue = -1;
+                        }
+	entityValue = -1;
+                    } else {
+                        char charAt1 = entityName.charAt(1);
+                        
+null
+try {
+                            if (charAt1 == 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+                        } catch (NumberFormatException ex) {
+                            entityValue = -1;
+                        }
+	char charAt1 = entityName.charAt(1);
+                        
+null
+08:30:37.382 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:38.345 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+08:30:38.346 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:39.280 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+
+08:30:39.281 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:40.148 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+08:30:40.148 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang.Entities ===848
+08:30:40.229 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+entityValue = Integer.parseInt(entityName.substring(1));
+entityValue = Integer.parseInt(true, entityName.substring(1));
+entityValue = Integer.parseInt(false, entityName.substring(1));
+entityValue = Integer.parseInt(entityName.substring(1), true);
+entityValue = Integer.parseInt(entityName.substring(1), false);
+08:30:40.232 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:41.079 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+08:30:41.079 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:41.965 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+08:30:41.966 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:42.757 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+08:30:42.758 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:43.946 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+if (entityName != null) {
+
+
+}
+
+08:30:43.950 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:45.345 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+if (entityName == null) {
+    return null;
+}
+
+if (entityName == null) {
+    throw new IllegalArgumentException("Empty variable: " + entityName);
+}
+
+08:30:45.346 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:46.273 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:30:46.273 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:30:58.405 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:30:58.405 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:30:58.406 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:30:58.406 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+08:30:58.406 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:30:58.414 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:30:58.414 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:848
+08:30:58.414 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-62
+08:30:58.414 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:30:59.418 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:30:59.419 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:31:11.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:31:11.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:31:11.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:31:11.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+08:31:11.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:31:11.533 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:31:11.533 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:848
+08:31:11.533 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-62
+entityValue = Integer.parseInt(entityName.substring(1));
+	entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                
+null
+08:31:11.536 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:31:12.405 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+
+08:31:12.406 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:31:13.385 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+08:31:13.385 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang.Entities ===845
+08:31:13.429 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (charAt1 == 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+if (charAt1 == 'x' && charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+if (charAt1 != 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+if (charAt1 == 'x' || charAt1 != 'X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+08:31:13.431 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:31:14.353 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:31:14.353 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:31:26.267 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:31:26.267 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow, - org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous]
+08:31:26.267 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:31:26.267 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous
+08:31:26.267 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+08:31:26.267 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+08:31:26.991 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:31:26.991 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:845
+08:31:26.991 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Lang-62
+08:31:26.991 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:31:27.923 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:31:27.923 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:31:39.826 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:31:39.826 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeXml]
+08:31:39.826 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:31:39.826 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeXml
+08:31:39.826 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+08:31:39.826 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+08:31:46.564 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:31:46.564 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:845
+08:31:46.564 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Lang-62
+08:31:46.565 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:31:47.597 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:31:47.598 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:31:59.990 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:31:59.991 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow, - org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeXml]
+08:31:59.991 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:31:59.991 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous
+08:31:59.991 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeXml
+08:31:59.991 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+08:31:59.991 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+08:33:03.545 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:33:03.545 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:845
+08:33:03.545 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Lang-62
+if (ch == 'x' || charAt1=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+if (charAt1 == 'x' || ch=='X') {
+                                entityValue = Integer.valueOf(entityName.substring(2), 16).intValue();
+                            } else {
+                                entityValue = Integer.parseInt(entityName.substring(1));
+                            }
+08:33:03.547 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:33:04.495 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:33:04.495 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:33:16.089 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:33:16.089 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:33:16.089 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:33:16.089 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+08:33:16.089 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:43:14.526 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+08:43:14.527 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:845
+08:43:14.527 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Lang-62
+08:43:14.527 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:43:15.404 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:43:15.404 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:43:26.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+08:43:26.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow, - org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous]
+08:43:26.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+08:43:26.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous
+08:43:26.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+08:43:26.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:19:01.407 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-62/aggregatedSusInfo.profl
+10:19:01.408 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.Entities:845
+10:19:01.408 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Lang-62
+
+10:19:01.411 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:02.397 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:02.398 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang.Entities ===843
+10:19:02.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+char charAt1 = entityName.charAt(1);
+char charAt1 = entityName.charAt(charAt1, 1);
+char charAt1 = entityName.charAt(entityValue, 1);
+char charAt1 = entityName.charAt(amph, 1);
+char charAt1 = entityName.charAt(semi, 1);
+char charAt1 = entityName.charAt(ch, 1);
+char charAt1 = entityName.charAt(i, 1);
+char charAt1 = entityName.charAt(buf, 1);
+char charAt1 = entityName.charAt(firstAmp, 1);
+char charAt1 = entityName.charAt(str, 1);
+char charAt1 = entityName.charAt(BASIC_ARRAY, 1);
+char charAt1 = entityName.charAt(APOS_ARRAY, 1);
+char charAt1 = entityName.charAt(ISO8859_1_ARRAY, 1);
+char charAt1 = entityName.charAt(HTML40_ARRAY, 1);
+char charAt1 = entityName.charAt(XML, 1);
+char charAt1 = entityName.charAt(HTML32, 1);
+char charAt1 = entityName.charAt(HTML40, 1);
+char charAt1 = entityName.charAt(this.map, 1);
+char charAt1 = entityName.charAt(1, charAt1);
+char charAt1 = entityName.charAt(1, entityValue);
+char charAt1 = entityName.charAt(1, amph);
+char charAt1 = entityName.charAt(1, semi);
+char charAt1 = entityName.charAt(1, ch);
+char charAt1 = entityName.charAt(1, i);
+char charAt1 = entityName.charAt(1, buf);
+char charAt1 = entityName.charAt(1, firstAmp);
+char charAt1 = entityName.charAt(1, str);
+char charAt1 = entityName.charAt(1, BASIC_ARRAY);
+char charAt1 = entityName.charAt(1, APOS_ARRAY);
+char charAt1 = entityName.charAt(1, ISO8859_1_ARRAY);
+char charAt1 = entityName.charAt(1, HTML40_ARRAY);
+char charAt1 = entityName.charAt(1, XML);
+char charAt1 = entityName.charAt(1, HTML32);
+char charAt1 = entityName.charAt(1, HTML40);
+char charAt1 = entityName.charAt(1, this.map);
+10:19:02.438 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:03.342 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:03.343 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:04.202 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:04.202 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:05.121 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:05.122 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:06.064 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:06.064 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:06.891 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:06.892 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:07.700 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:07.700 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:08.596 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:08.596 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:09.437 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:09.437 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:10.397 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:10.398 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:11.358 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:11.359 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:12.308 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:12.308 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:13.134 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:13.135 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:14.037 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:14.037 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:14.933 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:14.934 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:15.893 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:15.894 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:16.883 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:16.884 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:17.804 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:17.804 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:18.809 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:18.809 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:19.764 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:19.765 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:20.717 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:20.718 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:21.642 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:21.643 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:22.463 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:22.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:23.371 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:23.372 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:24.366 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:24.367 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:25.353 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:25.353 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:26.188 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:26.188 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:27.027 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:27.028 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:27.901 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:27.901 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:28.860 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:28.861 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:29.812 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:29.812 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:30.811 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:30.812 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:31.735 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:31.735 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:32.641 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:32.642 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:33.473 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+char charAt1 = charAt1.charAt(1);
+char charAt1 = entityValue.charAt(1);
+char charAt1 = amph.charAt(1);
+char charAt1 = semi.charAt(1);
+char charAt1 = ch.charAt(1);
+char charAt1 = i.charAt(1);
+char charAt1 = buf.charAt(1);
+char charAt1 = firstAmp.charAt(1);
+char charAt1 = str.charAt(1);
+char charAt1 = BASIC_ARRAY.charAt(1);
+char charAt1 = APOS_ARRAY.charAt(1);
+char charAt1 = ISO8859_1_ARRAY.charAt(1);
+char charAt1 = HTML40_ARRAY.charAt(1);
+char charAt1 = XML.charAt(1);
+char charAt1 = HTML32.charAt(1);
+char charAt1 = HTML40.charAt(1);
+char charAt1 = this.map.charAt(1);
+10:19:33.476 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:34.263 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:34.264 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:35.121 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:35.122 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:35.940 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:35.941 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:36.875 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:36.876 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:37.779 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:37.780 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:38.752 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-62 ---Fixer: fix fail because of failed compiling! 
+10:19:38.753 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:19:39.695 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:19:39.695 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:19:51.000 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.EntitiesTest::testNumberOverflow]
+10:19:51.001 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang.EntitiesTest::testNumberOverflow, - org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeXml]
+10:19:51.001 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.EntitiesTest::testNumberOverflow
+10:19:51.001 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.EntitiesTest::testUnescapeMiscellaneous
+10:19:51.001 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeXml
+10:19:51.001 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+10:19:51.001 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

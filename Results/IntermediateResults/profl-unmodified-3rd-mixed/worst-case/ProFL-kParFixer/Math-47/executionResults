@@ -1,0 +1,109 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-47
+14:02:48.561 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-47 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/47.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/47.txt
+14:02:56.608 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+14:02:56.645 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-47/generalSusInfo.profl
+14:02:56.652 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+14:02:56.652 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.complex.Complex ===1179
+14:02:58.505 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return "(" + real + ", " + imaginary + ")";
+14:02:58.536 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (real != null) {
+	
+
+}
+
+14:02:58.537 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (real == null) {
+    throw new IllegalArgumentException("Null 'real' argument.");
+}
+
+14:02:58.537 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (real == null) {
+    return null;
+}
+
+14:02:58.537 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (imaginary != null) {
+	
+
+}
+
+14:02:58.538 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (imaginary == null) {
+    throw new IllegalArgumentException("Null 'imaginary' argument.");
+}
+
+14:02:58.538 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (imaginary == null) {
+    return null;
+}
+
+14:02:58.540 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:03:00.581 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-47 ---Fixer: fix fail because of failed compiling! 
+14:03:00.582 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:03:02.653 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-47 ---Fixer: fix fail because of failed compiling! 
+14:03:02.654 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:03:04.787 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-47 ---Fixer: fix fail because of failed compiling! 
+14:03:04.789 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:03:06.808 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-47 ---Fixer: fix fail because of failed compiling! 
+14:03:06.809 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:03:08.815 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-47 ---Fixer: fix fail because of failed compiling! 
+14:03:08.816 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:03:10.487 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-47 ---Fixer: fix fail because of failed compiling! 
+14:03:10.487 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.complex.Complex ===257
+14:03:10.876 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return NaN;
+14:03:10.878 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (NaN != null) {
+	
+
+}
+
+14:03:10.878 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (NaN == null) {
+    throw new IllegalArgumentException("Null 'NaN' argument.");
+}
+
+14:03:10.878 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (NaN == null) {
+    return null;
+}
+
+14:03:10.879 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:03:12.622 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:03:12.622 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:04:30.093 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.complex.ComplexTest::testAtanI, org.apache.commons.math.complex.ComplexTest::testDivideZero]
+14:04:30.093 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testAtanI, - org.apache.commons.math.complex.ComplexTest::testDivideZero]
+14:04:30.093 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtanI
+14:04:30.093 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testDivideZero
+14:04:30.093 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+14:04:30.094 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:04:30.101 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-47/aggregatedSusInfo.profl
+14:04:30.101 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:divide(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:257
+14:04:30.101 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-47
+14:04:30.102 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:04:31.598 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:04:31.599 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:05:32.933 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.complex.ComplexTest::testAtanI, org.apache.commons.math.complex.ComplexTest::testDivideZero]
+14:05:32.933 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testAtanI, - org.apache.commons.math.complex.ComplexTest::testDivideZero]
+14:05:32.933 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtanI
+14:05:32.933 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testDivideZero
+14:05:32.933 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+14:05:32.933 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:05:32.975 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-47/aggregatedSusInfo.profl
+14:05:32.975 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:divide(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:257
+14:05:32.975 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-47
+14:05:32.976 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:05:34.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:05:34.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:06:44.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.complex.ComplexTest::testAtanI, org.apache.commons.math.complex.ComplexTest::testDivideZero]
+14:06:44.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testAtanI, - org.apache.commons.math.complex.ComplexTest::testDivideZero]
+14:06:44.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtanI
+14:06:44.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testDivideZero
+14:06:44.081 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+14:06:44.081 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:06:44.094 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-47/aggregatedSusInfo.profl
+14:06:44.094 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:divide(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:257
+14:06:44.094 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-47
+14:06:44.095 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Finish off fixing======
+14:06:44.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-47/aggregatedSusInfo.profl
+Failed to fix bug Math-47

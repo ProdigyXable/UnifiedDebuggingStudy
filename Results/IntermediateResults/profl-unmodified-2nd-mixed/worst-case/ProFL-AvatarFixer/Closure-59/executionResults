@@ -1,0 +1,123 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-59
+02:30:44.668 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/59.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/59.txt
+02:35:30.166 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+02:35:30.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-59/generalSusInfo.profl
+02:35:30.495 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-59/aggregatedSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Closure-59/ochiai.txt
+02:35:30.505 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+02:35:30.505 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.CheckMissingReturn ===170
+02:35:31.405 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return null;
+02:35:31.411 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/CheckMissingReturn.java:170 ---
+02:35:31.416 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:35:31.417 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:35:35.375 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+02:35:35.375 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:35:35.376 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:35:39.151 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:35:39.152 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:35:43.570 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+02:35:43.570 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:35:43.570 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:35:47.330 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+02:35:47.330 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.PrintStreamErrorManager ===71
+02:35:47.360 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+stream.format("%d error(s), %d warning(s), %.1f%% typed%n",
+            getErrorCount(), getWarningCount(), getTypedPercent());
+02:35:47.361 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/PrintStreamErrorManager.java:71 ---
+02:35:47.362 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.formatter.format("%d error(s), %d warning(s), %.1f%% typed%n",
+            getErrorCount(), getWarningCount(), getTypedPercent());
+02:35:47.362 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.summaryDetailLevel.format("%d error(s), %d warning(s), %.1f%% typed%n",
+            getErrorCount(), getWarningCount(), getTypedPercent());
+---------------- Testing New Patch ----------------
+02:35:47.363 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:35:51.046 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:35:51.046 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:36:00.199 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+02:36:00.200 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (stream != null) {
+	
+
+}
+
+02:36:00.200 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (stream == null) {
+    throw new IllegalArgumentException("Null 'stream' argument.");
+}
+
+02:36:00.200 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (stream == null) {
+    return;
+}
+
+---------------- Testing New Patch ----------------
+02:36:00.200 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:36:01.128 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:36:01.128 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:40:12.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff]
+02:40:12.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff]
+02:40:12.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff
+02:40:12.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:40:12.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+02:40:14.551 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-59/aggregatedSusInfo.profl
+02:40:14.551 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.PrintStreamErrorManager:printSummary()V in com.google.javascript.jscomp.PrintStreamErrorManager:71
+02:40:14.551 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-59
+---------------- Testing New Patch ----------------
+02:40:14.554 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:40:15.405 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:40:15.405 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:43:42.165 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff]
+02:43:42.165 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff]
+02:43:42.165 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff
+02:43:42.165 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:43:42.165 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+02:44:25.028 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-59/aggregatedSusInfo.profl
+02:44:25.028 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.PrintStreamErrorManager:printSummary()V in com.google.javascript.jscomp.PrintStreamErrorManager:71
+02:44:25.028 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-59
+---------------- Testing New Patch ----------------
+02:44:25.028 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:44:25.863 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:44:25.864 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:47:51.837 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff]
+02:47:51.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff]
+02:47:51.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CommandLineRunnerTest::testCheckGlobalThisOff
+02:47:51.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:47:51.838 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:13:53.765 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-59/aggregatedSusInfo.profl
+03:13:53.765 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.PrintStreamErrorManager:printSummary()V in com.google.javascript.jscomp.PrintStreamErrorManager:71
+03:13:53.765 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-59
+03:13:53.771 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:13:53.772 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:13:58.861 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+03:13:58.861 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:13:58.862 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:14:02.899 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:14:02.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:14:06.543 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+03:14:06.543 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:14:06.543 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:14:10.402 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-59 ---Fixer: fix fail because of failed compiling! 
+03:14:10.402 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:14:10.402 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling

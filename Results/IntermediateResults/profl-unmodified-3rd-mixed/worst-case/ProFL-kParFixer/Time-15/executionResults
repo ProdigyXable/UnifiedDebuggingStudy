@@ -1,0 +1,353 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-15
+10:34:54.206 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/15.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/15.txt
+10:35:04.225 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+10:35:04.258 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/generalSusInfo.profl
+10:35:04.265 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+10:35:04.265 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.field.FieldUtils ===140
+10:35:05.562 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return 0L;
+10:35:05.620 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.Duration ===166
+10:35:05.753 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return new Duration(millis);
+10:35:05.920 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return Duration(millis);
+10:35:05.921 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new millis);
+10:35:05.921 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new Duration);
+10:35:05.926 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:10.110 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:35:10.110 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:13.247 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:35:13.248 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:16.081 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:35:16.296 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.Duration ===163
+10:35:16.417 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (millis == 0) {
+            return ZERO;
+        }
+10:35:16.419 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (millis != 0) {
+            return ZERO;
+        }
+10:35:16.420 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:26.344 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:35:26.345 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:35:53.268 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:35:53.268 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.joda.time.TestDuration_Constructors::testFactory_millis_long, - org.joda.time.TestSerialization::testDuration, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:35:53.268 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors::testFactory_millis_long
+10:35:53.268 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization::testDuration
+10:35:53.269 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:35:53.269 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+10:35:53.269 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:35:53.271 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:35:53.271 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.Duration:millis(J)Lorg/joda/time/Duration; in org.joda.time.Duration:163
+10:35:53.271 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Time-15
+10:35:53.272 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.joda.time.tz.DefaultNameProvider ===89
+10:35:53.366 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+byNameKeyCache.put(setEn[4] + "-Summer", new String[] {setLoc[4], setLoc[3]});
+10:35:53.368 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(strings, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setLoc, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(zoneStringsLoc, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(strings, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(zoneStringsEn, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(byNameKeyCache, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(byIdCache, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(locale, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(id, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(nameKey, new String[] {setLoc[4], setLoc[3]});
+10:35:53.369 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(this.iByLocaleCache, new String[] {setLoc[4], setLoc[3]});
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", strings);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", setLoc);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", zoneStringsLoc);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", strings);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", setEn);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", zoneStringsEn);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", byNameKeyCache);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", byIdCache);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", locale);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", id);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", nameKey);
+10:35:53.370 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: byNameKeyCache.put(setEn[4] + "-Summer", this.iByLocaleCache);
+10:35:53.371 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:35:57.570 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:35:57.571 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:01.613 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:36:01.614 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:05.893 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:36:05.893 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:09.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:36:09.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:13.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:36:13.799 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:18.031 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:36:18.032 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:21.951 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:36:21.951 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:26.172 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:36:26.172 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:30.424 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:36:30.424 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:36:32.056 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:36:32.056 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:36:58.894 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:36:58.895 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:36:58.895 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:36:58.895 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:36:58.895 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:36:58.897 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:36:58.897 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:36:58.897 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-15
+10:36:58.897 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:37:00.370 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:37:00.371 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:37:27.045 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:37:27.046 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:37:27.046 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:37:27.046 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:37:27.046 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:37:27.048 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:37:27.048 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:37:27.048 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-15
+10:37:27.048 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:37:31.040 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:37:31.041 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:37:34.550 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:37:34.551 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:37:35.998 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:37:35.998 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:38:01.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:38:01.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:38:01.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:38:01.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:38:01.284 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:38:01.284 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:38:01.286 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:38:01.286 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:38:01.286 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:38:01.286 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:38:02.659 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:38:02.660 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:38:26.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:38:26.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:38:26.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:38:26.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:38:26.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:38:26.539 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:38:26.543 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:38:26.543 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:38:26.543 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:38:26.543 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:38:29.669 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Time-15 ---Fixer: fix fail because of failed compiling! 
+10:38:29.670 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:38:30.947 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:38:30.947 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:38:54.765 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:38:54.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:38:54.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:38:54.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:38:54.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:38:54.766 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:38:54.767 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:38:54.767 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:38:54.767 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:38:54.768 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:38:56.069 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:38:56.070 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:39:17.547 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:39:17.547 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:39:17.547 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:39:17.548 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:39:17.548 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:39:17.548 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:39:17.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:39:17.551 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:39:17.551 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:39:17.551 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:39:18.871 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:39:18.871 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:39:42.324 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:39:42.324 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:39:42.324 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:39:42.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:39:42.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:39:42.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:39:42.334 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:39:42.334 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:39:42.334 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:39:42.335 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:39:43.586 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:39:43.586 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:40:04.340 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:40:04.340 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:40:04.340 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:40:04.340 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:40:04.340 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:40:04.340 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:40:04.373 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:40:04.374 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:40:04.374 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:40:04.374 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:40:05.536 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:40:05.537 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:40:27.710 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:40:27.711 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:40:27.711 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:40:27.711 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:40:27.711 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:40:27.711 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:40:27.843 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:40:27.843 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:40:27.843 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:40:27.844 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:40:29.027 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:40:29.028 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:40:50.402 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:40:50.402 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:40:50.402 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:40:50.402 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:40:50.402 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:40:50.402 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:40:50.899 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:40:50.899 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:40:50.900 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:40:50.900 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:40:52.082 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:40:52.082 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:41:14.521 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:41:14.521 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:41:14.522 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:41:14.522 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:41:14.522 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:41:14.522 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:41:15.751 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:41:15.751 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:41:15.751 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:41:15.752 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:41:17.024 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:41:17.024 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:41:39.361 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:41:39.361 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:41:39.361 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testPatchedNameKeysGazaHistoric
+10:41:39.361 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:41:39.362 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:41:39.362 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:41:47.166 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:41:47.166 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:41:47.166 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Time-15
+10:41:47.168 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (byNameKeyCache != null) {
+	
+
+}
+
+10:41:47.168 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (byNameKeyCache == null) {
+    throw new IllegalArgumentException("Null 'byNameKeyCache' argument.");
+}
+
+10:41:47.168 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (byNameKeyCache == null) {
+    return null;
+}
+
+10:41:47.168 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (setEn != null) {
+	
+
+}
+
+10:41:47.168 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (setEn == null) {
+    throw new IllegalArgumentException("Null 'setEn' argument.");
+}
+
+10:41:47.168 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (setEn == null) {
+    return null;
+}
+
+10:41:47.168 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (setLoc != null) {
+	
+
+}
+
+10:41:47.169 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (setLoc == null) {
+    throw new IllegalArgumentException("Null 'setLoc' argument.");
+}
+
+10:41:47.169 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (setLoc == null) {
+    return null;
+}
+
+10:41:47.169 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:41:48.421 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:41:48.421 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:42:10.530 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:42:10.530 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 21, [- org.joda.time.TestDateTimeZone::testGetName_berlin, - org.joda.time.TestDateTimeZone::testGetShortName, - org.joda.time.TestDateTimeZone::testGetName, - org.joda.time.TestDateTimeZone::testGetShortName_berlin, - org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt, - org.joda.time.format.TestDateTimeFormat::testFormat_zoneText, - org.joda.time.format.TestDateTimeFormat::testFormat_zoneLongText, - org.joda.time.format.TestDateTimeFormatStyle::testForStyle_fullDateTime, - org.joda.time.format.TestDateTimeFormatStyle::testForStyle_mediumLongDateTime, - org.joda.time.format.TestDateTimeFormatStyle::testForStyle_fullTime, - org.joda.time.format.TestDateTimeFormatStyle::testForStyle_shortLongDateTime, - org.joda.time.format.TestDateTimeFormatStyle::testForStyle_longTime, - org.joda.time.format.TestDateTimeFormatStyle::testForStyle_mediumFullDateTime, - org.joda.time.format.TestDateTimeFormatStyle::testForStyle_shortFullDateTime, - org.joda.time.format.TestDateTimeFormatStyle::testForStyle_longDateTime, - org.joda.time.format.TestDateTimeFormatter::testZoneShortNameNearTransition, - org.joda.time.format.TestDateTimeFormatter::testZoneNameNearTransition, - org.joda.time.format.TestDateTimeFormatterBuilder::test_printParseLongName, - org.joda.time.format.TestDateTimeFormatterBuilder::test_printParseLongNameWithLookup, - org.joda.time.format.TestDateTimeFormatterBuilder::test_printParseShortNameWithLookup, - org.joda.time.format.TestDateTimeFormatterBuilder::test_printParseShortName]
+10:42:10.530 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testGetName_berlin
+10:42:10.530 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testGetShortName
+10:42:10.530 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testGetName
+10:42:10.530 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone::testGetShortName_berlin
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormat::testFormat_zoneText
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormat::testFormat_zoneLongText
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle::testForStyle_fullDateTime
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle::testForStyle_mediumLongDateTime
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle::testForStyle_fullTime
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle::testForStyle_shortLongDateTime
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle::testForStyle_longTime
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle::testForStyle_mediumFullDateTime
+10:42:10.531 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle::testForStyle_shortFullDateTime
+10:42:10.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle::testForStyle_longDateTime
+10:42:10.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testZoneShortNameNearTransition
+10:42:10.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter::testZoneNameNearTransition
+10:42:10.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatterBuilder::test_printParseLongName
+10:42:10.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatterBuilder::test_printParseLongNameWithLookup
+10:42:10.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatterBuilder::test_printParseShortNameWithLookup
+10:42:10.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatterBuilder::test_printParseShortName
+10:42:10.532 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=20, pp=Unknown
+10:42:10.533 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+10:42:32.921 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:42:32.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:42:32.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 21 Time-15
+10:42:32.922 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:42:34.222 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:42:34.222 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:42:56.026 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:42:56.027 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:42:56.027 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:42:56.027 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:42:56.027 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:44:14.482 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:44:14.482 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:44:14.482 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-15
+10:44:14.482 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:44:15.656 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:44:15.657 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:44:37.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:44:37.551 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:44:37.552 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:44:37.552 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:44:37.552 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+10:50:49.544 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+10:50:49.544 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+10:50:49.544 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-15
+10:50:49.545 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+10:50:50.889 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+10:50:50.889 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+10:51:13.979 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:51:13.979 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+10:51:13.980 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+10:51:13.980 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:51:13.980 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+11:15:24.517 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Time-15/aggregatedSusInfo.profl
+11:15:24.518 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String; in org.joda.time.tz.DefaultNameProvider:89
+11:15:24.518 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Time-15
+11:15:24.518 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+11:15:25.799 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+11:15:25.800 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+11:15:47.617 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+11:15:47.617 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt]
+11:15:47.618 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.joda.time.field.TestFieldUtils::testSafeMultiplyLongInt
+11:15:47.618 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+11:15:47.618 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

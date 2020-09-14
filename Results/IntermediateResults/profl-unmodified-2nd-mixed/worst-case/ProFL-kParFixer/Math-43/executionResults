@@ -1,0 +1,232 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-43
+14:02:24.691 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-43 Failed Tests: 6
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/43.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/43.txt
+14:02:32.902 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+14:02:32.934 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-43/generalSusInfo.profl
+14:02:32.936 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+14:02:32.936 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.descriptive.SummaryStatistics ===647
+14:02:34.368 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Throws IllegalStateException if n > 0.
+     */
+    private void checkEmpty() {
+        if (n > 0) {
+            throw new MathIllegalStateException(
+                LocalizedFormats.VALUES_ADDED_BEFORE_CONFIGURING_STATISTIC, n);
+        }
+    }
+14:02:34.387 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.descriptive.SummaryStatistics ===643
+14:02:34.633 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (n > 0) {
+            throw new MathIllegalStateException(
+                LocalizedFormats.VALUES_ADDED_BEFORE_CONFIGURING_STATISTIC, n);
+        }
+14:02:34.637 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (n >= 0) {
+            throw new MathIllegalStateException(
+                LocalizedFormats.VALUES_ADDED_BEFORE_CONFIGURING_STATISTIC, n);
+        }
+14:02:34.637 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (n <= 0) {
+            throw new MathIllegalStateException(
+                LocalizedFormats.VALUES_ADDED_BEFORE_CONFIGURING_STATISTIC, n);
+        }
+14:02:34.637 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (n < 0) {
+            throw new MathIllegalStateException(
+                LocalizedFormats.VALUES_ADDED_BEFORE_CONFIGURING_STATISTIC, n);
+        }
+14:02:34.640 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:02:36.095 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:02:36.095 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:03:34.508 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:03:34.509 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 10, [- org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testCopy, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testSetterInjection, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testCopy, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testSetterInjection]
+14:03:34.509 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testCopy
+14:03:34.509 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass
+14:03:34.509 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:03:34.509 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:03:34.509 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testSetterInjection
+14:03:34.509 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testCopy
+14:03:34.509 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass
+14:03:34.510 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:03:34.510 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:03:34.510 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testSetterInjection
+14:03:34.514 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=4, pp=Unknown
+14:03:34.516 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+14:03:34.569 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-43/aggregatedSusInfo.profl
+14:03:34.582 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.descriptive.SummaryStatistics:checkEmpty()V in org.apache.commons.math.stat.descriptive.SummaryStatistics:643
+14:03:34.583 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 10 Math-43
+14:03:34.584 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:03:36.077 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:03:36.077 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:04:37.300 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 12, [- org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testCopy, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testSetterInjection, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testSetterIllegalState, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testCopy, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testSetterInjection, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testSetterIllegalState]
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testCopy
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testSetterInjection
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testSetterIllegalState
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testCopy
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:04:37.301 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:04:37.302 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testSetterInjection
+14:04:37.302 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testSetterIllegalState
+14:04:37.302 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=6, pp=Unknown
+14:04:37.302 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+14:04:37.420 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-43/aggregatedSusInfo.profl
+14:04:37.420 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.descriptive.SummaryStatistics:checkEmpty()V in org.apache.commons.math.stat.descriptive.SummaryStatistics:643
+14:04:37.420 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 12 Math-43
+14:04:37.421 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:04:38.804 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:04:38.804 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:05:32.972 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:05:32.972 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 8, [- org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testSetterIllegalState, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testSetterIllegalState]
+14:05:32.972 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass
+14:05:32.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:05:32.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:05:32.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testSetterIllegalState
+14:05:32.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass
+14:05:32.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:05:32.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:05:32.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testSetterIllegalState
+14:05:32.973 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=2, pp=Unknown
+14:05:32.974 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+14:05:33.143 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-43/aggregatedSusInfo.profl
+14:05:33.143 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.descriptive.SummaryStatistics:checkEmpty()V in org.apache.commons.math.stat.descriptive.SummaryStatistics:643
+14:05:33.143 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 8 Math-43
+14:05:33.146 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (n != null) {
+	
+
+}
+
+14:05:33.146 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (n == null) {
+    throw new IllegalArgumentException("Null 'n' argument.");
+}
+
+14:05:33.146 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (n == null) {
+    return;
+}
+
+14:05:33.147 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:05:34.362 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-43 ---Fixer: fix fail because of failed compiling! 
+14:05:34.363 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:05:35.659 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-43 ---Fixer: fix fail because of failed compiling! 
+14:05:35.660 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:05:36.899 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-43 ---Fixer: fix fail because of failed compiling! 
+14:05:36.899 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.descriptive.SummaryStatistics ===637
+14:05:37.088 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * <p>
+     * Sets the implementation for the variance.
+     * </p>
+     * <p>
+     * This method must be activated before any data has been added - i.e.,
+     * before {@link #addValue(double) addValue} has been used to add data;
+     * otherwise an IllegalStateException will be thrown.
+     * </p>
+     * @param varianceImpl the StorelessUnivariateStatistic instance to use for
+     *        computing the variance
+     * @throws IllegalStateException if data has already been added (i.e if n >
+     *         0)
+     * @since 1.2
+     */
+    public void setVarianceImpl(StorelessUnivariateStatistic varianceImpl) {
+        checkEmpty();
+        this.varianceImpl = varianceImpl;
+    }
+14:05:37.090 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.descriptive.SummaryStatistics ===636
+14:05:37.248 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+this.varianceImpl = varianceImpl;
+14:05:37.249 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (this.varianceImpl != null) {
+	
+
+}
+
+14:05:37.249 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (this.varianceImpl == null) {
+    throw new IllegalArgumentException("Null 'this.varianceImpl' argument.");
+}
+
+14:05:37.249 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (this.varianceImpl == null) {
+    return;
+}
+
+14:05:37.249 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (varianceImpl != null) {
+	
+
+}
+
+14:05:37.250 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (varianceImpl == null) {
+    throw new IllegalArgumentException("Null 'varianceImpl' argument.");
+}
+
+14:05:37.250 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (varianceImpl == null) {
+    return;
+}
+
+14:05:37.251 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:05:38.643 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:05:38.643 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:06:28.763 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:06:28.763 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:06:28.763 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass
+14:06:28.763 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:06:28.763 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:06:28.763 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass
+14:06:28.763 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:06:28.764 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:06:28.764 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+14:06:28.764 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:06:31.225 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-43/aggregatedSusInfo.profl
+14:06:31.225 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.descriptive.SummaryStatistics:setVarianceImpl(Lorg/apache/commons/math/stat/descriptive/StorelessUnivariateStatistic;)V in org.apache.commons.math.stat.descriptive.SummaryStatistics:636
+14:06:31.225 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 6 Math-43
+14:06:31.226 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:06:32.550 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:06:32.550 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:07:22.170 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:07:22.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:07:22.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass
+14:07:22.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:07:22.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:07:22.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass
+14:07:22.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:07:22.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:07:22.171 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+14:07:22.172 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:08:07.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-43/aggregatedSusInfo.profl
+14:08:07.411 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.descriptive.SummaryStatistics:setVarianceImpl(Lorg/apache/commons/math/stat/descriptive/StorelessUnivariateStatistic;)V in org.apache.commons.math.stat.descriptive.SummaryStatistics:636
+14:08:07.411 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 6 Math-43
+14:08:07.411 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:08:08.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:08:08.606 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:08:50.181 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:08:50.181 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:08:50.181 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass
+14:08:50.181 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:08:50.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:08:50.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass
+14:08:50.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:08:50.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:08:50.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+14:08:50.182 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:20:29.298 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-43/aggregatedSusInfo.profl
+14:20:29.298 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.descriptive.SummaryStatistics:setVarianceImpl(Lorg/apache/commons/math/stat/descriptive/StorelessUnivariateStatistic;)V in org.apache.commons.math.stat.descriptive.SummaryStatistics:636
+14:20:29.298 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 6 Math-43
+14:20:29.299 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:20:30.384 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:20:30.384 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:21:02.961 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:21:02.962 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass, - org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass]
+14:21:02.962 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideMeanWithMathClass
+14:21:02.962 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:21:02.962 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:21:02.962 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideMeanWithMathClass
+14:21:02.962 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideGeoMeanWithMathClass
+14:21:02.963 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.descriptive.SynchronizedSummaryStatisticsTest::testOverrideVarianceWithMathClass
+14:21:02.963 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+14:21:02.963 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

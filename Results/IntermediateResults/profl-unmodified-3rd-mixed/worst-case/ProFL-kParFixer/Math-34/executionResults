@@ -1,0 +1,56 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-34
+14:02:22.614 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-34 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/34.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/34.txt
+14:02:31.632 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+14:02:31.670 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-34/generalSusInfo.profl
+14:02:31.672 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+14:02:31.673 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.genetics.ListPopulation ===209
+14:02:32.689 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return chromosomes.iterator();
+14:02:32.703 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (chromosomes != null) {
+	
+
+}
+
+14:02:32.703 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (chromosomes == null) {
+    throw new IllegalArgumentException("Null 'chromosomes' argument.");
+}
+
+14:02:32.703 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (chromosomes == null) {
+    return null;
+}
+
+14:02:32.704 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:02:33.998 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-34 ---Fixer: fix fail because of failed compiling! 
+14:02:33.999 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:02:35.368 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:02:35.368 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:03:58.975 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.genetics.ListPopulationTest::testIterator]
+14:03:58.975 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.genetics.ListPopulationTest::testIterator]
+14:03:58.975 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testIterator
+14:03:58.975 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:03:58.975 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:03:58.979 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-34/aggregatedSusInfo.profl
+14:03:58.980 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:iterator()Ljava/util/Iterator; in org.apache.commons.math3.genetics.ListPopulation:209
+14:03:58.980 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-34
+14:03:58.980 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:04:00.478 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:04:00.478 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:05:16.045 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.genetics.ListPopulationTest::testIterator]
+14:05:16.045 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.genetics.ListPopulationTest::testIterator]
+14:05:16.045 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testIterator
+14:05:16.045 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:05:16.046 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:05:16.056 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-34/aggregatedSusInfo.profl
+14:05:16.056 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:iterator()Ljava/util/Iterator; in org.apache.commons.math3.genetics.ListPopulation:209
+14:05:16.056 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-34
+14:05:16.057 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Finish off fixing======
+14:05:16.153 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-34/aggregatedSusInfo.profl
+Failed to fix bug Math-34

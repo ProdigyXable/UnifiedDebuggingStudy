@@ -1,0 +1,140 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-24
+10:51:05.395 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-24 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/24.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/24.txt
+10:51:14.788 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+10:51:14.815 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-24/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-24/ochiai.txt
+10:51:14.817 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+10:51:14.818 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math3.analysis.FunctionUtils ===141
+10:51:15.765 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return new UnivariateFunction() {
+            /** {@inheritDoc} */
+            public double value(double x) {
+                double r = f[0].value(x);
+                for (int i = 1; i < f.length; i++) {
+                    r += f[i].value(x);
+                }
+                return r;
+            }
+        };
+10:51:15.767 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math3/analysis/FunctionUtils.java:141 ---
+10:51:15.776 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:51:15.778 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:51:16.991 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:51:16.991 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:52:43.103 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:52:43.103 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:52:43.103 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:52:43.104 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:52:43.104 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:52:43.104 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:52:43.126 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-24/aggregatedSusInfo.profl
+10:52:43.126 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.analysis.FunctionUtils:add([Lorg/apache/commons/math3/analysis/UnivariateFunction;)Lorg/apache/commons/math3/analysis/UnivariateFunction; in org.apache.commons.math3.analysis.FunctionUtils:141
+10:52:43.126 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-24
+10:52:43.126 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:52:43.127 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:52:44.431 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:52:44.431 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:54:09.310 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:54:09.311 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:54:09.311 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:54:09.311 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:54:09.311 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:54:09.311 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:54:09.398 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-24/aggregatedSusInfo.profl
+10:54:09.398 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.analysis.FunctionUtils:add([Lorg/apache/commons/math3/analysis/UnivariateFunction;)Lorg/apache/commons/math3/analysis/UnivariateFunction; in org.apache.commons.math3.analysis.FunctionUtils:141
+10:54:09.398 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-24
+---------------- Testing New Patch ----------------
+10:54:09.399 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:54:10.527 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:54:10.527 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:55:37.370 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:55:37.370 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:55:37.370 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:55:37.370 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:55:37.371 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:55:37.371 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:55:37.435 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-24/aggregatedSusInfo.profl
+10:55:37.435 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.analysis.FunctionUtils:add([Lorg/apache/commons/math3/analysis/UnivariateFunction;)Lorg/apache/commons/math3/analysis/UnivariateFunction; in org.apache.commons.math3.analysis.FunctionUtils:141
+10:55:37.435 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-24
+10:55:37.436 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:55:37.436 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:55:38.643 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:55:38.643 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:57:04.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:57:04.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:57:04.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:57:04.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:57:04.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:57:04.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:57:05.610 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-24/aggregatedSusInfo.profl
+10:57:05.610 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.analysis.FunctionUtils:add([Lorg/apache/commons/math3/analysis/UnivariateFunction;)Lorg/apache/commons/math3/analysis/UnivariateFunction; in org.apache.commons.math3.analysis.FunctionUtils:141
+10:57:05.611 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-24
+10:57:05.611 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:57:05.612 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:57:06.840 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:57:06.840 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:58:27.178 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:58:27.178 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+10:58:27.178 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+10:58:27.178 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+10:58:27.178 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+10:58:27.179 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:58:53.184 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-24/aggregatedSusInfo.profl
+10:58:53.184 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.analysis.FunctionUtils:add([Lorg/apache/commons/math3/analysis/UnivariateFunction;)Lorg/apache/commons/math3/analysis/UnivariateFunction; in org.apache.commons.math3.analysis.FunctionUtils:141
+10:58:53.184 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-24
+---------------- Testing New Patch ----------------
+10:58:53.185 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:58:54.364 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:58:54.364 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+11:00:16.705 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:00:16.705 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:00:16.705 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+11:00:16.705 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+11:00:16.705 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+11:00:16.705 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+11:05:44.416 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-24/aggregatedSusInfo.profl
+11:05:44.416 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.analysis.FunctionUtils:add([Lorg/apache/commons/math3/analysis/UnivariateFunction;)Lorg/apache/commons/math3/analysis/UnivariateFunction; in org.apache.commons.math3.analysis.FunctionUtils:141
+11:05:44.416 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-24
+11:05:44.417 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+11:05:44.418 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:05:45.556 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+11:05:45.556 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+11:07:08.692 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:07:08.692 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+11:07:08.692 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+11:07:08.692 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+11:07:08.692 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+11:07:08.692 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+12:49:00.595 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-24/aggregatedSusInfo.profl
+12:49:00.595 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.analysis.FunctionUtils:add([Lorg/apache/commons/math3/analysis/UnivariateFunction;)Lorg/apache/commons/math3/analysis/UnivariateFunction; in org.apache.commons.math3.analysis.FunctionUtils:141
+12:49:00.595 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-24
+12:49:00.595 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+12:49:00.596 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+12:49:01.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+12:49:01.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+12:49:54.996 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+12:49:54.996 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd, - org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855]
+12:49:54.997 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.analysis.FunctionUtilsTest::testAdd
+12:49:54.997 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.univariate.BrentOptimizerTest::testMath855
+12:49:54.997 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+12:49:54.997 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

@@ -1,0 +1,776 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-78
+03:07:25.560 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-78 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/78.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/78.txt
+03:07:28.895 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+03:07:28.918 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-78/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-78/ochiai.txt
+03:07:28.920 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+03:07:28.920 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.MathRuntimeException ===37
+03:07:29.888 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+public class MathRuntimeException extends RuntimeException {
+
+    /** Serializable version identifier. */
+    private static final long serialVersionUID = -5128983364075381060L;
+
+    /**
+     * Pattern used to build the message.
+     */
+    private final String pattern;
+
+    /**
+     * Arguments used to build the message.
+     */
+    private final Object[] arguments;
+
+    /**
+     * Constructs a new <code>MathRuntimeException</code> with specified
+     * formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     */
+    public MathRuntimeException(final String pattern, final Object ... arguments) {
+        this.pattern   = pattern;
+        this.arguments = (arguments == null) ? new Object[0] : arguments.clone();
+    }
+
+    /**
+     * Constructs a new <code>MathRuntimeException</code> with specified
+     * nested <code>Throwable</code> root cause.
+     *
+     * @param rootCause  the exception or error that caused this exception
+     *                   to be thrown.
+     */
+    public MathRuntimeException(final Throwable rootCause) {
+        super(rootCause);
+        this.pattern   = getMessage();
+        this.arguments = new Object[0];
+    }
+
+    /**
+     * Constructs a new <code>MathRuntimeException</code> with specified
+     * formatted detail message and nested <code>Throwable</code> root cause.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param rootCause the exception or error that caused this exception
+     * to be thrown.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     */
+    public MathRuntimeException(final Throwable rootCause,
+                                final String pattern, final Object ... arguments) {
+        super(rootCause);
+        this.pattern   = pattern;
+        this.arguments = (arguments == null) ? new Object[0] : arguments.clone();
+    }
+
+    /**
+     * Translate a string to a given locale.
+     * @param s string to translate
+     * @param locale locale into which to translate the string
+     * @return translated string or original string
+     * for unsupported locales or unknown strings
+     */
+    private static String translate(final String s, final Locale locale) {
+        try {
+            ResourceBundle bundle =
+                    ResourceBundle.getBundle("org.apache.commons.math.MessagesResources", locale);
+            if (bundle.getLocale().getLanguage().equals(locale.getLanguage())) {
+                // the value of the resource is the translated string
+                return bundle.getString(s);
+            }
+
+        } catch (MissingResourceException mre) {
+            // do nothing here
+        }
+
+        // the locale is not supported or the resource is unknown
+        // don't translate and fall back to using the string as is
+        return s;
+
+    }
+
+    /**
+     * Builds a message string by from a pattern and its arguments.
+     * @param locale Locale in which the message should be translated
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return a message string
+     */
+    private static String buildMessage(final Locale locale, final String pattern,
+                                       final Object ... arguments) {
+        return (pattern == null) ? "" : new MessageFormat(translate(pattern, locale), locale).format(arguments);
+    }
+
+    /** Gets the pattern used to build the message of this throwable.
+     *
+     * @return the pattern used to build the message of this throwable
+     */
+    public String getPattern() {
+        return pattern;
+    }
+
+    /** Gets the arguments used to build the message of this throwable.
+     *
+     * @return the arguments used to build the message of this throwable
+     */
+    public Object[] getArguments() {
+        return arguments.clone();
+    }
+
+    /** Gets the message in a specified locale.
+     *
+     * @param locale Locale in which the message should be translated
+     *
+     * @return localized message
+     */
+    public String getMessage(final Locale locale) {
+        return buildMessage(locale, pattern, arguments);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String getMessage() {
+        return getMessage(Locale.US);
+    }
+
+    /** {@inheritDoc} */
+    @Override
+    public String getLocalizedMessage() {
+        return getMessage(Locale.getDefault());
+    }
+
+    /**
+     * Prints the stack trace of this exception to the standard error stream.
+     */
+    @Override
+    public void printStackTrace() {
+        printStackTrace(System.err);
+    }
+
+    /**
+     * Prints the stack trace of this exception to the specified stream.
+     *
+     * @param out  the <code>PrintStream</code> to use for output
+     */
+    @Override
+    public void printStackTrace(final PrintStream out) {
+        synchronized (out) {
+            PrintWriter pw = new PrintWriter(out, false);
+            printStackTrace(pw);
+            // Flush the PrintWriter before it's GC'ed.
+            pw.flush();
+        }
+    }
+
+    /**
+     * Constructs a new <code>ArithmeticException</code> with specified formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static ArithmeticException createArithmeticException(final String pattern,
+                                                                final Object ... arguments) {
+        return new ArithmeticException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = 7705628723242533939L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+    /**
+     * Constructs a new <code>ArrayIndexOutOfBoundsException</code> with specified formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static ArrayIndexOutOfBoundsException createArrayIndexOutOfBoundsException(final String pattern,
+                                                                                      final Object ... arguments) {
+        return new ArrayIndexOutOfBoundsException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = -3394748305449283486L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+    /**
+     * Constructs a new <code>EOFException</code> with specified formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static EOFException createEOFException(final String pattern,
+                                                  final Object ... arguments) {
+        return new EOFException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = 279461544586092584L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+    /**
+     * Constructs a new <code>IOException</code> with specified nested
+     * <code>Throwable</code> root cause.
+     * <p>This factory method allows chaining of other exceptions within an
+     * <code>IOException</code> even for Java 5. The constructor for
+     * <code>IOException</code> with a cause parameter was introduced only
+     * with Java 6.</p>
+     * @param rootCause the exception or error that caused this exception
+     * to be thrown.
+     * @return built exception
+     */
+    public static IOException createIOException(final Throwable rootCause) {
+        IOException ioe = new IOException(rootCause.getLocalizedMessage());
+        ioe.initCause(rootCause);
+        return ioe;
+    }
+
+    /**
+     * Constructs a new <code>IllegalArgumentException</code> with specified formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static IllegalArgumentException createIllegalArgumentException(final String pattern,
+                                                                          final Object ... arguments) {
+        return new IllegalArgumentException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = -6555453980658317913L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+    /**
+     * Constructs a new <code>IllegalArgumentException</code> with specified nested
+     * <code>Throwable</code> root cause.
+     * @param rootCause the exception or error that caused this exception
+     * to be thrown.
+     * @return built exception
+     */
+    public static IllegalArgumentException createIllegalArgumentException(final Throwable rootCause) {
+        IllegalArgumentException iae = new IllegalArgumentException(rootCause.getLocalizedMessage());
+        iae.initCause(rootCause);
+        return iae;
+    }
+
+    /**
+     * Constructs a new <code>IllegalStateException</code> with specified formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static IllegalStateException createIllegalStateException(final String pattern,
+                                                                    final Object ... arguments) {
+        return new IllegalStateException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = -95247648156277208L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+    /**
+     * Constructs a new <code>ConcurrentModificationException</code> with specified formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static ConcurrentModificationException createConcurrentModificationException(final String pattern,
+                                                                                        final Object ... arguments) {
+        return new ConcurrentModificationException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = 6134247282754009421L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+    /**
+     * Constructs a new <code>NoSuchElementException</code> with specified formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static NoSuchElementException createNoSuchElementException(final String pattern,
+                                                                      final Object ... arguments) {
+        return new NoSuchElementException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = 7304273322489425799L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+    /**
+     * Constructs a new <code>NullPointerException</code> with specified formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static NullPointerException createNullPointerException(final String pattern,
+                                                                  final Object ... arguments) {
+        return new NullPointerException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = -3075660477939965216L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+   /**
+     * Constructs a new <code>ParseException</code> with specified
+     * formatted detail message.
+     * Message formatting is delegated to {@link java.text.MessageFormat}.
+     * @param offset offset at which error occurred
+     * @param pattern format specifier
+     * @param arguments format arguments
+     * @return built exception
+     */
+    public static ParseException createParseException(final int offset,
+                                                      final String pattern,
+                                                      final Object ... arguments) {
+        return new ParseException(null, offset) {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = -1103502177342465975L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, arguments);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, arguments);
+            }
+
+        };
+    }
+
+    /** Create an {@link java.lang.RuntimeException} for an internal error.
+     * @param cause underlying cause
+     * @return an {@link java.lang.RuntimeException} for an internal error
+     */
+    public static RuntimeException createInternalError(final Throwable cause) {
+
+        final String pattern  = "internal error, please fill a bug report at {0}";
+        final String argument = "https://issues.apache.org/jira/browse/MATH";
+
+        return new RuntimeException() {
+
+            /** Serializable version identifier. */
+            private static final long serialVersionUID = -201865440834027016L;
+
+            /** {@inheritDoc} */
+            @Override
+            public String getMessage() {
+                return buildMessage(Locale.US, pattern, argument);
+            }
+
+            /** {@inheritDoc} */
+            @Override
+            public String getLocalizedMessage() {
+                return buildMessage(Locale.getDefault(), pattern, argument);
+            }
+
+        };
+
+    }
+
+}
+03:07:29.891 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/MathRuntimeException.java:37 ---
+03:07:29.900 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate:     public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof MathRuntimeException)) return false;
+        MathRuntimeException _var = (MathRuntimeException) obj;
+        return super.equals(obj);
+    }
+---------------- Testing New Patch ----------------
+03:07:29.901 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:30.420 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+03:07:30.422 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.analysis.solvers.BrentSolver ===178
+03:07:30.522 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.522 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/analysis/solvers/BrentSolver.java:178 ---
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw sign.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw yMax.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw yMin.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw ret.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw f.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw min.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw max.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw serialVersionUID.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        sign, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        yMax, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        yMin, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        ret, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        f, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        max, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        serialVersionUID, max, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, sign, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, yMax, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, yMin, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, ret, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, f, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, min, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, serialVersionUID, yMin, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, sign, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMax, yMax);
+03:07:30.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, ret, yMax);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, f, yMax);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, min, yMax);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, max, yMax);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, serialVersionUID, yMax);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, sign);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, yMin);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, ret);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, f);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, min);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, max);
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw MathRuntimeException.createIllegalArgumentException(
+                        "function values at endpoints do not have different signs.  " +
+                        "Endpoints: [{0}, {1}], Values: [{2}, {3}]",
+                        min, max, yMin, serialVersionUID);
+---------------- Testing New Patch ----------------
+03:07:30.524 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:31.460 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:31.462 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:32.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:32.401 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:33.258 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:33.259 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:34.073 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:34.073 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:34.941 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:34.941 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:35.813 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:35.814 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:36.733 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:36.734 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:37.473 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-78 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:37.473 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:38.384 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:07:38.384 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:07:52.533 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:07:52.533 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:07:52.533 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+03:07:52.533 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:07:52.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:07:52.539 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-78/aggregatedSusInfo.profl
+03:07:52.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.analysis.solvers.BrentSolver:solve(Lorg/apache/commons/math/analysis/UnivariateRealFunction;DD)D in org.apache.commons.math.analysis.solvers.BrentSolver:178
+03:07:52.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-78
+---------------- Testing New Patch ----------------
+03:07:52.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:07:53.424 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:07:53.424 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:08:07.307 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:08:07.307 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:08:07.307 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+03:08:07.307 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:07.308 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:08:07.348 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-78/aggregatedSusInfo.profl
+03:08:07.348 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.analysis.solvers.BrentSolver:solve(Lorg/apache/commons/math/analysis/UnivariateRealFunction;DD)D in org.apache.commons.math.analysis.solvers.BrentSolver:178
+03:08:07.348 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-78
+---------------- Testing New Patch ----------------
+03:08:07.349 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:08.294 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:08:08.295 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:08:21.921 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:08:21.922 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:08:21.922 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+03:08:21.922 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:21.922 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:08:21.943 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-78/aggregatedSusInfo.profl
+03:08:21.943 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.analysis.solvers.BrentSolver:solve(Lorg/apache/commons/math/analysis/UnivariateRealFunction;DD)D in org.apache.commons.math.analysis.solvers.BrentSolver:178
+03:08:21.943 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-78
+---------------- Testing New Patch ----------------
+03:08:21.944 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:22.800 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:08:22.801 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:08:36.709 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:08:36.709 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:08:36.709 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+03:08:36.709 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:08:36.709 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:08:36.958 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-78/aggregatedSusInfo.profl
+03:08:36.958 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.analysis.solvers.BrentSolver:solve(Lorg/apache/commons/math/analysis/UnivariateRealFunction;DD)D in org.apache.commons.math.analysis.solvers.BrentSolver:178
+03:08:36.958 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-78
+---------------- Testing New Patch ----------------
+03:08:36.958 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:37.830 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:08:37.830 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:08:51.211 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:08:51.211 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.ode.events.EventStateTest::closeEvents, - org.apache.commons.math.stat.descriptive.moment.MeanTest::testWeightedConsistency]
+03:08:51.211 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+03:08:51.211 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.descriptive.moment.MeanTest::testWeightedConsistency
+03:08:51.211 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+03:08:51.211 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+03:08:55.154 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-78/aggregatedSusInfo.profl
+03:08:55.154 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.analysis.solvers.BrentSolver:solve(Lorg/apache/commons/math/analysis/UnivariateRealFunction;DD)D in org.apache.commons.math.analysis.solvers.BrentSolver:178
+03:08:55.154 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-78
+---------------- Testing New Patch ----------------
+03:08:55.155 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:08:56.102 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:08:56.102 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:09:08.801 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:09:08.801 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:09:08.801 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+03:09:08.801 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:09:08.801 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:09:57.817 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-78/aggregatedSusInfo.profl
+03:09:57.817 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.analysis.solvers.BrentSolver:solve(Lorg/apache/commons/math/analysis/UnivariateRealFunction;DD)D in org.apache.commons.math.analysis.solvers.BrentSolver:178
+03:09:57.817 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-78
+---------------- Testing New Patch ----------------
+03:09:57.817 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:09:58.586 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:09:58.587 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:10:08.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:10:08.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:10:08.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+03:10:08.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:10:08.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+03:22:11.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-78/aggregatedSusInfo.profl
+03:22:11.711 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.analysis.solvers.BrentSolver:solve(Lorg/apache/commons/math/analysis/UnivariateRealFunction;DD)D in org.apache.commons.math.analysis.solvers.BrentSolver:178
+03:22:11.711 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-78
+---------------- Testing New Patch ----------------
+03:22:11.711 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:22:12.447 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:22:12.447 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:22:22.214 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:22:22.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.events.EventStateTest::closeEvents]
+03:22:22.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.events.EventStateTest::closeEvents
+03:22:22.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:22:22.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found

@@ -1,0 +1,311 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-46
+07:06:12.881 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/46.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/46.txt
+07:06:14.156 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+07:06:14.171 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/generalSusInfo.profl
+07:06:14.173 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+07:06:14.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.StringEscapeUtils ===246
+07:06:15.046 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+break;
+07:06:15.047 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.StringEscapeUtils:246 ---
+07:06:15.047 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/StringEscapeUtils.java 246 ---
+07:06:15.047 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:06:15.348 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+07:06:15.350 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:16.277 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+07:06:16.320 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.StringEscapeUtils ===245
+07:06:16.366 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+out.write('/');
+07:06:16.366 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.StringEscapeUtils:245 ---
+07:06:16.366 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/StringEscapeUtils.java 245 ---
+07:06:16.366 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:06:16.558 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: out.write('/');
+	out.write('\\');
+                        
+null
+07:06:16.558 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+                        break;
+	out.write('/');
+
+MOVE-BUGGY-STATEMENT
+---------------- Testing New Patch ----------------
+07:06:16.558 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:17.488 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:17.489 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:30.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:06:30.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaScript]
+07:06:30.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:06:30.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaScript
+07:06:30.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:06:30.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:06:30.947 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:06:30.948 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/io/Writer;Ljava/lang/String;Z)V in org.apache.commons.lang.StringEscapeUtils:245
+07:06:30.948 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+---------------- Testing New Patch ----------------
+07:06:30.948 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:31.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+07:06:31.908 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+07:06:31.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+07:06:31.909 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:33.057 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:33.057 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:47.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:06:47.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaScript]
+07:06:47.392 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:06:47.393 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaScript
+07:06:47.393 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:06:47.393 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:06:47.394 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:06:47.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/io/Writer;Ljava/lang/String;Z)V in org.apache.commons.lang.StringEscapeUtils:245
+07:06:47.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+---------------- Testing New Patch ----------------
+07:06:47.418 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.StringEscapeUtils ===244
+07:06:47.451 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+out.write('\\');
+07:06:47.451 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.StringEscapeUtils:244 ---
+07:06:47.451 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/StringEscapeUtils.java 244 ---
+07:06:47.451 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:06:47.595 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+                        out.write('/');
+	out.write('\\');
+
+MOVE-BUGGY-STATEMENT
+07:06:47.596 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+                        out.write('/');
+                        break;
+	out.write('\\');
+
+MOVE-BUGGY-STATEMENT
+---------------- Testing New Patch ----------------
+07:06:47.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:48.754 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:48.754 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:04.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:07:04.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaScript]
+07:07:04.233 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:07:04.234 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaScript
+07:07:04.234 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:07:04.234 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:07:04.235 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:07:04.236 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/io/Writer;Ljava/lang/String;Z)V in org.apache.commons.lang.StringEscapeUtils:244
+07:07:04.236 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+---------------- Testing New Patch ----------------
+07:07:04.236 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:05.366 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+07:07:05.381 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+07:07:05.381 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+07:07:05.382 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:06.461 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:06.461 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:23.113 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:07:23.114 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaScript]
+07:07:23.114 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaScript
+07:07:23.114 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=1, pp=Unknown
+07:07:23.114 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+07:07:23.136 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:07:23.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/io/Writer;Ljava/lang/String;Z)V in org.apache.commons.lang.StringEscapeUtils:244
+07:07:23.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-46
+---------------- Testing New Patch ----------------
+07:07:23.169 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.StringEscapeUtils ===86
+07:07:23.201 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return escapeJavaStyleString(str, false);
+07:07:23.201 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.StringEscapeUtils:86 ---
+07:07:23.201 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/StringEscapeUtils.java 86 ---
+07:07:23.201 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return escapeJava(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return escapeJavaScript(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return unescapeJava(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return unescapeJavaScript(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return escapeHtml(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return unescapeHtml(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return escapeXml(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return unescapeXml(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return escapeCsv(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return unescapeCsv(str, false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return escapeJavaStyleString(false);
+07:07:23.242 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return escapeJavaStyleString(str);
+---------------- Testing New Patch ----------------
+07:07:23.243 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:24.503 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:24.504 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:25.654 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:25.655 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:26.734 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:26.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:27.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:27.783 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:28.744 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:28.744 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:29.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:29.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:30.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:30.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:31.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:31.951 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:33.056 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:33.057 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:34.174 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:34.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:35.223 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:35.224 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:36.435 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+07:07:36.511 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (str != null) {
+	
+
+	}
+
+07:07:36.511 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (str == null) {
+	    throw new IllegalArgumentException("Null 'str' argument.");
+	}
+
+07:07:36.511 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (str == null) {
+	    return null;
+	}
+
+07:07:36.512 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (str == null) str = CSV_QUOTE_STR;
+ 
+07:07:36.512 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (str == null) str = new String();
+ 
+07:07:36.512 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (str == null) return new String();
+	 
+07:07:36.512 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (str == null) return CSV_QUOTE_STR;
+	 
+---------------- Testing New Patch ----------------
+07:07:36.513 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:37.578 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-46 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:07:37.579 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:38.562 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:38.562 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:54.770 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:07:54.770 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:07:54.770 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava
+07:07:54.770 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:07:54.770 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:07:54.770 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:07:54.772 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:07:54.772 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJava(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.StringEscapeUtils:86
+07:07:54.772 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+---------------- Testing New Patch ----------------
+07:07:54.773 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:55.916 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:55.916 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:12.487 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:08:12.487 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:08:12.487 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:08:12.487 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:08:12.487 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:08:12.488 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:08:12.489 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJava(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.StringEscapeUtils:86
+07:08:12.489 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-46
+---------------- Testing New Patch ----------------
+07:08:12.489 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:13.550 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:13.550 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:28.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:08:28.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:08:28.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava
+07:08:28.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:08:28.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:08:28.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:08:28.486 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:08:28.486 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJava(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.StringEscapeUtils:86
+07:08:28.487 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+---------------- Testing New Patch ----------------
+07:08:28.488 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:29.657 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:29.657 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:45.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:08:45.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:08:45.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava
+07:08:45.998 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:08:45.998 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:08:45.998 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:08:46.024 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:08:46.024 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJava(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.StringEscapeUtils:86
+07:08:46.024 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+---------------- Testing New Patch ----------------
+07:08:46.025 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:47.104 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:47.104 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:09:02.226 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:09:02.226 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:09:02.226 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava
+07:09:02.226 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:09:02.226 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:09:02.226 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:09:02.285 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:09:02.285 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJava(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.StringEscapeUtils:86
+07:09:02.285 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+---------------- Testing New Patch ----------------
+07:09:02.286 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:09:03.432 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:09:03.432 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:09:19.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:09:19.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:09:19.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava
+07:09:19.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:09:19.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:09:19.591 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:09:19.935 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:09:19.935 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJava(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.StringEscapeUtils:86
+07:09:19.936 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+07:09:19.958 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return escapeJavaStyleString(str, true);
+---------------- Testing New Patch ----------------
+07:09:19.959 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:09:21.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:09:21.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:09:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:09:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:09:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava
+07:09:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:09:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:09:37.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:09:38.438 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:09:38.438 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJava(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.StringEscapeUtils:86
+07:09:38.438 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-46
+07:09:38.466 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+07:09:38.467 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:09:39.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:09:39.394 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:09:56.339 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash]
+07:09:56.339 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang.StringEscapeUtilsTest::testUnescapeJava, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava, - org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash, - org.apache.commons.lang.StringUtilsTest::testDeprecatedEscapeFunctions_String]
+07:09:56.340 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testUnescapeJava
+07:09:56.340 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJava
+07:09:56.340 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringEscapeUtilsTest::testEscapeJavaWithSlash
+07:09:56.340 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsTest::testDeprecatedEscapeFunctions_String
+07:09:56.340 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+07:09:56.340 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+07:10:00.241 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+07:10:00.241 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringEscapeUtils:escapeJava(Ljava/lang/String;)Ljava/lang/String; in org.apache.commons.lang.StringEscapeUtils:86
+07:10:00.241 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Lang-46
+07:10:00.259 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+07:10:16.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-46/aggregatedSusInfo.profl
+Failed to fix bug Lang-46
+Repair process completed

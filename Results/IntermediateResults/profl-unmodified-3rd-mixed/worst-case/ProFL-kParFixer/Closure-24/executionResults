@@ -1,0 +1,590 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-24
+17:51:27.990 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-24 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/24.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/24.txt
+17:55:59.652 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+17:55:59.721 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-24/generalSusInfo.profl
+17:55:59.799 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-24/aggregatedSusInfo.profl
+17:55:59.803 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+17:55:59.803 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.ScopedAliases ===51
+17:56:00.673 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+ScopedAliases implements HotSwapCompilerPass {
+  /** Name used to denote an scoped function block used for aliasing. */
+  static final String SCOPING_METHOD_NAME = "goog.scope";
+
+  private final AbstractCompiler compiler;
+  private final PreprocessorSymbolTable preprocessorSymbolTable;
+  private final AliasTransformationHandler transformationHandler;
+
+  // Errors
+  static final DiagnosticType GOOG_SCOPE_USED_IMPROPERLY = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_USED_IMPROPERLY",
+      "The call to goog.scope must be alone in a single statement.");
+
+  static final DiagnosticType GOOG_SCOPE_HAS_BAD_PARAMETERS =
+      DiagnosticType.error(
+          "JSC_GOOG_SCOPE_HAS_BAD_PARAMETERS",
+          "The call to goog.scope must take only a single parameter.  It must" +
+              " be an anonymous function that itself takes no parameters.");
+
+  static final DiagnosticType GOOG_SCOPE_REFERENCES_THIS = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_REFERENCES_THIS",
+      "The body of a goog.scope function cannot reference 'this'.");
+
+  static final DiagnosticType GOOG_SCOPE_USES_RETURN = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_USES_RETURN",
+      "The body of a goog.scope function cannot use 'return'.");
+
+  static final DiagnosticType GOOG_SCOPE_USES_THROW = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_USES_THROW",
+      "The body of a goog.scope function cannot use 'throw'.");
+
+  static final DiagnosticType GOOG_SCOPE_ALIAS_REDEFINED = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_ALIAS_REDEFINED",
+      "The alias {0} is assigned a value more than once.");
+
+  static final DiagnosticType GOOG_SCOPE_NON_ALIAS_LOCAL = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_NON_ALIAS_LOCAL",
+      "The local variable {0} is in a goog.scope and is not an alias.");
+
+  ScopedAliases(AbstractCompiler compiler,
+      @Nullable PreprocessorSymbolTable preprocessorSymbolTable,
+      AliasTransformationHandler transformationHandler) {
+    this.compiler = compiler;
+    this.preprocessorSymbolTable = preprocessorSymbolTable;
+    this.transformationHandler = transformationHandler;
+  }
+
+  @Override
+  public void process(Node externs, Node root) {
+    hotSwapScript(root, null);
+  }
+
+  @Override
+  public void hotSwapScript(Node root, Node originalRoot) {
+    Traversal traversal = new Traversal();
+    NodeTraversal.traverse(compiler, root, traversal);
+
+    if (!traversal.hasErrors()) {
+
+      // Apply the aliases.
+      for (AliasUsage aliasUsage : traversal.getAliasUsages()) {
+        aliasUsage.applyAlias();
+      }
+
+      // Remove the alias definitions.
+      for (Node aliasDefinition : traversal.getAliasDefinitionsInOrder()) {
+        if (aliasDefinition.getParent().isVar() &&
+            aliasDefinition.getParent().hasOneChild()) {
+          aliasDefinition.getParent().detachFromParent();
+        } else {
+          aliasDefinition.detachFromParent();
+        }
+      }
+
+      // Collapse the scopes.
+      for (Node scopeCall : traversal.getScopeCalls()) {
+        Node expressionWithScopeCall = scopeCall.getParent();
+        Node scopeClosureBlock = scopeCall.getLastChild().getLastChild();
+        scopeClosureBlock.detachFromParent();
+        expressionWithScopeCall.getParent().replaceChild(
+            expressionWithScopeCall,
+            scopeClosureBlock);
+        NodeUtil.tryMergeBlock(scopeClosureBlock);
+      }
+
+      if (traversal.getAliasUsages().size() > 0 ||
+          traversal.getAliasDefinitionsInOrder().size() > 0 ||
+          traversal.getScopeCalls().size() > 0) {
+        compiler.reportCodeChange();
+      }
+    }
+  }
+
+  private interface AliasUsage {
+    public void applyAlias();
+  }
+
+  private class AliasedNode implements AliasUsage {
+    private final Node aliasReference;
+
+    private final Node aliasDefinition;
+
+    AliasedNode(Node aliasReference, Node aliasDefinition) {
+      this.aliasReference = aliasReference;
+      this.aliasDefinition = aliasDefinition;
+    }
+
+    @Override
+    public void applyAlias() {
+      aliasReference.getParent().replaceChild(
+          aliasReference, aliasDefinition.cloneTree());
+    }
+  }
+
+  private class AliasedTypeNode implements AliasUsage {
+    private final Node aliasReference;
+
+    private final String correctedType;
+
+    AliasedTypeNode(Node aliasReference, String correctedType) {
+      this.aliasReference = aliasReference;
+      this.correctedType = correctedType;
+    }
+
+    @Override
+    public void applyAlias() {
+      aliasReference.setString(correctedType);
+    }
+  }
+
+
+  private class Traversal implements NodeTraversal.ScopedCallback {
+    // The job of this class is to collect these three data sets.
+
+    // The order of this list determines the order that aliases are applied.
+    private final List<Node> aliasDefinitionsInOrder = Lists.newArrayList();
+
+    private final List<Node> scopeCalls = Lists.newArrayList();
+
+    private final List<AliasUsage> aliasUsages = Lists.newArrayList();
+
+    // This map is temporary and cleared for each scope.
+    private final Map<String, Var> aliases = Maps.newHashMap();
+
+    private boolean hasErrors = false;
+
+    private AliasTransformation transformation = null;
+
+    Collection<Node> getAliasDefinitionsInOrder() {
+      return aliasDefinitionsInOrder;
+    }
+
+    private List<AliasUsage> getAliasUsages() {
+      return aliasUsages;
+    }
+
+    List<Node> getScopeCalls() {
+      return scopeCalls;
+    }
+
+    boolean hasErrors() {
+      return hasErrors;
+    }
+
+    private boolean isCallToScopeMethod(Node n) {
+      return n.isCall() &&
+          SCOPING_METHOD_NAME.equals(n.getFirstChild().getQualifiedName());
+    }
+
+    @Override
+    public void enterScope(NodeTraversal t) {
+      Node n = t.getCurrentNode().getParent();
+      if (n != null && isCallToScopeMethod(n)) {
+        transformation = transformationHandler.logAliasTransformation(
+            n.getSourceFileName(), getSourceRegion(n));
+        findAliases(t);
+      }
+    }
+
+    @Override
+    public void exitScope(NodeTraversal t) {
+      if (t.getScopeDepth() == 2) {
+        aliases.clear();
+        transformation = null;
+      }
+    }
+
+    @Override
+    public final boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {
+      if (n.isFunction() && t.inGlobalScope()) {
+        // Do not traverse in to functions except for goog.scope functions.
+        if (parent == null || !isCallToScopeMethod(parent)) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    private SourcePosition<AliasTransformation> getSourceRegion(Node n) {
+      Node testNode = n;
+      Node next = null;
+      for (; next != null || testNode.isScript();) {
+        next = testNode.getNext();
+        testNode = testNode.getParent();
+      }
+
+      int endLine = next == null ? Integer.MAX_VALUE : next.getLineno();
+      int endChar = next == null ? Integer.MAX_VALUE : next.getCharno();
+      SourcePosition<AliasTransformation> pos =
+          new SourcePosition<AliasTransformation>() {};
+      pos.setPositionInformation(
+          n.getLineno(), n.getCharno(), endLine, endChar);
+      return pos;
+    }
+
+    private void report(NodeTraversal t, Node n, DiagnosticType error,
+        String... arguments) {
+      compiler.report(t.makeError(n, error, arguments));
+      hasErrors = true;
+    }
+
+    private void findAliases(NodeTraversal t) {
+      Scope scope = t.getScope();
+      for (Var v : scope.getVarIterable()) {
+        Node n = v.getNode();
+        int type = n.getType();
+        Node parent = n.getParent();
+        if (parent.isVar()) {
+          if (n.hasChildren() && n.getFirstChild().isQualifiedName()) {
+          String name = n.getString();
+          Var aliasVar = scope.getVar(name);
+          aliases.put(name, aliasVar);
+
+          String qualifiedName =
+              aliasVar.getInitialValue().getQualifiedName();
+          transformation.addAlias(name, qualifiedName);
+          // Bleeding functions already get a BAD_PARAMETERS error, so just
+          // do nothing.
+          // Parameters of the scope function also get a BAD_PARAMETERS
+          // error.
+        } else {
+          // TODO(robbyw): Support using locals for private variables.
+          report(t, n, GOOG_SCOPE_NON_ALIAS_LOCAL, n.getString());
+        }
+        }
+      }
+    }
+
+    private void validateScopeCall(NodeTraversal t, Node n, Node parent) {
+      if (preprocessorSymbolTable != null) {
+        preprocessorSymbolTable.addReference(n.getFirstChild());
+      }
+      if (!parent.isExprResult()) {
+        report(t, n, GOOG_SCOPE_USED_IMPROPERLY);
+      }
+      if (n.getChildCount() != 2) {
+        // The goog.scope call should have exactly 1 parameter.  The first
+        // child is the "goog.scope" and the second should be the parameter.
+        report(t, n, GOOG_SCOPE_HAS_BAD_PARAMETERS);
+      } else {
+        Node anonymousFnNode = n.getChildAtIndex(1);
+        if (!anonymousFnNode.isFunction() ||
+            NodeUtil.getFunctionName(anonymousFnNode) != null ||
+            NodeUtil.getFunctionParameters(anonymousFnNode).hasChildren()) {
+          report(t, anonymousFnNode, GOOG_SCOPE_HAS_BAD_PARAMETERS);
+        } else {
+          scopeCalls.add(n);
+        }
+      }
+    }
+
+    @Override
+    public void visit(NodeTraversal t, Node n, Node parent) {
+      if (isCallToScopeMethod(n)) {
+        validateScopeCall(t, n, n.getParent());
+      }
+
+      if (t.getScopeDepth() < 2) {
+        return;
+      }
+
+      int type = n.getType();
+      Var aliasVar = null;
+      if (type == Token.NAME) {
+        String name = n.getString();
+        Var lexicalVar = t.getScope().getVar(n.getString());
+        if (lexicalVar != null && lexicalVar == aliases.get(name)) {
+          aliasVar = lexicalVar;
+        }
+      }
+
+      // Validate the top-level of the goog.scope block.
+      if (t.getScopeDepth() == 2) {
+        if (aliasVar != null && NodeUtil.isLValue(n)) {
+          if (aliasVar.getNode() == n) {
+            aliasDefinitionsInOrder.add(n);
+
+            // Return early, to ensure that we don't record a definition
+            // twice.
+            return;
+          } else {
+            report(t, n, GOOG_SCOPE_ALIAS_REDEFINED, n.getString());
+          }
+        }
+
+        if (type == Token.RETURN) {
+          report(t, n, GOOG_SCOPE_USES_RETURN);
+        } else if (type == Token.THIS) {
+          report(t, n, GOOG_SCOPE_REFERENCES_THIS);
+        } else if (type == Token.THROW) {
+          report(t, n, GOOG_SCOPE_USES_THROW);
+        }
+      }
+
+      // Validate all descendent scopes of the goog.scope block.
+      if (t.getScopeDepth() >= 2) {
+        // Check if this name points to an alias.
+        if (aliasVar != null) {
+          // Note, to support the transitive case, it's important we don't
+          // clone aliasedNode here.  For example,
+          // var g = goog; var d = g.dom; d.createElement('DIV');
+          // The node in aliasedNode (which is "g") will be replaced in the
+          // changes pass above with "goog".  If we cloned here, we'd end up
+          // with <code>g.dom.createElement('DIV')</code>.
+          Node aliasedNode = aliasVar.getInitialValue();
+          aliasUsages.add(new AliasedNode(n, aliasedNode));
+        }
+
+        JSDocInfo info = n.getJSDocInfo();
+        if (info != null) {
+          for (Node node : info.getTypeNodes()) {
+            fixTypeNode(node);
+          }
+        }
+
+        // TODO(robbyw): Error for goog.scope not at root.
+      }
+    }
+
+    private void fixTypeNode(Node typeNode) {
+      if (typeNode.isString()) {
+        String name = typeNode.getString();
+        int endIndex = name.indexOf('.');
+        if (endIndex == -1) {
+          endIndex = name.length();
+        }
+        String baseName = name.substring(0, endIndex);
+        Var aliasVar = aliases.get(baseName);
+        if (aliasVar != null) {
+          Node aliasedNode = aliasVar.getInitialValue();
+          aliasUsages.add(new AliasedTypeNode(typeNode,
+              aliasedNode.getQualifiedName() + name.substring(endIndex)));
+        }
+      }
+
+      for (Node child = typeNode.getFirstChild(); child != null;
+           child = child.getNext()) {
+        fixTypeNode(child);
+      }
+    }
+  }
+}
+17:56:00.703 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.ScopedAliases ===139
+17:56:00.830 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+compiler.reportCodeChange();
+17:56:00.945 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getParserConfig();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getModuleGraph();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getDefaultErrorReporter();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getReverseAbstractInterpreter();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getProgress();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getCodingConvention();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getTypedScopeCreator();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getSynthesizedExternsInput();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getErrorManager();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getCssRenamingMap();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getLifeCycleStage();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getUniqueNameIdSupplier();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getRoot();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getTypeRegistry();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getTypeValidator();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.hasHaltingErrors();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.isIdeMode();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.acceptEcmaScript5();
+17:56:00.946 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.acceptConstKeyword();
+17:56:00.947 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.isTypeCheckingEnabled();
+17:56:00.947 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.hasRegExpGlobalReferences();
+17:56:00.947 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getInputsInOrder();
+17:56:00.947 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getGlobalVarReferences();
+17:56:00.947 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: compiler.getTopScope();
+17:56:00.947 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+17:56:09.454 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+17:56:09.454 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:00:11.117 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+18:00:11.118 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 37, [- com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar, - com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures, - com.google.javascript.jscomp.ScopedAliasesTest::testOverridden, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged, - com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef, - com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testNullType, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition, - com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope]
+18:00:11.118 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOverridden
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitive
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows
+18:00:11.119 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef
+18:00:11.120 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNullType
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope
+18:00:11.121 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=36, pp=Unknown
+18:00:11.122 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:00:11.474 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-24/aggregatedSusInfo.profl
+18:00:11.474 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.ScopedAliases:hotSwapScript(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V in com.google.javascript.jscomp.ScopedAliases:139
+18:00:11.474 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 37 Closure-24
+18:00:11.475 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:00:19.478 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:00:19.478 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:04:17.742 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 37, [- com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testNullType, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition, - com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures, - com.google.javascript.jscomp.ScopedAliasesTest::testOverridden, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged, - com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef, - com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar, - com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar, - com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes]
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNullType
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOverridden
+18:04:17.743 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType
+18:04:17.744 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitive
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=36, pp=Unknown
+18:04:17.745 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:04:24.484 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-24/aggregatedSusInfo.profl
+18:04:24.484 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.ScopedAliases:hotSwapScript(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V in com.google.javascript.jscomp.ScopedAliases:139
+18:04:24.484 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 37 Closure-24
+18:04:24.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:04:32.673 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:04:32.673 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 37, [- com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testNullType, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition, - com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures, - com.google.javascript.jscomp.ScopedAliasesTest::testOverridden, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged, - com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef, - com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar, - com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar, - com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes]
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNullType
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOverridden
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes
+18:08:31.207 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar
+18:08:31.208 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel
+18:08:31.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel
+18:08:31.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar
+18:08:31.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive
+18:08:31.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitive
+18:08:31.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes
+18:08:31.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=36, pp=Unknown
+18:08:31.209 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:10:46.968 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-24/aggregatedSusInfo.profl
+18:10:46.969 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.ScopedAliases:hotSwapScript(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V in com.google.javascript.jscomp.ScopedAliases:139
+18:10:46.969 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 37 Closure-24
+18:10:46.969 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:10:55.049 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:10:55.049 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:14:53.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 37, [- com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testNullType, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition, - com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures, - com.google.javascript.jscomp.ScopedAliasesTest::testOverridden, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged, - com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef, - com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar, - com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar, - com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes]
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNullType
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOverridden
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged
+18:14:53.410 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc
+18:14:53.411 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitive
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=36, pp=Unknown
+18:14:53.412 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

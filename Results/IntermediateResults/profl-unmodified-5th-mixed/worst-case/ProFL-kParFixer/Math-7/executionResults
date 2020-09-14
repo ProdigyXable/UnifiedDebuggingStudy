@@ -1,0 +1,224 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-7
+09:37:22.424 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/7.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/7.txt
+09:37:40.131 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+09:37:40.169 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-7/generalSusInfo.profl
+09:37:40.171 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+09:37:40.171 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.ode.AbstractIntegrator ===352
+09:37:41.343 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+for (final StepHandler handler : stepHandlers) {
+                    handler.handleStep(interpolator, isLastStep);
+                }
+09:37:41.355 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (stepHandlers != null) {
+	
+
+}
+
+09:37:41.356 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (stepHandlers == null) {
+    throw new IllegalArgumentException("Null 'stepHandlers' argument.");
+}
+
+09:37:41.356 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (stepHandlers == null) {
+    return 0.0;
+}
+
+09:37:41.356 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:37:43.049 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+09:37:43.049 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+09:40:46.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:40:46.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:40:46.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling
+09:40:46.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:40:46.195 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+09:40:46.243 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-7/aggregatedSusInfo.profl
+09:40:46.243 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.ode.AbstractIntegrator:acceptStep(Lorg/apache/commons/math3/ode/sampling/AbstractStepInterpolator;[D[DD)D in org.apache.commons.math3.ode.AbstractIntegrator:352
+09:40:46.243 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-7
+09:40:46.255 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:40:47.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+09:40:47.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+09:42:47.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:42:47.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:42:47.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling
+09:42:47.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:42:47.728 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+09:42:47.983 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-7/aggregatedSusInfo.profl
+09:42:47.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.ode.AbstractIntegrator:acceptStep(Lorg/apache/commons/math3/ode/sampling/AbstractStepInterpolator;[D[DD)D in org.apache.commons.math3.ode.AbstractIntegrator:352
+09:42:47.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-7
+09:42:47.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:42:49.065 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+09:42:49.065 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+09:44:49.715 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:44:49.715 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:44:49.715 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling
+09:44:49.715 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:44:49.715 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+09:44:50.482 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-7/aggregatedSusInfo.profl
+09:44:50.482 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.ode.AbstractIntegrator:acceptStep(Lorg/apache/commons/math3/ode/sampling/AbstractStepInterpolator;[D[DD)D in org.apache.commons.math3.ode.AbstractIntegrator:352
+09:44:50.482 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-7
+09:44:50.484 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.ode.AbstractIntegrator ===351
+09:44:50.589 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+handler.handleStep(interpolator, isLastStep);
+09:44:50.606 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(isLastStep);
+09:44:50.606 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(interpolator);
+09:44:50.607 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:44:52.070 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:44:52.071 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:44:53.468 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(interpolator, this.resetOccurred);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(interpolator, this.statesInitialized);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(handler, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(eventY, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(eventT, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(currentEvent, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(iterator, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(state, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(occuringEvents, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(orderingSign, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(currentT, isLastStep);
+09:44:53.479 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(previousT, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(y, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(yDot, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(tEnd, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.stepHandlers, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.stepStart, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.stepSize, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.isLastStep, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.resetOccurred, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.eventsStates, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.statesInitialized, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.name, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.evaluations, isLastStep);
+09:44:53.480 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: handler.handleStep(this.expandable, isLastStep);
+09:44:53.481 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:44:55.025 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+09:44:55.025 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+09:46:53.888 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:46:53.888 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:46:53.888 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling
+09:46:53.888 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:46:53.888 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+09:47:08.666 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-7/aggregatedSusInfo.profl
+09:47:08.666 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.ode.AbstractIntegrator:acceptStep(Lorg/apache/commons/math3/ode/sampling/AbstractStepInterpolator;[D[DD)D in org.apache.commons.math3.ode.AbstractIntegrator:351
+09:47:08.666 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-7
+09:47:08.667 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:47:10.192 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+09:47:10.192 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+09:49:07.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:49:07.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:49:07.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling
+09:49:07.129 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:49:07.130 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+09:53:02.717 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-7/aggregatedSusInfo.profl
+09:53:02.717 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.ode.AbstractIntegrator:acceptStep(Lorg/apache/commons/math3/ode/sampling/AbstractStepInterpolator;[D[DD)D in org.apache.commons.math3.ode.AbstractIntegrator:351
+09:53:02.717 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-7
+09:53:02.718 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:03.725 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:03.725 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:04.691 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:04.692 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:05.668 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:05.668 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:06.652 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:06.653 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:07.658 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:07.658 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:08.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:08.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:09.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:09.700 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:10.697 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:10.697 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:11.668 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:11.669 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:12.648 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:12.649 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:13.628 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:13.629 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:14.579 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:14.580 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:15.625 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:15.626 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:16.608 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:16.609 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:17.649 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:17.650 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:18.655 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:18.655 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:19.656 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:19.656 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:20.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:20.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:21.630 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:21.631 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:22.627 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:22.628 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:23.723 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:23.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:24.791 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:24.792 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:25.834 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-7 ---Fixer: fix fail because of failed compiling! 
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (handler != null) {
+	
+
+}
+
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (handler == null) {
+    throw new IllegalArgumentException("Null 'handler' argument.");
+}
+
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (handler == null) {
+    return 0.0;
+}
+
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (interpolator != null) {
+	
+
+}
+
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (interpolator == null) {
+    throw new IllegalArgumentException("Null 'interpolator' argument.");
+}
+
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (interpolator == null) {
+    return 0.0;
+}
+
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (isLastStep != null) {
+	
+
+}
+
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (isLastStep == null) {
+    throw new IllegalArgumentException("Null 'isLastStep' argument.");
+}
+
+09:53:25.840 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (isLastStep == null) {
+    return 0.0;
+}
+
+09:53:25.841 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:53:26.934 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+09:53:26.934 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+09:55:07.850 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:55:07.850 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+09:55:07.850 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling
+09:55:07.850 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:55:07.850 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+11:25:23.268 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-7/aggregatedSusInfo.profl
+11:25:23.269 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.ode.AbstractIntegrator:acceptStep(Lorg/apache/commons/math3/ode/sampling/AbstractStepInterpolator;[D[DD)D in org.apache.commons.math3.ode.AbstractIntegrator:351
+11:25:23.269 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-7
+11:25:23.284 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+11:25:24.637 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+11:25:24.637 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+11:27:13.816 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+11:27:13.816 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling]
+11:27:13.816 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.ode.nonstiff.DormandPrince853IntegratorTest::testEventsScheduling
+11:27:13.816 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+11:27:13.817 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

@@ -1,0 +1,83 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-94
+01:55:07.235 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-94 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/94.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/94.txt
+01:55:11.921 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:55:12.007 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-94/generalSusInfo.profl
+01:55:12.009 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:55:12.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.util.MathUtils ===413
+01:55:14.775 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return (Math.abs(u) + Math.abs(v));
+01:55:14.776 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.util.MathUtils:413 ---
+01:55:14.790 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/util/MathUtils.java 413 ---
+01:55:14.790 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.util.MathUtilsTest::testGcd]
+01:55:15.394 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return u;
+
+01:55:15.403 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return v;
+
+---------------- Testing New Patch ----------------
+01:55:15.407 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:17.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:17.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:55:43.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testGcd]
+01:55:43.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.fraction.FractionTest::testEqualsAndHashCode, - org.apache.commons.math.fraction.FractionTest::testConstructor, - org.apache.commons.math.util.MathUtilsTest::testGcd, - org.apache.commons.math.util.MathUtilsTest::testLcm]
+01:55:43.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionTest::testEqualsAndHashCode
+01:55:43.413 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionTest::testConstructor
+01:55:43.414 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testGcd
+01:55:43.414 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testLcm
+01:55:43.414 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+01:55:43.414 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:55:43.415 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-94/aggregatedSusInfo.profl
+01:55:43.416 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:gcd(II)I in org.apache.commons.math.util.MathUtils:413
+01:55:43.416 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-94
+---------------- Testing New Patch ----------------
+01:55:43.417 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:45.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:45.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:11.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testGcd]
+01:56:11.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testGcd, - org.apache.commons.math.util.MathUtilsTest::testLcm]
+01:56:11.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testGcd
+01:56:11.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testLcm
+01:56:11.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:56:11.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:56:11.177 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-94/aggregatedSusInfo.profl
+01:56:11.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:gcd(II)I in org.apache.commons.math.util.MathUtils:413
+01:56:11.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-94
+01:56:11.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (Math.abs(u) - Math.abs(v));
+---------------- Testing New Patch ----------------
+01:56:11.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:13.733 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:13.733 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:37.802 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testGcd]
+01:56:37.802 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.fraction.FractionTest::testEqualsAndHashCode, - org.apache.commons.math.fraction.FractionTest::testConstructor, - org.apache.commons.math.util.MathUtilsTest::testGcd]
+01:56:37.803 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionTest::testEqualsAndHashCode
+01:56:37.803 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.fraction.FractionTest::testConstructor
+01:56:37.803 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testGcd
+01:56:37.803 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:56:37.803 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:56:37.804 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-94/aggregatedSusInfo.profl
+01:56:37.804 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:gcd(II)I in org.apache.commons.math.util.MathUtils:413
+01:56:37.804 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Math-94
+01:56:38.410 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:56:38.411 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:40.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-94 ---Fixer: fix fail because of failed compiling! 
+01:56:40.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.util.MathUtils ===432
+01:56:40.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+k++;
+01:56:40.324 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.util.MathUtils:432 ---
+01:56:40.325 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/util/MathUtils.java 432 ---
+01:56:40.325 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.util.MathUtilsTest::testGcd]
+01:56:40.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: u++;
+01:56:40.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: v++;
+---------------- Testing New Patch ----------------
+01:56:40.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:42.071 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:42.072 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.

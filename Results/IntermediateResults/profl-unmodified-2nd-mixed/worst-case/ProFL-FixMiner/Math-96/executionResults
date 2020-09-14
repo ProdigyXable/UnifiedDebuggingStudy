@@ -1,0 +1,535 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-96
+18:14:26.338 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/96.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/96.txt
+18:14:28.036 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+18:14:28.049 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/generalSusInfo.profl
+18:14:28.050 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+18:14:28.050 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.complex.Complex ===280
+18:14:29.077 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+if (imaginary != null) {
+
+
+}
+
+if (real != null) {
+
+
+}
+
+18:14:29.087 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:29.952 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:29.953 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:30.738 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+if (imaginary == null) {
+    return 0;
+}
+
+if (imaginary == null) {
+    throw new IllegalArgumentException("Empty variable: " + imaginary);
+}
+
+if (real == null) {
+    return 0;
+}
+
+if (real == null) {
+    throw new IllegalArgumentException("Empty variable: " + real);
+}
+
+18:14:30.739 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:31.506 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:31.506 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:32.330 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:32.330 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:33.063 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:33.064 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:33.800 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+
+18:14:33.802 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:34.496 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:34.497 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.complex.Complex ===277
+18:14:34.662 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (isNaN()) {
+            return 7;
+        }
+if (isInfinite()) {
+            return 7;
+        }
+18:14:34.666 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:35.360 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:14:35.360 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:14:46.247 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:14:46.247 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+18:14:46.247 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:14:46.247 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+18:14:46.247 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+18:14:46.247 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:14:46.249 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:14:46.249 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:277
+18:14:46.249 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-96
+if (isNaN(I)) {
+            return 7;
+        }
+if (isNaN(NaN)) {
+            return 7;
+        }
+if (isNaN(INF)) {
+            return 7;
+        }
+if (isNaN(ONE)) {
+            return 7;
+        }
+if (isNaN(ZERO)) {
+            return 7;
+        }
+if (isNaN(this.imaginary)) {
+            return 7;
+        }
+if (isNaN(this.real)) {
+            return 7;
+        }
+18:14:46.250 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:47.053 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:47.054 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:47.781 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:47.782 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:48.549 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:48.550 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:49.338 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:49.341 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:50.091 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:50.091 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:50.813 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:14:50.814 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:51.524 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+
+        return 37 * (17 * MathUtils.hash(imaginary) + 
+            MathUtils.hash(real));
+	if (isNaN()) {
+            return 7;
+        }
+
+MOVE-BUGGY-STATEMENT
+18:14:51.527 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:52.245 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+
+18:14:52.245 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:14:53.020 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:14:53.020 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:15:03.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:15:03.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testHashCode]
+18:15:03.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:15:03.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testHashCode
+18:15:03.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+18:15:03.368 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:15:03.370 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:15:03.370 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:hashCode()I in org.apache.commons.math.complex.Complex:277
+18:15:03.370 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-96
+18:15:03.370 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.complex.Complex ===363
+18:15:03.467 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(rhs, real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(I, real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(NaN, real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(INF, real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(ONE, real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(ZERO, real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(this.imaginary, real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(this.real, real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                rhs, real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                I, real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                NaN, real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                INF, real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                ONE, real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                ZERO, real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                this.imaginary, real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                this.real, real * rhs.imaginary + imaginary * rhs.real);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real, rhs);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real, I);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real, NaN);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real, INF);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real, ONE);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real, ZERO);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real, this.imaginary);
+return createComplex(real * rhs.real - imaginary * rhs.imaginary,
+                real * rhs.imaginary + imaginary * rhs.real, this.real);
+18:15:03.469 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:04.179 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:04.179 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:04.973 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:04.973 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:05.720 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:05.720 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:06.478 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:06.478 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:07.236 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:07.237 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:08.020 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:08.021 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:08.822 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:08.822 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:09.507 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:09.508 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:10.210 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:10.210 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:10.858 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:10.858 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:11.564 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:11.565 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:12.292 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:12.293 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:13.001 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:13.001 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:13.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:13.772 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:14.516 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:14.516 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:15.296 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:15.297 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:16.106 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:16.107 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:16.767 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:16.767 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:17.419 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:17.420 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:18.174 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:18.174 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:18.934 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:18.935 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:19.661 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:19.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:20.350 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:20.351 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:21.077 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+return abs();
+return conjugate();
+return hashCode();
+return getImaginary();
+return getReal();
+return isNaN();
+return isInfinite();
+return negate();
+return acos();
+return asin();
+return atan();
+return cos();
+return cosh();
+return exp();
+return log();
+return sin();
+return sinh();
+return sqrt();
+return sqrt1z();
+return tan();
+return tanh();
+18:15:21.079 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:21.830 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:21.831 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:22.566 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:15:22.566 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 19, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:15:32.774 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:15:32.775 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:15:32.775 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:15:32.775 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:15:32.775 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:15:32.775 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=0, fp=1, pf=19, pp=Unknown
+18:15:32.775 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoisyFix found
+18:15:32.787 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:15:32.787 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:363
+18:15:32.787 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 19 Math-96
+18:15:32.788 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:33.557 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:33.557 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:34.296 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:34.296 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:34.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:34.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:35.717 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:35.718 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:36.387 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-96 ---Fixer: fix fail because of failed compiling! 
+18:15:36.388 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:37.169 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:15:37.169 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:15:47.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+18:15:47.605 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:15:47.610 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:15:47.610 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:363
+18:15:47.610 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 20 Math-96
+18:15:47.610 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:48.304 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:15:48.304 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:15:58.573 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:15:58.573 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:15:58.574 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:15:58.575 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:15:58.575 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:15:58.575 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:15:58.575 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:15:58.575 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:15:58.575 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:15:58.575 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+18:15:58.575 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:15:58.624 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:15:58.624 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:363
+18:15:58.624 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 20 Math-96
+18:15:58.625 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:15:59.361 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:15:59.361 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:16:08.831 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+18:16:08.832 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:16:09.114 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:16:09.114 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:363
+18:16:09.114 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 20 Math-96
+18:16:09.114 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:16:09.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:16:09.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:16:19.474 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:16:19.474 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:16:19.474 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:16:19.474 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:16:19.474 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:16:19.474 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:16:19.475 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:16:19.476 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:16:19.476 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:16:19.476 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:16:19.476 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+18:16:19.476 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:16:22.012 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:16:22.012 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:363
+18:16:22.012 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 20 Math-96
+18:16:22.012 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:16:22.672 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:16:22.672 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:16:31.776 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:16:31.776 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:16:31.776 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:16:31.776 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:16:31.776 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:16:31.776 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:16:31.776 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:16:31.777 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:16:31.778 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+18:16:31.778 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:16:55.986 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:16:55.986 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:363
+18:16:55.986 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 20 Math-96
+18:16:55.986 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:16:56.624 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:16:56.624 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:17:05.889 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+18:17:05.890 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:20:58.320 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:20:58.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:363
+18:20:58.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 20 Math-96
+18:20:58.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:20:58.960 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:20:58.960 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:21:07.941 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:21:07.941 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:21:07.941 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:21:07.941 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:21:07.941 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:21:07.941 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:21:07.941 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+18:21:07.942 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+18:59:10.323 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-96/aggregatedSusInfo.profl
+18:59:10.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:363
+18:59:10.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 20 Math-96
+18:59:10.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+18:59:11.016 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+18:59:11.016 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+18:59:20.084 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.complex.ComplexTest::testMath221]
+18:59:20.084 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2, - org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction, - org.apache.commons.math.complex.ComplexTest::testExp, - org.apache.commons.math.complex.ComplexTest::testPow, - org.apache.commons.math.complex.ComplexTest::testAcos, - org.apache.commons.math.complex.ComplexTest::testAsin, - org.apache.commons.math.complex.ComplexTest::testAtan, - org.apache.commons.math.complex.ComplexTest::testPowZero, - org.apache.commons.math.complex.ComplexTest::testMath221, - org.apache.commons.math.complex.ComplexTest::testMultiply, - org.apache.commons.math.complex.ComplexTest::testSqrt1z, - org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex, - org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction, - org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData, - org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction]
+18:59:20.084 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testLinearFunction
+18:59:20.084 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuadraticFunction
+18:59:20.084 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction2
+18:59:20.084 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.analysis.LaguerreSolverTest::testQuinticFunction
+18:59:20.084 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testExp
+18:59:20.084 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPow
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAcos
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAsin
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testAtan
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testPowZero
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMath221
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testMultiply
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexTest::testSqrt1z
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.complex.ComplexUtilsTest::testPolar2Complex
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testAdHocData
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastCosineTransformerTest::testSinFunction
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testAdHocData
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastFourierTransformerTest::testSinFunction
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testAdHocData
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.transform.FastSineTransformerTest::testSinFunction
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+18:59:20.085 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

@@ -1,0 +1,122 @@
+Setting JAVA_HOME to /home/samuel/jdk1.7.0_80
+
+Adding /home/samuel/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-115
+14:37:05.968 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Closure-115 Failed Tests: 7
+Reading method line coverage from /home/samuel/XiaInformation/AllMethods/Closure/115.txt
+Reading test line coverage from /home/samuel/XiaInformation/LineCoverage/Closure/115.txt
+14:42:40.826 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+14:42:40.951 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-115/generalSusInfo.profl
+14:42:40.972 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+14:42:40.972 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.google.javascript.jscomp.FunctionInjector ===731
+14:42:42.286 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return CanInlineResult.NO;
+14:42:42.286 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at com.google.javascript.jscomp.FunctionInjector:731 ---
+14:42:42.286 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix com/google/javascript/jscomp/FunctionInjector.java 731 ---
+14:42:42.286 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, - com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:42:42.629 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (CanInlineResult.NO != null) {
+	
+
+	}
+
+14:42:42.630 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (CanInlineResult.NO == null) {
+	    throw new IllegalArgumentException("Null 'CanInlineResult.NO' argument.");
+	}
+
+14:42:42.630 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (CanInlineResult.NO == null) {
+	    return null;
+	}
+
+14:42:42.630 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (CanInlineResult.NO == null) CanInlineResult.NO = new null();
+ 
+14:42:42.630 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (CanInlineResult.NO == null) return new CanInlineResult();
+	 
+14:42:42.630 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (CanInlineResult.NO == null) continue;
+	
+---------------- Testing New Patch ----------------
+14:42:42.631 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:42:51.981 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:42:51.981 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 7, [com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 7, [- com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, - com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+14:45:00.310 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6
+14:45:00.311 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=7, fp=0, pf=0, pp=Unknown
+14:45:00.311 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:45:00.490 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-115/aggregatedSusInfo.profl
+14:45:00.490 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult; in com.google.javascript.jscomp.FunctionInjector:731
+14:45:00.490 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 7 Closure-115
+---------------- Testing New Patch ----------------
+14:45:00.491 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:45:09.765 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:45:09.765 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:47:22.828 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 7, [com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:47:22.828 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 7, [- com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, - com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:47:22.828 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818
+14:47:22.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+14:47:22.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8
+14:47:22.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9
+14:47:22.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+14:47:22.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+14:47:22.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6
+14:47:22.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=7, fp=0, pf=0, pp=Unknown
+14:47:22.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:47:23.683 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-115/aggregatedSusInfo.profl
+14:47:23.683 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult; in com.google.javascript.jscomp.FunctionInjector:731
+14:47:23.683 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 7 Closure-115
+---------------- Testing New Patch ----------------
+14:47:23.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:47:32.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:47:32.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 7, [com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 7, [- com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, - com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=7, fp=0, pf=0, pp=Unknown
+14:49:43.500 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:50:07.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-115/aggregatedSusInfo.profl
+14:50:07.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult; in com.google.javascript.jscomp.FunctionInjector:731
+14:50:07.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 7 Closure-115
+---------------- Testing New Patch ----------------
+14:50:07.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:50:11.094 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-115 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:50:11.095 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:50:15.971 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-115 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:50:15.972 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:50:24.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:50:24.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:52:33.045 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 7, [com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 7, [- com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818, - com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8, - com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23, - com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6]
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=7, fp=0, pf=0, pp=Unknown
+14:52:33.046 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+15:03:54.328 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-115/aggregatedSusInfo.profl
+15:03:54.328 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult; in com.google.javascript.jscomp.FunctionInjector:731
+15:03:54.328 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 7 Closure-115
+15:03:54.451 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+15:03:54.452 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+15:03:59.019 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-115 ---Fixer: fix fail because of failed compiling! 
+15:03:59.088 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======

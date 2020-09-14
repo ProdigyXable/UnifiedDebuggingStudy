@@ -129,10 +129,9 @@ tool_name_list = ["jGenProg", "GenProg-A", "jMutRepair", "kPar", "RSRepair-A", "
 repair_tool = sys.argv[1]
 unmodified = sys.argv[2]  # 5th, 4th, 3rd...
 ifPlau = sys.argv[3]    #all results vs non-palusible versions
-root_path = "../../Results/IntermediateResults/profl-unmodified-" + unmodified + "-mixed/"
-#projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
-projects = ["Lang","Time","Math","Chart"]
-ver = [65,27,106,26]
+root_path = "../../Results/IntermediateResults/worst-case/profl-unmodified-" + unmodified + "-mixed/"
+projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
+ver = [65,27,106,26,38,133]
 
 sbfl_result = get_sbfl_result_list(projects)
 

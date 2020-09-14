@@ -1,0 +1,249 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-5
+09:44:55.420 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-5 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/5.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/5.txt
+09:45:13.531 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+09:45:13.642 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/generalSusInfo.profl
+09:45:13.648 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+09:45:13.649 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.complex.Complex ===1228
+09:45:16.163 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return "(" + real + ", " + imaginary + ")";
+09:45:16.163 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.complex.Complex:1228 ---
+09:45:16.164 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/complex/Complex.java 1228 ---
+09:45:16.164 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:45:16.834 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" - real + ", " + imaginary + ")";
+09:45:16.835 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real - ", " + imaginary + ")";
+09:45:16.835 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " - imaginary + ")";
+09:45:16.835 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + imaginary - ")";
+---------------- Testing New Patch ----------------
+09:45:16.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:45:18.804 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-5 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:45:18.805 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:45:20.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-5 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:45:20.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:45:23.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-5 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:45:23.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:45:24.861 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-5 ---Fixer: fix fail because of failed compiling! 
+09:45:25.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + this.imaginary + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + this.real + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + abs() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + conjugate() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + reciprocal() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + hashCode() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + getImaginary() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + getReal() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + isNaN() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + isInfinite() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + negate() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + acos() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + asin() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + atan() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + cos() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + cosh() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + exp() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + log() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + sin() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + sinh() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + sqrt() + ", " + imaginary + ")";
+09:45:25.204 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + sqrt1z() + ", " + imaginary + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + tan() + ", " + imaginary + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + tanh() + ", " + imaginary + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + getArgument() + ", " + imaginary + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + readResolve() + ", " + imaginary + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + getField() + ", " + imaginary + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + toString() + ", " + imaginary + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + abs() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + conjugate() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + reciprocal() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + hashCode() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + getImaginary() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + getReal() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + isNaN() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + isInfinite() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + negate() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + acos() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + asin() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + atan() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + cos() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + cosh() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + exp() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + log() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + sin() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + sinh() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + sqrt() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + sqrt1z() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + tan() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + tanh() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + getArgument() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + readResolve() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + getField() + ")";
+09:45:25.205 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return "(" + real + ", " + toString() + ")";
+---------------- Testing New Patch ----------------
+09:45:25.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:45:27.045 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+09:45:27.045 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+09:49:15.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:49:15.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:49:15.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+09:49:15.322 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:49:15.323 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+09:49:15.326 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+09:49:15.326 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+09:49:15.326 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+09:49:15.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:49:16.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+09:49:16.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+09:51:59.860 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:51:59.860 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:51:59.860 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+09:51:59.860 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:51:59.860 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+09:51:59.862 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+09:51:59.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+09:51:59.862 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+09:51:59.863 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:52:01.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+09:52:01.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+09:54:42.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:54:42.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:54:42.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+09:54:42.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:54:42.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+09:54:42.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+09:54:42.945 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+09:54:42.945 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+09:54:42.946 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:54:44.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+09:54:44.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+09:57:24.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:57:24.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+09:57:24.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+09:57:24.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+09:57:24.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+09:57:24.910 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+09:57:24.910 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+09:57:24.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+09:57:24.912 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+09:57:26.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+09:57:26.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:00:10.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:00:10.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:00:10.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+10:00:10.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:00:10.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:00:10.023 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+10:00:10.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+10:00:10.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+10:00:10.024 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:00:11.362 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:00:11.362 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:03:02.460 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:03:02.461 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:03:02.461 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+10:03:02.461 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:03:02.461 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:03:02.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+10:03:02.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+10:03:02.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+10:03:02.479 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:03:03.867 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:03:03.867 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:05:42.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:05:42.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:05:42.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+10:05:42.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:05:42.400 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:05:42.499 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+10:05:42.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+10:05:42.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+10:05:42.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:05:43.954 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:05:43.954 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:07:36.073 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:07:36.073 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:07:36.073 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+10:07:36.073 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:07:36.073 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:07:36.326 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+10:07:36.326 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+10:07:36.326 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+10:07:36.327 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:07:37.310 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:07:37.310 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:09:18.634 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:09:18.634 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:09:18.634 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+10:09:18.635 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:09:18.635 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:09:20.054 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+10:09:20.054 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+10:09:20.054 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+10:09:20.055 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:09:21.079 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:09:21.079 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:10:56.819 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:10:56.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:10:56.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+10:10:56.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:10:56.820 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:11:05.918 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+10:11:05.918 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+10:11:05.918 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+10:11:05.919 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:11:06.936 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:11:06.936 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:12:41.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:12:41.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:12:41.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.complex.ComplexTest::testReciprocalZero
+10:12:41.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:12:41.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:13:34.847 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+10:13:34.847 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+10:13:34.847 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-5
+---------------- Testing New Patch ----------------
+10:13:34.848 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:13:36.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:13:36.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:13:51.696 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.complex.ComplexTest::testReciprocalZero]
+10:13:51.697 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 0, []
+10:13:51.697 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=1, pf=0, pp=Unknown
+10:13:51.697 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+10:22:52.703 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+10:22:52.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.complex.Complex:toString()Ljava/lang/String; in org.apache.commons.math3.complex.Complex:1228
+10:22:52.704 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Succeeded to fix the bug Math-5====================
+diff --git a/src/main/java/org/apache/commons/math3/complex/Complex.java b/src/main/java/org/apache/commons/math3/complex/Complex.java
+index 22b23f24e..c792f777c 100644
+--- a/src/main/java/org/apache/commons/math3/complex/Complex.java
++++ b/src/main/java/org/apache/commons/math3/complex/Complex.java
+@@ -1225,7 +1225,7 @@ public class Complex implements FieldElement<Complex>, Serializable  {
+     /** {@inheritDoc} */
+     @Override
+     public String toString() {
+-        return "(" + real + ", " + imaginary + ")";
++        return "(" + acos() + ", " + imaginary + ")";
+     }
+ 
+ }
+10:22:53.832 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+10:57:18.710 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-5/aggregatedSusInfo.profl
+Succeeded to fix bug Math-5
+Repair process completed

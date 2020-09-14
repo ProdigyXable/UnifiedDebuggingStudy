@@ -1,0 +1,193 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-69
+18:57:20.776 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-69 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/69.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/69.txt
+18:57:24.431 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+18:57:24.450 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-69/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-69/ochiai.txt
+18:57:24.452 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+18:57:24.452 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.stat.correlation.PearsonsCorrelation ===175
+18:57:25.311 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return new BlockRealMatrix(out);
+18:57:25.314 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/stat/correlation/PearsonsCorrelation.java:175 ---
+18:57:25.323 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new BlockRealMatrix(i);
+18:57:25.328 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new BlockRealMatrix(nVars);
+18:57:25.328 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new BlockRealMatrix(tDistribution);
+18:57:25.328 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new BlockRealMatrix(this.correlationMatrix);
+18:57:25.328 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new BlockRealMatrix(this.nObs);
+---------------- Testing New Patch ----------------
+18:57:25.337 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:26.304 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-69 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:26.305 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:27.291 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-69 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:27.291 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:28.256 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-69 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:28.256 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:29.179 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-69 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:29.181 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:30.135 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-69 ---Fixer: fix fail because of failed compiling! 
+18:57:30.136 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out != null) {
+	
+
+}
+
+18:57:30.136 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out == null) {
+    throw new IllegalArgumentException("Null 'out' argument.");
+}
+
+18:57:30.136 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (out == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+18:57:30.137 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:31.096 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-69 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:31.098 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:32.060 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:57:32.061 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:57:49.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:57:49.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:57:49.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+18:57:49.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+18:57:49.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+18:57:49.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+18:57:49.350 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-69/aggregatedSusInfo.profl
+18:57:49.350 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+18:57:49.350 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-69
+---------------- Testing New Patch ----------------
+18:57:49.351 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:50.489 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:57:50.489 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:58:08.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:58:08.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:58:08.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+18:58:08.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+18:58:08.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+18:58:08.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+18:58:08.647 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-69/aggregatedSusInfo.profl
+18:58:08.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+18:58:08.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-69
+18:58:08.648 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:58:08.649 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:58:09.998 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:58:09.998 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:58:26.873 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:58:26.873 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:58:26.873 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency
+18:58:26.873 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility
+18:58:26.873 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+18:58:26.873 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency
+18:58:26.874 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly
+18:58:26.874 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility
+18:58:26.874 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+18:58:26.874 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=5, pp=Unknown
+18:58:26.874 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+18:58:26.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-69/aggregatedSusInfo.profl
+18:58:26.952 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+18:58:26.952 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-69
+18:58:26.952 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:58:26.953 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:58:28.040 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:58:28.040 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:58:44.502 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=5, pp=Unknown
+18:58:44.503 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+18:58:45.583 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-69/aggregatedSusInfo.profl
+18:58:45.583 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+18:58:45.583 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-69
+---------------- Testing New Patch ----------------
+18:58:45.583 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:58:46.736 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:58:46.736 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+18:59:02.640 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=5, pp=Unknown
+18:59:02.641 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+18:59:16.050 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-69/aggregatedSusInfo.profl
+18:59:16.050 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+18:59:16.050 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-69
+18:59:16.051 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:59:16.051 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:16.955 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:59:16.955 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:59:32.687 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:59:32.688 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+18:59:32.688 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency
+18:59:32.688 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility
+18:59:32.688 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+18:59:32.689 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency
+18:59:32.689 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly
+18:59:32.689 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility
+18:59:32.689 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+18:59:32.689 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=5, pp=Unknown
+18:59:32.689 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+19:02:44.567 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-69/aggregatedSusInfo.profl
+19:02:44.567 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+19:02:44.567 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-69
+19:02:44.567 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:02:44.567 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:02:45.425 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+19:02:45.426 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+19:02:59.335 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=5, pp=Unknown
+19:02:59.336 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+19:41:50.868 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-69/aggregatedSusInfo.profl
+19:41:50.868 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+19:41:50.868 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-69
+---------------- Testing New Patch ----------------
+19:41:50.869 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:41:51.748 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+19:41:51.748 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+19:42:06.255 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+19:42:06.255 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency, - org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+19:42:06.255 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testStdErrorConsistency
+19:42:06.255 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testSwissFertility
+19:42:06.255 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+19:42:06.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testCovarianceConsistency
+19:42:06.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testLongly
+19:42:06.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testSwissFertility
+19:42:06.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+19:42:06.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=5, pp=Unknown
+19:42:06.256 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

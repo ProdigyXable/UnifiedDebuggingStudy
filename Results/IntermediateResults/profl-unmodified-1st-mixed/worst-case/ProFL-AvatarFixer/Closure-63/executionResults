@@ -1,0 +1,145 @@
+Closure-63
+20:10:26.831 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Closure-63 Failed Tests: 2
+Reading method line coverage from /home/samuel/XiaInformation/AllMethods/Closure/63.txt
+Reading test line coverage from /home/samuel/XiaInformation/LineCoverage/Closure/63.txt
+20:19:56.158 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+20:19:56.190 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-63/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Closure-63/ochiai.txt
+20:19:56.226 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+20:19:56.226 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.LightweightMessageFormatter ===97
+20:19:57.213 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+if (excerpt.equals(LINE)
+          && 0 <= charno && charno < sourceExcerpt.length()) {
+        for (int i = 0; i < charno; i++) {
+          char c = sourceExcerpt.charAt(i);
+          if (Character.isWhitespace(c)) {
+            b.append(c);
+          } else {
+            b.append(' ');
+          }
+        }
+        b.append("^\n");
+      }
+20:19:57.215 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/LightweightMessageFormatter.java:97 ---
+20:19:57.223 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (excerpt.equals(LINE)
+          && 0 <= charno && charno <= sourceExcerpt.length()) {
+        for (int i = 0; i < charno; i++) {
+          char c = sourceExcerpt.charAt(i);
+          if (Character.isWhitespace(c)) {
+            b.append(c);
+          } else {
+            b.append(' ');
+          }
+        }
+        b.append("^\n");
+      }
+20:19:57.223 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (excerpt.equals(LINE)
+          && 0 <= charno && charno >= sourceExcerpt.length()) {
+        for (int i = 0; i < charno; i++) {
+          char c = sourceExcerpt.charAt(i);
+          if (Character.isWhitespace(c)) {
+            b.append(c);
+          } else {
+            b.append(' ');
+          }
+        }
+        b.append("^\n");
+      }
+20:19:57.223 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (excerpt.equals(LINE)
+          && 0 <= charno && charno > sourceExcerpt.length()) {
+        for (int i = 0; i < charno; i++) {
+          char c = sourceExcerpt.charAt(i);
+          if (Character.isWhitespace(c)) {
+            b.append(c);
+          } else {
+            b.append(' ');
+          }
+        }
+        b.append("^\n");
+      }
+20:19:57.223 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (excerpt.equals(LINE)
+          && 0 < charno && charno < sourceExcerpt.length()) {
+        for (int i = 0; i < charno; i++) {
+          char c = sourceExcerpt.charAt(i);
+          if (Character.isWhitespace(c)) {
+            b.append(c);
+          } else {
+            b.append(' ');
+          }
+        }
+        b.append("^\n");
+      }
+20:19:57.223 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (excerpt.equals(LINE)
+          && 0 > charno && charno < sourceExcerpt.length()) {
+        for (int i = 0; i < charno; i++) {
+          char c = sourceExcerpt.charAt(i);
+          if (Character.isWhitespace(c)) {
+            b.append(c);
+          } else {
+            b.append(' ');
+          }
+        }
+        b.append("^\n");
+      }
+20:19:57.223 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (excerpt.equals(LINE)
+          && 0 >= charno && charno < sourceExcerpt.length()) {
+        for (int i = 0; i < charno; i++) {
+          char c = sourceExcerpt.charAt(i);
+          if (Character.isWhitespace(c)) {
+            b.append(c);
+          } else {
+            b.append(' ');
+          }
+        }
+        b.append("^\n");
+      }
+---------------- Testing New Patch ----------------
+20:19:57.224 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+20:20:07.012 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+20:20:07.012 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+20:21:49.924 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine1, com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine2]
+20:21:49.924 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 0, []
+20:21:49.924 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=0, fp=2, pf=0, pp=Unknown
+20:21:49.925 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] CleanFix found
+20:21:49.928 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-63/aggregatedSusInfo.profl
+20:21:49.928 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.LightweightMessageFormatter:format(Lcom/google/javascript/jscomp/JSError;Z)Ljava/lang/String; in com.google.javascript.jscomp.LightweightMessageFormatter:97
+20:21:49.928 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Succeeded to fix the bug Closure-63====================
+20:21:52.740 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: for (int i = 0; i < charno; i++) {
+          char c = sourceExcerpt.charAt(i);
+          if (Character.isWhitespace(c)) {
+            b.append(c);
+          } else {
+            b.append(' ');
+          }
+        }
+        b.append("^\n");
+20:21:52.740 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+---------------- Testing New Patch ----------------
+20:21:52.740 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+20:22:02.088 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+20:22:02.088 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+20:23:39.319 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 0, [com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine1, com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine2]
+20:23:39.319 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 0, []
+20:23:39.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=0, fp=2, pf=0, pp=Unknown
+20:23:39.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] CleanFix found
+20:23:39.326 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-63/aggregatedSusInfo.profl
+20:23:39.326 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.LightweightMessageFormatter:format(Lcom/google/javascript/jscomp/JSError;Z)Ljava/lang/String; in com.google.javascript.jscomp.LightweightMessageFormatter:97
+20:23:39.326 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 0 Closure-63
+---------------- Testing New Patch ----------------
+20:23:39.327 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+20:23:48.546 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+20:23:48.547 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+20:25:26.305 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 0, [com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine1, com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine2]
+20:25:26.305 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaces, - com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorTabs, - com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine1, - com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine2]
+20:25:26.305 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaces
+20:25:26.305 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorTabs
+20:25:26.306 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine1
+20:25:26.306 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.LightweightMessageFormatterTest::testFormatErrorSpaceEndOfLine2
+20:25:26.306 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+20:25:26.306 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+20:25:26.320 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-63/aggregatedSusInfo.profl
+20:25:26.320 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.LightweightMessageFormatter:format(Lcom/google/javascript/jscomp/JSError;Z)Ljava/lang/String; in com.google.javascript.jscomp.LightweightMessageFormatter:97
+20:25:26.320 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Closure-63
+20:25:26.348 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Finish off fixing======
+20:25:26.386 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/avatar/ProFL-AvatarFixer/Closure-63/aggregatedSusInfo.profl
+Succeeded to fix bug Closure-63

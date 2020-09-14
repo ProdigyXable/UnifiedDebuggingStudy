@@ -1,0 +1,229 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-38
+19:18:57.437 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/38.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/38.txt
+19:18:59.283 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+19:18:59.311 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-38/generalSusInfo.profl
+19:18:59.367 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-38/aggregatedSusInfo.profl
+19:18:59.368 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+19:18:59.368 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool ===48
+19:19:00.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return StringDescription.toString(m).equals(arg.toString());
+19:19:00.174 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:48 ---
+19:19:00.174 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/mockito/internal/verification/argumentmatching/ArgumentMatchingTool.java 48 ---
+19:19:00.174 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, - org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || (m instanceof ContainsExtraTypeInformation 
+                    && !safelyMatches(m, arguments[i]) 
+                    && toStringEquals(m, arguments[i])
+                    && !((ContainsExtraTypeInformation) m).typeMatches(arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && (m instanceof ContainsExtraTypeInformation 
+                    && !safelyMatches(m, arguments[i]) 
+                    && toStringEquals(m, arguments[i])
+                    && !((ContainsExtraTypeInformation) m).typeMatches(arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || !(m instanceof ContainsExtraTypeInformation 
+                    && !safelyMatches(m, arguments[i]) 
+                    && toStringEquals(m, arguments[i])
+                    && !((ContainsExtraTypeInformation) m).typeMatches(arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && !(m instanceof ContainsExtraTypeInformation 
+                    && !safelyMatches(m, arguments[i]) 
+                    && toStringEquals(m, arguments[i])
+                    && !((ContainsExtraTypeInformation) m).typeMatches(arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || (toStringEquals(m, arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && (toStringEquals(m, arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || !(toStringEquals(m, arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && !(toStringEquals(m, arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || (!safelyMatches(m, arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && (!safelyMatches(m, arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || !(!safelyMatches(m, arguments[i]));
+19:19:00.202 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && !(!safelyMatches(m, arguments[i]));
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || (m instanceof ContainsExtraTypeInformation);
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && (m instanceof ContainsExtraTypeInformation);
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || !(m instanceof ContainsExtraTypeInformation);
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && !(m instanceof ContainsExtraTypeInformation);
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || (!((ContainsExtraTypeInformation) m).typeMatches(arguments[i]));
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && (!((ContainsExtraTypeInformation) m).typeMatches(arguments[i]));
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) || !(!((ContainsExtraTypeInformation) m).typeMatches(arguments[i]));
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (StringDescription.toString(m).equals(arg.toString())) && !(!((ContainsExtraTypeInformation) m).typeMatches(arguments[i]));
+---------------- Testing New Patch ----------------
+19:19:00.203 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:04.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:04.338 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:08.399 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:08.400 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:12.451 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:12.452 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:16.613 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:16.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:20.650 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:20.651 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:24.850 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:24.851 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:28.927 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:28.927 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:33.139 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:33.139 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:37.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:37.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:41.455 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:41.455 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:45.639 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:45.640 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:49.774 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:19:49.775 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:19:59.811 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:19:59.811 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:22:01.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:22:01.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, - org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument, - org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodWhenMissingInvocationWithMatcher]
+19:22:01.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull
+19:22:01.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument
+19:22:01.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.DescriptiveMessagesWhenVerificationFailsTest::shouldPrintMethodWhenMissingInvocationWithMatcher
+19:22:01.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=1, pp=Unknown
+19:22:01.254 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+19:22:01.365 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-38/aggregatedSusInfo.profl
+19:22:01.365 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:toStringEquals(Lorg/hamcrest/Matcher;Ljava/lang/Object;)Z in org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:48
+19:22:01.366 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Mockito-38
+---------------- Testing New Patch ----------------
+19:22:01.366 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:22:11.290 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:22:11.290 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:24:11.677 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:24:11.677 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, - org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:24:11.677 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull
+19:24:11.677 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument
+19:24:11.677 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+19:24:11.678 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:24:12.472 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-38/aggregatedSusInfo.profl
+19:24:12.472 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:toStringEquals(Lorg/hamcrest/Matcher;Ljava/lang/Object;)Z in org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:48
+19:24:12.472 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Mockito-38
+---------------- Testing New Patch ----------------
+19:24:12.473 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:24:22.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:24:22.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:26:22.917 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:26:22.917 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, - org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:26:22.917 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull
+19:26:22.917 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument
+19:26:22.917 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+19:26:22.917 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+19:26:35.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-38/aggregatedSusInfo.profl
+19:26:35.905 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:toStringEquals(Lorg/hamcrest/Matcher;Ljava/lang/Object;)Z in org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:48
+19:26:35.905 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Mockito-38
+---------------- Testing New Patch ----------------
+19:26:35.905 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:26:45.939 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:26:45.939 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:28:46.404 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 6, [- org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldFindSuspiciousMatchers, - org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, - org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument, - org.mockitousage.verification.PrintingVerboseTypesWithArgumentsTest::shouldShowTheTypeOfTheMismatchingArgumentWhenOutputDescriptionsForInvocationsAreDifferent, - org.mockitousage.verification.PrintingVerboseTypesWithArgumentsTest::shouldNotReportArgumentTypesWhenToStringIsTheSame, - org.mockitousage.verification.PrintingVerboseTypesWithArgumentsTest::shouldShowTheTypeOfOnlyTheArgumentThatDoesntMatch]
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldFindSuspiciousMatchers
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.PrintingVerboseTypesWithArgumentsTest::shouldShowTheTypeOfTheMismatchingArgumentWhenOutputDescriptionsForInvocationsAreDifferent
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.PrintingVerboseTypesWithArgumentsTest::shouldNotReportArgumentTypesWhenToStringIsTheSame
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.verification.PrintingVerboseTypesWithArgumentsTest::shouldShowTheTypeOfOnlyTheArgumentThatDoesntMatch
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=4, pp=Unknown
+19:28:46.405 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+19:33:18.544 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-38/aggregatedSusInfo.profl
+19:33:18.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:toStringEquals(Lorg/hamcrest/Matcher;Ljava/lang/Object;)Z in org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:48
+19:33:18.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 6 Mockito-38
+---------------- Testing New Patch ----------------
+19:33:18.545 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:33:22.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:33:22.598 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:33:26.605 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:33:26.606 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:33:30.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:33:30.589 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:33:34.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (m != null) {
+	
+
+	}
+
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (m == null) {
+	    throw new IllegalArgumentException("Null 'm' argument.");
+	}
+
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (m == null) {
+	    return false;
+	}
+
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (m == null) {
+	    return true;
+	}
+
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (m == null) m = new Matcher();
+ 
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arg != null) {
+	
+
+	}
+
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arg == null) {
+	    throw new IllegalArgumentException("Null 'arg' argument.");
+	}
+
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arg == null) {
+	    return false;
+	}
+
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arg == null) {
+	    return true;
+	}
+
+19:33:34.674 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (arg == null) arg = new Object();
+ 
+19:33:34.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (!(StringDescription.toString(m) != null && m != null && arg != null)) return false;
+
+19:33:34.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (!(StringDescription.toString(m) != null && m != null && arg != null)) retur true;
+
+19:33:34.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return StringDescription != null && StringDescription.toString(m).equals(arg.toString());
+19:33:34.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return StringDescription != null || StringDescription.toString(m).equals(arg.toString());
+19:33:34.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return m != null && StringDescription.toString(m).equals(arg.toString());
+19:33:34.675 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return m != null || StringDescription.toString(m).equals(arg.toString());
+---------------- Testing New Patch ----------------
+19:33:34.676 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:33:38.776 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-38 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:33:38.776 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:33:48.593 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:33:48.593 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:35:47.306 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:35:47.306 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, - org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+19:35:47.306 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull
+19:35:47.306 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument
+19:35:47.306 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+19:35:47.306 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+21:11:28.402 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Mockito-38/aggregatedSusInfo.profl
+21:11:28.403 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:toStringEquals(Lorg/hamcrest/Matcher;Ljava/lang/Object;)Z in org.mockito.internal.verification.argumentmatching.ArgumentMatchingTool:48
+21:11:28.403 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Mockito-38
+---------------- Testing New Patch ----------------
+21:11:28.403 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+21:11:38.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+21:11:38.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+21:13:39.265 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+21:13:39.266 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull, - org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument]
+21:13:39.266 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockito.internal.verification.argumentmatching.ArgumentMatchingToolTest::shouldWorkFineWhenGivenArgIsNull
+21:13:39.266 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.ActualInvocationHasNullArgumentNPEBugTest::shouldAllowPassingNullArgument
+21:13:39.266 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+21:13:39.266 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

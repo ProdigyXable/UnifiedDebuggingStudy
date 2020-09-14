@@ -1,0 +1,230 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-49
+07:06:22.735 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Lang-49 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/49.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/49.txt
+07:06:24.119 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+07:06:24.134 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/generalSusInfo.profl
+07:06:24.136 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+07:06:24.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.math.Fraction ===470
+07:06:25.233 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return Fraction.getFraction(numerator / gcd, denominator / gcd);
+07:06:25.234 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.math.Fraction:470 ---
+07:06:25.234 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/math/Fraction.java 470 ---
+07:06:25.234 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:06:25.786 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(this.denominator / gcd, denominator / gcd);
+07:06:25.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(this.hashCode / gcd, denominator / gcd);
+07:06:25.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / this.hashCode, denominator / gcd);
+07:06:25.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / this.denominator, denominator / gcd);
+07:06:25.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / this.numerator, denominator / gcd);
+07:06:25.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, this.numerator / gcd);
+07:06:25.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, this.hashCode / gcd);
+07:06:25.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / this.hashCode);
+07:06:25.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / this.denominator);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / this.numerator);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(getNumerator() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(getDenominator() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(getProperNumerator() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(getProperWhole() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(intValue() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(longValue() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(floatValue() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(doubleValue() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(reduce() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(invert() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(negate() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(abs() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(hashCode() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(toString() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(toProperString() / gcd, denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / getNumerator(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / getDenominator(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / getProperNumerator(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / getProperWhole(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / intValue(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / longValue(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / floatValue(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / doubleValue(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / reduce(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / invert(), denominator / gcd);
+07:06:25.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / negate(), denominator / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / abs(), denominator / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / hashCode(), denominator / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / toString(), denominator / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / toProperString(), denominator / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, getNumerator() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, getDenominator() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, getProperNumerator() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, getProperWhole() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, intValue() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, longValue() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, floatValue() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, doubleValue() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, reduce() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, invert() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, negate() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, abs() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, hashCode() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, toString() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, toProperString() / gcd);
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / getNumerator());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / getDenominator());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / getProperNumerator());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / getProperWhole());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / intValue());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / longValue());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / floatValue());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / doubleValue());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / reduce());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / invert());
+07:06:25.789 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / negate());
+07:06:25.790 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / abs());
+07:06:25.790 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / hashCode());
+07:06:25.790 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / toString());
+07:06:25.790 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Fraction.getFraction(numerator / gcd, denominator / toProperString());
+---------------- Testing New Patch ----------------
+07:06:25.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:26.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:26.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:41.340 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:06:41.340 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:06:41.341 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:06:41.341 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:06:41.341 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:06:41.343 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:06:41.343 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:06:41.343 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:06:41.344 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:42.489 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:42.489 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:06:57.210 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:06:57.210 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:06:57.210 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:06:57.210 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:06:57.210 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:06:57.212 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:06:57.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:06:57.212 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:06:57.213 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:06:58.210 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:06:58.210 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:13.971 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:07:13.971 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:07:13.971 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:07:13.971 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:07:13.971 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:07:13.983 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:07:13.983 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:07:13.983 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:07:13.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:15.152 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:15.152 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:31.662 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:07:31.662 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:07:31.662 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:07:31.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:07:31.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:07:31.667 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:07:31.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:07:31.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:07:31.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:32.797 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:32.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:07:49.463 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:07:49.463 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:07:49.463 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:07:49.463 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:07:49.463 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:07:49.477 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:07:49.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:07:49.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:07:49.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:07:50.525 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:07:50.525 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:07.079 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:08:07.079 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:08:07.079 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:08:07.079 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:08:07.080 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:08:07.226 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:08:07.226 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:08:07.226 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:08:07.227 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:08.360 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:08.360 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:24.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:08:24.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:08:24.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:08:24.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:08:24.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:08:25.809 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:08:25.810 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:08:25.810 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:08:25.811 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:26.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:26.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:08:43.424 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:08:43.424 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:08:43.424 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:08:43.424 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:08:43.424 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:08:51.494 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:08:51.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:08:51.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:08:51.496 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:08:52.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:08:52.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:09:07.771 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:09:07.771 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:09:07.771 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:09:07.771 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:09:07.771 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:10:09.395 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:10:09.395 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:10:09.395 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:10:09.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:10:10.435 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:10:10.435 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:10:26.356 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:10:26.356 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:10:26.356 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:10:26.356 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:10:26.356 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+07:19:33.071 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+07:19:33.071 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+07:19:33.071 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+07:19:33.072 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+07:19:34.304 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+07:19:34.304 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+07:19:52.709 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+07:19:52.709 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+07:19:52.709 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+07:19:52.709 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:19:52.709 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+08:23:07.096 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-49/aggregatedSusInfo.profl
+08:23:07.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.math.Fraction:reduce()Lorg/apache/commons/lang/math/Fraction; in org.apache.commons.lang.math.Fraction:470
+08:23:07.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-49
+---------------- Testing New Patch ----------------
+08:23:07.098 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+08:23:08.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+08:23:08.325 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+08:23:25.661 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.math.FractionTest::testReduce]
+08:23:25.662 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.math.FractionTest::testReduce]
+08:23:25.662 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.math.FractionTest::testReduce
+08:23:25.662 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+08:23:25.662 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

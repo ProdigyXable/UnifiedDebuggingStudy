@@ -1,0 +1,272 @@
+Setting JAVA_HOME to /home/samuel/jdk1.7.0_80
+
+Adding /home/samuel/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-7
+17:17:38.518 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 Failed Tests: 1
+Reading method line coverage from /home/samuel/XiaInformation/AllMethods/Mockito/7.txt
+Reading test line coverage from /home/samuel/XiaInformation/LineCoverage/Mockito/7.txt
+17:17:45.006 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+17:17:45.037 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Mockito-7/generalSusInfo.profl
+17:17:45.050 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+17:17:45.050 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs ===99
+17:17:45.756 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+MockSettings mockSettings = returnTypeGenericMetadata.hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces())
+                : withSettings();
+17:17:45.756 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:99 ---
+17:17:45.756 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/mockito/internal/stubbing/defaultanswers/ReturnsDeepStubs.java 99 ---
+17:17:45.756 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:17:45.855 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = mockitoCore().hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces())
+                : withSettings();
+17:17:45.856 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = delegate().hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces())
+                : withSettings();
+17:17:45.856 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(mockitoCore().rawExtraInterfaces())
+                : withSettings();
+17:17:45.856 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(delegate().rawExtraInterfaces())
+                : withSettings();
+---------------- Testing New Patch ----------------
+17:17:45.857 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:17:58.587 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:17:58.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:18:09.898 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:18:09.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:18:21.543 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:18:21.544 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:18:32.802 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+17:18:32.875 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (returnTypeGenericMetadata != null) {
+	
+
+	}
+
+17:18:32.875 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (returnTypeGenericMetadata == null) {
+	    throw new IllegalArgumentException("Null 'returnTypeGenericMetadata' argument.");
+	}
+
+17:18:32.876 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (returnTypeGenericMetadata == null) {
+	    return null;
+	}
+
+17:18:32.876 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (returnTypeGenericMetadata == null) returnTypeGenericMetadata = new GenericMetadataSupport();
+ 
+17:18:32.876 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (returnTypeGenericMetadata == null) return new MockSettings();
+	 
+17:18:32.876 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (returnTypeGenericMetadata == null) return mockSettings;
+	 
+---------------- Testing New Patch ----------------
+17:18:32.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:18:44.453 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:18:44.454 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:18:45.182 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+17:18:45.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+17:19:53.713 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:19:53.713 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:19:53.713 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics
+17:19:53.713 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+17:19:53.714 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+17:19:53.780 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Mockito-7/aggregatedSusInfo.profl
+17:19:53.780 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:<init>()V in org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:99
+17:19:53.780 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Mockito-7
+---------------- Testing New Patch ----------------
+17:19:53.781 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:19:54.520 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+17:19:54.520 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+17:21:04.844 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:21:04.845 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:21:04.845 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics
+17:21:04.845 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+17:21:04.845 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+17:21:05.090 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Mockito-7/aggregatedSusInfo.profl
+17:21:05.090 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:<init>()V in org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:99
+17:21:05.090 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Mockito-7
+---------------- Testing New Patch ----------------
+17:21:05.091 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:21:15.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:21:15.901 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:21:27.122 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:21:27.123 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:21:37.972 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+17:21:38.055 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces());
+17:21:38.055 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = withSettings();
+---------------- Testing New Patch ----------------
+17:21:38.055 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:21:38.730 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+17:21:38.730 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+17:22:45.942 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:22:45.942 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 26, [- org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::will_return_default_value_on_non_mockable_nested_generic, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_return_types_declared_with_a_bounded_wildcard, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_still_work_with_raw_type_in_the_return_type, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::as_expected_fail_with_a_CCE_on_callsite_when_erasure_takes_place_for_example___StringBuilder_is_subject_to_erasure, - org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub, - org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics, - org.mockitousage.serialization.DeepStubsSerializableTest::should_serialize_and_deserialize_parameterized_class_mocked_with_deep_stubs, - org.mockitousage.serialization.DeepStubsSerializableTest::should_discard_generics_metadata_when_serialized_then_disabling_deep_stubs_with_generics, - org.mockitousage.serialization.DeepStubsSerializableTest::should_serialize_and_deserialize_mock_created_with_deep_stubs, - org.mockitousage.stubbing.DeepStubbingTest::withComplexPatternArguments, - org.mockitousage.stubbing.DeepStubbingTest::shouldVerificationBasicallyWorkFine, - org.mockitousage.stubbing.DeepStubbingTest::withAnyPatternArguments, - org.mockitousage.stubbing.DeepStubbingTest::shouldStubbingBasicallyWorkFine, - org.mockitousage.stubbing.DeepStubbingTest::withArguments, - org.mockitousage.stubbing.DeepStubbingTest::myTest, - org.mockitousage.stubbing.DeepStubbingTest::oneLevelDeep, - org.mockitousage.stubbing.DeepStubbingTest::times_never_atLeast_atMost_verificationModes_should_work, - org.mockitousage.stubbing.DeepStubbingTest::inOrder_only_work_on_the_very_last_mock_but_it_works, - org.mockitousage.stubbing.DeepStubbingTest::deep_stub_return_same_mock_instance_if_invocation_matchers_matches, - org.mockitousage.stubbing.DeepStubbingTest::verificationMode_only_work_on_the_last_returned_mock, - org.mockitousage.stubbing.DeepStubbingTest::withPatternPrimitive, - org.mockitousage.stubbing.DeepStubbingTest::interactions, - org.mockitousage.stubbing.DeepStubbingTest::withSimplePrimitive, - org.mockitousage.stubbing.DeepStubbingTest::verification_work_with_argument_Matchers_in_nested_calls]
+17:22:45.942 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::will_return_default_value_on_non_mockable_nested_generic
+17:22:45.942 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_return_types_declared_with_a_bounded_wildcard
+17:22:45.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_still_work_with_raw_type_in_the_return_type
+17:22:45.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class
+17:22:45.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls
+17:22:45.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::as_expected_fail_with_a_CCE_on_callsite_when_erasure_takes_place_for_example___StringBuilder_is_subject_to_erasure
+17:22:45.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub
+17:22:45.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics
+17:22:45.943 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.serialization.DeepStubsSerializableTest::should_serialize_and_deserialize_parameterized_class_mocked_with_deep_stubs
+17:22:45.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.serialization.DeepStubsSerializableTest::should_discard_generics_metadata_when_serialized_then_disabling_deep_stubs_with_generics
+17:22:45.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.serialization.DeepStubsSerializableTest::should_serialize_and_deserialize_mock_created_with_deep_stubs
+17:22:45.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withComplexPatternArguments
+17:22:45.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::shouldVerificationBasicallyWorkFine
+17:22:45.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withAnyPatternArguments
+17:22:45.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::shouldStubbingBasicallyWorkFine
+17:22:45.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withArguments
+17:22:45.944 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::myTest
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::oneLevelDeep
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::times_never_atLeast_atMost_verificationModes_should_work
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::inOrder_only_work_on_the_very_last_mock_but_it_works
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::deep_stub_return_same_mock_instance_if_invocation_matchers_matches
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::verificationMode_only_work_on_the_last_returned_mock
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withPatternPrimitive
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::interactions
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withSimplePrimitive
+17:22:45.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::verification_work_with_argument_Matchers_in_nested_calls
+17:22:45.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=25, pp=Unknown
+17:22:45.946 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+17:22:46.750 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Mockito-7/aggregatedSusInfo.profl
+17:22:46.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:<init>()V in org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:99
+17:22:46.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 26 Mockito-7
+---------------- Testing New Patch ----------------
+17:22:46.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:22:47.583 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+17:22:47.583 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+17:23:55.665 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:23:55.666 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class, - org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:23:55.666 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class
+17:23:55.666 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class
+17:23:55.666 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls
+17:23:55.667 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class
+17:23:55.667 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics
+17:23:55.667 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+17:23:55.667 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+17:24:11.760 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Mockito-7/aggregatedSusInfo.profl
+17:24:11.761 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:<init>()V in org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:99
+17:24:11.761 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Mockito-7
+17:24:12.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.actualTypeArguments())
+                : withSettings();
+17:24:12.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.rawType())
+                : withSettings();
+17:24:12.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.hasRawExtraInterfaces())
+                : withSettings();
+17:24:12.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.hasRawExtraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.extraInterfaces())
+                : withSettings();
+17:24:12.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.actualTypeArguments() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces())
+                : withSettings();
+17:24:12.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.rawType() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces())
+                : withSettings();
+17:24:12.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.extraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces())
+                : withSettings();
+17:24:12.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: MockSettings mockSettings = returnTypeGenericMetadata.rawExtraInterfaces() ?
+                withSettings().extraInterfaces(returnTypeGenericMetadata.rawExtraInterfaces())
+                : withSettings();
+---------------- Testing New Patch ----------------
+17:24:12.093 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:24:22.869 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:24:22.869 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:24:23.537 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+17:24:23.538 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+17:25:31.996 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:25:31.996 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class, - org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:25:31.996 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class
+17:25:31.996 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class
+17:25:31.996 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls
+17:25:31.996 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class
+17:25:31.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics
+17:25:31.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+17:25:31.997 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+17:31:21.295 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Mockito-7/aggregatedSusInfo.profl
+17:31:21.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:<init>()V in org.mockito.internal.stubbing.defaultanswers.ReturnsDeepStubs:99
+17:31:21.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Mockito-7
+---------------- Testing New Patch ----------------
+17:31:21.296 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:31:31.805 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:31:31.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:31:42.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:31:42.303 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:31:52.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:31:52.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:32:03.409 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:32:03.410 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:32:13.874 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:32:13.875 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:32:24.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+17:32:24.305 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+17:32:24.305 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+17:32:24.305 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:32:34.702 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:32:34.703 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:32:45.407 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mockito-7 ---Fixer: fix fail because of failed compiling! 
+17:32:45.485 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.mockito.internal.util.reflection.GenericMetadataSupport ===158
+17:32:45.538 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return rawExtraInterfaces().length > 0;
+17:32:45.538 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.mockito.internal.util.reflection.GenericMetadataSupport:158 ---
+17:32:45.538 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/mockito/internal/util/reflection/GenericMetadataSupport.java 158 ---
+17:32:45.538 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:32:45.627 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return rawExtraInterfaces().length==0;
+17:32:45.628 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return rawExtraInterfaces().length!=0;
+17:32:45.628 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return rawExtraInterfaces().length<0;
+17:32:45.628 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return rawExtraInterfaces().length<=0;
+17:32:45.628 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return rawExtraInterfaces().length>=0;
+---------------- Testing New Patch ----------------
+17:32:45.630 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+17:32:46.426 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+17:32:46.426 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics]
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 28, [- org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::will_return_default_value_on_non_mockable_nested_generic, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_return_types_declared_with_a_bounded_wildcard, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_still_work_with_raw_type_in_the_return_type, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::as_expected_fail_with_a_CCE_on_callsite_when_erasure_takes_place_for_example___StringBuilder_is_subject_to_erasure, - org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class, - org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub, - org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics, - org.mockitousage.serialization.DeepStubsSerializableTest::should_serialize_and_deserialize_parameterized_class_mocked_with_deep_stubs, - org.mockitousage.serialization.DeepStubsSerializableTest::should_discard_generics_metadata_when_serialized_then_disabling_deep_stubs_with_generics, - org.mockitousage.serialization.DeepStubsSerializableTest::should_serialize_and_deserialize_mock_created_with_deep_stubs, - org.mockitousage.stubbing.DeepStubbingTest::withComplexPatternArguments, - org.mockitousage.stubbing.DeepStubbingTest::shouldVerificationBasicallyWorkFine, - org.mockitousage.stubbing.DeepStubbingTest::withAnyPatternArguments, - org.mockitousage.stubbing.DeepStubbingTest::shouldStubbingBasicallyWorkFine, - org.mockitousage.stubbing.DeepStubbingTest::withArguments, - org.mockitousage.stubbing.DeepStubbingTest::myTest, - org.mockitousage.stubbing.DeepStubbingTest::oneLevelDeep, - org.mockitousage.stubbing.DeepStubbingTest::times_never_atLeast_atMost_verificationModes_should_work, - org.mockitousage.stubbing.DeepStubbingTest::inOrder_only_work_on_the_very_last_mock_but_it_works, - org.mockitousage.stubbing.DeepStubbingTest::deep_stub_return_same_mock_instance_if_invocation_matchers_matches, - org.mockitousage.stubbing.DeepStubbingTest::verificationMode_only_work_on_the_last_returned_mock, - org.mockitousage.stubbing.DeepStubbingTest::withPatternPrimitive, - org.mockitousage.stubbing.DeepStubbingTest::interactions, - org.mockitousage.stubbing.DeepStubbingTest::withSimplePrimitive, - org.mockitousage.stubbing.DeepStubbingTest::verification_work_with_argument_Matchers_in_nested_calls]
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::will_return_default_value_on_non_mockable_nested_generic
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_typevar_that_is_referencing_a_typevar_on_class
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_return_types_declared_with_a_bounded_wildcard
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_still_work_with_raw_type_in_the_return_type
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_return_type_of_parameterized_method_is_a_parameterizedtype_that_is_referencing_a_typevar_on_class
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::generic_deep_mock_frenzy__look_at_these_chained_calls
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::as_expected_fail_with_a_CCE_on_callsite_when_erasure_takes_place_for_example___StringBuilder_is_subject_to_erasure
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockito.internal.stubbing.defaultanswers.ReturnsGenericDeepStubsTest::can_create_mock_from_multiple_type_variable_bounds_when_method_return_type_is_referencing_a_typevar_on_class
+17:33:53.157 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.bugs.DeepStubsWronglyReportsSerializationProblemsTest::should_not_raise_a_mockito_exception_about_serialization_when_accessing_deep_stub
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.deepstubs.DeepStubFailingWhenGenricNestedAsRawTypeTest::discoverDeepMockingOfGenerics
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.serialization.DeepStubsSerializableTest::should_serialize_and_deserialize_parameterized_class_mocked_with_deep_stubs
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.serialization.DeepStubsSerializableTest::should_discard_generics_metadata_when_serialized_then_disabling_deep_stubs_with_generics
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.serialization.DeepStubsSerializableTest::should_serialize_and_deserialize_mock_created_with_deep_stubs
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withComplexPatternArguments
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::shouldVerificationBasicallyWorkFine
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withAnyPatternArguments
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::shouldStubbingBasicallyWorkFine
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withArguments
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::myTest
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::oneLevelDeep
+17:33:53.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::times_never_atLeast_atMost_verificationModes_should_work
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::inOrder_only_work_on_the_very_last_mock_but_it_works
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::deep_stub_return_same_mock_instance_if_invocation_matchers_matches
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::verificationMode_only_work_on_the_last_returned_mock
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withPatternPrimitive
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::interactions
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::withSimplePrimitive
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.mockitousage.stubbing.DeepStubbingTest::verification_work_with_argument_Matchers_in_nested_calls
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=27, pp=Unknown
+17:33:53.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

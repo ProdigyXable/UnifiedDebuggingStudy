@@ -1,0 +1,85 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+java version "1.7.0_80"
+Java(TM) SE Runtime Environment (build 1.7.0_80-b15)
+Java HotSpot(TM) 64-Bit Server VM (build 24.80-b11, mixed mode)
+
+Java 7 environment setup completed
+Closure-127
+14:16:41.257 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-127 Failed Tests: 6
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/127.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/127.txt
+14:22:01.700 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+14:22:01.784 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-127/generalSusInfo.profl
+14:22:01.898 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-127/aggregatedSusInfo.profl
+14:22:01.901 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+14:22:01.901 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.rhino.Token ===264
+14:22:02.675 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case LABEL:
+14:22:02.690 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.rhino.Token ===213
+14:22:02.754 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case LABEL_NAME:
+14:22:02.755 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.rhino.Node ===1457
+14:22:03.319 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return res;
+14:22:03.321 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (res != null) {
+	
+
+}
+
+14:22:03.322 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (res == null) {
+    throw new IllegalArgumentException("Null 'res' argument.");
+}
+
+14:22:03.322 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (res == null) {
+    return null;
+}
+
+14:22:03.322 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:22:12.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:22:12.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:26:31.633 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c]
+14:26:31.633 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch]
+14:26:31.633 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a
+14:26:31.634 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c
+14:26:31.634 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue
+14:26:31.634 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return
+14:26:31.634 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally
+14:26:31.634 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch
+14:26:31.634 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+14:26:31.634 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:26:32.163 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-127/aggregatedSusInfo.profl
+14:26:32.163 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch; in com.google.javascript.rhino.Node:1457
+14:26:32.163 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 6 Closure-127
+14:26:32.163 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:26:52.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:26:52.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:31:14.057 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c]
+14:31:14.057 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch]
+14:31:14.058 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a
+14:31:14.058 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c
+14:31:14.058 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue
+14:31:14.058 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return
+14:31:14.058 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally
+14:31:14.058 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch
+14:31:14.058 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+14:31:14.058 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+14:31:24.081 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Closure-127/aggregatedSusInfo.profl
+14:31:24.082 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch; in com.google.javascript.rhino.Node:1457
+14:31:24.082 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 6 Closure-127
+14:31:24.082 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+14:31:32.940 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+14:31:32.940 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 6, [com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a, com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c]
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 6, [- com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally, - com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch]
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428a
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428c
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_continue
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testIssue4177428_return
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinally
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.UnreachableCodeEliminationTest::testDontRemoveBreakInTryFinallySwitch
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=6, fp=0, pf=0, pp=Unknown
+14:36:00.283 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+./kPAR.sh: line 11: 39541 Killed                  timeout --foreground --signal 9 5h java -Xmx16g -cp kPAR-profl.jar:dependency/* edu.lu.uni.serval.main.Main $bugDataPath $defects4jHome $bugID ${proflMethod} ${proflTest} ${proflFailing}

@@ -1,0 +1,40 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-13
+03:09:11.474 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-13 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/13.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/13.txt
+03:09:14.277 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:09:14.288 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-13/generalSusInfo.profl
+03:09:14.290 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Lang-13/aggregatedSusInfo.profl
+03:09:14.290 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+03:09:14.290 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1693
+03:09:15.126 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1693
+03:09:15.126 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1680
+03:09:15.281 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1680
+03:09:15.281 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1679
+03:09:15.346 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1679
+03:09:15.346 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1677
+03:09:15.402 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1677
+03:09:15.402 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1676
+03:09:15.449 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1676
+03:09:15.449 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.FastDatePrinter ===541
+03:09:15.533 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDatePrinter --- 541
+03:09:15.533 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.FastDatePrinter ===540
+03:09:15.619 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Create the object after serialization. This implementation reinitializes the
+     * transient properties.
+     *
+     * @param in ObjectInputStream from which the object is being deserialized.
+     * @throws IOException if there is an IO issue.
+     * @throws ClassNotFoundException if a class cannot be found.
+     */
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        init();
+    }
