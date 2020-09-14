@@ -9,14 +9,16 @@ This repository contains the dataset and scripts for *On the Effectiveness of Un
 - **[ExperimentalData](Data/ExperimentalData/)**: the raw experimental dataset.
     -  **ProFL-\[*toolName*]/\[*d4j-project*]/**: data for each APR tool on each project.
 	    - **generalSusInfo.profl**: spectrum-based fault localization based on Ochiai and aggregation strategy.  (Methods with zero suspiciousness are excluded and tied methods all  receive *worse rank*).
-	``` 
-	[MethodRank 1] | [Suspiciousness Score 1] | [MethodSignature 1]; 
-	[MethodRank 2] | [Suspiciousness Score 2] | [MethodSignature 2];
+		``` 
+		[MethodRank 1] | [Suspiciousness Score 1] | [MethodSignature 1]; 
+		[MethodRank 2] | [Suspiciousness Score 2] | [MethodSignature 2];
     	...
     	[MethodRank N] | [Suspiciousness Score N] | [MethodSignature N];
     	```
-	    - **aggregatedSusInfo.profl**: unfied debugging fault localization.  Patch caregory (i.e., *CleanFix*, *NoisyFix*, *NoneFix*, *NegFix*, or Unmodified) refers to the highest priority patch category associated with each method. 
-	```
+		
+		- **aggregatedSusInfo.profl**: unfied debugging fault localization.  Patch caregory (i.e., *CleanFix*, *NoisyFix*, *NoneFix*, *NegFix*, or Unmodified) refers to the highest priority patch category associated with each method.
+		
+		```
     	[MethodRank 1] | [Suspiciousness Score 1] | Patch Category 1 | [MethodSignature 1];
     	[MethodRank 2] | [Suspiciousness Score 2] | Patch Category 2 | [MethodSignature 2];
     	...
