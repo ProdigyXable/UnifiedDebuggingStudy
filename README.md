@@ -6,9 +6,9 @@ This repository contains the dataset and scripts for *On the Effectiveness of Un
 
 ### 1.1 [Data](Data/) ###
 
-- **[ExperimentalData](Data/ExperimentalData/)**: the raw experimental dataset.
-    -  **ProFL-\[*toolName*]/\[*d4j-project*]/**: data for each APR tool on each project.
-	    - **generalSusInfo.profl**: spectrum-based fault localization based on Ochiai and aggregation strategy.  (Methods with zero suspiciousness are excluded and tied methods all  receive *worse rank*).
+- **[ExperimentalData](Data/ExperimentalData/)**: The raw experimental dataset.
+    -  **ProFL-\[*toolName*]/\[*d4j-project*]/**: The data for each APR tool per project.
+	    - **generalSusInfo.profl**: Spectrum-based fault localization based on Ochiai and aggregation strategy.  (Methods with zero suspiciousness are excluded and tied methods all  receive *worse rank*).
 		``` 
 		[MethodRank 1] | [Suspiciousness Score 1] | [MethodSignature 1]; 
 		[MethodRank 2] | [Suspiciousness Score 2] | [MethodSignature 2];
@@ -16,7 +16,7 @@ This repository contains the dataset and scripts for *On the Effectiveness of Un
     	[MethodRank N] | [Suspiciousness Score N] | [MethodSignature N];
     	```
 		
-		- **aggregatedSusInfo.profl**: unfied debugging fault localization.  Patch caregory (i.e., *CleanFix*, *NoisyFix*, *NoneFix*, *NegFix*, or Unmodified) refers to the highest priority patch category associated with each method.
+		- **aggregatedSusInfo.profl**: unified debugging fault localization.  Patch caregory (i.e., *CleanFix*, *NoisyFix*, *NoneFix*, *NegFix*, or Unmodified) refers to the highest priority patch category associated with each method.
 		
 		```
     	[MethodRank 1] | [Suspiciousness Score 1] | Patch Category 1 | [MethodSignature 1];
@@ -24,37 +24,33 @@ This repository contains the dataset and scripts for *On the Effectiveness of Un
     	...
     	[MethodRank N] | [Suspiciousness Score N] | Patch Category N | [MethodSignature N];
     	```
--  **[FaultyMethods](Data/FaultyMethods/)**: ground truth of faulty methods.
-
-
+-  **[FaultyMethods](Data/FaultyMethods/)**: The ground truth of faulty methods per project.
 
 ### 1.2 [Scripts](Scripts/) ###
-Include scripts to reproduce results, table, and figures in the paper.
+Includes all scripts needed to reproduce results, table, and figures from the paper.
 
-
-- **RQ1_1**: Contains data and script to generate the table corresponding to Figure 3.
+- **RQ1_1**: Contains data and script to generate data corresponding to Figure 3.
 - **RQ1_2**: Contains the data and script to generate Figure 7.
 - **RQ2**: Contains the data and script to generate Figure 8.
 - **RQ3**: Contains the data and script to generate Figure 9.
 - **RQ4_1**: Contains the script to generate the result of UniDebug+ and UniDebug++.
 - **RQ4_2**: Contains the data and script to generate Figure 10.
-- **RunFinalResult.sh**: an All-In-One script to run other scripts. Described in Section 2.
+- **RunFinalResult.sh**: An all-in-one script to run other scripts. Described in Section 2.
 
 ### 1.3 [Results](Results/) ###
 
 The structure of this folder is as follows.
  
  - **FinalResults**: Final results generated from the [scripts](Scripts/) folder.
- - **IntermediateResults**: Intermidiate results used to generate final results.
- - **SBFLResults**: Ground truth results from spectrum-based fault localization.
+ - **IntermediateResults**: Intermediate results used to generate final results.
+ - **SBFLResults**: Ground truth results from spectrum-based fault localization via Ochiai.
 
-
-## 2. Reproduce Tables & Figures ##
+## 2. How to Reproduce Tables & Figures ##
 
 ### 2.1  Requirements ###
- To run this repository plesee ensure your enviroment satisfy the following requirements.
+ To run this repository please ensure your environment satisfies the following requirements.
  - Python 3
- - R (Package "ggpubr", "ggplot2", "reshape2", "cowplot" are required)
+ - R with packages "ggpubr", "ggplot2", "reshape2", and "cowplot"
 
 ### 2.2 Commands ###
 To recreate the paper's tables and figures, run the following command:
@@ -106,9 +102,7 @@ Running the following command will exhaustively attempt all combinations of the 
 python AggreCombinePatch.py ExhaustiveCombinations.txt NegFix
 ```
 
-\*\**Note that each successful run of AggreCombinePatch.py ***appends*** data to any existing file. Thus, you may wish to clear or move the results after every run*
+\*\**Note that each successful run of AggreCombinePatch.py ***appends*** data to the existing file. Thus, you may wish to clear or move the results after every run*
 
 ## 3. Additional Information ##
 For additional information, such as tables / figures, view the project wiki.
-
-
