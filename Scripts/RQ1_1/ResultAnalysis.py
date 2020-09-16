@@ -129,7 +129,7 @@ tool_name_list = ["jGenProg", "GenProg-A", "jMutRepair", "kPar", "RSRepair-A", "
 repair_tool = sys.argv[1]
 unmodified = sys.argv[2]  # 5th, 4th, 3rd...
 ifPlau = sys.argv[3]    #all results vs non-palusible versions
-root_path = "../../Results/IntermediateResults/worst-case/profl-unmodified-" + unmodified + "-mixed/"
+root_path = "../../Results/IntermediateResults/profl-unmodified-" + unmodified + "-mixed/worst-case/"
 projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
 ver = [65,27,106,26,38,133]
 
@@ -159,7 +159,9 @@ for index in range(0,len(projects)):
                         result_list[index][int(proj_id) - 1] = localization_result
                     else:
                         result_list[index][int(proj_id) - 1] = value + "," + localization_result
-
+            else:
+                proj_id = line.split("/")[-1].split(" ")[0].split("-")[1]
+                result_list[index][int(proj_id) - 1] = sbfl_result[index][int(proj_id) - 1]
 
 if check_result(sbfl_result) != check_result(result_list):
     print(repair_tool + " has issue!!!")
