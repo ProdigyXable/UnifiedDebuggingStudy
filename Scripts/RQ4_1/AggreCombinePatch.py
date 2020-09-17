@@ -102,7 +102,7 @@ def get_final_ranking(buggy_methods,method_final_cate,method_value,unmodified_ra
 
 def get_SBFL_ranking(single_tool_base_path,buggy_methods,proj,ver):
     buggy_SBFL_ranking = dict()
-    attempts = ["ACS/", "Simfix/", "FixMiner/", "TBarFixer/"]
+    attempts = ["FixMiner/"]
     
     stop = False    
 
@@ -173,8 +173,8 @@ def write_results(result_list,comb_file,comb,max_top1):
 first_write = False
 single_tool_base_path = "../../Data/ExperimentalData/ProFL-"
 
-projects = ["Lang","Time","Math","Chart"]
-vers = [65,27,106,26]
+projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
+vers = [65,27,106,26,38,133]
 
 result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
