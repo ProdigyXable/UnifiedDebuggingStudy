@@ -192,10 +192,10 @@ single_tool_base_path = "../../Data/ExperimentalData/ProFL-"
 projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
 vers = [65,27,106,26,38,133]
 
-projects = ["Lang","Time","Math","Chart"]
-vers = [65,27,106,26]
+#projects = ["Lang","Time","Math","Chart"]
+#vers = [65,27,106,26]
 
-excludeVersion = {'Lang': [23, 25, 56], 'Time': [11], 'Chart': [23], 'Math': [12, 104, 4, 6, 15, 23], 'Closure': [1, 14, 28, 50], 'Mockito': [5, 26]}
+
 
 result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
@@ -218,17 +218,16 @@ for comb in combs_from_file:
     for current_iteration_number in range(0,len(projects)):   #each project
         proj = projects[current_iteration_number]
         vs = vers[current_iteration_number]
-        no_use_versions = excludeVersion[proj]
+
         for ver in range(1,vs + 1):
             #try:
-                #if ver in no_use_versions:
-                #    continue
+
                 ver = str(ver)
                 buggy_method_path = "../../Data/FaultyMethods/" + proj + "/" + ver + ".txt"
 
                 buggy_methods = get_buggy(buggy_method_path)
-                buggy_SBFL_ranking = get_SBFL_ranking_OLD(single_tool_base_path,buggy_methods,proj,ver)
-                #buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods) 
+                #buggy_SBFL_ranking = get_SBFL_ranking_OLD(single_tool_base_path,buggy_methods,proj,ver)
+                buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods) 
                 method_cate,method_value,method_all_cate = get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified)
                 method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate) 
 
