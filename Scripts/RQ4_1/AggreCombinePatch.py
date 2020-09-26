@@ -95,6 +95,8 @@ def get_final_ranking(buggy_methods,method_final_cate,method_value,unmodified_ra
                     rankings.append(str(bug_ranking))
                     break
         else:
+            bug = bug.replace(":",".")
+
             if bug in buggy_SBFL_ranking:
                 rankings.append(buggy_SBFL_ranking[bug])
 
@@ -178,9 +180,9 @@ def get_SBFL_ranking(file, buggy_methods):
         with open(file) as f:
             for line in f:
                 m = line.split(":")[0]
-                if m in buggy_methods:
-                    ranking = line.split(":")[1].strip()
-                    buggy_SBFL_ranking[m] = ranking
+
+                ranking = line.split(":")[1].strip()
+                buggy_SBFL_ranking[m] = ranking
 
     return(buggy_SBFL_ranking)
 
