@@ -5,7 +5,19 @@ import os
 sys.path.append("../RQ1_1/")
 import utils as ut
 
-def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified):
+def get_current_SBFL_value(file):
+    sus_dic = dict() 
+    if os.path.exists(file):   
+        with open(file) as f:
+            for line in f:
+                method_name = line.split("  ")[0]
+                value = line.split("  ")[1].strip()
+                sus_dic[method_name] = value
+    return sus_dic
+
+
+
+def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values):
     method_cate = defaultdict(list) #index of Unmodified_ranking
     method_value = dict()      #suspicious value
     method_clean = defaultdict(list) # real category list
@@ -22,10 +34,14 @@ def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified):
                     cate = items[2].split("PatchCategory.")[1]
                     if cate == "Unmodified":
                         cate = mix_unmodified
-                    value = items[1]
-                    method_cate[method_name].append(unmodified_ranking.index(cate))
-                    method_clean[method_name].append(cate)
-                    method_value[method_name] = value
+                    #value = items[1]
+                    if method_name.replace(":",".") in SBFL_sus_values:
+                            value = SBFL_sus_values[method_name.replace(":",".")]
+                            method_cate[method_name].append(unmodified_ranking.index(cate))
+                            method_clean[method_name].append(cate)
+                            method_value[method_name] = value
+
+                    
     return method_cate,method_value,method_clean
 
 #method_cate_number: number of tool category,for example, if M1 aggregation is
@@ -179,9 +195,9 @@ def get_SBFL_ranking(file, buggy_methods):
 
         with open(file) as f:
             for line in f:
-                m = line.split(":")[0]
+                m = line.split("  ")[0]
 
-                ranking = line.split(":")[1].strip()
+                ranking = line.split("  ")[1].strip()
                 buggy_SBFL_ranking[m] = ranking
 
     return(buggy_SBFL_ranking)
@@ -207,7 +223,7 @@ unidebug_plusplus = "True"
 if(len(sys.argv) > 3):
     unidebug_plusplus = sys.argv[3]
 
-sbfl_formula = "STOchiai"
+sbfl_formula = sys.argv[4]   # formula such as: "STOchiai"
 
 unmodified_ranking = ["CleanFix","NoisyFix","NoneFix","NegFix"]
 
@@ -223,14 +239,15 @@ for comb in combs_from_file:
 
         for ver in range(1,vs + 1):
             #try:
-
+                
                 ver = str(ver)
                 buggy_method_path = "../../Data/FaultyMethods/" + proj + "/" + ver + ".txt"
 
                 buggy_methods = get_buggy(buggy_method_path)
                 #buggy_SBFL_ranking = get_SBFL_ranking_OLD(single_tool_base_path,buggy_methods,proj,ver)
-                buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods) 
-                method_cate,method_value,method_all_cate = get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified)
+                buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods)
+                SBFL_sus_values = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
+                method_cate,method_value,method_all_cate = get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values)
                 method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate) 
 
                 cate_number_dict = get_cate_number_info(buggy_methods,method_final_cate,method_value,method_cate_number)
