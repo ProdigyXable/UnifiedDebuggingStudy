@@ -5,6 +5,13 @@ import os
 sys.path.append("../RQ1_1/")
 import utils as ut
 
+def write_data(method_name, value, path):
+	with open(path,'a') as f:
+		f.write(method_name + " " + str(value))
+		f.write("\n")
+
+
+
 def get_current_SBFL_value(file):
     sus_dic = dict() 
     if os.path.exists(file):   
@@ -17,7 +24,7 @@ def get_current_SBFL_value(file):
 
 
 
-def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values):
+def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values,ver,proj,sbfl_formula):
     method_cate = defaultdict(list) #index of Unmodified_ranking
     method_value = dict()      #suspicious value
     method_clean = defaultdict(list) # real category list
@@ -40,6 +47,8 @@ def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_
                             method_cate[method_name].append(unmodified_ranking.index(cate))
                             method_clean[method_name].append(cate)
                             method_value[method_name] = value
+                            path = "../../Data/DeepFLData/SusValue/" + sbfl_formula + "-" + ver + "-" + proj + 
+                            write_data(method_name,value,path)
 
                     
     return method_cate,method_value,method_clean
@@ -247,7 +256,7 @@ for comb in combs_from_file:
                 #buggy_SBFL_ranking = get_SBFL_ranking_OLD(single_tool_base_path,buggy_methods,proj,ver)
                 buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods)
                 SBFL_sus_values = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
-                method_cate,method_value,method_all_cate = get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values)
+                method_cate,method_value,method_all_cate = get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values,ver,proj,sbfl_formula)
                 method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate) 
 
                 cate_number_dict = get_cate_number_info(buggy_methods,method_final_cate,method_value,method_cate_number)
