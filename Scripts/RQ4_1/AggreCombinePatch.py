@@ -6,9 +6,9 @@ sys.path.append("../RQ1_1/")
 import utils as ut
 
 def write_data(method_name, value, path):
-	with open(path,'a') as f:
-		f.write(method_name + " " + str(value))
-		f.write("\n")
+    with open(path,'a') as f:
+        f.write(method_name + " " + str(value))
+        f.write("\n")
 
 
 
@@ -24,7 +24,7 @@ def get_current_SBFL_value(file):
 
 
 
-def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values,ver,proj,sbfl_formula):
+def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values,sbfl_formula):
     method_cate = defaultdict(list) #index of Unmodified_ranking
     method_value = dict()      #suspicious value
     method_clean = defaultdict(list) # real category list
@@ -47,15 +47,19 @@ def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_
                             method_cate[method_name].append(unmodified_ranking.index(cate))
                             method_clean[method_name].append(cate)
                             method_value[method_name] = value
-                            path = "../../Data/DeepFLData/SusValue/" + sbfl_formula + "-" + ver + "-" + proj + 
-                            write_data(method_name,value,path)
+
+                            folder = "../../Data/DeepFLData/SusValue/" + sbfl_formula
+                            if not os.path.exists(folder):
+                                os.makedirs(folder)
+                              
+                            write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
 
                     
     return method_cate,method_value,method_clean
 
 #method_cate_number: number of tool category,for example, if M1 aggregation is
 #cleanfix, count how many tools are also cleanfix for M1
-def get_method_info(method_cate,method_value,method_clean):
+def get_method_info(method_cate,method_value,method_clean,ver,proj,sbfl_formula):
     method_final_cate = dict()   # final category
     method_cate_number = dict() # number of cleanfix/Noisyfix/NoneFix for all tools
     for m in method_cate:
@@ -66,6 +70,18 @@ def get_method_info(method_cate,method_value,method_clean):
         cat_number = cat_list.count(cat)
         if cat_number > 0:
             method_cate_number[m] = cat_number
+            
+            #Store information
+            folder1 = "../../Data/DeepFLData/FinalRank/" + sbfl_formula
+            folder2 = "../../Data/DeepFLData/CategoryNumber/" + sbfl_formula
+            if not os.path.exists(folder1):
+                os.makedirs(folder1)
+            if not os.path.exists(folder2):
+                os.makedirs(folder2)
+            write_data(m,cat,folder1 + "/" + ver + "-" + proj + ".txt")
+            write_data(m,cat_number,folder2 + "/" + ver + "-" + proj + ".txt")
+            ###
+    
     return method_final_cate,method_cate_number
 
 def get_info_for_ranking(method_value,method_final_cate,method_clean_number):
@@ -256,8 +272,8 @@ for comb in combs_from_file:
                 #buggy_SBFL_ranking = get_SBFL_ranking_OLD(single_tool_base_path,buggy_methods,proj,ver)
                 buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods)
                 SBFL_sus_values = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
-                method_cate,method_value,method_all_cate = get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values,ver,proj,sbfl_formula)
-                method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate) 
+                method_cate,method_value,method_all_cate = get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values,sbfl_formula)
+                method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate,ver,proj,sbfl_formula) 
 
                 cate_number_dict = get_cate_number_info(buggy_methods,method_final_cate,method_value,method_cate_number)
 
