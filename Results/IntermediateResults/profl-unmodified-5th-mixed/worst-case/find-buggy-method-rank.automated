@@ -2,34 +2,6 @@
 projectName=$(/home/samuel/ProFL-experiments/get-project $1)
 
 acs="profl-acs-results_${projectName}"
-<<<<<<< Updated upstream
-arja="profl-arja-results_${projectName}"
-avatar="profl-avatar-results_${projectName}"
-cardumen="profl-cardumen-results_${projectName}"
-dynamoth="profl-dynamoth-results_${projectName}"
-fixMiner="profl-fixMiner-results_${projectName}"
-genprogA="profl-genprogA-results_${projectName}"
-jGenProg="profl-jGenProg-results_${projectName}"
-jKali="profl-jKali-results_${projectName}"
-jMutRepair="profl-jMutRepair-results_${projectName}"
-kaliA="profl-kaliA-results_${projectName}"
-kPar="profl-kPar-results_${projectName}"
-nopol="profl-nopol-results_${projectName}"
-simfix="profl-simfix-results_${projectName}"
-rsrepair="profl-rsrepair-results_${projectName}"
-tbar="profl-tbar-results_${projectName}"
-prapr="profl-prapr-results_${projectName}"
-aggregated="aggregated_${projectName}"
-
-combinedInter="profl-combined-inter-results_${projectName}"
-combinedCross="profl-combined-cross-results_${projectName}"
-
-proflInter="profl-profl-inter-results_${projectName}"
-proflCross="profl-profl-cross-results_${projectName}"
-
-sbflInter="profl-sbfl-inter-results_${projectName}"
-sbflCross="profl-sbfl-cross-results_${projectName}"
-=======
 
 arja="profl-arja-results_${projectName}"
 genprogA="profl-genprogA-results_${projectName}"
@@ -55,8 +27,6 @@ simfix="profl-simfix-results_${projectName}"
 prapr="profl-prapr-results_${projectName}"
 
 aggregated="aggregated_${projectName}"
-
->>>>>>> Stashed changes
 
 if [ "$projectName" == "" ]; then
         echo "Missing project name (L/Lang) (M/Math) (C/Chart) (Cl/Closure) (Mo/Mockito) (T/Time)"
@@ -74,40 +44,6 @@ elif [ "$projectName" == "Mockito" ]; then
 elif [ "$projectName" == "Time" ]; then
         max=27
 fi
-
-<<<<<<< Updated upstream
-for id in `eval echo {1..${max}}`
-do
-:
-        python3 find-buggy-method-rank.py ProFL-KaliA/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $kaliA
-        python3 find-buggy-method-rank.py ProFL-RSRepair/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $rsrepair
-	python3 find-buggy-method-rank.py ProFL-GenProgA/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $genprogA
-	python3 find-buggy-method-rank.py ProFL-Arja/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $arja
-done
-
-
-for id in `eval echo {1..${max}}`
-do      
-        :
-        python3 find-buggy-method-rank.py ProFL-ACS/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $acs
-        
-        python3 find-buggy-method-rank.py ProFL-AvatarFixer/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $avatar
-        python3 find-buggy-method-rank.py ProFL-FixMiner/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $fixMiner
-        python3 find-buggy-method-rank.py ProFL-kParFixer/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $kPar
-        python3 find-buggy-method-rank.py ProFL-TBarFixer/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $tbar
-        
-        python3 find-buggy-method-rank.py ProFL-Nopol/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $nopol
-        python3 find-buggy-method-rank.py ProFL-Dynamoth/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $dynamoth
-
-        python3 find-buggy-method-rank.py ProFL-Simfix/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $simfix
-        
-        python3 find-buggy-method-rank.py ProFL-jKali/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $jKali
-        python3 find-buggy-method-rank.py ProFL-jGenProg/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $jGenProg
-	python3 find-buggy-method-rank.py ProFL-jMutRepair/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $jMutRepair
-
-        python3 find-buggy-method-rank.py ProFL-Cardumen/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $cardumen
-        python3 find-buggy-method-rank.py ProFL-PraPR/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $prapr
-=======
 
 for id in $(seq $max)
 do      
@@ -134,7 +70,6 @@ do
     python3 find-buggy-method-rank.py ProFL-Cardumen/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $cardumen
 		
     python3 find-buggy-method-rank.py ProFL-PraPR/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $prapr
->>>>>>> Stashed changes
 
 	python3 find-buggy-method-rank.py aggregation/$projectName-${id} /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a $aggregated
 done
