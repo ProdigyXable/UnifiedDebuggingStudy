@@ -11,26 +11,24 @@ def fetch(dirname):
         files = os.listdir(dirname)
         if(not (genName in files)):
             print(genName, "does not exist in [exception]", dirname, sep=' ')
-            #print(" ".join([genName, "does not exist in [exception]", dirname]))
         if(not (aggName in files)):
             print(aggName, "does not exist in [exception]", dirname, sep=' ')
-            #print(" ".join([aggName, "does not exist in [exception]", dirname]))
     else:
         print(" ".join(["Directory", dirname, "does not exist [exception]"]))
 
 def getAggRank(bm, aggRank):   
     for s in aggRank.readlines():
         lineData = s.split("|")
-        if(lineData[3].strip() == bm):
+        if(lineData[3].strip().replace(":",".") == bm.replace(":",".")):
             return int(lineData[0])
-    return -2
+    return 2 ** 16
 
 def getGenRank(bm, genFile):
     for s in genFile.readlines():
         lineData = s.split("|")
         if(lineData[2].strip().replace(":",".") == bm.replace(":",".")):
             return int(lineData[0])
-    return -1
+    return 2 ** 17
 
 def getBuggyMethods(filename):
     remove = "^^^^^^"
@@ -54,33 +52,32 @@ def main():
     for buggyMethod in buggyMethods:
         try:
             fetch(dir)
-
+#---------------------------------------------------------------------#
             generalRankFile = None
             genRankFilepath = os.path.sep.join([dir, genName])
-
+            backupGen = "/".join(dir.split("/")[-1:])
+            backupGenPath = "/".join([common_files_dir, backupGen, genName])
+#---------------------------------------------------------------------#
             aggregatedRankFile = None
             aggRankFilepath = os.path.sep.join([dir, aggName])
-
+            backupAgg = "/".join(dir.split("/")[-1:])
+            backupAggPath = "/".join([common_files_dir, backupAgg, aggName])
+#---------------------------------------------------------------------#
             if(os.path.exists(genRankFilepath)):
                 generalRankFile = open(genRankFilepath, "r")
-                gr = getGenRank(buggyMethod, generalRankFile)
-                generalRankFile.close()
             else:
-                gr = -3
-            
+                generalRankFile = open(backupGenPath, "r")
+            gr = getGenRank(buggyMethod, generalRankFile)
+            generalRankFile.close()
+#---------------------------------------------------------------------#            
             if(os.path.exists(aggRankFilepath)):
                 aggregatedRankFile = open(aggRankFilepath ,"r")
-                aggResult = getAggRank(buggyMethod, aggregatedRankFile)
-                aggregatedRankFile.close()
-
-                if(aggResult < 0):
-                    ar = gr
-                else:
-                    ar = aggResult
             else:
-                ar = gr
-    
-            print(gr, ar, buggyMethod, dir, sep=',')
+                aggregatedRankFile = open(backupAggPath ,"r")
+            aggResult = getAggRank(buggyMethod, aggregatedRankFile)
+            aggregatedRankFile.close()
+#---------------------------------------------------------------------#    
+            print(gr, aggResult, buggyMethod, dir, sep=',')
         except Exception as e:
             print(e)
  
