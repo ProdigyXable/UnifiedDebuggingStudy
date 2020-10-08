@@ -2,7 +2,8 @@ import os
 import sys
 
 common_files_dir = "../common/"
-
+variants = ["proflvariant-full-extended", "proflvariant-full-standard", "proflvariant-partial-extended", "proflvariant-standard-extended"]
+ 
 genName = "generalSusInfo.profl"
 aggName = "aggregatedSusInfo.profl"
 
@@ -10,9 +11,9 @@ def fetch(dirname):
     if(os.path.exists(dirname) and os.path.isdir(dirname)):
         files = os.listdir(dirname)
         if(not (genName in files)):
-            print(genName, "does not exist in [exception]", dirname, sep=' ')
+            # print(genName, "does not exist in [exception]", dirname, sep=' ')
         if(not (aggName in files)):
-            print(aggName, "does not exist in [exception]", dirname, sep=' ')
+            # print(aggName, "does not exist in [exception]", dirname, sep=' ')
     else:
         print(" ".join(["Directory", dirname, "does not exist [exception]"]))
 
