@@ -1,6 +1,8 @@
 import os
 import sys
 
+common_files_dir = "../../common/"
+
 genName = "generalSusInfo.profl"
 aggName = "aggregatedSusInfo.profl"
 
