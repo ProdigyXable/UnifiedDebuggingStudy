@@ -11,9 +11,10 @@ def fetch(dirname):
     if(os.path.exists(dirname) and os.path.isdir(dirname)):
         files = os.listdir(dirname)
         if(not (genName in files)):
-            # print(genName, "does not exist in [exception]", dirname, sep=' ')
+            print(genName, "does not exist in [exception]", dirname, sep=' ')
         if(not (aggName in files)):
             # print(aggName, "does not exist in [exception]", dirname, sep=' ')
+            pass
     else:
         print(" ".join(["Directory", dirname, "does not exist [exception]"]))
 
@@ -56,12 +57,12 @@ def main():
 #---------------------------------------------------------------------#
             generalRankFile = None
             genRankFilepath = os.path.sep.join([dir, genName])
-            backupGen = "/".join(dir.split("/")[-1:])
+            backupGen = "/".join(dir.split("/")[-2:-1])
             backupGenPath = "/".join([common_files_dir, backupGen, genName])
 #---------------------------------------------------------------------#
             aggregatedRankFile = None
             aggRankFilepath = os.path.sep.join([dir, aggName])
-            backupAgg = "/".join(dir.split("/")[-1:])
+            backupAgg = "/".join(dir.split("/")[-2:-1])
             backupAggPath = "/".join([common_files_dir, backupAgg, aggName])
 #---------------------------------------------------------------------#
             if(os.path.exists(genRankFilepath)):
