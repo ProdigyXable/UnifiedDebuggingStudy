@@ -8,6 +8,11 @@ def main():
     newPriority = int(sys.argv[1])
 
     name = ""
+    
+    global CLEAN_FULL
+    global CLEAN_PARTIAL
+    global NOISY_FULL
+    global NOISY_PARTIAL
 
     global CLEAN
     global NOISY
@@ -15,8 +20,14 @@ def main():
     global NEG
     global UNMODIFIED
 
+    CLEAN_FULL = 10002
+    CLEAN_PARTIAL = 10001
     CLEAN = 10000
+    
+    NOISY_FULL = 1002
+    NOISY_PARTIAL = 1001
     NOISY = 1000
+    
     NONE = 100
     NEG = 10
     UNMODIFIED = newPriority
@@ -76,10 +87,21 @@ def main():
 def getRankCategory(message):
 
     result = -1
-    if "PatchCategory.CleanFix" in message:
+    if "PatchCategory.CleanFixFull" in message:
+        result = CLEAN_FULL
+    elif "PatchCategory.CleanFixPartial" in message:
+        result = CLEAN_PARTIAL
+    elif "PatchCategory.CleanFix" in message:
         result = CLEAN
+    
+    elif "PatchCategory.NoisyFixFull" in message:
+        result = NOISY_FULL
+    elif "PatchCategory.NoisyFixPartial" in message:
+        result = NOISY_PARTIAL
     elif "PatchCategory.NoisyFix" in message:
         result = NOISY
+        
+        
     elif "PatchCategory.NoneFix" in message:
         result = NONE
     elif "PatchCategory.NegFix" in message:
