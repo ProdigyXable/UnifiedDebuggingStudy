@@ -11,9 +11,10 @@ def fetch(dirname):
     if(os.path.exists(dirname) and os.path.isdir(dirname)):
         files = os.listdir(dirname)
         if(not (genName in files)):
-            print(genName, "does not exist in [exception]", dirname, sep=' ')
+            print("[exception]", genName, "does not exist in", dirname, sep=' ')
         if(not (aggName in files)):
-            # print(aggName, "does not exist in [exception]", dirname, sep=' ')
+            pass
+            # print("[exception]", aggName, "does not exist in", dirname, sep=' ')
             pass
     else:
         print(" ".join(["Directory", dirname, "does not exist [exception]"]))
