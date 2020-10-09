@@ -24,14 +24,14 @@ def get_current_SBFL_value(file):
 
 
 
-def get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values,sbfl_formula):
+def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, variant_folder):
     method_cate = defaultdict(list) #index of Unmodified_ranking
     method_value = dict()      #suspicious value
     method_clean = defaultdict(list) # real category list
     for tool in tool_combs:
         if not os.path.exists(single_tool_base_path + tool):
             print(single_tool_base_path + tool + "DOES NOT EXISIT!")
-        result_file = single_tool_base_path + tool + "/" + proj + "-" + ver + "/aggregatedSusInfo.profl"
+        result_file = single_tool_base_path + tool + "/" + proj + "-" + ver + "/" + variant_folder + "/aggregatedSusInfo.profl"
 
         if os.path.exists(result_file):
             with open(result_file) as f:
@@ -235,14 +235,11 @@ single_tool_base_path = "../../Data/ExperimentalData/ProFL-"
 projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
 vers = [65,27,106,26,38,133]
 
-#projects = ["Lang","Time","Math","Chart"]
-#vers = [65,27,106,26]
-
-
 
 result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
 mix_unmodified = sys.argv[2]  #four mixed options: "CleanFix","NoisyFix","NoneFix","NegFix"
+variant_folder = sys.argv[3] || "proflvariant-full-extended"
 unidebug_plusplus = "True"
 
 if(len(sys.argv) > 3):
@@ -272,7 +269,7 @@ for comb in combs_from_file:
                 #buggy_SBFL_ranking = get_SBFL_ranking_OLD(single_tool_base_path,buggy_methods,proj,ver)
                 buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods)
                 SBFL_sus_values = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
-                method_cate,method_value,method_all_cate = get_basic(tool_combs,single_tool_base_path,proj,ver,mix_unmodified,SBFL_sus_values,sbfl_formula)
+                method_cate, method_value, method_all_cate = get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, variant_folder)
                 method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate,ver,proj,sbfl_formula) 
 
                 cate_number_dict = get_cate_number_info(buggy_methods,method_final_cate,method_value,method_cate_number)
