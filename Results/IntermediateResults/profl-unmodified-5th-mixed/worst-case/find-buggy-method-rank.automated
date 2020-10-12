@@ -1,5 +1,5 @@
 #!/bin/bash
-projectName=$(/home/samuel/ProFL-experiments/get-project $1)
+projectName=$(../..//get-project $1)
 
 acs="profl-acs-results_${projectName}"
 
@@ -51,30 +51,30 @@ for v in ${variants[@]}
 do
 	for id in $(seq $max)
 	do      
-		python3 find-buggy-method-rank.py ProFL-KaliA/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${kaliA}_${v}
-		python3 find-buggy-method-rank.py ProFL-RSRepair/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${rsrepair}_${v}
-		python3 find-buggy-method-rank.py ProFL-GenProgA/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${genprogA}_${v}
-		python3 find-buggy-method-rank.py ProFL-Arja/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${arja}_${v}
+		python3 find-buggy-method-rank.py ProFL-KaliA/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${kaliA}_${v}
+		python3 find-buggy-method-rank.py ProFL-RSRepair/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${rsrepair}_${v}
+		python3 find-buggy-method-rank.py ProFL-GenProgA/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${genprogA}_${v}
+		python3 find-buggy-method-rank.py ProFL-Arja/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${arja}_${v}
 		
-		python3 find-buggy-method-rank.py ProFL-ACS/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${acs}_${v}
+		python3 find-buggy-method-rank.py ProFL-ACS/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${acs}_${v}
 			
-		python3 find-buggy-method-rank.py ProFL-AvatarFixer/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${avatar}_${v}
-		python3 find-buggy-method-rank.py ProFL-FixMiner/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${fixMiner}_${v}
-		python3 find-buggy-method-rank.py ProFL-kParFixer/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${kPar}_${v}
-		python3 find-buggy-method-rank.py ProFL-TBarFixer/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${tbar}_${v}
+		python3 find-buggy-method-rank.py ProFL-AvatarFixer/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${avatar}_${v}
+		python3 find-buggy-method-rank.py ProFL-FixMiner/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${fixMiner}_${v}
+		python3 find-buggy-method-rank.py ProFL-kParFixer/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${kPar}_${v}
+		python3 find-buggy-method-rank.py ProFL-TBarFixer/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${tbar}_${v}
 			
-		python3 find-buggy-method-rank.py ProFL-Nopol/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${nopol}_${v}
-		python3 find-buggy-method-rank.py ProFL-Dynamoth/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${dynamoth}_${v}
+		python3 find-buggy-method-rank.py ProFL-Nopol/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${nopol}_${v}
+		python3 find-buggy-method-rank.py ProFL-Dynamoth/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${dynamoth}_${v}
 
-		python3 find-buggy-method-rank.py ProFL-Simfix/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${simfix}_${v}
+		python3 find-buggy-method-rank.py ProFL-Simfix/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${simfix}_${v}
 			
-		python3 find-buggy-method-rank.py ProFL-jKali/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${jKali}_${v}
-		python3 find-buggy-method-rank.py ProFL-jGenProg/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${jGenProg}_${v}
-		python3 find-buggy-method-rank.py ProFL-jMutRepair/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${jMutRepair}_${v}
-		python3 find-buggy-method-rank.py ProFL-Cardumen/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${cardumen}_${v}
+		python3 find-buggy-method-rank.py ProFL-jKali/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${jKali}_${v}
+		python3 find-buggy-method-rank.py ProFL-jGenProg/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${jGenProg}_${v}
+		python3 find-buggy-method-rank.py ProFL-jMutRepair/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${jMutRepair}_${v}
+		python3 find-buggy-method-rank.py ProFL-Cardumen/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${cardumen}_${v}
 			
-		python3 find-buggy-method-rank.py ProFL-PraPR/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${prapr}_${v}
+		python3 find-buggy-method-rank.py ProFL-PraPR/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${prapr}_${v}
 
-		python3 find-buggy-method-rank.py aggregation/$projectName-${id}/$v /home/samuel/ProFL-experiments/XiaInformation/BugMethod/$projectName/${id}.txt | tee -a ${aggregated}_${v}
+		python3 find-buggy-method-rank.py aggregation/$projectName-${id}/$v ../../../../Data/FaultyMethods/$projectName/${id}.txt | tee -a ${aggregated}_${v}
 	done
 done
