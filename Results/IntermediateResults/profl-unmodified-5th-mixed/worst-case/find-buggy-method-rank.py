@@ -15,7 +15,7 @@ def fetch(dirname):
         if(not (aggName in files)):
             pass
             # print("[exception]", aggName, "does not exist in", dirname, sep=' ')
-            pass
+
     else:
         print(" ".join(["Directory", dirname, "does not exist [exception]"]))
 

@@ -239,7 +239,7 @@ vers = [65,27,106,26,38,133]
 result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
 mix_unmodified = sys.argv[2]  #four mixed options: "CleanFix","NoisyFix","NoneFix","NegFix"
-variant_folder = sys.argv[3] || "proflvariant-full-extended"
+variant_folder = sys.argv[3] or "proflvariant-full-extended"
 unidebug_plusplus = "True"
 
 if(len(sys.argv) > 3):
