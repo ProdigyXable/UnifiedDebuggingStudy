@@ -53,6 +53,8 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL
                                 os.makedirs(folder)
                               
                             write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
+        else:
+            print("Missing " + result_file)
 
                     
     return method_cate,method_value,method_clean
@@ -128,7 +130,7 @@ def get_final_ranking(buggy_methods,method_final_cate,method_value,unmodified_ra
 
                     offset = update_ranking_by_cate_number(cate_number_dict,bug,method_cate_number,method_value,method_final_cate)
 
-                    if(unidebug_plusplus is "False"):
+                    if(unidebug_plusplus == "False"):
                         pass # When the third command argument is "False", output represents UniDebug+
                     else:
                         bug_ranking = bug_ranking - offset # Comment this line to change from UniDebug++ to UniDebug+
@@ -232,26 +234,29 @@ def get_SBFL_ranking(file, buggy_methods):
 first_write = False
 single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/ProFL-"
 
-projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
-vers = [65,27,106,26,38,133]
+#projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
+#vers = [65,27,106,26,38,133]
+
+#projects = ["Mockito","Closure"]
+#vers = [38,133]
+
+projects = ["Lang","Time","Math","Chart"]
+vers = [65,27,106,26]
 
 
 result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
 mix_unmodified = sys.argv[2]  #four mixed options: "CleanFix","NoisyFix","NoneFix","NegFix"
 
-variant_folder = sys.argv[3] or "proflvariant-full-extended"
+variant_folder = sys.argv[3]
 
 unidebug_plusplus = "True"
-
-if(len(sys.argv) > 3):
-    unidebug_plusplus = sys.argv[3]
 
 sbfl_formula = sys.argv[4]   # formula such as: "STOchiai"
 
 profl_variant = sys.argv[5]
 
-unmodified_ranking = ["CleanFix","NoisyFix","NoneFix","NegFix"]
+unmodified_ranking = ["CleanFixFull", "CleanFixPartial", "CleanFix","NoisyFixFull", "NoisyFixPartial", "NoisyFix","NoneFix","NegFix"]
 
 combs_from_file = read_comb(comb_file)
 max_top1 = 0
@@ -264,8 +269,6 @@ for comb in combs_from_file:
         vs = vers[current_iteration_number]
 
         for ver in range(1,vs + 1):
-            #try:
-                
                 ver = str(ver)
                 buggy_method_path = "../../Data/FaultyMethods/" + proj + "/" + ver + ".txt"
 
@@ -283,9 +286,6 @@ for comb in combs_from_file:
                 final_ranking = get_final_ranking(buggy_methods,method_final_cate,method_value,unmodified_ranking,category_values,buggy_SBFL_ranking,cate_number_dict,method_cate_number)
                 final_r_string = ",".join(final_ranking)
                 result_list[current_iteration_number][int(ver) - 1] = final_r_string
-            #except:
-            #    pass
-                #print("Could not process", projects[index], proj, "-" ,ver)
 
     final_result, true_ver = ut.get_static_final(vers,projects,result_list)   # get top-1,3,5...  for each projects
     final_result = ut.get_final(final_result,true_ver) #get final result (16 repair tools)
