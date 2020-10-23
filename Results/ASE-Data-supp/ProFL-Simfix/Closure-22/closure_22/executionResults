@@ -1,0 +1,2128 @@
+|------------------------------------------------------|
+|-------------checking necessary software--------------|
+|------------------------------------------------------|
+Find perl:/usr/bin/perl
+Find git:/usr/bin/git
+Find svn:/usr/bin/svn
+|------------------------------------------------------|
+|             set current testing project              |
+|             Example 1 : ./run.sh chart 1             |
+|             Example 2 : ./run.sh math 1              |
+|------------------------------------------------------|
+TEST :  closure_22
+Profl test coverage file= /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/22.txt
+Profl method coverage file= /mnt/efs/fs1/XiaInformation/AllMethods/Closure/22.txt
+Profl failing test file= /mnt/efs/fs1/XiaInformation/FailingTests/Closure/22.txt
+|------------------------------------------------------|
+|         checkout project from the Internet           |
+|------------------------------------------------------|
+[NOT] Removing directory]
+Save closure-22 to /home/ubuntu/repair-tool/simfix/d4j/projects/closure/closure_22_buggy
+|------------------------------------------------------|
+|                     run simfix                       |
+|------------------------------------------------------|
+Executing Profl-based Simfix
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/22.txt from '--profl_test=/mnt/efs/fs1/XiaInformation/LineCoverage/Closure/22.txt'
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/AllMethods/Closure/22.txt from '--profl_method=/mnt/efs/fs1/XiaInformation/AllMethods/Closure/22.txt'
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/FailingTests/Closure/22.txt from '--profl_fail=/mnt/efs/fs1/XiaInformation/FailingTests/Closure/22.txt'
+/home/ubuntu/repair-tool/simfix/d4j/projects
+=================================================
+Project : closure_22	start : 20/05/29 10:51
+
+Field type inconsistancy 'THIS' with types : Token and int
+Variable type inconsistancy of 'name' in method 'visit,NodeTraversal,Node,Node' with types : Name and String
+Field type inconsistancy 'SUPER' with types : SimpleReference<SimpleSlot> and FunctionInjector.Reference
+Variable type inconsistancy of 'start' in method 'parseRegExp,String,String' with types : int and char
+Variable type inconsistancy of 'end' in method 'parseRegExp,String,String' with types : int and char
+Field type inconsistancy 'errors' with types : JSError[] and List<JSError>
+Field type inconsistancy 'type' with types : Type and JSType
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+[Originally FAILING test case] com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/22.txt
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/22.txt
+Writing sbfl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_22/generalSusInfo.profl
+TIMEOUT : 18000000
+Modified method com.google.javascript.rhino.Token:name(I)Ljava/lang/String; at line=187
+Modified method com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=115
+======== PATCH BEGIN ========
+if(EXPR_RESULT==Token.COMMA)continue;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(ancestorType==Token.BLOCK)continue;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 114 to 115
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_3_mod2_22.tests
+Modified method com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=102
+UNKNOWN ASTNode type : catch (IllegalArgumentException e) {
+  compiler.report(t.makeError(n,INVALID_STYLE_ERROR,styleStr));
+  return;
+}
+
+UNKNOWN ASTNode type : catch (NumberFormatException e) {
+  return n;
+}
+
+UNKNOWN ASTNode type : catch (NumberFormatException e) {
+  return n;
+}
+
+UNKNOWN ASTNode type : catch (IllegalArgumentException ex) {
+  t.report(n,MALFORMED_REGEXP,ex.getMessage());
+}
+
+UNKNOWN ASTNode type : catch (UnsupportedOperationException e) {
+  violation("getString failed for" + Token.name(n.getType()),n);
+}
+
+UNKNOWN ASTNode type : catch (UnsupportedOperationException e) {
+  violation("getString failed for" + Token.name(n.getType()),n);
+}
+
+======== PATCH BEGIN ========
+if(parent.getType()==Token.FOR&&parent.getChildCount()==4&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_9_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&expr.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(expr==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getChildCount()==1&&n.getFirstChild().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_15_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getFirstChild().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_15_mod2_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"arguments".equals(parent.getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_59_mod1_22.tests
+======== PATCH BEGIN ========
+if(n.isGetProp()&&n==parent.getFirstChild()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_67_mod1_22.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_73_mod1_22.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_73_mod2_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&n.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_73_mod3_22.tests
+======== PATCH BEGIN ========
+if(parent.isAssign()&&parent.getFirstChild()==n&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_85_mod1_22.tests
+======== PATCH BEGIN ========
+if(NodeUtil.isGet(parent)&&n==parent.getFirstChild()&&name.getNext().isString()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(NodeUtil.isGet(parent)&&n==parent.getFirstChild()&&n.getNext().isString()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_89_mod2_22.tests
+======== PATCH BEGIN ========
+if(NodeUtil.isGet(parent)&&n==parent.getFirstChild()&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_89_mod3_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isString()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_89_mod4_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&name.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&canNameValueChange(n,parent)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+handleFunctionInputs(parent);
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(PROTECTOR_FN==null||!"goog.now".equals(googNowQName)&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+n.removeChild(gramps);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_177_mod2_22.tests
+======== PATCH BEGIN ========
+compiler.reportCodeChange();
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_177_mod3_22.tests
+======== PATCH BEGIN ========
+n.removeChild(gramps);
+compiler.reportCodeChange();
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_178_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==null||!callGoogNow.isCall()||callGoogNow.getNext()!=null){
+return ;
+}
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+t.report(n,NON_TOP_LEVEL_STATEMENT_DEFINE_ERROR);
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==null||!parent.isFunction()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_201_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isReferenceToRemovedVar(t,n)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+maybeRecordExport(n);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkState(n.hasOneChild());
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&n.isString()&&",".equals(n.getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_273_mod1_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&right.isString()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&",".equals(n.getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_273_mod3_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&sibling.isString()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&mayThrowException(n)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"module.exports".equals(n.getQualifiedName())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_291_mod1_22.tests
+======== PATCH BEGIN ========
+validateExpression(n.getFirstChild());
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+validateBlock(n.getChildAtIndex(1));
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+reportBadBaseClassUse(t,n,"First argument must be \'this\'.");
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getFirstChild().getString()!=null&&!name.isEmpty()&&parent!=null&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getFirstChild().getString()!=null&&!name.isEmpty()&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+compiler.report(t.makeError(n,INVALID_NUM_ARGUMENTS_ERROR,""+n.getChildCount()));
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&arg1.isNumber()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+reportBadBaseClassUse(t,n,"Second argument must name a method.");
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isLowerPrecedenceInExpression(parent.getFirstChild(),OR_PRECEDENCE)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isLowerPrecedenceInExpression(parent.getFirstChild(),AND_PRECEDENCE)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&callTarget.isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isMarkedExpose(n)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&shouldReportThis(n,parent)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeUtil.redeclareVarsInsideBranch(n);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_497_mod1_22.tests
+======== PATCH BEGIN ========
+NodeUtil.redeclareVarsInsideBranch(n);
+compiler.reportCodeChange();
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_498_mod1_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&!n.isScript()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_507_mod1_22.tests
+======== PATCH BEGIN ========
+if(gramps!=null&&grandparent.isScript()&&parent.isExprResult()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(gramps!=null&&grandparent.isScript()&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&value.isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isPinningPropertyUse(n)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&rhs.isName()&&rhs.getString().equals(var.name)&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&rhs.isName()&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_599_mod3_22.tests
+======== PATCH BEGIN ========
+if(rhs==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_599_mod5_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.getParent().replaceChild(n,n);
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_599_mod6_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+compiler.reportCodeChange();
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_599_mod7_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_599_mod8_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod1_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.getParent().replaceChild(n,n);
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod2_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+compiler.reportCodeChange();
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod3_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod4_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod5_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+compiler.reportCodeChange();
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod6_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod7_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod8_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.getParent().replaceChild(n,n);
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod9_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+compiler.reportCodeChange();
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod10_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod11_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+compiler.reportCodeChange();
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod12_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod13_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod14_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.getParent().replaceChild(n,n);
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod15_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+compiler.reportCodeChange();
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod16_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod17_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod18_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+compiler.reportCodeChange();
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod19_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod20_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod21_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod22_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+compiler.reportCodeChange();
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod23_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod24_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+parent.removeChild(n);
+parent.getParent().replaceChild(n,n);
+compiler.reportCodeChange();
+
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_600_mod25_22.tests
+======== PATCH BEGIN ========
+Preconditions.checkState(!NodeUtil.isObjectLitKey(n,n.getParent()));
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"".equals(n.getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_649_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&checkForStateChangeHelper(parent.getLastChild(),protectSideEffectFreeCode,compiler)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(shouldEmitDeprecationWarning(t,n,parent)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&shouldEmitDeprecationWarning(t,n,parent)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&areMatchingExits(n,parent)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&canFuseIntoOneStatement(n)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&areNodesEqualForInlining(gramps,parent.getLastChild())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&nameNode.getParent()!=null&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+replaceSymbol(n,PROTECTOR_FN);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(!parent.getNext().isQualifiedName()){
+return null;
+}
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isDeclaration(n)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+removeDeadExprStatementSafely(n);
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+tryRemoveUnconditionalBranching(n);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+problemNodes.add(n);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_883_mod1_22.tests
+======== PATCH BEGIN ========
+Preconditions.checkState(n.isFunction());
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkArgument(NodeUtil.isGet(n));
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+connectToPossibleExceptionHandler(gramps,node.getFirstChild());
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+lookAhead=null;
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getJSType()==null&&parent.isFunction()){
+varType=parent.getJSType();
+}
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+n.getParent().replaceChild(n,parent);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_957_mod1_22.tests
+======== PATCH BEGIN ========
+if(!t.inGlobalScope()&&n.getJSDocInfo()!=null&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_983_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+t.report(n,JQUERY_UNABLE_TO_EXPAND_INVALID_LIT_ERROR,(String)null);
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+unsupportedDefineError(t,n);
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+removeProperty(n.getFirstChild().getJSType().toObjectType(),getFieldName(n));
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"Object".equals(parent.getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1025_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isValidPrivateConstructorAccess(parent)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(parent!=null&&parent.isVar()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1065_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(parent.getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1071_mod1_22.tests
+======== PATCH BEGIN ========
+if(parent.isInstanceOf()&&parent.getLastChild()==n&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1091_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+checkedClass.hasInstanceOfReference=true;
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(t.inGlobalScope()&&n.getFirstChild().getJSDocInfo()!=null&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1093_mod1_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&maybeInheritsExpr.isExprResult()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isVariableStillLiveWithinExpression(n,parent,var.name)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(!PROTECTOR_FN.isStringKey()||n==null&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+compiler.report(t.makeError(n,NON_STRING_PASSED_TO_SET_CSS_NAME_MAPPING_ERROR));
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+gramps=parent.getNext();
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1173_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==null){
+continue;
+}
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getParent()!=null&&NodeUtil.isStatement(n)&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1231_mod1_22.tests
+======== PATCH BEGIN ========
+if(n!=null&&parent.isFor()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1261_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isNameAssignedTo(parent.getString(),gramps)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&!parent.isExprResult()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1307_mod1_22.tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isConditionalStatement(gramps)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&hasNoSideEffectsAnnotation(gramps)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isCallToScopeMethod(n)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+reportBadBaseClassUse(t,n,"Could not find goog.inherits for base class");
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+n.replaceChild(gramps,NodeUtil.newQualifiedNameNode(compiler.getCodingConvention(),String.format("%s.call",n.getQualifiedName()),callee,"goog.base"));
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+parent.addChildToBack(gramps);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1409_mod1_22.tests
+======== PATCH BEGIN ========
+if(!parent.isReturn()||exitNode.getFirstChild()==null&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(parent.isBlock()&&n!=null&&parent.isTry()&&NodeUtil.getCatchBlock(parent)==node&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(parent.isBlock()&&n!=null&&parent.isTry()&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1461_mod2_22.tests
+======== PATCH BEGIN ========
+if(node==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getLineno()!=-1&&!n.isEmpty()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1471_mod1_22.tests
+======== PATCH BEGIN ========
+tryRemoveRepeatedStatements(n);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(parent.getJSDocInfo()!=null&&maybeLends.getLendsName()!=null&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(NodeUtil.getStringValue(parent.getNext())==null){
+return false;
+}
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getFirstChild().getString()!=null&&functionPrivateName.length()>0&&t.getScope().isDeclared(functionPrivateName,false)&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getFirstChild().getString()!=null&&functionPrivateName.length()>0&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkArgument(n.isCall(),"Expected: CALL, Got: %s",Token.name(node.getType()));
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkState(n==null||previousCase.getNext()==gramps);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&value.isGetProp()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&evaluatesToLocalValue(n.getFirstChild())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkArgument(parent.isCall()||callsite.isNew());
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(gramps.getString().startsWith("\'")||fieldName.startsWith("\"")){
+fieldName=fieldName.substring(1,fieldName.length()-1);
+}
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkState(parent!=null,"Cannot find continue target.");
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&containsName(gramps)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&isMarkedExpose(gramps)){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(parent);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkArgument(parent.isName());
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&mayHaveSideEffects(parent.getFirstChild())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(protectSideEffectFreeCode&&"Window".equals(PROTECTOR_FN)&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 104 to 106
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1809_mod1_22.tests
+======== PATCH BEGIN ========
+add(":");
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+addExpr(parent.getFirstChild(),1,Context.OTHER);
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+UNKNOWN ASTNode type : catch (UnsupportedOperationException ex) {
+  error(NEGATING_A_NON_NUMBER_ERROR,left);
+  return n;
+}
+
+UNKNOWN ASTNode type : catch (UnsupportedOperationException ex) {
+  error(NEGATING_A_NON_NUMBER_ERROR,left);
+  return n;
+}
+
+UNKNOWN ASTNode type : catch (IllegalArgumentException e) {
+  compiler.report(t.makeError(n,INVALID_STYLE_ERROR,styleStr));
+  return;
+}
+
+======== PATCH BEGIN ========
+if(gramps.isCall()&&parent==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&expr.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&parent==gramps.getFirstChild()){
+if(expr==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&n==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2011_mod1_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&parent.getFirstChild()==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2011_mod2_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&parent==parent.getFirstChild().getNext().getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2011_mod3_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&parent==parent.getFirstChild().getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2011_mod4_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&n==parent.getFirstChild().getNext().getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2012_mod2_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&n==parent.getFirstChild().getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2012_mod3_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&parent.getFirstChild()==parent.getFirstChild().getNext().getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2012_mod4_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&parent.getFirstChild()==parent.getFirstChild().getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2012_mod5_22.tests
+======== PATCH BEGIN ========
+if(parent.getNext().isCall()&&parent==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2017_mod1_22.tests
+======== PATCH BEGIN ========
+if(parent.isCall()&&parent==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2017_mod2_22.tests
+======== PATCH BEGIN ========
+if(gramps.isAssign()&&gramps.getFirstChild()==n){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2021_mod1_22.tests
+======== PATCH BEGIN ========
+if(gramps.isAssign()&&parent==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2021_mod2_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&gramps.getFirstChild()==n){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2021_mod3_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&gramps==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2021_mod5_22.tests
+======== PATCH BEGIN ========
+if(gramps.isAssign()&&gramps==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2022_mod7_22.tests
+======== PATCH BEGIN ========
+if(parent.isCall()&&gramps.getFirstChild()==n){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2022_mod8_22.tests
+======== PATCH BEGIN ========
+if(parent.isCall()&&gramps==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2022_mod10_22.tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&flags==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(gramps.isCall()&&parent==flags.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getFirstChild().isName()&&parent==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2025_mod1_22.tests
+======== PATCH BEGIN ========
+if(n.getFirstChild().isCall()&&parent==gramps.getFirstChild()){
+if(n==parent.getFirstChild()&&parent.getChildCount()==2&&n.getNext().isName()&&"eval".equals(n.getNext().getString())){
+return ;
+}
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.CheckSideEffectsTest::testUselessCode
+TESTING test suite for: closure_22
+File modified = com.google.javascript.jscomp.CheckSideEffects from lines 103 to 107
+Method modified = com.google.javascript.jscomp.CheckSideEffects:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2025_mod2_22.tests
+Timeout!
+Writing profl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_22/aggregatedSusInfo.profl

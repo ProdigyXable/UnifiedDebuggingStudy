@@ -1,0 +1,1537 @@
+|------------------------------------------------------|
+|-------------checking necessary software--------------|
+|------------------------------------------------------|
+Find perl:/usr/bin/perl
+Find git:/usr/bin/git
+Find svn:/usr/bin/svn
+|------------------------------------------------------|
+|             set current testing project              |
+|             Example 1 : ./run.sh chart 1             |
+|             Example 2 : ./run.sh math 1              |
+|------------------------------------------------------|
+TEST :  closure_115
+Profl test coverage file= /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/115.txt
+Profl method coverage file= /mnt/efs/fs1/XiaInformation/AllMethods/Closure/115.txt
+Profl failing test file= /mnt/efs/fs1/XiaInformation/FailingTests/Closure/115.txt
+|------------------------------------------------------|
+|         checkout project from the Internet           |
+|------------------------------------------------------|
+[NOT] Removing directory]
+Save closure-115 to /home/ubuntu/repair-tool/simfix/d4j/projects/closure/closure_115_buggy
+|------------------------------------------------------|
+|                     run simfix                       |
+|------------------------------------------------------|
+Executing Profl-based Simfix
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/115.txt from '--profl_test=/mnt/efs/fs1/XiaInformation/LineCoverage/Closure/115.txt'
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/AllMethods/Closure/115.txt from '--profl_method=/mnt/efs/fs1/XiaInformation/AllMethods/Closure/115.txt'
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/FailingTests/Closure/115.txt from '--profl_fail=/mnt/efs/fs1/XiaInformation/FailingTests/Closure/115.txt'
+/home/ubuntu/repair-tool/simfix/d4j/projects
+=================================================
+Project : closure_115	start : 20/05/27 06:58
+
+Field type inconsistancy 'THIS' with types : Token and int
+Variable type inconsistancy of 'name' in method 'visit,NodeTraversal,Node,Node' with types : Name and String
+Field type inconsistancy 'SUPER' with types : SimpleReference<SimpleSlot> and FunctionInjector.Reference
+Variable type inconsistancy of 'start' in method 'parseRegExp,String,String' with types : int and char
+Variable type inconsistancy of 'end' in method 'parseRegExp,String,String' with types : int and char
+Field type inconsistancy 'type' with types : Type and JSType
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified8
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testBug4944818
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testNoInlineIfParametersModified9
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions6
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+[Originally FAILING test case] com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/115.txt
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/115.txt
+Writing sbfl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_115/generalSusInfo.profl
+TIMEOUT : 6000000
+Modified method com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String; at line=1430
+Modified method com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch; at line=1446
+Modified method com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch; at line=1459
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2194
+Find no block!
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2195
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2196
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2197
+Find no block!
+Modified method com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult; at line=731
+======== PATCH BEGIN ========
+if(current.shouldRemove&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(shouldRemove&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(cArg==null&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_119_mod1_115.tests
+======== PATCH BEGIN ========
+if(cArg!=null&&NodeUtil.isFunctionObjectCall(callNode)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod1_115.tests
+======== PATCH BEGIN ========
+if(cArg!=null&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod2_115.tests
+======== PATCH BEGIN ========
+if(hasSideEffects&&NodeUtil.isFunctionObjectCall(callNode)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod3_115.tests
+Modified method com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String; at line=201
+======== PATCH BEGIN ========
+return "JSCompiler_inline_this_"+idSupplier.get();
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionToBlockMutator from lines 201 to 201
+Method modified = com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_133_mod1_115.tests
+======== PATCH BEGIN ========
+return "JSCompiler_inline_label_"+safeNameIdSupplier.get();
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+return "JSCompiler_inline_anon_param_"+idSupplier.get();
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionToBlockMutator from lines 201 to 201
+Method modified = com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_135_mod1_115.tests
+Modified method com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/Object; at line=192
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReference(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;)V at line=503
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReference(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;)V at line=504
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReferenceUsingMode(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;Lcom/google/javascript/jscomp/FunctionInjector$InliningMode;)Z at line=541
+Modified method com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=188
+======== PATCH BEGIN ========
+case Token.THIS :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_719_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.FUNCTION :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_723_mod1_115.tests
+======== PATCH BEGIN ========
+default :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_741_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.HOOK :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_747_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.COMMA :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_749_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.ARRAYLIT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_751_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DELPROP :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_779_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.GETPROP :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_781_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DEFAULT_CASE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_783_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DO :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_785_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.CONTINUE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case NUMBER :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case Token.BITAND :
+return tryRotateAssociativeOperator(node);
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case Token.NE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_793_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.SCRIPT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_803_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.BITOR :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_807_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.NAME :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_809_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.SHEQ :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_811_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.THROW :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_813_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.OBJECTLIT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_815_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.OR :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_819_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.IF :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_821_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.WITH :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_823_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.VOID :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_825_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.BLOCK :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_827_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.EXPR_RESULT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testDoubleInlining1
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_829_mod1_115.tests
+Timeout!
+Writing profl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_115/aggregatedSusInfo.profl
+[Originally FAILING test case] com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/115.txt
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/115.txt
+Writing sbfl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_115/generalSusInfo.profl
+TIMEOUT : 6000000
+Modified method com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String; at line=1430
+Modified method com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch; at line=1446
+Modified method com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch; at line=1459
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2194
+Find no block!
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2195
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2196
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2197
+Find no block!
+Modified method com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult; at line=731
+======== PATCH BEGIN ========
+if(current.shouldRemove&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(shouldRemove&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(cArg==null&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoisyFix detected!
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_119_mod1_115.tests
+======== PATCH BEGIN ========
+if(cArg!=null&&NodeUtil.isFunctionObjectCall(callNode)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoisyFix detected!
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod1_115.tests
+======== PATCH BEGIN ========
+if(cArg!=null&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod2_115.tests
+======== PATCH BEGIN ========
+if(hasSideEffects&&NodeUtil.isFunctionObjectCall(callNode)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoisyFix detected!
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod3_115.tests
+Modified method com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String; at line=201
+======== PATCH BEGIN ========
+return "JSCompiler_inline_this_"+idSupplier.get();
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionToBlockMutator from lines 201 to 201
+Method modified = com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_133_mod1_115.tests
+======== PATCH BEGIN ========
+return "JSCompiler_inline_label_"+safeNameIdSupplier.get();
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+return "JSCompiler_inline_anon_param_"+idSupplier.get();
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionToBlockMutator from lines 201 to 201
+Method modified = com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_135_mod1_115.tests
+Modified method com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/Object; at line=192
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReference(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;)V at line=503
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReference(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;)V at line=504
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReferenceUsingMode(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;Lcom/google/javascript/jscomp/FunctionInjector$InliningMode;)Z at line=541
+Modified method com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=188
+======== PATCH BEGIN ========
+case Token.THIS :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_719_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.FUNCTION :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_723_mod1_115.tests
+======== PATCH BEGIN ========
+default :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_741_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.HOOK :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_747_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.COMMA :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_749_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.ARRAYLIT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_751_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DELPROP :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_779_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.GETPROP :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_781_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DEFAULT_CASE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_783_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DO :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_785_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.CONTINUE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case NUMBER :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case Token.BITAND :
+return tryRotateAssociativeOperator(node);
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case Token.NE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_793_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.SCRIPT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_803_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.BITOR :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_807_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.NAME :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_809_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.SHEQ :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_811_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.THROW :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_813_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.OBJECTLIT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_815_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.OR :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_819_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.IF :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_821_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.WITH :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_823_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.VOID :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_825_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.BLOCK :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_827_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.EXPR_RESULT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions23
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_829_mod1_115.tests
+Timeout!
+Writing profl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_115/aggregatedSusInfo.profl
+[Originally FAILING test case] com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/115.txt
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/115.txt
+Writing sbfl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_115/generalSusInfo.profl
+TIMEOUT : 6000000
+Modified method com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String; at line=1430
+Modified method com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch; at line=1446
+Modified method com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch; at line=1459
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2194
+Find no block!
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2195
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2196
+Modified method com.google.javascript.rhino.Node$NodeMismatch:<init>(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=2197
+Find no block!
+Modified method com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult; at line=731
+======== PATCH BEGIN ========
+if(current.shouldRemove&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(shouldRemove&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(cArg==null&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoisyFix detected!
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_119_mod1_115.tests
+======== PATCH BEGIN ========
+if(cArg!=null&&NodeUtil.isFunctionObjectCall(callNode)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoisyFix detected!
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod1_115.tests
+======== PATCH BEGIN ========
+if(cArg!=null&&NodeUtil.canBeSideEffected(cArg)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod2_115.tests
+======== PATCH BEGIN ========
+if(hasSideEffects&&NodeUtil.isFunctionObjectCall(callNode)){
+return CanInlineResult.NO;
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionInjector from lines 730 to 732
+Method modified = com.google.javascript.jscomp.FunctionInjector:canInlineReferenceDirectly(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/jscomp/FunctionInjector$CanInlineResult;
+NoisyFix detected!
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_121_mod3_115.tests
+Modified method com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String; at line=201
+======== PATCH BEGIN ========
+return "JSCompiler_inline_this_"+idSupplier.get();
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionToBlockMutator from lines 201 to 201
+Method modified = com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_133_mod1_115.tests
+======== PATCH BEGIN ========
+return "JSCompiler_inline_label_"+safeNameIdSupplier.get();
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+return "JSCompiler_inline_anon_param_"+idSupplier.get();
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.FunctionToBlockMutator from lines 201 to 201
+Method modified = com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/String;
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_135_mod1_115.tests
+Modified method com.google.javascript.jscomp.FunctionToBlockMutator$LabelNameSupplier:get()Ljava/lang/Object; at line=192
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReference(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;)V at line=503
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReference(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;)V at line=504
+Find no block!
+Modified method com.google.javascript.jscomp.InlineFunctions$FindCandidatesReferences:maybeAddReferenceUsingMode(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/jscomp/InlineFunctions$FunctionState;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/JSModule;Lcom/google/javascript/jscomp/FunctionInjector$InliningMode;)Z at line=541
+Modified method com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=188
+======== PATCH BEGIN ========
+case Token.THIS :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_719_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.FUNCTION :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_723_mod1_115.tests
+======== PATCH BEGIN ========
+default :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_741_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.HOOK :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_747_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.COMMA :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_749_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.ARRAYLIT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_751_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DELPROP :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_779_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.GETPROP :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_781_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DEFAULT_CASE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_783_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.DO :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_785_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.CONTINUE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case NUMBER :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case Token.BITAND :
+return tryRotateAssociativeOperator(node);
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case Token.NE :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_793_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.SCRIPT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_803_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.BITOR :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_807_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.NAME :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_809_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.SHEQ :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_811_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.THROW :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_813_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.OBJECTLIT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_815_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.OR :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_819_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.IF :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_821_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.WITH :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_823_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.VOID :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_825_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.BLOCK :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_827_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.EXPR_RESULT :
+
+case Token.LABEL :
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_829_mod1_115.tests
+======== PATCH BEGIN ========
+case Token.LABEL :
+Preconditions.checkArgument(parent.isFor(),"Unsupported assignment in replaceWithRhs. parent: %s",Token.name(parent.getType()));
+visitLabel(node,parent);
+break;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.InlineFunctionsTest::testInlineFunctions22
+TESTING test suite for: closure_115
+File modified = com.google.javascript.jscomp.RenameLabels from lines 182 to 184
+Method modified = com.google.javascript.jscomp.RenameLabels$ProcessLabels:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_837_mod1_115.tests
+Timeout!
+Writing profl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_115/aggregatedSusInfo.profl

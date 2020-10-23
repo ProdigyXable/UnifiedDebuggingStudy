@@ -1,0 +1,50 @@
+|------------------------------------------------------|
+|-------------checking necessary software--------------|
+|------------------------------------------------------|
+Find perl:/usr/bin/perl
+Find git:/usr/bin/git
+Find svn:/usr/bin/svn
+|------------------------------------------------------|
+|             set current testing project              |
+|             Example 1 : ./run.sh chart 1             |
+|             Example 2 : ./run.sh math 1              |
+|------------------------------------------------------|
+TEST :  closure_24
+Profl test coverage file= /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/24.txt
+Profl method coverage file= /mnt/efs/fs1/XiaInformation/AllMethods/Closure/24.txt
+Profl failing test file= /mnt/efs/fs1/XiaInformation/FailingTests/Closure/24.txt
+|------------------------------------------------------|
+|         checkout project from the Internet           |
+|------------------------------------------------------|
+[NOT] Removing directory]
+Save closure-24 to /home/ubuntu/repair-tool/simfix/d4j/projects/closure/closure_24_buggy
+|------------------------------------------------------|
+|                     run simfix                       |
+|------------------------------------------------------|
+Executing Profl-based Simfix
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/24.txt from '--profl_test=/mnt/efs/fs1/XiaInformation/LineCoverage/Closure/24.txt'
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/AllMethods/Closure/24.txt from '--profl_method=/mnt/efs/fs1/XiaInformation/AllMethods/Closure/24.txt'
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/FailingTests/Closure/24.txt from '--profl_fail=/mnt/efs/fs1/XiaInformation/FailingTests/Closure/24.txt'
+/home/ubuntu/repair-tool/simfix/d4j/projects
+=================================================
+Project : closure_24	start : 20/05/29 10:51
+
+Field type inconsistancy 'THIS' with types : Token and int
+Variable type inconsistancy of 'name' in method 'visit,NodeTraversal,Node,Node' with types : Name and String
+Field type inconsistancy 'SUPER' with types : SimpleReference<SimpleSlot> and FunctionInjector.Reference
+Variable type inconsistancy of 'start' in method 'parseRegExp,String,String' with types : int and char
+Variable type inconsistancy of 'end' in method 'parseRegExp,String,String' with types : int and char
+Field type inconsistancy 'errors' with types : JSError[] and List<JSError>
+Field type inconsistancy 'type' with types : Type and JSType
+TESTING single test: com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+[Originally FAILING test case] com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/24.txt
+[NOT] Removing directory
+|------------------------------------------------------|
+|------------------------Finish------------------------|
+  Summary:
+   * log file:
+      ./runnable/log/closure/24.txt
+   * patch folder (if success):
+      ./runnable/patch/closure/24

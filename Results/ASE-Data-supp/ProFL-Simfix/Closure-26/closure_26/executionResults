@@ -1,0 +1,3543 @@
+|------------------------------------------------------|
+|-------------checking necessary software--------------|
+|------------------------------------------------------|
+Find perl:/usr/bin/perl
+Find git:/usr/bin/git
+Find svn:/usr/bin/svn
+|------------------------------------------------------|
+|             set current testing project              |
+|             Example 1 : ./run.sh chart 1             |
+|             Example 2 : ./run.sh math 1              |
+|------------------------------------------------------|
+TEST :  closure_26
+Profl test coverage file= /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/26.txt
+Profl method coverage file= /mnt/efs/fs1/XiaInformation/AllMethods/Closure/26.txt
+Profl failing test file= /mnt/efs/fs1/XiaInformation/FailingTests/Closure/26.txt
+|------------------------------------------------------|
+|         checkout project from the Internet           |
+|------------------------------------------------------|
+[NOT] Removing directory]
+Save closure-26 to /home/ubuntu/repair-tool/simfix/d4j/projects/closure/closure_26_buggy
+|------------------------------------------------------|
+|                     run simfix                       |
+|------------------------------------------------------|
+Executing Profl-based Simfix
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/26.txt from '--profl_test=/mnt/efs/fs1/XiaInformation/LineCoverage/Closure/26.txt'
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/AllMethods/Closure/26.txt from '--profl_method=/mnt/efs/fs1/XiaInformation/AllMethods/Closure/26.txt'
+Setting profl parameter to /mnt/efs/fs1/XiaInformation/FailingTests/Closure/26.txt from '--profl_fail=/mnt/efs/fs1/XiaInformation/FailingTests/Closure/26.txt'
+/home/ubuntu/repair-tool/simfix/d4j/projects
+=================================================
+Project : closure_26	start : 20/05/29 10:51
+
+Field type inconsistancy 'THIS' with types : Token and int
+Variable type inconsistancy of 'name' in method 'visit,NodeTraversal,Node,Node' with types : Name and String
+Field type inconsistancy 'SUPER' with types : SimpleReference<SimpleSlot> and FunctionInjector.Reference
+Variable type inconsistancy of 'start' in method 'parseRegExp,String,String' with types : int and char
+Variable type inconsistancy of 'end' in method 'parseRegExp,String,String' with types : int and char
+Field type inconsistancy 'errors' with types : JSError[] and List<JSError>
+Field type inconsistancy 'type' with types : Type and JSType
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testModuleName
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testDash
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testWithoutExports
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testExports
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING single test: com.google.javascript.jscomp.CommandLineRunnerTest::testTransformAMDAndProcessCJS
+TESTING single test: com.google.javascript.jscomp.CommandLineRunnerTest::testProcessCJS
+[Originally FAILING test case] com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/26.txt
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/26.txt
+Writing sbfl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_26/generalSusInfo.profl
+TIMEOUT : 18000000
+Modified method com.google.javascript.rhino.Node:propToString(I)Ljava/lang/String; at line=131
+Modified method com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=65
+Find no block!
+Modified method com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=67
+UNKNOWN ASTNode type : catch (IllegalArgumentException e) {
+  compiler.report(t.makeError(n,INVALID_STYLE_ERROR,styleStr));
+  return;
+}
+
+UNKNOWN ASTNode type : catch (IOException e) {
+  compiler.getErrorManager().report(CheckLevel.ERROR,JSError.make(AbstractCompiler.READ_ERROR,getName()));
+  return ImmutableList.<String>of();
+}
+
+UNKNOWN ASTNode type : catch (IOException e) {
+  compiler.getErrorManager().report(CheckLevel.ERROR,JSError.make(AbstractCompiler.READ_ERROR,getName()));
+  return ImmutableList.<String>of();
+}
+
+UNKNOWN ASTNode type : catch (IOException e) {
+  compiler.report(JSError.make(AbstractCompiler.READ_ERROR,sourceFile.getName()));
+}
+
+UNKNOWN ASTNode type : catch (MalformedException ex) {
+  compiler.report(traversal.makeError(ex.getNode(),MESSAGE_TREE_MALFORMED,ex.getMessage()));
+  return;
+}
+
+UNKNOWN ASTNode type : catch (MalformedException e) {
+  compiler.report(JSError.make(message.getSourceName(),e.getNode(),MESSAGE_TREE_MALFORMED,e.getMessage()));
+  newValue=msgNode;
+}
+
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(externs);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_3_mod1_26.tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,this);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+reportDependencies=true;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+reportDependencies=false;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(reportDependencies){
+protectSideEffects();
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+referenceParentNames();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new HoistVariableAndFunctionDeclarations());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+reportDependencies=false;
+NodeTraversal.traverse(compiler,root,this);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkState(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+addBoilerplateCode();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+addExternDeclaration(externs,IR.var(IR.name(EXTERN_OBJECT_PROPERTY_STRING)));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root=externs;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_37_mod1_26.tests
+======== PATCH BEGIN ========
+if(reportDependencies){
+addExternForGlobalSymbolNamespace();
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new RemoveGlobalVarCallback());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new MakeExternsReferenceWindowExplicitly());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_53_mod1_26.tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(DEFAULT_FILENAME_PREFIX);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_55_mod2_26.tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=exportSymbolFunction;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=exportPropertyFunction;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(DEFAULT_FILENAME_PREFIX);
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_56_mod1_26.tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(DEFAULT_FILENAME_PREFIX);
+this.compiler=compiler;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(DEFAULT_FILENAME_PREFIX);
+this.compiler=compiler;
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new PropertyGatherer());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+processObjectCreateCalls(pass.callNodes);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+replaceStringsWithAliases();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+addAliasDeclarationNodes();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(reportDependencies){
+outputStringUsage();
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+trimCanidatesNotMeetingMinimumRequirements();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+reportDependencies=false;
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+removeUnused();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+new SimpleDefinitionFinder(compiler).process(externs,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_95_mod1_26.tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new SetNoSideEffectCallProperty(new SimpleDefinitionFinder(compiler)));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root.getInputId());
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_107_mod1_26.tests
+======== PATCH BEGIN ========
+removeScriptReferences(root.getInputId());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+removeInlinedFunctions();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+declareNativeFunctionType(new Scope(root,compiler),ARRAY_FUNCTION_TYPE);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new UseSiteGatheringCallback());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+beginTraversal();
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+traverse(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+endTraversal();
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new GatherCollapses());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(scriptNodeCount>0){
+compiler.reportCodeChange();
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+traverseAndRemoveUnusedReferences(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.addChildToFront(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_169_mod1_26.tests
+======== PATCH BEGIN ========
+this.externs=root;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.externs=receiver;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=externs.getNext().getString();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_187_mod5_26.tests
+======== PATCH BEGIN ========
+this.externs=root;
+Preconditions.checkNotNull(externs);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+Preconditions.checkNotNull(externs);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_188_mod2_26.tests
+======== PATCH BEGIN ========
+this.externs=root;
+Preconditions.checkNotNull(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.externs=root;
+Preconditions.checkNotNull(root);
+Preconditions.checkNotNull(externs);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+compiler.getTypeRegistry().checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.resolveTypesInScope(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(root==null){
+return ;
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_191_mod1_26.tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(DEFAULT_FILENAME_PREFIX);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_193_mod1_26.tests
+======== PATCH BEGIN ========
+this.scriptNodeCount=startLine;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+new PrepareAst(compiler,true).process(null,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_195_mod1_26.tests
+======== PATCH BEGIN ========
+if(!DEFAULT_FILENAME_PREFIX.isEmpty()){
+Node compiler.parseSyntheticCode(DEFAULT_FILENAME_PREFIX+":init",DEFAULT_FILENAME_PREFIX)=compiler.parseSyntheticCode(DEFAULT_FILENAME_PREFIX+":init",initCodeSource);
+if(initCodeRoot!=null&&initCodeRoot.getFirstChild()!=null){
+externs=initCodeRoot.removeChildren();
+}else {
+return ;
+}
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+recordReplacement(externs,DEFAULT_FILENAME_PREFIX,DEFAULT_FILENAME_PREFIX);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=node;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+reportDependencies=externs;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=exportSymbolFunction;
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=exportPropertyFunction;
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+this.DEFAULT_FILENAME_PREFIX=exportSymbolFunction;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+this.DEFAULT_FILENAME_PREFIX=exportPropertyFunction;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=exportSymbolFunction;
+this.DEFAULT_FILENAME_PREFIX=exportPropertyFunction;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+this.DEFAULT_FILENAME_PREFIX=exportSymbolFunction;
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+this.DEFAULT_FILENAME_PREFIX=exportPropertyFunction;
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=exportSymbolFunction;
+this.DEFAULT_FILENAME_PREFIX=exportPropertyFunction;
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+this.DEFAULT_FILENAME_PREFIX=exportSymbolFunction;
+this.DEFAULT_FILENAME_PREFIX=exportPropertyFunction;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+this.DEFAULT_FILENAME_PREFIX=exportSymbolFunction;
+this.DEFAULT_FILENAME_PREFIX=exportPropertyFunction;
+Preconditions.checkNotNull(compiler);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverseRoots(compiler,Lists.newArrayList(root,root),this);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+this.DEFAULT_FILENAME_PREFIX=fnName==null?"":fnName;
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new CreateScope(this,true));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+process(externs,root,new SimpleDefinitionFinder(compiler));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.report(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.pushContainingFunction(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+new NameReferenceGraphConstruction(compiler).process(externs,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_341_mod1_26.tests
+======== PATCH BEGIN ========
+getInfo(graph.MAIN).markReference(null);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+split(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.setIsSyntheticBlock(true);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_359_mod1_26.tests
+======== PATCH BEGIN ========
+IR.name(getArrayNotationNameFor(DEFAULT_FILENAME_PREFIX)).addChildToFront(IR.string(DEFAULT_FILENAME_PREFIX));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.addChildToFront(IR.var(IR.name(getArrayNotationNameFor(DEFAULT_FILENAME_PREFIX))));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root.getJSType());
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_367_mod1_26.tests
+======== PATCH BEGIN ========
+process(externs,root,null);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(root!=null){
+root.detachFromParent();
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_379_mod1_26.tests
+======== PATCH BEGIN ========
+processInternal(externs,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+endPass(externs,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+externs=root.getFirstChild();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_403_mod1_26.tests
+======== PATCH BEGIN ========
+aliasProperties(root,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+aliasGlobals(root,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+if(root.isFunction()){
+decl=decl.getLastChild();
+}
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeTraversal.traverse(compiler,root,new CreateScope(this,false));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+new RenameLabels(compiler,new LabelNameSupplier(compiler.getUniqueNameIdSupplier()),false).process(null,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.scriptNodeCount=lineno;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=sourceString;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=root;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+scriptNodeCount=0;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(provided.explicitModule);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=receiver;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=propName;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.externs=firstArgument;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.externs=null;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=null;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=isNewCall;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=receiver;
+this.DEFAULT_FILENAME_PREFIX=propName;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=receiver;
+this.externs=firstArgument;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=propName;
+this.externs=firstArgument;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=receiver;
+this.DEFAULT_FILENAME_PREFIX=propName;
+this.externs=firstArgument;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=root.isFunction();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(reportDependencies||!reportDependencies){
+modifyAllCallSites=canRemoveArgFromCallSites(root,scriptNodeCount);
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=typeExpr;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=sourceName;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkArgument(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(module);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_517_mod1_26.tests
+======== PATCH BEGIN ========
+root.addChildToFront(IR.function(IR.name(getMutatorFor(DEFAULT_FILENAME_PREFIX)),IR.paramList(IR.name(getMutatorFor(DEFAULT_FILENAME_PREFIX)+"$a"),IR.name(getMutatorFor(DEFAULT_FILENAME_PREFIX)+"$b")),IR.block(IR.returnNode(IR.assign(IR.getprop(IR.name(localPropName),IR.string(DEFAULT_FILENAME_PREFIX)),IR.name(localValueName))))));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+externs.removeChildAfter(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_533_mod1_26.tests
+======== PATCH BEGIN ========
+externs=addToFront(externs,externs,insertAfter);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+recordSet(ns.name,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+Preconditions.checkArgument(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+setManageClosureDependencies(true);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+inlineWellDefinedVariable(candidate.alias,root,candidate.refInfo.references);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(!root.isFunction()){
+return ;
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_573_mod1_26.tests
+======== PATCH BEGIN ========
+emitOptionalModuleExportsOverride(root,DEFAULT_FILENAME_PREFIX);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+runHotSwap(externs,root,this.getCleanupPassConfig());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+replaceReferencesToThis(root,DEFAULT_FILENAME_PREFIX);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+fixFunctionType(externs);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.detachFromParent();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_595_mod1_26.tests
+======== PATCH BEGIN ========
+externs.addChildToFront(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_595_mod2_26.tests
+======== PATCH BEGIN ========
+root.detachFromParent();
+externs.addChildToFront(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_596_mod1_26.tests
+======== PATCH BEGIN ========
+moveCallbackContentToTopLevel(externs,externs,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+compiler.setLifeCycleStage(LifeCycleStage.NORMALIZED_OBFUSCATED);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(reportDependencies){
+throw new JsonMLException();
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.setString(DEFAULT_FILENAME_PREFIX);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_635_mod1_26.tests
+======== PATCH BEGIN ========
+++scriptNodeCount;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.getLastChild().addChildrenToFront(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_649_mod1_26.tests
+======== PATCH BEGIN ========
+Preconditions.getNativeType(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+UNKNOWN.isAliased=true;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.createNode(UNKNOWN);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+externs.addChildrenToBack(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_659_mod1_26.tests
+======== PATCH BEGIN ========
+root.removeChild(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_661_mod1_26.tests
+======== PATCH BEGIN ========
+this.root=source;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(isPure(root)){
+return true;
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+root.getParent().removeChild(parent);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=reference;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.scriptNodeCount=charno;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=sourceName;
+Preconditions.checkNotNull(DEFAULT_FILENAME_PREFIX);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.scriptNodeCount=lineno;
+Preconditions.checkNotNull(DEFAULT_FILENAME_PREFIX);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=sourceName;
+this.scriptNodeCount=lineno;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=sourceName;
+this.scriptNodeCount=lineno;
+Preconditions.checkNotNull(DEFAULT_FILENAME_PREFIX);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.setString(coalescedVar.name);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(externs.isVar()){
+removeVarDeclaration(root);
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+compiler.getNodeForCodeInsertion(null).addChildrenToFront(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_715_mod1_26.tests
+======== PATCH BEGIN ========
+if(scriptNodeCount<scriptNodeCount){
+scriptNodeCount=scriptNodeCount;
+}else if(order>sourceInputOrder){
+scriptNodeCount=index;
+break;
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+new NodeTraversal(compiler,this).traverseWithScope(root,SyntacticScopeCreator.generateUntypedTopScope(compiler));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.addChildToBack(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_753_mod1_26.tests
+======== PATCH BEGIN ========
+root.addChildToBack(root.removeChildAfter(outerBlock));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.getParent().addChildBefore(externs,parent);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+externs.replaceChild(externs,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_757_mod1_26.tests
+======== PATCH BEGIN ========
+Preconditions.checkState(definitionSite.definition.getRValue()==root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.useSourceInfoFromForTree(externs);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_765_mod1_26.tests
+======== PATCH BEGIN ========
+externs.addChildAfter(root,externs);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_765_mod2_26.tests
+======== PATCH BEGIN ========
+root.useSourceInfoFromForTree(externs);
+externs.addChildAfter(root,externs);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_766_mod1_26.tests
+======== PATCH BEGIN ========
+root.getParent().replaceChild(root,externs);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_767_mod1_26.tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+info.isAliased=true;
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.replaceChild(alias.node,IR.nullNode());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+externs.getParent().addChildAfter(root,nodeToInsertAfter);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+externs=root;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_823_mod2_26.tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+exposeExpression(findExpressionRoot(root),root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(reportDependencies){
+throw new IllegalStateException("Normalize constraints violated:\n"+DEFAULT_FILENAME_PREFIX);
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_839_mod1_26.tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+Preconditions.checkState(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(root.getJSType()==null){
+return ConcreteType.ALL;
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+replaceNode(externs.getParent(),getPropNode,IR.getelem(externs,root));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+root.putBooleanProp(Node.FREE_CALL,true);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_867_mod1_26.tests
+======== PATCH BEGIN ========
+replaceNode(externs.getParent(),parentNode,root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(NodeUtil.getSourceName(externs));
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_879_mod1_26.tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(getCfg().getNode(root));
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+compiler.getNodeForCodeInsertion(null).checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+super(reportDependencies);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=lValue;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.add(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root.getQualifiedName());
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_919_mod1_26.tests
+======== PATCH BEGIN ========
+compiler.reportCodeChange();
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_929_mod1_26.tests
+======== PATCH BEGIN ========
+externs.putBooleanProp(Node.FREE_CALL,true);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_933_mod1_26.tests
+======== PATCH BEGIN ========
+externs.addChildToFront(IR.exprResult(IR.assign(IR.getprop(externs.cloneTree(),IR.string(nameInfo.name)),externs)).copyInformationFromForTree(root));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(insideAssignmentToIdConstant(root,externs)){
+continue;
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+externs.addChildBefore(NodeUtil.newVarNode(DEFAULT_FILENAME_PREFIX,externs),root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_945_mod1_26.tests
+======== PATCH BEGIN ========
+compiler.newExternInput("{RescopeGlobalSymbolsNamespaceVar}").getAstRoot(compiler).addChildrenToBack(root);
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_955_mod1_26.tests
+======== PATCH BEGIN ========
+replaceThis(root,externs.getFirstChild().removeFirstChild());
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+this.compiler=compiler;
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+ref.node.getParent().checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(NodeUtil.isExprCall(root)){
+parent.getParent().replaceChild(parent,IR.empty());
+}else {
+Node externs=externs;
+parent.replaceChild(call,NodeUtil.newUndefinedNode(srcLocation));
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=usePseudoNames;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(compiler.getCodingConvention().isConstant(DEFAULT_FILENAME_PREFIX)){
+IR.name(DEFAULT_FILENAME_PREFIX).putBooleanProp(Node.IS_CONSTANT_NAME,true);
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1083_mod1_26.tests
+======== PATCH BEGIN ========
+getSynthesizedExternsRoot().addChildToBack(IR.var(IR.name(DEFAULT_FILENAME_PREFIX)));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=includeRoot;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+externs.addChildToFront(externs);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1111_mod1_26.tests
+======== PATCH BEGIN ========
+if(externs.isCall()&&externs==parent.getFirstChild()){
+parent.putBooleanProp(Node.FREE_CALL,true);
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+externs.replaceChild(externs,root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 66 to 67
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1157_mod1_26.tests
+======== PATCH BEGIN ========
+compiler.getTypeRegistry().getNativeType(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+compiler.getTypeRegistry().checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+Preconditions.getNativeType(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.compiler=compiler;
+compiler.getTypeRegistry().getNativeType(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+externs.replaceChild(root,NodeUtil.newQualifiedNameNode(compiler.getCodingConvention(),String.format("%s.call",externs.getQualifiedName()),callee,"goog.base"));
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(externs.isExprResult()){
+parent.getParent().removeChild(parent);
+}else {
+Node root.getFirstChild().getNext()=root.getFirstChild().getNext();
+if(firstArg==null){
+parent.replaceChild(call,NodeUtil.newUndefinedNode(call));
+}else {
+parent.replaceChild(call,firstArg.detachFromParent());
+}
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(externs!=null){
+externs.addChildAfter(root,nameToAddAfter);
+}else {
+varParent.addChildBefore(newVar,externs);
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.removeChild(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=stripTweaks;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.addAll(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Pattern.compile("\\b(?:"+DEFAULT_FILENAME_PREFIX).checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX=placeholderToken.isEmpty()?DEFAULT_PLACEHOLDER_TOKEN:placeholderToken;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+scriptNodeCount++;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(DEFAULT_FILENAME_PREFIX==null||!"goog.now".equals(googNowQName)||root.getNext()!=null){
+return ;
+}
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+this.reportDependencies=computeForwardGraph;
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+this.reportDependencies=computeBackwardGraph;
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.DEFAULT_FILENAME_PREFIX="";
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.getErrorLevel(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=sanityCheck;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkNotNull(root);
+this.reportDependencies=rewriteNewDateGoogNow;
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.scriptNodeCount=numWorkers;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.getNativeObjectType(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.root=rootNode;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=false;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.scriptNodeCount=0;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=removeGlobals;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=preserveFunctionExpressionNames;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+this.reportDependencies=modifyCallSites;
+Preconditions.checkNotNull(root);
+NodeTraversal.traverse(compiler,root,new ProcessCommonJsModulesCallback());
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+Modified method com.google.javascript.jscomp.ProcessCommonJSModules:access$100(Lcom/google/javascript/jscomp/ProcessCommonJSModules;Ljava/lang/String;)Ljava/lang/String; at line=39
+Find no block!
+Modified method com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V at line=124
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return js;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(separator.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return separator;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+if(filename.indexOf(filenamePrefix,scriptNodeCount)<0){
+return -1;
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf('\n',scriptNodeCount)<0){
+index=filename.length();
+}
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(stringAsString.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==scriptNodeCount){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return className;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=value.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return input;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1519_mod1_26.tests
+======== PATCH BEGIN ========
+if(filenamePrefix.indexOf('')==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1519_mod2_26.tests
+======== PATCH BEGIN ========
+if(value.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filenamePrefix.indexOf('')!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1520_mod1_26.tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return warning;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+if(filename.indexOf('\n')>0){
+filename=warning.substring(0,lineLength);
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf('.')==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1523_mod1_26.tests
+======== PATCH BEGIN ========
+if(name.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=name.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename.indexOf('.')==-1?filename:name.substring(0,firstDotIndex);
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return name;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.length()==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1545_mod1_26.tests
+======== PATCH BEGIN ========
+if(line.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(code.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(stringVal.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=stringVal.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+radix=16;
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(stringAsString.indexOf(filenamePrefix)==scriptNodeCount){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(parentName.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(parent.hasWrittenDescendants){
+return ;
+}else {
+parent.hasWrittenDescendants=true;
+}
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+filename=parentName.substring(0,parentName.lastIndexOf('.'));
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return lValueName;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+if(!filenamePrefix.endsWith(".prototype")){
+return null;
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1581_mod2_26.tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return qNameStr;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(stringValue.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(ContextualRenamer.UNIQUE_ID_SEPARATOR)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(name.indexOf(filenamePrefix)!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(ContextualRenamer.UNIQUE_ID_SEPARATOR)!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)!=0){
+filename=name.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(name.indexOf(ContextualRenamer.UNIQUE_ID_SEPARATOR)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(name.indexOf(filenamePrefix)==0){
+filename=name.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(ContextualRenamer.UNIQUE_ID_SEPARATOR)==0){
+filename=name.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(name.indexOf(ContextualRenamer.UNIQUE_ID_SEPARATOR)!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(name.indexOf(filenamePrefix)!=0){
+filename=name.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(ContextualRenamer.UNIQUE_ID_SEPARATOR)!=0){
+filename=name.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(name.indexOf(ContextualRenamer.UNIQUE_ID_SEPARATOR)==0){
+filename=name.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(name.indexOf(ContextualRenamer.UNIQUE_ID_SEPARATOR)!=0){
+filename=name.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(source.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(fieldName.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=fieldName.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return s;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(line.indexOf(filenamePrefix)!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(description.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(multilineText.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return (indexOfSeparator(filenamePrefix)==-1)?filenamePrefix:name.substring(0,index);
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(reason.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(returnDescription.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(a.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf('.')!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1686_mod1_26.tests
+======== PATCH BEGIN ========
+if(filenamePrefix.length()==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1695_mod2_26.tests
+======== PATCH BEGIN ========
+if(s.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filenamePrefix.length()!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1696_mod1_26.tests
+======== PATCH BEGIN ========
+if(flags.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.charAt(scriptNodeCount)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(prefix.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(preserve.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix.charAt(0))==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1727_mod1_26.tests
+======== PATCH BEGIN ========
+if(maybeStringVal.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(blacklistRegex.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=nameGenerator.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(newcode.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return qName;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(depList.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(author.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(reference.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return IR;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf('$')==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1815_mod2_26.tests
+======== PATCH BEGIN ========
+if(prop.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=prop.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf('$')!=0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1816_mod1_26.tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+if(L==0)return false;
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+if(!Character.isJavaIdentifierStart(filename.charAt(0)))return false;
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(functionName.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(templateTypeName.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(version.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+new StringBuilder("(?:^|;)\\s*(").deleteCharAt(sb.length()-1);
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+new StringBuilder("(?:^|;)\\s*(").append(")\\s*\\((.*?)\\)");
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1841_mod2_26.tests
+======== PATCH BEGIN ========
+if(js.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filenamePrefix.indexOf('.')==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 121 to 124
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1857_mod1_26.tests
+======== PATCH BEGIN ========
+if(namespace.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return FP;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return length;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+findLineOffsets();
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename!=null&&name.length()!=0?name:null;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+case Token.NUMBER :
+
+if(filename.indexOf(filenamePrefix)==0){
+filename=filename.substring(filenamePrefix.length());
+}
+return filename;
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+Modified method com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:<init>(Lcom/google/javascript/jscomp/ProcessCommonJSModules;)V at line=127
+Find no block!
+Modified method com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=131
+Find no block!
+Modified method com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V at line=137
+UNKNOWN ASTNode type : catch (IllegalArgumentException e) {
+  compiler.report(t.makeError(n,INVALID_STYLE_ERROR,styleStr));
+  return;
+}
+
+UNKNOWN ASTNode type : catch (IllegalArgumentException e) {
+  compiler.report(t.makeError(n,INVALID_STYLE_ERROR,styleStr));
+  return;
+}
+
+UNKNOWN ASTNode type : catch (NumberFormatException e) {
+  return n;
+}
+
+UNKNOWN ASTNode type : catch (NumberFormatException e) {
+  return n;
+}
+
+UNKNOWN ASTNode type : catch (IllegalArgumentException ex) {
+  t.report(n,MALFORMED_REGEXP,ex.getMessage());
+}
+
+UNKNOWN ASTNode type : catch (IllegalArgumentException ex) {
+  t.report(n,MALFORMED_REGEXP,ex.getMessage());
+}
+
+UNKNOWN ASTNode type : catch (UnsupportedOperationException e) {
+  violation("getString failed for" + Token.name(n.getType()),n);
+}
+
+UNKNOWN ASTNode type : catch (UnsupportedOperationException e) {
+  violation("getString failed for" + Token.name(n.getType()),n);
+}
+
+======== PATCH BEGIN ========
+if(n.getChildCount()==1&&n.getFirstChild().isName()&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_1999_mod1_26.tests
+======== PATCH BEGIN ========
+if(scriptNodeCount==Token.FOR&&n.getChildCount()==4&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+validateExpression(n.getFirstChild());
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+validateBlock(n.getChildAtIndex(1));
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isGetProp()&&n==parent.getFirstChild()&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2061_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&isReferenceToRemovedVar(t,parent)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getFirstChild().getFirstChild().isName()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2099_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getFirstChild().getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2099_mod2_26.tests
+======== PATCH BEGIN ========
+if(n!=null&&right.isString()&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+reportCodeChange();
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+seenCatchOrFinally=true;
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&sibling.isString()&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+return ;
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+NodeUtil.redeclareVarsInsideBranch(n);
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2307_mod1_26.tests
+======== PATCH BEGIN ========
+compiler.reportCodeChange();
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2307_mod2_26.tests
+======== PATCH BEGIN ========
+NodeUtil.redeclareVarsInsideBranch(n);
+compiler.reportCodeChange();
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2308_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&shouldReportThis(n,parent)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getParent().isScript()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2391_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&parent.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2391_mod2_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getParent().isScript()){
+return ;
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&parent.getChildAtIndex(1).isString()){
+return ;
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(!t.inGlobalScope()&&n.getJSDocInfo()!=null&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2431_mod1_26.tests
+======== PATCH BEGIN ========
+if(parent.isAssign()&&parent.getFirstChild()==n&&n.getNext().isFunction()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2455_mod1_26.tests
+======== PATCH BEGIN ========
+if(parent.isAssign()&&parent.getFirstChild()==n&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2455_mod2_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getNext().isFunction()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2455_mod3_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getFirstChild().isAssign()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2471_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&checkForStateChangeHelper(n.getLastChild(),reportDependencies,compiler)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&isMarkedExpose(parent)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getParent().isFunction()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2521_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&isMarkedExpose(n)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&areMatchingExits(n,parent)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+n.detachFromParent();
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2535_mod2_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+return null;
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+n.detachFromParent();
+return null;
+
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&canFuseIntoOneStatement(n)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&areNodesEqualForInlining(parent,n.getLastChild())){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkState(n.isFunction());
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2581_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+n.putProp(Node.ORIGINALNAME_PROP,DEFAULT_FILENAME_PREFIX);
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2611_mod1_26.tests
+======== PATCH BEGIN ========
+if(n!=null&&n.getParent()!=null&&n.getParent().isCatch()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2689_mod1_26.tests
+======== PATCH BEGIN ========
+if(n!=null&&nameNode.getParent()!=null&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getParent().isCatch()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2689_mod3_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&nameNode.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+replaceSymbol(parent,DEFAULT_FILENAME_PREFIX);
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n!=null&&!n.isScript()&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2693_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&isPinningPropertyUse(n)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.getFirstChild().getString()!=null&&!name.isEmpty()&&parent!=null&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+parent.getParent().replaceChild(n,n);
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2719_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&isDeclaration(n)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&canNameValueChange(n,parent)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(!DEFAULT_FILENAME_PREFIX.isStringKey()||n==null&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+parent.replaceChild(n,IR.exprResult(IR.assign(IR.getprop(IR.name("module"),IR.string("exports")),parent)).useSourceInfoFromForTree(n));
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2763_mod1_26.tests
+======== PATCH BEGIN ========
+maybeRecordExport(parent);
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getParent().isExprResult()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2849_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&isCallToScopeMethod(n)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+add(")");
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+Preconditions.checkArgument(n.isCall());
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2885_mod1_26.tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&shouldEmitDeprecationWarning(t,n,parent)){
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+Build failed !
+Compilation failed, skipping tests
+======== PATCH BEGIN ========
+if(n.isCall()&&n.getChildCount()==2&&"require".equals(n.getFirstChild().getQualifiedName())&&n.getChildAtIndex(1).isString()){
+if(n.getFirstChild().getJSType()==null||n.getFirstChild().getJSType().toObjectType()==null){
+return ;
+}
+visitRequireCall(t,n,parent);
+}
+-------- PATCH END --------
+-------- PROCESSING TESTS BEGIN --------
+TESTING single test: com.google.javascript.jscomp.ProcessCommonJSModulesTest::testVarRenaming
+TESTING test suite for: closure_26
+File modified = com.google.javascript.jscomp.ProcessCommonJSModules from lines 137 to 141
+Method modified = com.google.javascript.jscomp.ProcessCommonJSModules$ProcessCommonJsModulesCallback:visit(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+NoneFix detected
+-------- PROCESSING TESTS END --------
+Test suite failed: /home/ubuntu/repair-tool/simfix/runnable/log/closure/Attempt_2897_mod1_26.tests
+Timeout!
+Writing profl final results to /home/ubuntu/repair-tool/simfix/runnable/proflResults/closure_26/aggregatedSusInfo.profl
