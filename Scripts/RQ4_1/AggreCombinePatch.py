@@ -14,6 +14,7 @@ def write_data(method_name, value, path):
 
 def get_current_SBFL_value(file):
     sus_dic = dict() 
+
     if os.path.exists(file):   
         with open(file) as f:
             for line in f:
@@ -48,20 +49,21 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL
                         cate = mix_unmodified
                     #value = items[1]
                     if method_name.replace(":",".") in SBFL_sus_values:
+
                             value = SBFL_sus_values[method_name.replace(":",".")]
-                            method_cate[method_name].append(unmodified_ranking.index(cate))
-                            method_clean[method_name].append(cate)
-                            method_value[method_name] = value
+                            method_cate[method_name.replace(":",".")].append(unmodified_ranking.index(cate))
+                            method_clean[method_name.replace(":",".")].append(cate)
+                            method_value[method_name.replace(":",".")] = value
 
                             folder = "../../Data/DeepFLData/SusValue/" + sbfl_formula
                             if not os.path.exists(folder):
                                 os.makedirs(folder)
                               
                             #write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
-        else:
-            print("Missing " + result_file)
-
-                    
+        #else:
+        #    print("Missing " + result_file)
+    
+                 
     return method_cate,method_value,method_clean
 
 #method_cate_number: number of tool category,for example, if M1 aggregation is
@@ -102,7 +104,7 @@ def get_buggy(buggy_method_path):
     with open(buggy_method_path) as f:
         for line in f:
             if  "^^^^^^" in line:
-                buggy.append(line.split("^^^^^^")[1].strip())
+                buggy.append(line.split("^^^^^^")[1].strip().replace(":","."))
     return buggy
 
 def get_buggy_statment(path):
@@ -126,7 +128,9 @@ def get_final_ranking(buggy_methods,method_final_cate,method_value,unmodified_ra
     rankings = []
     global unidebug_plusplus
     for bug in buggy_methods:
+
         if bug in method_value:
+            #print(bug)
             bug_cat = method_final_cate[bug]
             bug_valu = float(method_value[bug])
             bug_ranking = 0
@@ -247,14 +251,14 @@ def get_SBFL_ranking(file, buggy_methods):
 first_write = False
 single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/ProFL-"
 
-#projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
-#vers = [65,27,106,26,38,133]
+projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
+vers = [65,27,106,26,38,133]
 
 #projects = ["Mockito","Closure"]
 #vers = [38,133]
 
-projects = ["Lang","Time","Math","Chart"]
-vers = [65,27,106,26]
+#projects = ["Lang","Time","Math","Chart"]
+#vers = [65,27,106,26]
 
 
 result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
@@ -271,8 +275,6 @@ profl_variant = sys.argv[5]
 
 statement_level = sys.argv[6] # True or false
 
-if statement_level == "Statement":
-    profl_variant = "proflvariant-statementlevel-full-standard"
 
 unmodified_ranking = ["CleanFixFull", "CleanFixPartial", "CleanFix","NoisyFixFull", "NoisyFixPartial", "NoisyFix","NoneFix","NegFix"]
 
@@ -288,19 +290,23 @@ for comb in combs_from_file:
 
         for ver in range(1,vs + 1):
                 ver = str(ver)
-                buggy_method_path = "../../Data/FaultyMethods/" + proj + "/" + ver + ".txt"
-
-                buggy_methods = get_buggy(buggy_method_path)
-                if statement_level == "Statement":
+                
+                if statement_level == "Method":
+                    buggy_method_path = "../../Data/FaultyMethods/" + proj + "/" + ver + ".txt"
+                    buggy_methods = get_buggy(buggy_method_path)
+                else:
                     buggy_stmt_path = "../../Data/StatementLevel/buglines/" + proj + "/" + ver + ".txt"
                     buggy_methods = get_buggy_statment(buggy_stmt_path)
 
-                buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods)
-                SBFL_sus_values = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
 
-                if statement_level == "Statement":
+
+                if statement_level == "Method":
+                    buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods)
+                    SBFL_sus_values = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
+
+                else:  #Statement
                     buggy_SBFL_ranking = get_SBFL_ranking("../../Data/StatementLevel/BugRanks/" + proj + "-" + ver + ".txt",buggy_methods) # default Ochiai
-                    SBFL_sus_values = get_current_SBFL_value("../Data/StatementLevel/st_results/" + proj + "/" + ver + "-s.csv")
+                    SBFL_sus_values = get_current_SBFL_value("../../Data/StatementLevel/st_results/" + proj + "/" + ver + "-s.csv")
 
                 method_cate, method_value, method_all_cate = get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, profl_variant,statement_level)
                 method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate,ver,proj,sbfl_formula) 
