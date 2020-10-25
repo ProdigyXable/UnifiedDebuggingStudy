@@ -24,7 +24,7 @@ def get_current_SBFL_value(file):
 
 
 
-def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, profl_variant):
+def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, profl_variant,statement_level):
     method_cate = defaultdict(list) #index of Unmodified_ranking
     method_value = dict()      #suspicious value
     method_clean = defaultdict(list) # real category list
@@ -38,6 +38,11 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL
                 for line in f:
                     items = line.strip().split("|")
                     method_name = items[3]
+                    if statement_level == "Statement":
+                        if "#" in method_name:
+
+                            method_name = method_name.split(":")[0] + ":" + method_name.split("#")[1]  #actually: statement
+
                     cate = items[2].split("PatchCategory.")[1]
                     if cate == "Unmodified":
                         cate = mix_unmodified
@@ -100,11 +105,11 @@ def get_buggy(buggy_method_path):
                 buggy.append(line.split("^^^^^^")[1].strip())
     return buggy
 
-def get_buggy_statment(path)
-	buggy = []
+def get_buggy_statment(path):
+    buggy = []
     with open(path) as f:
         for line in f:
-			buggy.append(line.strip())
+            buggy.append(line.strip())
     return buggy
 
 
@@ -267,7 +272,7 @@ profl_variant = sys.argv[5]
 statement_level = sys.argv[6] # True or false
 
 if statement_level == "Statement":
-	profl_variant = "proflvariant-statementlevel-full-standard"
+    profl_variant = "proflvariant-statementlevel-full-standard"
 
 unmodified_ranking = ["CleanFixFull", "CleanFixPartial", "CleanFix","NoisyFixFull", "NoisyFixPartial", "NoisyFix","NoneFix","NegFix"]
 
@@ -287,17 +292,17 @@ for comb in combs_from_file:
 
                 buggy_methods = get_buggy(buggy_method_path)
                 if statement_level == "Statement":
-                	buggy_stmt_path = "../../Data/StatementLevel/buglines/" + proj + "/" + ver + ".txt"
-                	buggy_methods = get_buggy_statment(buggy_stmt_path)
+                    buggy_stmt_path = "../../Data/StatementLevel/buglines/" + proj + "/" + ver + ".txt"
+                    buggy_methods = get_buggy_statment(buggy_stmt_path)
 
                 buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods)
                 SBFL_sus_values = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
 
                 if statement_level == "Statement":
-                	buggy_SBFL_ranking = get_SBFL_ranking("../../Data/StatementLevel/BugRanks/" + proj + "-" + ver + ".txt",buggy_methods) # default Ochiai
-                	SBFL_sus_values = get_current_SBFL_value("../Data/StatementLevel/st_results/" + proj + "/" + ver + "-s.csv")
+                    buggy_SBFL_ranking = get_SBFL_ranking("../../Data/StatementLevel/BugRanks/" + proj + "-" + ver + ".txt",buggy_methods) # default Ochiai
+                    SBFL_sus_values = get_current_SBFL_value("../Data/StatementLevel/st_results/" + proj + "/" + ver + "-s.csv")
 
-                method_cate, method_value, method_all_cate = get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, profl_variant)
+                method_cate, method_value, method_all_cate = get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, profl_variant,statement_level)
                 method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate,ver,proj,sbfl_formula) 
 
                 cate_number_dict = get_cate_number_info(buggy_methods,method_final_cate,method_value,method_cate_number)
