@@ -52,7 +52,7 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL
                             if not os.path.exists(folder):
                                 os.makedirs(folder)
                               
-                            write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
+                            #write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
         else:
             print("Missing " + result_file)
 
@@ -80,8 +80,8 @@ def get_method_info(method_cate,method_value,method_clean,ver,proj,sbfl_formula)
                 os.makedirs(folder1)
             if not os.path.exists(folder2):
                 os.makedirs(folder2)
-            write_data(m,cat,folder1 + "/" + ver + "-" + proj + ".txt")
-            write_data(m,cat_number,folder2 + "/" + ver + "-" + proj + ".txt")
+            #write_data(m,cat,folder1 + "/" + ver + "-" + proj + ".txt")
+            #write_data(m,cat_number,folder2 + "/" + ver + "-" + proj + ".txt")
             ###
     
     return method_final_cate,method_cate_number
@@ -255,6 +255,11 @@ unidebug_plusplus = "True"
 sbfl_formula = sys.argv[4]   # formula such as: "STOchiai"
 
 profl_variant = sys.argv[5]
+
+statement_level = sys.argv[6] # True or false
+
+if statement_level == "True":
+	profl_variant = "proflvariant-statementlevel-full-standard"
 
 unmodified_ranking = ["CleanFixFull", "CleanFixPartial", "CleanFix","NoisyFixFull", "NoisyFixPartial", "NoisyFix","NoneFix","NegFix"]
 
