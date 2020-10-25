@@ -17,7 +17,7 @@ def get_current_SBFL_value(file):
     if os.path.exists(file):   
         with open(file) as f:
             for line in f:
-                method_name = line.split()[0]
+                method_name = line.split()[0].replace(":",".")
                 value = line.split()[1].strip()
                 sus_dic[method_name] = value
     return sus_dic
@@ -109,7 +109,7 @@ def get_buggy_statment(path):
     buggy = []
     with open(path) as f:
         for line in f:
-            buggy.append(line.strip())
+            buggy.append(line.strip().replace(":","."))
     return buggy
 
 
@@ -235,7 +235,7 @@ def get_SBFL_ranking(file, buggy_methods):
 
         with open(file) as f:
             for line in f:
-                m = line.split()[0]
+                m = line.split()[0].replace(":",".")
 
                 ranking = line.split()[1].strip()
                 buggy_SBFL_ranking[m] = ranking
