@@ -54,7 +54,8 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL
                               
                             write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
         else:
-            print("Missing " + result_file)
+            pass
+            #print("Missing " + result_file)
 
                     
     return method_cate,method_value,method_clean
@@ -199,7 +200,7 @@ def read_comb(comb_file):
 
 def write_results(result_list,comb_file,comb,max_top1):
     global first_write
-    with open(comb_file + ".result",'a') as f:
+    with open("result." + comb_file,'a') as f:
         if(first_write is False):
             first_write = True
             f.write("<Format = Top1 Top3 Top5 MFR MAR from Tool(s)>")
@@ -234,14 +235,14 @@ def get_SBFL_ranking(file, buggy_methods):
 first_write = False
 single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/ProFL-"
 
-#projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
-#vers = [65,27,106,26,38,133]
+projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
+vers = [65,27,106,26,38,133]
 
 #projects = ["Mockito","Closure"]
 #vers = [38,133]
 
-projects = ["Lang","Time","Math","Chart"]
-vers = [65,27,106,26]
+#projects = ["Lang","Time","Math","Chart"]
+#vers = [65,27,106,26]
 
 
 result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
