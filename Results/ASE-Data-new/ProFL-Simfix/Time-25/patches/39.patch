@@ -1,0 +1,16 @@
+Method signature: org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+Patched lines: 68 - 79
+------------
+if(nameKey==null){
+throw new IllegalArgumentException("Literal must not be null");
+}
+if(set!=null&&set.length==5&&id.equals(set[0])){
+byNameKeyCache.put(set[2],new String[]{set[2],set[1]});
+if(set[2].equals(set[4])){
+byNameKeyCache.put(set[4]+"-Summer",new String[]{set[4],set[3]});
+}else {
+byNameKeyCache.put(set[4],new String[]{set[4],set[3]});
+}
+break;
+}
+

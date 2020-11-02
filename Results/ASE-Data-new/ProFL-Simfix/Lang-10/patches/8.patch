@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.lang3.time.FastDateParser$TimeZoneStrategy:setCalendar(Lorg/apache/commons/lang3/time/FastDateParser;Ljava/util/Calendar;Ljava/lang/String;)V
+Patched lines: 825 - 836
+------------
+if(value.charAt(0)=='+'||value==null){
+tz=TimeZone.getTimeZone("GMT"+value);
+}else if(value.startsWith("GMT")){
+tz=TimeZone.getTimeZone(value);
+}else {
+tz=tzNames.get(value);
+if(tz==null){
+throw new IllegalArgumentException(value+" is not a supported timezone name");
+}
+}
+

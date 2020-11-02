@@ -1,0 +1,10 @@
+Method signature: org.joda.time.DateTimeZone:forOffsetHoursMinutes(II)Lorg/joda/time/DateTimeZone;
+Patched lines: 262 - 267
+------------
+int hoursInMinutes=FieldUtils.safeAdd(hoursOffset,60);
+if(hoursInMinutes<0){
+minutesOffset=FieldUtils.safeAdd(hoursInMinutes,-minutesOffset);
+}else {
+minutesOffset=FieldUtils.safeAdd(hoursInMinutes,minutesOffset);
+}
+

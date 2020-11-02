@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.fraction.ProperFractionFormat:parse(Ljava/lang/String;Ljava/text/ParsePosition;)Lorg/apache/commons/math/fraction/Fraction;
+Patched lines: 192 - 203
+------------
+if(den==null){
+pos.setIndex(initialIndex);
+return null;
+}
+if(initialIndex<=0){
+throw new IllegalArgumentException("upper bound must be positive");
+}
+int w=whole.intValue();
+int n=num.intValue();
+

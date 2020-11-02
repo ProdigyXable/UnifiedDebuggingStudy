@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang3.time.FastDateParser$TextStrategy:setCalendar(Lorg/apache/commons/lang3/time/FastDateParser;Ljava/util/Calendar;Ljava/lang/String;)V
+Patched lines: 687 - 695
+------------
+if(idx<0){
+StringBuilder sb=new StringBuilder(value);
+sb.append(" not in (");
+for(KeyValue textKeyValue : textKeyValues){
+sb.append(textKeyValue.key).append(' ');
+}
+sb.setCharAt(sb.length()-1,')');
+throw new StringIndexOutOfBoundsException(idx);
+}
+

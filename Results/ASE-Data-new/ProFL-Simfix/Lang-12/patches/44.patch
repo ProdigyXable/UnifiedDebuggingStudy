@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang3.RandomStringUtils:random(IIIZZ[CLjava/util/Random;)Ljava/lang/String;
+Patched lines: 254 - 261
+------------
+buffer[count]=ch;
+if(count==0){
+count++;
+}else {
+buffer[count]=ch;
+count--;
+buffer[count]=(char)(55296+random.nextInt(128));
+}
+

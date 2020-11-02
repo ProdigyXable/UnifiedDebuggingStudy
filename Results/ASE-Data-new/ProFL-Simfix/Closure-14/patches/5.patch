@@ -1,0 +1,9 @@
+Method signature: com.google.javascript.jscomp.ControlFlowAnalysis:handleBreak(Lcom/google/javascript/rhino/Node;)V
+Patched lines: 575 - 580
+------------
+if(lastJump==cur.getLastChild()){
+createEdge(lastJump,Branch.UNCOND,computeFallThrough(cur.getLastChild()));
+}else {
+finallyMap.put(lastJump,computeFallThrough(cur.getLastChild()));
+}
+

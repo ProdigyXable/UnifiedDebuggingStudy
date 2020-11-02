@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.builder.ReflectionToStringBuilder:<init>(Ljava/lang/Object;Lorg/apache/commons/lang3/builder/ToStringStyle;Ljava/lang/StringBuffer;Ljava/lang/Class;ZZ)V
+Patched lines: 473 - 476
+------------
+super(object,style,buffer);
+if(object==null){
+throw new IllegalArgumentException("The object to build a hash code for must not be null");
+}
+this.setUpToClass(reflectUpToClass);
+this.setAppendTransients(outputTransients);
+this.setAppendStatics(outputStatics);
+

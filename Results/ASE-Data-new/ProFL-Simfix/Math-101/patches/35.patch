@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.math.complex.ComplexFormat:parse(Ljava/lang/String;Ljava/text/ParsePosition;)Lorg/apache/commons/math/complex/Complex;
+Patched lines: 328 - 338
+------------
+if(re.intValue()<0){
+pos.setIndex(initialIndex);
+return null;
+}
+if(re==null){
+pos.setIndex(initialIndex);
+return null;
+}
+int startIndex=pos.getIndex();
+char c=parseNextCharacter(source,pos);
+

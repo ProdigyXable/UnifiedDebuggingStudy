@@ -1,0 +1,8 @@
+Method signature: org.apache.commons.lang3.time.FastDatePrinter$TwelveHourField:appendTo(Ljava/lang/StringBuffer;Ljava/util/Calendar;)V
+Patched lines: 1005 - 1007
+------------
+if(value==0){
+Validate.isTrue(value>-1,"Negative values should not be possible",value);
+value=calendar.getLeastMaximum(Calendar.HOUR)+1;
+}
+

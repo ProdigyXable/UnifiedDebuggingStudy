@@ -1,0 +1,25 @@
+Method signature: org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 840 - 853
+------------
+if(entityName.length()==0){
+throw new NumberFormatException("\"\" is not a valid number.");
+}
+if(entityName.startsWith("--")){
+return null;
+}
+if(entityName.length()==1){
+entityValue=-1;
+}else {
+char charAt1=entityName.charAt(1);
+try{
+if(charAt1=='x'||charAt1=='X'){
+entityValue=Integer.valueOf(entityName.substring(2),16).intValue();
+}else {
+entityValue=Integer.parseInt(entityName.substring(1));
+}
+}catch (NumberFormatException ex) {
+  entityValue=-1;
+}
+
+}
+

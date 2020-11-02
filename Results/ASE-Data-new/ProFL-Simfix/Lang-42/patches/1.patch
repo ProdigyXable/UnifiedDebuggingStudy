@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang.Entities:escape(Ljava/io/Writer;Ljava/lang/String;)V
+Patched lines: 831 - 837
+------------
+if(c>0xf){
+writer.write("&#");
+writer.write(Integer.toString(c,10));
+writer.write(';');
+}else {
+writer.write(c);
+}
+

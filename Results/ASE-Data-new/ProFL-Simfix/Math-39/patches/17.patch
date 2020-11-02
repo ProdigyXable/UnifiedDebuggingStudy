@@ -1,0 +1,9 @@
+Method signature: org.apache.commons.math.util.FastMath:nextAfter(DD)D
+Patched lines: 3256 - 3260
+------------
+if(Double.isInfinite(d)){
+return (d<0)?-Float.MAX_VALUE:Double.MAX_VALUE;
+}else if(d==0){
+return (direction<0)?-Double.MIN_VALUE:Float.MIN_VALUE;
+}
+

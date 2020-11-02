@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeHtml(Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 455 - 465
+------------
+if(str.indexOf(str)==-1){
+return str;
+}
+if(str==null){
+return null;
+}
+try{
+StringWriter writer=new StringWriter((int)(str.length()*1.5));
+escapeHtml(writer,str);
+return writer.toString();
+}catch (IOException ioe) {
+  throw new UnhandledException(ioe);
+}
+
+

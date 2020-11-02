@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang.time.StopWatch:resume()V
+Patched lines: 192 - 197
+------------
+if(this.runningState!=STATE_STOPPED){
+throw new IllegalStateException("Stopwatch must be reset before being restarted. ");
+}
+startTime+=(System.currentTimeMillis()-stopTime);
+if(this.runningState!=STATE_UNSTARTED){
+throw new IllegalStateException("Stopwatch already started. ");
+}
+stopTime=-1;
+this.runningState=STATE_RUNNING;
+

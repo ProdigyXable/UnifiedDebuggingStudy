@@ -1,0 +1,38 @@
+Method signature: org.apache.commons.lang.BooleanUtils:toBooleanObject(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Boolean;
+Patched lines: 603 - 619
+------------
+if(str==null){
+if(trueString==null){
+return Boolean.TRUE;
+}else if(falseString==null){
+return Boolean.FALSE;
+}else if(nullString==null){
+return null;
+}
+}else if(str.equals(trueString)){
+return Boolean.TRUE;
+}else if(str.equals(falseString)){
+return Boolean.FALSE;
+}else if(str.equals(nullString)){
+return null;
+}
+if("true".equalsIgnoreCase(str)){
+return Boolean.TRUE;
+}else if("false".equalsIgnoreCase(str)){
+return Boolean.FALSE;
+}else if("on".equalsIgnoreCase(str)){
+return Boolean.TRUE;
+}else if("off".equalsIgnoreCase(str)){
+return Boolean.FALSE;
+}else if("yes".equalsIgnoreCase(str)){
+return Boolean.TRUE;
+}else if("no".equalsIgnoreCase(str)){
+return Boolean.FALSE;
+}
+if("yes".equalsIgnoreCase(str)){
+return Boolean.TRUE;
+}else if("no".equalsIgnoreCase(str)){
+return Boolean.FALSE;
+}
+throw new IllegalArgumentException("The String did not match any specified value");
+

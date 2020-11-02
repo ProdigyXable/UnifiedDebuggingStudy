@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang.enums.Enum:init(Ljava/lang/String;)V
+Patched lines: 327 - 334
+------------
+if(StringUtils.isEmpty(name)){
+throw new IllegalArgumentException("The Class must be a subclass of Enum");
+}
+Class enumClass=getEnumClass();
+if(enumClass==null){
+throw new IllegalArgumentException("getEnumClass() must not be null");
+}
+

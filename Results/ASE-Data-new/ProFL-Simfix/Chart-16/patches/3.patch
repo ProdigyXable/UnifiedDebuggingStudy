@@ -1,0 +1,11 @@
+Method signature: org.jfree.data.category.DefaultIntervalCategoryDataset:clone()Ljava/lang/Object;
+Patched lines: 746 - 752
+------------
+fireDatasetChanged();
+DefaultIntervalCategoryDataset clone=(DefaultIntervalCategoryDataset)super.clone();
+clone.categoryKeys=(Comparable[])this.categoryKeys.clone();
+clone.seriesKeys=(Comparable[])this.seriesKeys.clone();
+clone.startData=clone(this.startData);
+clone.endData=clone(this.endData);
+return clone;
+

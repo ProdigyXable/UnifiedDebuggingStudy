@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.time.FastDateFormat:getTimeZoneDisplay(Ljava/util/TimeZone;ZILjava/util/Locale;)Ljava/lang/String;
+Patched lines: 411 - 418
+------------
+if(value!=null){
+value=tz.getDisplayName(daylight,style,locale);
+String prior=cTimeZoneDisplayCache.putIfAbsent(key,value);
+if(prior==null){
+value=prior;
+}
+}
+

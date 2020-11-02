@@ -1,0 +1,12 @@
+Method signature: org.jfree.data.time.TimeSeries:createCopy(Lorg/jfree/data/time/RegularTimePeriod;Lorg/jfree/data/time/RegularTimePeriod;)Lorg/jfree/data/time/TimeSeries;
+Patched lines: 947 - 954
+------------
+if(emptyRange){
+fireSeriesChanged();
+TimeSeries copy=(TimeSeries)super.clone();
+copy.data=new java.util.ArrayList();
+return copy;
+}else {
+return createCopy(startIndex,endIndex);
+}
+

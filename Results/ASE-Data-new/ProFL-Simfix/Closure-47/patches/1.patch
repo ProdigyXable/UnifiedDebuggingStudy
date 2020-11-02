@@ -1,0 +1,11 @@
+Method signature: com.google.debugging.sourcemap.SourceMapGeneratorV3:<init>()V
+Patched lines: 212 - 222
+------------
+if(lastMapping!=lastLine){
+int lastLine=lastMapping.startPosition.getLine();
+int lastColumn=lastMapping.startPosition.getColumn();
+int nextLine=mapping.startPosition.getLine();
+int nextColumn=mapping.startPosition.getColumn();
+Preconditions.checkState(nextLine>lastLine||(nextLine==lastLine&&nextColumn>=lastColumn),"Incorrect source mappings order, previous : (%s,%s)\n"+"new : (%s,%s)\nnode : %s",lastLine,lastColumn,nextLine,nextColumn);
+}
+

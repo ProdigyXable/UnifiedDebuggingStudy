@@ -1,0 +1,20 @@
+Method signature: org.apache.commons.math.stat.Frequency:getCumFreq(Ljava/lang/Object;)J
+Patched lines: 334 - 346
+------------
+if(c==null){
+c=new NaturalComparator();
+}
+long result=0;
+if(v instanceof Integer){
+v=Long.valueOf(((Integer)v).longValue());
+}
+try{
+Long value=(Long)freqTable.get(v);
+if(value!=null){
+result=value.longValue();
+}
+}catch (ClassCastException ex) {
+  return result;
+}
+
+

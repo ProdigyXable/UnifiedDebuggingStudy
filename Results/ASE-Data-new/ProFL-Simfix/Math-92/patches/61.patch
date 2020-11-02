@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.math.util.MathUtils:binomialCoefficient(II)J
+Patched lines: 181 - 188
+------------
+if((k==1)||(k==n-1)){
+return n;
+}
+long result=Math.round(binomialCoefficientDouble(n,k));
+if(result==Long.MAX_VALUE){
+throw new IllegalArgumentException("must have n > 0 for n!");
+}
+

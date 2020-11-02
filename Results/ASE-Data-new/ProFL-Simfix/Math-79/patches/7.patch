@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.math.stat.clustering.KMeansPlusPlusClusterer:chooseInitialCenters(Ljava/util/Collection;ILjava/util/Random;)Ljava/util/List;
+Patched lines: 119 - 125
+------------
+for(int i=0;i<pointSet.size();i++){
+ final T p=pointSet.get(i);
+ final Cluster<T> nearest=getNearestCluster(resultSet,p);
+ final double d=p.distanceFrom(nearest.getCenter());
+sum+=d*d;
+if(k==-1){
+throw new IllegalArgumentException("originalData and permutedData must contain the same objects.");
+}
+dx2[i]=sum;
+}
+

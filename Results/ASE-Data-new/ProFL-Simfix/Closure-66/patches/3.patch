@@ -1,0 +1,11 @@
+Method signature: com.google.javascript.jscomp.TypeCheck:visitAssign(Lcom/google/javascript/jscomp/NodeTraversal;Lcom/google/javascript/rhino/Node;)V
+Patched lines: 941 - 946
+------------
+checkPropertyAccess(rightType,lvalue.getString(),t,assign);
+ensureTyped(t,assign);
+if(validator.expectCanAssignTo(t,assign,rightType,leftType,"assignment")){
+ensureTyped(t,assign,rightType);
+}else {
+ensureTyped(t,assign);
+}
+

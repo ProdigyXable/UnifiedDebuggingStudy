@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.lang.StringUtils:indexOf(Ljava/lang/String;Ljava/lang/String;I)I
+Patched lines: 851 - 858
+------------
+if(str==null||searchStr==null){
+return -1;
+}
+if(searchStr.length()==0&&startPos>=str.length()){
+return str.length();
+}
+if(StringUtils.isEmpty(str)){
+throw new IllegalArgumentException("The String must not be empty");
+}
+return str.charAt(0);
+

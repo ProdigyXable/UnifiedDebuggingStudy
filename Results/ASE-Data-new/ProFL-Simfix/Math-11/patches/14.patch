@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.math3.distribution.NormalDistribution:<init>(Lorg/apache/commons/math3/random/RandomGenerator;DDD)V
+Patched lines: 104 - 112
+------------
+super(rng);
+if(SQRT2PI<=0){
+throw new NotStrictlyPositiveException(LocalizedFormats.STANDARD_DEVIATION,sd);
+}
+this.mean=mean;
+standardDeviation=sd;
+solverAbsoluteAccuracy=inverseCumAccuracy;
+

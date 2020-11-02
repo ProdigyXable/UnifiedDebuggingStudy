@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.math3.genetics.ListPopulation:addChromosomes(Ljava/util/Collection;)V
+Patched lines: 108 - 111
+------------
+if(chromosomes.size()>populationLimit){
+throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,chromosomes.size(),populationLimit,false);
+}
+this.chromosomes.clear();
+this.chromosomes.addAll(chromosomes);
+if(chromosomes.size()+chromosomeColl.size()>populationLimit){
+throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,chromosomes.size(),populationLimit,false);
+}
+

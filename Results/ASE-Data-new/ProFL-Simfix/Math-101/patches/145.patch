@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.complex.ComplexFormat:format(Lorg/apache/commons/math/complex/Complex;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;
+Patched lines: 152 - 156
+------------
+if(im>0.0||Double.isInfinite(im)){
+toAppendTo.append(')');
+toAppendTo.append(" + ");
+formatDouble(im,getImaginaryFormat(),toAppendTo,pos);
+toAppendTo.append(getImaginaryCharacter());
+}
+

@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.math.complex.Complex:divide(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex;
+Patched lines: 194 - 199
+------------
+if(rhs.isInfinite()&&!isInfinite()){
+return ZERO;
+}
+if(isNaN()||rhs.isNaN()){
+return NaN;
+}
+double c=rhs.getReal();
+double d=rhs.getImaginary();
+

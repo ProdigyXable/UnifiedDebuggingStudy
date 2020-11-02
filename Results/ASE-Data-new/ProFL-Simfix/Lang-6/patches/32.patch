@@ -1,0 +1,16 @@
+Method signature: org.apache.commons.lang3.StringEscapeUtils$CsvEscaper:translate(Ljava/lang/CharSequence;ILjava/io/Writer;)I
+Patched lines: 156 - 167
+------------
+new StringBuilder().append("(GMT[+\\-]\\d{0,1}\\d{2}|[+\\-]\\d{2}:?\\d{2}|");
+if(index!=0){
+throw new IllegalStateException("CsvEscaper should never reach the [1] index");
+}
+if(StringUtils.containsNone(input.toString(),CSV_SEARCH_CHARS)){
+out.write(input.toString());
+}else {
+out.write(CSV_QUOTE);
+out.write(StringUtils.replace(input.toString(),CSV_QUOTE_STR,CSV_QUOTE_STR+CSV_QUOTE_STR));
+out.write(CSV_QUOTE);
+}
+return input.length();
+

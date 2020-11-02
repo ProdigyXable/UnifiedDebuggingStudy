@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.builder.EqualsBuilder:reflectionAppend(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;Lorg/apache/commons/lang/builder/EqualsBuilder;Z[Ljava/lang/String;)V
+Patched lines: 325 - 336
+------------
+if(f==null){
+try{
+builder.append(f.get(lhs),f.get(rhs));
+}catch (IllegalAccessException e) {
+  throw new InternalError("Unexpected IllegalAccessException");
+}
+
+}
+

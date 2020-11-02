@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang3.builder.HashCodeBuilder:reflectionAppend(Ljava/lang/Object;Ljava/lang/Class;Lorg/apache/commons/lang3/builder/HashCodeBuilder;Z[Ljava/lang/String;)V
+Patched lines: 181 - 193
+------------
+if(field==null){
+try{
+Object fieldValue=field.get(object);
+builder.append(fieldValue);
+}catch (IllegalAccessException e) {
+  throw new InternalError("Unexpected IllegalAccessException");
+}
+
+}
+

@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 142 - 144
+------------
+if(val.length()==0){
+if(val.startsWith("0x")||val.startsWith("-0x")){
+return createInteger(val);
+}
+throw new NumberFormatException("\"\" is not a valid number.");
+}
+

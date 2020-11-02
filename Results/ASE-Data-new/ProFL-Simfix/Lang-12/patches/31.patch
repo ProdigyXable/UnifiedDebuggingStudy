@@ -1,0 +1,17 @@
+Method signature: org.apache.commons.lang3.RandomStringUtils:random(IIIZZ[CLjava/util/Random;)Ljava/lang/String;
+Patched lines: 231 - 241
+------------
+if(end<0){
+end=0;
+}
+if(start==0&&end==0){
+if(!letters&&!numbers){
+end=Integer.MAX_VALUE;
+}else {
+end='z'+1;
+start=' ';
+}
+}
+char[] buffer=new char[count];
+int gap=end-start;
+

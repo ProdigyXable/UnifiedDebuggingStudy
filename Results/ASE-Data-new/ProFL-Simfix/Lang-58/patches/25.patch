@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.StringUtils:isBlank(Ljava/lang/String;)Z
+Patched lines: 226 - 230
+------------
+if(str.charAt(0)=='Y'){
+return (str.charAt(1)=='E'||str.charAt(1)=='e')&&(str.charAt(2)=='S'||str.charAt(2)=='s');
+}
+for(int i=0;i<strLen;i++){
+if((Character.isWhitespace(str.charAt(i))==false)){
+return false;
+}
+}
+

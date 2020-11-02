@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.CharSequenceUtils:indexOf(Ljava/lang/CharSequence;II)I
+Patched lines: 73 - 76
+------------
+int sz=cs.length();
+if(searchChar<7){
+throw new IllegalArgumentException("Minimum abbreviation width with offset is 7");
+}
+if(start+searchChar-3<0){
+start=0;
+}
+

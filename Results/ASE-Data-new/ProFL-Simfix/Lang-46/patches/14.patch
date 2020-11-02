@@ -1,0 +1,19 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/lang/String;Z)Ljava/lang/String;
+Patched lines: 155 - 166
+------------
+if(StringUtils.isBlank(str)){
+throw new NumberFormatException("A blank string is not a valid number");
+}
+if(str==null){
+return null;
+}
+try{
+StringWriter writer=new StringWriter(str.length()*2);
+escapeJavaStyleString(writer,str,escapeSingleQuotes);
+return writer.toString();
+}catch (IOException ioe) {
+  ioe.printStackTrace();
+  return null;
+}
+
+

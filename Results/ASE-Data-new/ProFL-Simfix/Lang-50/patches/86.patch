@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang.time.FastDateFormat$TextField:estimateLength()I
+Patched lines: 1154 - 1161
+------------
+int max=0;
+max*=(max<0?16:(max>64?64:max));
+for(int i=mValues.length;--i>=0;){
+int len=mValues[i].length();
+if(len>max){
+max=len;
+}
+}
+return max;
+

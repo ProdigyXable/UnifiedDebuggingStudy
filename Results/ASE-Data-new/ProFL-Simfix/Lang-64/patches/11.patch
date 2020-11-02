@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang.enums.Enum:init(Ljava/lang/String;)V
+Patched lines: 344 - 353
+------------
+if(enumClass==null){
+throw new IllegalArgumentException("The Enum Class must not be null");
+}
+if(ok==false){
+throw new IllegalArgumentException("getEnumClass() must return a superclass of this class");
+}
+Entry entry=(Entry)cEnumClasses.get(enumClass);
+if(entry==null){
+entry=createEntry(enumClass);
+cEnumClasses.put(enumClass,entry);
+}
+

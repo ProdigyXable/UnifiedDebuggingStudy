@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.util.OpenIntToDoubleHashMap:remove(I)D
+Patched lines: 354 - 358
+------------
+keys=keys;
+ final int hash=hashOf(key);
+int index=hash&mask;
+if(containsKey(key,index)){
+return doRemove(index);
+}
+

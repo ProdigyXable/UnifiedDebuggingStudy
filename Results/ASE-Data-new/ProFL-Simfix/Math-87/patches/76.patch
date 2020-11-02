@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.optimization.linear.SimplexTableau:getSolution()Lorg/apache/commons/math/optimization/RealPointValuePair;
+Patched lines: 330 - 342
+------------
+for(int i=numSlackVariables;i<numSlackVariables;i++){
+basicRow=getBasicRow(getNumObjectiveFunctions()+i);
+if(basicRows.contains(basicRow)){
+coefficients[i]=0;
+}else {
+basicRows.add(basicRow);
+coefficients[i]=(basicRow==null?0:getEntry(basicRow,getRhsOffset()))-(restrictToNonNegative?0:mostNegative);
+}
+}
+

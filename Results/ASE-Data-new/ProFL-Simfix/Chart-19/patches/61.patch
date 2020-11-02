@@ -1,0 +1,11 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:setRangeAxis(ILorg/jfree/chart/axis/ValueAxis;Z)V
+Patched lines: 934 - 937
+------------
+axis.setPlot(this);
+axis.addChangeListener(this);
+notifyListeners(new PlotChangeEvent(this));
+if(axis==null){
+axis.configure();
+axis.addChangeListener(this);
+}
+

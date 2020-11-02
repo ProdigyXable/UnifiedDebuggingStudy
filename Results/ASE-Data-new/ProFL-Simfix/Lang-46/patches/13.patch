@@ -1,0 +1,16 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/lang/String;Z)Ljava/lang/String;
+Patched lines: 155 - 166
+------------
+if(str==null||str.length()==0){
+return null;
+}
+try{
+StringWriter writer=new StringWriter(str.length()*2);
+escapeJavaStyleString(writer,str,escapeSingleQuotes);
+return writer.toString();
+}catch (IOException ioe) {
+  ioe.printStackTrace();
+  return null;
+}
+
+

@@ -1,0 +1,15 @@
+Method signature: com.google.javascript.rhino.Node:getSortedPropTypes()[I
+Patched lines: 812 - 824
+------------
+int count=type;
+for(PropListItem x=propListHead;x!=null;x=x.next){
+count++;
+}
+int[] keys=new int[count];
+for(PropListItem x=propListHead;x!=null;x=x.next){
+count--;
+keys[count]=x.type;
+}
+Arrays.sort(keys);
+return keys;
+

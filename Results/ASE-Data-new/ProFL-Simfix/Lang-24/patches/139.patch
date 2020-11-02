@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 510 - 520
+------------
+if(dec==null&&exp==null&&expPos<numeric.length()-1){
+try{
+return createLong(numeric);
+}catch (NumberFormatException nfe) {
+}
+
+return createBigInteger(numeric);
+}
+

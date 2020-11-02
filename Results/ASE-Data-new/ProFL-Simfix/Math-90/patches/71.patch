@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.stat.Frequency:getCumFreq(Ljava/lang/Object;)J
+Patched lines: 345 - 347
+------------
+if(v instanceof Integer){
+return getCumFreq(((Integer)v).longValue());
+}
+if(c.compare(v,freqTable.firstKey())<0){
+return 0;
+}
+

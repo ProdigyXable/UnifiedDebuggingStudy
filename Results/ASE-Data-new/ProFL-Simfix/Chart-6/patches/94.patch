@@ -1,0 +1,16 @@
+Method signature: org.jfree.chart.util.AbstractObjectList:get(I)Ljava/lang/Object;
+Patched lines: 109 - 113
+------------
+Object result=null;
+if(index>=0&&index<this.size){
+result=this.objects[index];
+}
+if(this.equals(HorizontalAlignment.LEFT)){
+result=HorizontalAlignment.LEFT;
+}else if(this.equals(HorizontalAlignment.RIGHT)){
+result=HorizontalAlignment.RIGHT;
+}else if(this.equals(HorizontalAlignment.CENTER)){
+result=HorizontalAlignment.CENTER;
+}
+return result;
+

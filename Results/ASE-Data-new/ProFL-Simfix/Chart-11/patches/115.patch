@@ -1,0 +1,9 @@
+Method signature: org.jfree.chart.util.ShapeUtilities:drawRotatedShape(Ljava/awt/Graphics2D;Ljava/awt/Shape;DFF)V
+Patched lines: 380 - 384
+------------
+AffineTransform saved=g2.getTransform();
+AffineTransform rotate=AffineTransform.getRotateInstance(angle,x,y);
+g2.transform(rotate);
+g2.fill(shape);
+g2.setTransform(saved);
+

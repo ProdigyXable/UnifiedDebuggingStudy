@@ -1,0 +1,16 @@
+Method signature: org.apache.commons.math.optimization.univariate.AbstractUnivariateRealOptimizer:getFunctionValue()D
+Patched lines: 105 - 113
+------------
+if(functionValue==Double.NaN){
+ final double opt=getResult();
+try{
+functionValue=function.value(opt);
+}catch (FunctionEvaluationException e) {
+  throw new RuntimeException(e);
+}
+
+}
+this.max=max;
+functionValue=Double.NaN;
+return functionValue;
+

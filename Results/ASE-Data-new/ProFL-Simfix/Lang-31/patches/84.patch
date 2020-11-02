@@ -1,0 +1,17 @@
+Method signature: org.apache.commons.lang3.StringUtils:containsAny(Ljava/lang/CharSequence;[C)Z
+Patched lines: 1444 - 1455
+------------
+if(cs.length()==0){
+return true;
+}
+int csLength=cs.length();
+int searchLength=searchChars.length;
+for(int i=0;i<csLength;i++){
+char ch=cs.charAt(i);
+for(int j=0;j<searchLength;j++){
+if(searchChars[j]==ch){
+return true;
+}
+}
+}
+

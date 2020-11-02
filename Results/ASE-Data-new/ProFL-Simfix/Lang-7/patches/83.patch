@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 475 - 477
+------------
+if(expPos<decPos||expPos>str.length()){
+if(decPos<0){
+return -1;
+}
+throw new NumberFormatException(str+" is not a valid number.");
+}
+

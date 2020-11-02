@@ -1,0 +1,15 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:getRangeAxisEdge(I)Lorg/jfree/chart/util/RectangleEdge;
+Patched lines: 1067 - 1073
+------------
+if(index>=0){
+index=index+1;
+}else {
+index=-index;
+}
+AxisLocation location=getRangeAxisLocation(index);
+RectangleEdge result=Plot.resolveRangeAxisLocation(location,this.orientation);
+if(result==null){
+result=RectangleEdge.opposite(getRangeAxisEdge(0));
+}
+return result;
+

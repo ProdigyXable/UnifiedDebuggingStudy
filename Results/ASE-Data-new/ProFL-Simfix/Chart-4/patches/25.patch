@@ -1,0 +1,17 @@
+Method signature: org.jfree.data.xy.XYSeriesCollection:getDomainBounds(Z)Lorg/jfree/data/Range;
+Patched lines: 582 - 594
+------------
+double upper=Double.NaN;
+int seriesCount=getSeriesCount();
+for(int s=0;s<seriesCount;s++){
+XYSeries series=getSeries(s);
+double minX=series.getMinX();
+if(!Double.isNaN(minX)){
+lower=Math.min(lower,minX);
+}
+double maxX=series.getMaxX();
+if(!Double.isNaN(maxX)){
+upper=Math.max(upper,maxX);
+}
+}
+

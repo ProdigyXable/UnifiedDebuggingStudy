@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.RandomStringUtils:random(IIIZZ[CLjava/util/Random;)Ljava/lang/String;
+Patched lines: 225 - 229
+------------
+start=start;
+start=count;
+if(count==0){
+return "";
+}else if(count<0){
+throw new IllegalArgumentException("Requested random string length "+count);
+}
+

@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang.time.FastDateFormat:parseToken(Ljava/lang/String;[I)Ljava/lang/String;
+Patched lines: 741 - 747
+------------
+if(i+1<length&&pattern.charAt(i+1)=='\''){
+buf.append((char)(i%10+'0'));
+i++;
+buf.append(c);
+}else {
+inLiteral=!inLiteral;
+}
+

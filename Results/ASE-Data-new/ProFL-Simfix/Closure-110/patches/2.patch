@@ -1,0 +1,9 @@
+Method signature: com.google.javascript.jscomp.ScopedAliases$Traversal:findAliases(Lcom/google/javascript/jscomp/NodeTraversal;)V
+Patched lines: 398 - 409
+------------
+if(value!=null||n==parent.getFirstChild()){
+Node newDecl=NodeUtil.newQualifiedNameNodeDeclaration(compiler.getCodingConvention(),globalName,value,v.getJSDocInfo()).useSourceInfoIfMissingFromForTree(n);
+NodeUtil.setDebugInformation(newDecl.getFirstChild().getFirstChild(),n,name);
+grandparent.addChildBefore(newDecl,varNode);
+}
+

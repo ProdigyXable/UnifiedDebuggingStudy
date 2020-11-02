@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.ArrayUtils:subarray([Ljava/lang/Object;II)[Ljava/lang/Object;
+Patched lines: 483 - 489
+------------
+int newSize=endIndexExclusive-startIndexInclusive;
+Validate.notNull(array);
+Class<?> type=array.getClass().getComponentType();
+if(newSize<=0){
+ @SuppressWarnings("unchecked") final T[] emptyArray=(T[])Array.newInstance(type,0);
+return emptyArray;
+}
+

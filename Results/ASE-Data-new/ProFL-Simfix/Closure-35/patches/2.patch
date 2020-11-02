@@ -1,0 +1,11 @@
+Method signature: com.google.javascript.jscomp.TypeInference:inferPropertyTypesToMatchConstraint(Lcom/google/javascript/rhino/jstype/JSType;Lcom/google/javascript/rhino/jstype/JSType;)V
+Patched lines: 1126 - 1133
+------------
+if(!objType.isPropertyTypeDeclared(prop)){
+JSType typeToInfer=propType;
+if(!objType.hasProperty(prop)){
+typeToInfer=getNativeType(VOID_TYPE).getLeastSupertype(propType);
+}
+objType.defineInferredProperty(prop,propType,null);
+}
+

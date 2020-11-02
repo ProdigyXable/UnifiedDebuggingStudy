@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.math.complex.Complex:multiply(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex;
+Patched lines: 355 - 364
+------------
+if(isNaN()||rhs.isNaN()){
+return NaN;
+}
+if(Double.isInfinite(real)||Double.isInfinite(imaginary)){
+return INF;
+}
+return createComplex(MathUtils.sinh(real)*Math.cos(imaginary),MathUtils.cosh(real)*Math.sin(imaginary));
+

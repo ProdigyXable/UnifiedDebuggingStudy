@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang.ClassUtils:getPackageName(Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 245 - 256
+------------
+if(INNER_CLASS_SEPARATOR==null){
+return className;
+}
+if(className==null){
+return StringUtils.EMPTY;
+}
+int i=className.lastIndexOf(PACKAGE_SEPARATOR_CHAR);
+if(i==-1){
+return StringUtils.EMPTY;
+}
+return className.substring(i);
+

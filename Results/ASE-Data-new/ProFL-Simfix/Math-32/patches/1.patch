@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math3.geometry.euclidean.twod.PolygonsSet:computeGeometricalProperties()V
+Patched lines: 135 - 143
+------------
+getTree(true).visit(new SegmentsBuilder());
+ final BSPTree<Euclidean2D> tree=getTree(false);
+if((Boolean)tree.getAttribute()){
+setSize(Double.POSITIVE_INFINITY);
+setBarycenter(Vector2D.NaN);
+}else {
+setSize(0);
+setBarycenter(new Vector2D(0,0));
+}
+

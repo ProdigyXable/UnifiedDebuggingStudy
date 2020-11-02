@@ -1,0 +1,15 @@
+Method signature: com.google.javascript.jscomp.ProcessClosurePrimitives:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+Patched lines: 162 - 174
+------------
+for(UnrecognizedRequire r : unrecognizedRequires){
+DiagnosticType error;
+ProvidedName expectedName=providedNames.get(r.namespace);
+if(expectedName!=null&&expectedName.firstNode!=null){
+error=LATE_PROVIDE_ERROR;
+}else {
+error=MISSING_PROVIDE_ERROR;
+}
+jsn.name=GOOG;
+compiler.report(JSError.make(r.inputName,r.requireNode,requiresLevel,error,r.namespace));
+}
+

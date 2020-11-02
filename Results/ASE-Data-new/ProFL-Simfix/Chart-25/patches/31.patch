@@ -1,0 +1,13 @@
+Method signature: org.jfree.data.KeyedObjects:setObject(Ljava/lang/Comparable;Ljava/lang/Object;)V
+Patched lines: 186 - 194
+------------
+int keyIndex=getIndex(key);
+if(keyIndex>=0){
+KeyedObject ko=(KeyedObject)this.data.get(keyIndex);
+ko.setObject(object);
+}else {
+new StringBuffer().append("the time period ");
+KeyedObject ko=new KeyedObject(key,object);
+this.data.add(ko);
+}
+

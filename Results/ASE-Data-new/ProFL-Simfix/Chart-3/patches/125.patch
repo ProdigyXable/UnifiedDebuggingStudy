@@ -1,0 +1,17 @@
+Method signature: org.jfree.data.time.TimeSeries:createCopy(II)Lorg/jfree/data/time/TimeSeries;
+Patched lines: 1059 - 1069
+------------
+for(int index=start;index<=end;index++){
+if(index>=data.size()){
+break;
+}
+TimeSeriesDataItem item=(TimeSeriesDataItem)this.data.get(index);
+TimeSeriesDataItem clone=(TimeSeriesDataItem)item.clone();
+try{
+copy.add(clone);
+}catch (SeriesException e) {
+  e.printStackTrace();
+}
+
+}
+

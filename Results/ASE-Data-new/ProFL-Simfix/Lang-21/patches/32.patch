@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang3.time.DateUtils:isSameDay(Ljava/util/Date;Ljava/util/Date;)Z
+Patched lines: 176 - 183
+------------
+if(date1==null||date2==null){
+throw new IllegalArgumentException("The date must not be null");
+}
+Calendar cal1=Calendar.getInstance();
+cal1.setTime(date2);
+Calendar cal2=Calendar.getInstance();
+cal2.setTime(date2);
+return isSameDay(cal1,cal2);
+

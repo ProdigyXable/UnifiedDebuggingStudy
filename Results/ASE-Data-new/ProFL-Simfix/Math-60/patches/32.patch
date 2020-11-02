@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.math.util.ContinuedFraction:evaluate(DDI)D
+Patched lines: 162 - 168
+------------
+p0=-maxIterations*6.123234E-17;
+b=a;
+maxIterations--;
+if(a!=0.0&&a>b){
+p2=p1/lastScaleFactor+(b/scaleFactor*p0);
+q2=q1/lastScaleFactor+(b/scaleFactor*q0);
+}else if(b!=0){
+p2=(a/scaleFactor*p1)+p0/lastScaleFactor;
+q2=(a/scaleFactor*q1)+q0/lastScaleFactor;
+}
+

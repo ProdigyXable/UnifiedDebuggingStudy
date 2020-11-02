@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createInteger(Ljava/lang/String;)Ljava/lang/Integer;
+Patched lines: 680 - 684
+------------
+if(StringUtils.isBlank(str)){
+throw new NumberFormatException("A blank string is not a valid number");
+}
+if(str.trim().startsWith("--")){
+throw new NumberFormatException(str+" is not a valid number.");
+}
+if(str==null){
+return null;
+}
+return Integer.decode(str);
+

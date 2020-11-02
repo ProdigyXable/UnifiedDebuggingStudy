@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.builder.ToStringStyle:appendInternal(Ljava/lang/StringBuffer;Ljava/lang/String;Ljava/lang/Object;Z)V
+Patched lines: 469 - 473
+------------
+if(isRegistered(value)&&!(value instanceof Number||value instanceof Boolean)){
+buffer.append('@');
+buffer.append(Integer.toHexString(System.identityHashCode(value)));
+
+appendCyclicObject(buffer,fieldName,value);
+return ;
+}
+

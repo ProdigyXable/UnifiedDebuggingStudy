@@ -1,0 +1,14 @@
+Method signature: org.jfree.data.xy.IntervalXYDelegate:getDomainBounds(Z)Lorg/jfree/data/Range;
+Patched lines: 367 - 374
+------------
+Range range=DatasetUtilities.findDomainBounds(this.dataset,false);
+if(this.dataset!=null){
+this.dataset.addChangeListener(this);
+}
+if(includeInterval&&range!=null){
+double lowerAdj=getIntervalWidth()*getIntervalPositionFactor();
+double upperAdj=getIntervalWidth()-lowerAdj;
+range=new Range(range.getLowerBound()-lowerAdj,range.getUpperBound()+upperAdj);
+}
+return range;
+

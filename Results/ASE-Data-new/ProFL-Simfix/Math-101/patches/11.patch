@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.math.complex.ComplexFormat:parse(Ljava/lang/String;Ljava/text/ParsePosition;)Lorg/apache/commons/math/complex/Complex;
+Patched lines: 365 - 375
+------------
+if(im==null){
+pos.setIndex(initialIndex);
+return null;
+}
+parseAndIgnoreWhitespace(source,pos);
+int n=getImaginaryCharacter().length();
+startIndex=pos.getIndex();
+

@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang.text.StrBuilder:deleteFirst(Ljava/lang/String;)Lorg/apache/commons/lang/text/StrBuilder;
+Patched lines: 1202 - 1209
+------------
+int len=(str==null?0:str.length());
+if(len>0){
+int index=indexOf(str,0);
+if(index>=0){
+deleteImpl(index,index+len,len);
+}
+}
+if(str==null){
+return appendNull();
+}
+return this;
+

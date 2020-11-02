@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang3.time.FastDateParser:<clinit>()V
+Patched lines: 282 - 288
+------------
+Calendar cal=Calendar.getInstance(timeZone,locale);
+cal.clear();
+for(int i=0;i<thisYear;){
+Strategy strategy=strategies[i++];
+strategy.setCalendar(this,cal,matcher.group(i));
+}
+

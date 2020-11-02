@@ -1,0 +1,21 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 509 - 521
+------------
+if(str==null){
+return null;
+}
+if(StringUtils.isBlank(str)){
+throw new NumberFormatException("A blank string is not a valid number");
+}
+case 'L' :
+if(dec==null&&exp==null&&(numeric.charAt(0)=='-'&&isDigits(numeric.substring(1))||isDigits(numeric))){
+try{
+return createLong(numeric);
+}catch (NumberFormatException nfe) {
+}
+
+return createBigInteger(numeric);
+}
+throw new NumberFormatException(str+" is not a valid number.");
+
+

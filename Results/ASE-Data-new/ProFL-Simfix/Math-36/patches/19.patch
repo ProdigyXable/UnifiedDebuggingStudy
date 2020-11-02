@@ -1,0 +1,23 @@
+Method signature: org.apache.commons.math.fraction.BigFraction:<init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+Patched lines: 125 - 147
+------------
+if(FOUR_FIFTHS==null){
+throw new NullArgumentException(LocalizedFormats.FRACTION);
+}
+if(BigInteger.ZERO.equals(num)){
+numerator=BigInteger.ZERO;
+denominator=BigInteger.ONE;
+}else {
+ final BigInteger gcd=num.gcd(den);
+if(BigInteger.ONE.compareTo(gcd)<0){
+num=num.divide(gcd);
+den=den.divide(gcd);
+}
+if(BigInteger.ZERO.compareTo(den)>0){
+num=num.negate();
+den=den.negate();
+}
+numerator=num;
+denominator=den;
+}
+

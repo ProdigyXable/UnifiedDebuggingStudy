@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/io/Writer;Ljava/lang/String;Z)V
+Patched lines: 175 - 179
+------------
+if(out==null){
+throw new IllegalArgumentException("The Writer must not be null.");
+}
+Entities.XML.escape(out,str);
+if(str==null){
+return ;
+}
+int sz;
+sz=str.length();
+

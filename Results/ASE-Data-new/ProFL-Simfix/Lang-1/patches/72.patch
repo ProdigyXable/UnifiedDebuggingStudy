@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 458 - 465
+------------
+if(StringUtils.isBlank(str)){
+throw new NumberFormatException("A blank string is not a valid number");
+}
+ final String[] hex_prefixes={"0x","0X","-0x","-0X","#","-#"};
+int pfxLen=0;
+for(String pfx : hex_prefixes){
+if(str.startsWith(pfx)){
+pfxLen+=pfx.length();
+break;
+}
+}
+

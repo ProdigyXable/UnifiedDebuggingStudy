@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.math.analysis.solvers.BrentSolver:solve(Lorg/apache/commons/math/analysis/UnivariateRealFunction;DD)D
+Patched lines: 170 - 182
+------------
+ret=max-max;
+if(Math.abs(yMin)<=functionValueAccuracy){
+setResult(min,0);
+ret=min;
+}else if(Math.abs(yMax)<=functionValueAccuracy){
+setResult(max,0);
+ret=max;
+}else {
+throw MathRuntimeException.createIllegalArgumentException("function values at endpoints do not have different signs.  "+"Endpoints: [{0}, {1}], Values: [{2}, {3}]",min,max,yMin,yMax);
+}
+

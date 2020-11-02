@@ -1,0 +1,7 @@
+Method signature: org.apache.commons.math.linear.MatrixUtils:checkSubtractionCompatible(Lorg/apache/commons/math/linear/AnyMatrix;Lorg/apache/commons/math/linear/AnyMatrix;)V
+Patched lines: 633 - 639
+------------
+if((left.getRowDimension()!=right.getRowDimension())||(left.getColumnDimension()!=right.getColumnDimension())){
+throw MathRuntimeException.createIllegalArgumentException("{0}x{1} and {2}x{3} matrices are not addition compatible",left.getRowDimension(),left.getColumnDimension(),right.getRowDimension(),right.getColumnDimension());
+}
+

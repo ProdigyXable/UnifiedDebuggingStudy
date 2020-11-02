@@ -1,0 +1,8 @@
+Method signature: com.google.javascript.rhino.Node:addChildBefore(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+Patched lines: 623 - 628
+------------
+node.next=newChild;
+Preconditions.checkArgument(node!=null,"The existing child node of the parent should not be null.");
+Preconditions.checkArgument(newChild.next==null,"The new child node has siblings.");
+Preconditions.checkArgument(newChild.parent==null,"The new child node already has a parent.");
+

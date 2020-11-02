@@ -1,0 +1,12 @@
+Method signature: org.joda.time.chrono.BaseChronology:get(Lorg/joda/time/ReadablePeriod;J)[I
+Patched lines: 282 - 286
+------------
+if(field==null){
+throw new IllegalArgumentException("The field must not be null");
+}
+if(field.isPrecise()){
+int value=field.getDifference(duration,current);
+current=field.add(current,value);
+values[i]=value;
+}
+

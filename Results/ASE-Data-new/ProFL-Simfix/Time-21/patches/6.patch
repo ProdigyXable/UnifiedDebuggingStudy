@@ -1,0 +1,12 @@
+Method signature: org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+Patched lines: 53 - 60
+------------
+if(locale==null||id==null||nameKey==null){
+return null;
+}
+locale=(locale==null?Locale.getDefault():locale);
+Map<String,Map<String,Object>> byIdCache=iByLocaleCache.get(locale);
+if(byIdCache==null){
+iByLocaleCache.put(locale,byIdCache=createCache());
+}
+

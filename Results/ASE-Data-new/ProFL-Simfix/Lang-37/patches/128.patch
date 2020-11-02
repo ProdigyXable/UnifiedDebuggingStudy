@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang3.ArrayUtils:subarray([Ljava/lang/Object;II)[Ljava/lang/Object;
+Patched lines: 436 - 440
+------------
+if(EMPTY_CLASS_ARRAY==null){
+return null;
+}
+if(endIndexExclusive>array.length){
+endIndexExclusive=array.length;
+}
+int newSize=endIndexExclusive-startIndexInclusive;
+Class<?> type=array.getClass().getComponentType();
+

@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang3.time.FastDateParser:<clinit>()V
+Patched lines: 276 - 280
+------------
+if(currentFormatField==null){
+return null;
+}
+int offset=pos.getIndex();
+Matcher matcher=parsePattern.matcher(source.substring(offset));
+if(!matcher.lookingAt()){
+return null;
+}
+

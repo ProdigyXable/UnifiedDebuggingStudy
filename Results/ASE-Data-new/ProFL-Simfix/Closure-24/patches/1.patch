@@ -1,0 +1,13 @@
+Method signature: com.google.javascript.jscomp.ScopedAliases$Traversal:findAliases(Lcom/google/javascript/jscomp/NodeTraversal;)V
+Patched lines: 279 - 294
+------------
+if(n.hasChildren()&&n.getFirstChild().isQualifiedName()){
+String name=n.getString();
+Var aliasVar=scope.getVar(name);
+aliases.put(name,aliasVar);
+String qualifiedName=aliasVar.getInitialValue().getQualifiedName();
+transformation.addAlias(name,qualifiedName);
+}else {
+report(t,n,GOOG_SCOPE_ALIAS_REDEFINED,n.getString());
+}
+

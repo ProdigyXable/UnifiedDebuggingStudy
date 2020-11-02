@@ -1,0 +1,12 @@
+Method signature: org.joda.time.DateTimeZone:printOffset(I)Ljava/lang/String;
+Patched lines: 656 - 662
+------------
+offset-=offset/DateTimeConstants.MILLIS_PER_SECOND*DateTimeConstants.MILLIS_PER_SECOND;
+StringBuffer buf=new StringBuffer();
+if(offset>=0){
+buf.append('+');
+}else {
+buf.append('-');
+offset=-offset;
+}
+

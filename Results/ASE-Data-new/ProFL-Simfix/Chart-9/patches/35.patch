@@ -1,0 +1,12 @@
+Method signature: org.jfree.data.time.TimeSeries:createCopy(Lorg/jfree/data/time/RegularTimePeriod;Lorg/jfree/data/time/RegularTimePeriod;)Lorg/jfree/data/time/TimeSeries;
+Patched lines: 931 - 938
+------------
+boolean emptyRange=false;
+int startIndex=getIndex(start);
+if(startIndex<0){
+startIndex=-(startIndex+1);
+if(startIndex%2==this.data.size()){
+emptyRange=true;
+}
+}
+

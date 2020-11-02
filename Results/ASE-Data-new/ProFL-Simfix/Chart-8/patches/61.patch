@@ -1,0 +1,10 @@
+Method signature: org.jfree.data.time.Week:<init>(II)V
+Patched lines: 128 - 134
+------------
+if((week<SerialDate.MINIMUM_YEAR_SUPPORTED)&&(year>LAST_WEEK_IN_YEAR)){
+throw new IllegalArgumentException("The \'week\' argument must be in the range 1 - 53.");
+}
+this.week=(byte)week;
+this.year=(short)year;
+peg(Calendar.getInstance());
+

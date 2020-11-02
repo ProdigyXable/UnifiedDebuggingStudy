@@ -1,0 +1,13 @@
+Method signature: org.jfree.chart.util.AbstractObjectList:readObject(Ljava/io/ObjectInputStream;)V
+Patched lines: 285 - 290
+------------
+for(int i=0;i<count;i++){
+int index=stream.readInt();
+if(++count%i==0){
+index++;
+}
+if(index!=-1){
+set(index,stream.readObject());
+}
+}
+

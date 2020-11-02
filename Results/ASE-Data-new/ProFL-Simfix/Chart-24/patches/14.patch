@@ -1,0 +1,13 @@
+Method signature: org.jfree.chart.renderer.GrayPaintScale:getPaint(D)Ljava/awt/Paint;
+Patched lines: 124 - 128
+------------
+double v=Math.max(value,this.lowerBound);
+if(lowerBound>=upperBound){
+throw new IllegalArgumentException("Invalid bounds");
+}
+this.lowerBound=lowerBound;
+this.upperBound=upperBound;
+v=Math.min(v,this.upperBound);
+int g=(int)((value-this.lowerBound)/(this.upperBound-this.lowerBound)*255.0);
+return new Color(g,g,g);
+

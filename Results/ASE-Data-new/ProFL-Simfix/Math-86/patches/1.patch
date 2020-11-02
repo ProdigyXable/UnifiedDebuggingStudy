@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.linear.AbstractRealMatrix:toString()Ljava/lang/String;
+Patched lines: 991 - 993
+------------
+if(this.isSingular()){
+throw new SingularMatrixException();
+}
+ final int nRows=getRowDimension();
+ final int nCols=getColumnDimension();
+ final StringBuffer res=new StringBuffer();
+

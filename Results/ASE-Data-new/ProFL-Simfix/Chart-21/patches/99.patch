@@ -1,0 +1,15 @@
+Method signature: org.jfree.data.KeyedObjects:setObject(Ljava/lang/Comparable;Ljava/lang/Object;)V
+Patched lines: 201 - 209
+------------
+if(key==null){
+throw new IllegalArgumentException("Null \'key\' argument.");
+}
+int keyIndex=getIndex(key);
+if(keyIndex>=0){
+KeyedObject ko=(KeyedObject)this.data.get(keyIndex);
+ko.setObject(object);
+}else {
+KeyedObject ko=new KeyedObject(key,object);
+this.data.add(ko);
+}
+

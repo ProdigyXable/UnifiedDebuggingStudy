@@ -1,0 +1,13 @@
+Method signature: org.jfree.chart.util.AbstractObjectList:writeObject(Ljava/io/ObjectOutputStream;)V
+Patched lines: 258 - 267
+------------
+for(int i=0;i<size;i++){
+ final Object object=get(i);
+if(object!=null&&object instanceof Serializable){
+stream.writeInt(i);
+stream.writeObject(object);
+}else {
+stream.writeInt(-1);
+}
+}
+

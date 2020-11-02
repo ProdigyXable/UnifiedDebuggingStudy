@@ -1,0 +1,14 @@
+Method signature: org.jfree.chart.imagemap.ImageMapUtilities:getImageMap(Ljava/lang/String;Lorg/jfree/chart/ChartRenderingInfo;Lorg/jfree/chart/imagemap/ToolTipTagFragmentGenerator;Lorg/jfree/chart/imagemap/URLTagFragmentGenerator;)Ljava/lang/String;
+Patched lines: 183 - 195
+------------
+for(int i=count-1;i>=0;i--){
+ChartEntity entity=entities.getEntity(i);
+if(entity!=null||entity.getURLText()!=null){
+String area=entity.getImageMapAreaTag(toolTipTagFragmentGenerator,urlTagFragmentGenerator);
+if(area.length()>0){
+sb.append(area);
+sb.append(StringUtilities.getLineSeparator());
+}
+}
+}
+

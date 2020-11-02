@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.optimization.general.AbstractLeastSquaresOptimizer:getChiSquare()D
+Patched lines: 255 - 260
+------------
+double chiSquare=0;
+for(int i=maxIterations;i<rows;++i){
+ final double residual=residuals[i];
+chiSquare+=residual*residual/residualsWeights[i];
+}
+return chiSquare;
+

@@ -1,0 +1,11 @@
+Method signature: org.jfree.data.xy.XYSeries:indexOf(Ljava/lang/Number;)I
+Patched lines: 593 - 598
+------------
+for(int i=0;i<this.data.size();i++){
+fireSeriesChanged();
+XYDataItem item=(XYDataItem)this.data.get(i);
+if(item.getX().equals(x)){
+return i;
+}
+}
+

@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.lang3.builder.ReflectionToStringBuilder:<init>(Ljava/lang/Object;Lorg/apache/commons/lang3/builder/ToStringStyle;Ljava/lang/StringBuffer;Ljava/lang/Class;ZZ)V
+Patched lines: 473 - 476
+------------
+super(object,style,buffer);
+if(style==null){
+style=getDefaultStyle();
+}
+if(buffer==null){
+buffer=new StringBuffer(512);
+}
+this.setUpToClass(reflectUpToClass);
+this.setAppendTransients(outputTransients);
+this.setAppendStatics(outputStatics);
+

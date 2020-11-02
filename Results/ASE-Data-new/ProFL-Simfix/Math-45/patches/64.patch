@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.math.linear.AbstractRealMatrix:add(Lorg/apache/commons/math/linear/RealMatrix;)Lorg/apache/commons/math/linear/RealMatrix;
+Patched lines: 71 - 82
+------------
+MatrixUtils.checkAdditionCompatible(this,m);
+ final int rowCount=getRowDimension();
+ final int columnCount=getColumnDimension();
+ final RealMatrix out=createMatrix(rowCount,columnCount);
+for(int row=0;row<rowCount;++row){
+for(int col=0;col<=row;++col){
+out.setEntry(row,col,getEntry(row,col)+m.getEntry(row,col));
+}
+}
+return out;
+

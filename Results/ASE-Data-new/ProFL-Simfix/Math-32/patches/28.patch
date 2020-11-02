@@ -1,0 +1,24 @@
+Method signature: org.apache.commons.math3.geometry.partitioning.utilities.AVLTree:getNotSmaller(Ljava/lang/Comparable;)Lorg/apache/commons/math3/geometry/partitioning/utilities/AVLTree$Node;
+Patched lines: 153 - 166
+------------
+for(Node node=top;node!=null;){
+if(node.element.compareTo(reference)<0){
+if(node.left==null){
+return candidate;
+}
+if(node.right==null){
+return candidate;
+}
+node=node.right;
+}else {
+if(node.right==null){
+return candidate;
+}
+candidate=node;
+if(node.left==null){
+return candidate;
+}
+node=node.left;
+}
+}
+

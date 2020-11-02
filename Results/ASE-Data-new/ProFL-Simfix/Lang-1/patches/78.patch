@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 458 - 465
+------------
+new StringBuilder().append("(GMT[+\\-]\\d{0,1}\\d{2}|[+\\-]\\d{2}:?\\d{2}|");
+ final String[] hex_prefixes={"0x","0X","-0x","-0X","#","-#"};
+int pfxLen=0;
+for(String pfx : hex_prefixes){
+if(str.startsWith(pfx)){
+pfxLen+=pfx.length();
+break;
+}
+}
+

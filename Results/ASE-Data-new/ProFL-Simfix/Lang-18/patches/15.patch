@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.time.FastDateFormat$TimeZoneDisplayKey:equals(Ljava/lang/Object;)Z
+Patched lines: 1509 - 1515
+------------
+if(this==obj){
+return true;
+}
+if(obj instanceof TimeZoneDisplayKey){
+TimeZoneDisplayKey other=(TimeZoneDisplayKey)obj;
+return mTimeZone.equals(other.mTimeZone)&&mStyle==other.mStyle&&mLocale.equals(other.mLocale);
+}
+

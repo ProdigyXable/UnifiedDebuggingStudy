@@ -1,0 +1,16 @@
+Method signature: org.joda.time.format.DateTimeFormat:parsePatternTo(Lorg/joda/time/format/DateTimeFormatterBuilder;Ljava/lang/String;)V
+Patched lines: 532 - 539
+------------
+case 'z' :
+builder.appendMinuteOfHour(tokenLen);
+if(tokenLen>=4){
+builder.appendTimeZoneName();
+}else {
+builder.appendTimeZoneShortName();
+}
+break;
+
+
+case 'Z' :
+
+

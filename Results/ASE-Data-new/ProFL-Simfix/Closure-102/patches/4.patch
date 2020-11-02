@@ -1,0 +1,11 @@
+Method signature: com.google.javascript.rhino.jstype.FunctionType:toString()Ljava/lang/String;
+Patched lines: 661 - 664
+------------
+if(call!=null&&call.returnType!=null){
+b.append(": ");
+b.append(call.returnType);
+}
+b.append("function (");
+int paramNum=(call==null||call.parameters==null)?0:call.parameters.getChildCount();
+boolean hasKnownTypeOfThis=!typeOfThis.isUnknownType();
+

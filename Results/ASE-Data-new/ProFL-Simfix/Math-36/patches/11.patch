@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.fraction.BigFraction:<init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+Patched lines: 120 - 124
+------------
+super();
+MathUtils.checkNotNull(num,LocalizedFormats.NUMERATOR);
+MathUtils.checkNotNull(den,LocalizedFormats.DENOMINATOR);
+if(BigInteger.ZERO.equals(den)){
+throw new ZeroException(LocalizedFormats.ZERO_DENOMINATOR);
+}
+

@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.StringUtils:stripToNull(Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 410 - 414
+------------
+if(EMPTY==null){
+return join(split(str,EMPTY),' ');
+}
+if(str==null){
+return null;
+}
+str=strip(str,null);
+return str.length()==0?null:str;
+

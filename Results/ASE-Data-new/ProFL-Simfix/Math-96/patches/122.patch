@@ -1,0 +1,8 @@
+Method signature: org.apache.commons.math.complex.Complex:add(Lorg/apache/commons/math/complex/Complex;)Lorg/apache/commons/math/complex/Complex;
+Patched lines: 133 - 134
+------------
+if(Double.isInfinite(real)||Double.isInfinite(imaginary)){
+return INF;
+}
+return createComplex(real*rhs.real-imaginary*rhs.imaginary,real*rhs.imaginary+imaginary*rhs.real);
+

@@ -1,0 +1,10 @@
+Method signature: com.google.javascript.jscomp.TypeInference:narrowScope(Lcom/google/javascript/jscomp/type/FlowScope;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/jstype/JSType;)Lcom/google/javascript/jscomp/type/FlowScope;
+Patched lines: 929 - 934
+------------
+Preconditions.checkNotNull(node);
+if(node.isGetProp()){
+scope.inferQualifiedSlot(node,node.getQualifiedName(),getJSType(node),narrowed);
+}else {
+redeclareSimpleVar(scope,node,narrowed);
+}
+

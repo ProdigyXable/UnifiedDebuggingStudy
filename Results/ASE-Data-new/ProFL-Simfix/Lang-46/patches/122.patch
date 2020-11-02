@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/io/Writer;Ljava/lang/String;Z)V
+Patched lines: 219 - 225
+------------
+case '\\' :
+
+default :
+out.write('\\');
+out.write('\"');
+
+if(ch>0xf){
+out.write("\\u00"+hex(ch));
+}else {
+out.write("\\u000"+hex(ch));
+}
+break;
+
+
+

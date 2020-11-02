@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.optimization.linear.SimplexSolver:isOptimal(Lorg/apache/commons/math/optimization/linear/SimplexTableau;)Z
+Patched lines: 146 - 154
+------------
+if(tableau.getNumArtificialVariables()>0){
+return true;
+}
+for(int i=tableau.getNumObjectiveFunctions();i<tableau.getWidth()-1;i++){
+if(MathUtils.compareTo(tableau.getEntry(0,i),0,epsilon)<0){
+return false;
+}
+}
+return true;
+

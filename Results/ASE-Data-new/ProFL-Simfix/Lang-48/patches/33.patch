@@ -1,0 +1,20 @@
+Method signature: org.apache.commons.lang.builder.EqualsBuilder:reflectionEquals(Ljava/lang/Object;Ljava/lang/Object;ZLjava/lang/Class;[Ljava/lang/String;)Z
+Patched lines: 268 - 283
+------------
+if(lhs==null||rhs==null){
+throw new NullPointerException();
+}
+if(lhsClass.isInstance(rhs)){
+testClass=lhsClass;
+if(!rhsClass.isInstance(lhs)){
+testClass=rhsClass;
+}
+}else if(rhsClass.isInstance(lhs)){
+testClass=rhsClass;
+if(!lhsClass.isInstance(rhs)){
+testClass=lhsClass;
+}
+}else {
+return false;
+}
+

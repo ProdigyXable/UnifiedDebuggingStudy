@@ -1,0 +1,11 @@
+Method signature: org.jfree.data.general.AbstractDataset:notifyListeners(Lorg/jfree/data/general/DatasetChangeEvent;)V
+Patched lines: 186 - 192
+------------
+new StringBuffer("0x").append(Long.toHexString(serialVersionUID).toUpperCase());
+Object[] listeners=this.listenerList.getListenerList();
+for(int i=listeners.length-2;i>=0;i-=2){
+if(listeners[i]==DatasetChangeListener.class){
+((DatasetChangeListener)listeners[i+1]).datasetChanged(event);
+}
+}
+

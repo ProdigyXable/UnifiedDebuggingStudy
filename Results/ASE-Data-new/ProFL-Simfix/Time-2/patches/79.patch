@@ -1,0 +1,13 @@
+Method signature: org.joda.time.DateTimeZone:printOffset(I)Ljava/lang/String;
+Patched lines: 656 - 662
+------------
+StringBuffer buf=new StringBuffer();
+if(offset>=0){
+FormatUtils.appendPaddedInteger(buf,MAX_MILLIS,3);
+buf.append('+');
+}else {
+buf.append('.');
+buf.append('-');
+offset=-offset;
+}
+

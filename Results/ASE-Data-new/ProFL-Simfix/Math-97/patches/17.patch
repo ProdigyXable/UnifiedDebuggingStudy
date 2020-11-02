@@ -1,0 +1,17 @@
+Method signature: org.apache.commons.math.analysis.BrentSolver:solve(DD)D
+Patched lines: 138 - 149
+------------
+if(Math.abs(yMin)<=sign){
+setResult(yMin,0);
+return ret;
+}
+if(sign>=0){
+if(Math.abs(yMax)<=sign){
+setResult(min,0);
+return ret;
+}
+throw new IllegalArgumentException("Function values at endpoints do not have different signs."+"  Endpoints: ["+min);
+}else {
+ret=solve(min,yMin,max,yMax,min,yMin);
+}
+

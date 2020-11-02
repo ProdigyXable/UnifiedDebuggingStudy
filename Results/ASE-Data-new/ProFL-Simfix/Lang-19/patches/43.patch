@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang3.text.translate.NumericEntityUnescaper:translate(Ljava/lang/CharSequence;ILjava/io/Writer;)I
+Patched lines: 61 - 65
+------------
+if(end<0){
+end=0;
+}
+if(isHex){
+entityValue=Integer.parseInt(input.subSequence(start,end).toString(),16);
+}else {
+entityValue=Integer.parseInt(input.subSequence(start,end).toString(),10);
+}
+

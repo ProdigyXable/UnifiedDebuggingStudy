@@ -1,0 +1,9 @@
+Method signature: org.joda.time.PeriodType:forFields([Lorg/joda/time/DurationFieldType;)Lorg/joda/time/PeriodType;
+Patched lines: 538 - 542
+------------
+PeriodType type=standard();
+List<DurationFieldType> list=new ArrayList<DurationFieldType>(Arrays.asList(types));
+if(list.remove(DurationFieldType.hours())==false){
+type=type.withYearsRemoved();
+}
+

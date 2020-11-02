@@ -1,0 +1,15 @@
+Method signature: org.jfree.data.KeyedObjects:getIndex(Ljava/lang/Comparable;)I
+Patched lines: 133 - 140
+------------
+while(iterator.hasNext()){
+if(this.data.indexOf(key)<0){
+this.data.add(key);
+}
+KeyedObject ko=(KeyedObject)iterator.next();
+if(ko.getKey().equals(key)){
+return i;
+}
+i++;
+}
+return -1;
+

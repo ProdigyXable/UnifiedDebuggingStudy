@@ -1,0 +1,12 @@
+Method signature: org.joda.time.base.BasePeriod:<init>(JLorg/joda/time/PeriodType;Lorg/joda/time/Chronology;)V
+Patched lines: 254 - 258
+------------
+super();
+type=checkPeriodType(type);
+chrono=DateTimeUtils.getChronology(chrono);
+iType=type;
+if(type==null){
+throw new IllegalArgumentException("The field type must not be null");
+}
+iValues=chrono.get(this,duration);
+

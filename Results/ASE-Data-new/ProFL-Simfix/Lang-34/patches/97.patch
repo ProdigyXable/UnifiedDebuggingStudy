@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang3.builder.ReflectionToStringBuilder:accept(Ljava/lang/reflect/Field;)Z
+Patched lines: 504 - 508
+------------
+if(!Modifier.isStatic(field.getModifiers())){
+throw new IllegalArgumentException("The field \'"+field.getName());
+}
+if(this.excludeFieldNames!=null&&Arrays.binarySearch(this.excludeFieldNames,field.getName())>=0){
+return false;
+}
+

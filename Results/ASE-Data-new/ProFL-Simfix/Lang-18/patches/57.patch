@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang3.time.FastDateFormat$UnpaddedNumberField:appendTo(Ljava/lang/StringBuffer;I)V
+Patched lines: 1062 - 1067
+------------
+if(value<0){
+buffer.append((char)(value/10+'0'));
+buffer.append((char)(value%10+'0'));
+}else {
+buffer.append(Integer.toString(value));
+}
+

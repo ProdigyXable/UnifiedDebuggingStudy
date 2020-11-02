@@ -1,0 +1,12 @@
+Method signature: org.jfree.data.xy.IntervalXYDelegate:getDomainBounds(Z)Lorg/jfree/data/Range;
+Patched lines: 368 - 373
+------------
+if(!(range.getLength()>0.0)){
+throw new IllegalArgumentException("Range length must be positive.");
+}
+if(includeInterval&&range!=null){
+double lowerAdj=getIntervalWidth()*getIntervalPositionFactor();
+double upperAdj=getIntervalWidth()-lowerAdj;
+range=new Range(range.getLowerBound()-lowerAdj,range.getUpperBound()+upperAdj);
+}
+

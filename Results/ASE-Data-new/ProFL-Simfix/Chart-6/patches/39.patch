@@ -1,0 +1,10 @@
+Method signature: org.jfree.chart.util.SerialUtilities:readShape(Ljava/io/ObjectInputStream;)Ljava/awt/Shape;
+Patched lines: 273 - 275
+------------
+if(stream==null){
+throw new IllegalArgumentException("Null \'stream\' argument.");
+}
+double x2=stream.readDouble();
+double y2=stream.readDouble();
+result=new Line2D.Double(x1,y1,x2,y2);
+

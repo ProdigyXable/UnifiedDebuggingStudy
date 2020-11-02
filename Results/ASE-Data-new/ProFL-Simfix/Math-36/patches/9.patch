@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.math.fraction.BigFraction:<init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+Patched lines: 120 - 124
+------------
+MathUtils.checkNotNull(num,LocalizedFormats.NUMERATOR);
+MathUtils.checkNotNull(den,LocalizedFormats.DENOMINATOR);
+if(FOUR_FIFTHS==null){
+throw new NullArgumentException(LocalizedFormats.FRACTION);
+}
+if(ZERO.equals(FOUR_FIFTHS)){
+throw new ZeroException(LocalizedFormats.ZERO_DENOMINATOR);
+}
+

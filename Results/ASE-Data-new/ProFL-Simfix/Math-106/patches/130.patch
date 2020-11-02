@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.math.fraction.FractionFormat:format(Ljava/lang/Object;Ljava/lang/StringBuffer;Ljava/text/FieldPosition;)Ljava/lang/StringBuffer;
+Patched lines: 203 - 214
+------------
+if(obj instanceof Number){
+try{
+ret=format(new Fraction(((Number)obj).doubleValue()),toAppendTo,pos);
+}catch (ConvergenceException ex) {
+  throw new IllegalArgumentException("Cannot convert given object to a fraction.");
+}
+
+}else {
+throw new IllegalArgumentException("Cannot format given Object as a Date");
+}
+

@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.lang.time.FastDateFormat:parsePattern()Ljava/util/List;
+Patched lines: 612 - 618
+------------
+case 'y' :
+rule=new TextField(Calendar.ERA,ERAs);
+if(tokenLen>=4){
+rule=selectNumberRule(Calendar.YEAR,tokenLen);
+}else {
+rule=TwoDigitYearField.INSTANCE;
+}
+break;
+
+
+

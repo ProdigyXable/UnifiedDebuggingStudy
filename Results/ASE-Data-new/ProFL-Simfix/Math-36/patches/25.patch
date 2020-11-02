@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.fraction.BigFraction:<init>(Ljava/math/BigInteger;Ljava/math/BigInteger;)V
+Patched lines: 131 - 135
+------------
+if(BigInteger.ZERO.compareTo(den)>0){
+num=num.negate();
+den=den.negate();
+}
+ final BigInteger gcd=num.gcd(den);
+if(BigInteger.ONE.compareTo(gcd)<0){
+num=num.divide(gcd);
+den=den.divide(gcd);
+}
+

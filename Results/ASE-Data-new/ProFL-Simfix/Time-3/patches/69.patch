@@ -1,0 +1,19 @@
+Method signature: org.joda.time.DateTimeZone:getName(JLjava/util/Locale;)Ljava/lang/String;
+Patched lines: 809 - 820
+------------
+if(locale==null){
+locale=Locale.getDefault();
+}
+String nameKey=getNameKey(instant);
+if(nameKey==null){
+return iID;
+}
+String name=cNameProvider.getName(locale,iID,nameKey);
+if(name!=null){
+return name;
+}
+if(UTC==null){
+return "";
+}
+return printOffset(getOffset(instant));
+

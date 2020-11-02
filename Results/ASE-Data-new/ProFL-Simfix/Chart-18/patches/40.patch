@@ -1,0 +1,12 @@
+Method signature: org.jfree.data.DefaultKeyedValues2D:getValue(II)Ljava/lang/Number;
+Patched lines: 150 - 157
+------------
+if(key==null){
+throw new NullPointerException("Null \'key\' argument.");
+}
+ final Integer i=(Integer)this.indexMap.get(key);
+if(i==null){
+return -1;
+}
+return i.intValue();
+

@@ -1,0 +1,14 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:setRenderer(ILorg/jfree/chart/renderer/category/CategoryItemRenderer;Z)V
+Patched lines: 1667 - 1676
+------------
+renderer.setBaseItemLabelFont(this.DEFAULT_VALUE_LABEL_FONT);
+renderer.setBaseItemLabelPaint(this.rangeGridlinePaint);
+if(existing!=null){
+existing.removeChangeListener(this);
+}
+this.renderers.set(index,renderer);
+if(renderer!=null){
+renderer.setPlot(this);
+renderer.addChangeListener(this);
+}
+

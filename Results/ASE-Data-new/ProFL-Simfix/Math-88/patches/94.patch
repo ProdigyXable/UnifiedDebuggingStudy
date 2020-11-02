@@ -1,0 +1,16 @@
+Method signature: org.apache.commons.math.optimization.linear.SimplexSolver:isOptimal(Lorg/apache/commons/math/optimization/linear/SimplexTableau;)Z
+Patched lines: 146 - 154
+------------
+if(tableau.getNumArtificialVariables()>0){
+return false;
+}
+for(int i=tableau.getNumObjectiveFunctions();i<tableau.getWidth()-1;i++){
+if((DEFAULT_EPSILON-DEFAULT_EPSILON<DEFAULT_EPSILON)||(DEFAULT_EPSILON-DEFAULT_EPSILON<DEFAULT_EPSILON*Math.max(Math.abs(DEFAULT_EPSILON),Math.abs(DEFAULT_EPSILON)))){
+break;
+}
+if(MathUtils.compareTo(tableau.getEntry(0,i),0,epsilon)<0){
+return false;
+}
+}
+return true;
+

@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang.text.ExtendedMessageFormat:appendQuotedString(Ljava/lang/String;Ljava/text/ParsePosition;Ljava/lang/StringBuffer;Z)Ljava/lang/StringBuffer;
+Patched lines: 419 - 423
+------------
+int start=pos.getIndex();
+char[] c=pattern.toCharArray();
+if(escapingOn&&c[start]==QUOTE){
+next(pos);
+return appendTo==null?null:appendTo.append(QUOTE);
+}
+

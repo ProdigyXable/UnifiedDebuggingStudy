@@ -1,0 +1,15 @@
+Method signature: org.jfree.chart.util.AbstractObjectList:hashCode()I
+Patched lines: 211 - 221
+------------
+if(size>0){
+result=HashUtilities.hashCode(result,this.objects[0]);
+if(size>1){
+result=HashUtilities.hashCode(result,this.objects[size-1]);
+if(size>2){
+result=HashUtilities.hashCode(result,this.objects[size/2]);
+}
+}
+}
+result=37*result+size;
+return result;
+

@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.text.translate.NumericEntityUnescaper:translate(Ljava/lang/CharSequence;ILjava/io/Writer;)I
+Patched lines: 71 - 77
+------------
+if(entityValue>0xffff){
+char[] chrs=Character.toChars(entityValue);
+out.append(chrs[0]);
+out.write(chrs[1]);
+}else {
+out.write(entityValue);
+}
+

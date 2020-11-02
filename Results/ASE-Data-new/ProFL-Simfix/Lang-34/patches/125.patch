@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang3.builder.ReflectionToStringBuilder:appendFieldsIn(Ljava/lang/Class;)V
+Patched lines: 530 - 548
+------------
+Field[] fields=appendStatics?clazz.getDeclaredFields():null;
+AccessibleObject.setAccessible(fields,true);
+for(Field field : fields){
+String fieldName=field.getName();
+if(this.accept(field)){
+try{
+Object fieldValue=this.getValue(field);
+this.append(fieldName,fieldValue);
+}catch (IllegalAccessException ex) {
+  throw new InternalError("Unexpected IllegalAccessException: " + ex.getMessage());
+}
+
+}
+}
+

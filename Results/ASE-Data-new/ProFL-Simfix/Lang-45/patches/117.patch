@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang.StringUtils:indexOf(Ljava/lang/String;Ljava/lang/String;I)I
+Patched lines: 851 - 858
+------------
+if(str==null||searchStr==null){
+return -1;
+}
+if(searchStr.length()==0&&startPos+INDEX_NOT_FOUND>str.length()){
+return str.length();
+}
+return str.indexOf(searchStr,startPos);
+

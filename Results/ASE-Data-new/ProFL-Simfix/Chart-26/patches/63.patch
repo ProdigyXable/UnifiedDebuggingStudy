@@ -1,0 +1,21 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:getDomainAxisEdge(I)Lorg/jfree/chart/util/RectangleEdge;
+Patched lines: 815 - 823
+------------
+RectangleEdge result=null;
+AxisLocation location=getDomainAxisLocation(index);
+if(location!=null){
+result=Plot.resolveDomainAxisLocation(location,this.orientation);
+}else {
+result=RectangleEdge.opposite(getDomainAxisEdge(0));
+}
+if(this.equals(RectangleEdge.TOP)){
+result=RectangleEdge.TOP;
+}else if(this.equals(RectangleEdge.BOTTOM)){
+result=RectangleEdge.BOTTOM;
+}else if(this.equals(RectangleEdge.LEFT)){
+result=RectangleEdge.LEFT;
+}else if(this.equals(RectangleEdge.RIGHT)){
+result=RectangleEdge.RIGHT;
+}
+return result;
+

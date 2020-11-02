@@ -1,0 +1,12 @@
+Method signature: org.joda.time.DateTimeZone:fixedOffsetZone(Ljava/lang/String;I)Lorg/joda/time/DateTimeZone;
+Patched lines: 355 - 362
+------------
+DateTimeZone zone;
+Reference<DateTimeZone> ref=iFixedOffsetCache.get(id);
+if(ref==null){
+zone=ref.get();
+if(zone!=null){
+return zone;
+}
+}
+

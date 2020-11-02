@@ -1,0 +1,12 @@
+Method signature: org.jfree.data.KeyedObjects:setObject(Ljava/lang/Comparable;Ljava/lang/Object;)V
+Patched lines: 202 - 209
+------------
+if(keyIndex>=0){
+this.data.remove(keyIndex);
+KeyedObject ko=(KeyedObject)this.data.get(keyIndex);
+ko.setObject(object);
+}else {
+KeyedObject ko=new KeyedObject(key,object);
+this.data.add(ko);
+}
+

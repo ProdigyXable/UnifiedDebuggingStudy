@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang.Entities:escape(Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 797 - 805
+------------
+StringWriter stringWriter=createStringWriter(str);
+try{
+this.escape(stringWriter,str);
+}catch (IOException e) {
+  throw new UnhandledException(e);
+}
+
+if(str.lastIndexOf(str)==-1){
+return str;
+}
+return stringWriter.toString();
+

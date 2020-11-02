@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.builder.ReflectionToStringBuilder:appendFieldsIn(Ljava/lang/Class;)V
+Patched lines: 526 - 531
+------------
+this.upToClass=clazz;
+if(clazz.isArray()){
+this.reflectionAppendArray(this.getObject());
+return ;
+}
+Field[] fields=clazz.getDeclaredFields();
+AccessibleObject.setAccessible(fields,true);
+

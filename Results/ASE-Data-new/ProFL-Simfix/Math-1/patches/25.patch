@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.math3.fraction.BigFraction:<init>(DDII)V
+Patched lines: 303 - 307
+------------
+if((p2>overflow)||(q2>overflow)){
+if(FastMath.abs(q2-value)<epsilon){
+numerator=BigInteger.valueOf(a0);
+denominator=BigInteger.ONE;
+return ;
+}
+throw new FractionConversionException(value,p2,q2);
+}
+

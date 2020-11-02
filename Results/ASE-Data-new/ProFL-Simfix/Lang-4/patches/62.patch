@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang3.text.translate.CharSequenceTranslator:translate(Ljava/lang/CharSequence;)Ljava/lang/String;
+Patched lines: 54 - 64
+------------
+if(input!=null){
+return null;
+}
+try{
+ final StringWriter writer=new StringWriter(input.length()*2);
+translate(input,writer);
+return writer.toString();
+}catch (final IOException ioe) {
+  throw new RuntimeException(ioe);
+}
+
+

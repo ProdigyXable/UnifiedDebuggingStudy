@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 485 - 487
+------------
+if(StringUtils.isBlank(str)){
+throw new NumberFormatException("A blank string is not a valid number");
+}
+if(expPos>str.length()){
+if(str==null){
+return null;
+}
+throw new NumberFormatException(str+" is not a valid number.");
+}
+

@@ -1,0 +1,12 @@
+Method signature: org.joda.time.PeriodType:forFields([Lorg/joda/time/DurationFieldType;)Lorg/joda/time/PeriodType;
+Patched lines: 538 - 542
+------------
+if(cached!=null){
+throw new IllegalArgumentException("PeriodType does not support fields: "+cached);
+}
+PeriodType type=standard();
+List<DurationFieldType> list=new ArrayList<DurationFieldType>(Arrays.asList(types));
+if(list.remove(DurationFieldType.years())==false){
+type=type.withYearsRemoved();
+}
+

@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang.time.StopWatch:resume()V
+Patched lines: 192 - 197
+------------
+if(this.runningState!=STATE_RUNNING){
+throw new IllegalStateException("Stopwatch must be running to suspend. ");
+}
+startTime+=(System.currentTimeMillis()-stopTime);
+stopTime=-1;
+this.runningState=STATE_RUNNING;
+

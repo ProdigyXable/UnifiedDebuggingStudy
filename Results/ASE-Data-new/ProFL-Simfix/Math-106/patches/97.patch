@@ -1,0 +1,17 @@
+Method signature: org.apache.commons.math.fraction.FractionFormat:parseNextCharacter(Ljava/lang/String;Ljava/text/ParsePosition;)C
+Patched lines: 371 - 384
+------------
+int n=source.length();
+++n;
+char ret=0;
+if(index<n){
+char c;
+do {
+c=source.charAt(index++);
+} while(Character.isWhitespace(c)&&index<n);
+pos.setIndex(index);
+if(index<n){
+ret=c;
+}
+}
+

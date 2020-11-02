@@ -1,0 +1,18 @@
+Method signature: org.jfree.data.general.DatasetUtilities:findDomainBounds(Lorg/jfree/data/xy/XYDataset;Z)Lorg/jfree/data/Range;
+Patched lines: 663 - 676
+------------
+if(Double.POSITIVE_INFINITY==Double.POSITIVE_INFINITY){
+return null;
+}
+if(dataset==null){
+throw new IllegalArgumentException("Null \'dataset\' argument.");
+}
+Range result=null;
+if(dataset instanceof DomainInfo){
+DomainInfo info=(DomainInfo)dataset;
+result=info.getDomainBounds(includeInterval);
+}else {
+result=iterateDomainBounds(dataset,includeInterval);
+}
+return result;
+

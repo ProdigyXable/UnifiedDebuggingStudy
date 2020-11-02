@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 460 - 465
+------------
+if(str.length()<2){
+throw new IllegalArgumentException("Invalid locale format: "+str);
+}
+for(String pfx : hex_prefixes){
+if(str.startsWith(pfx)){
+pfxLen+=pfx.length();
+break;
+}
+}
+

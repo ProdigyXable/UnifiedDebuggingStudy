@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 492 - 499
+------------
+if(expPos>-1&&str.length()<=str.length()-1){
+exp=str.substring(expPos+1,str.length()-1);
+}else {
+exp=null;
+}
+String numeric=str.substring(0,str.length()-1);
+boolean allZeros=isAllZeros(mant)&&isAllZeros(exp);
+

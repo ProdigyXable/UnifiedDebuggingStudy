@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 502 - 514
+------------
+if(str==null||dec==null){
+return -1;
+}
+case 'L' :
+if(dec==null&&exp==null&&(numeric.charAt(0)=='-'&&isDigits(numeric.substring(1))||isDigits(numeric))){
+try{
+return createLong(numeric);
+}catch (NumberFormatException nfe) {
+}
+
+return createBigInteger(numeric);
+}
+throw new NumberFormatException(str+" is not a valid number.");
+
+

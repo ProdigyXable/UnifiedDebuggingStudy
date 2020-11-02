@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.math.optimization.linear.SimplexSolver:isPhase1Solved(Lorg/apache/commons/math/optimization/linear/SimplexTableau;)Z
+Patched lines: 129 - 137
+------------
+if(tableau.getNumArtificialVariables()==0){
+return true;
+}
+tableau.discardArtificialVariables();
+for(int i=tableau.getNumObjectiveFunctions();i<tableau.getWidth()-1;i++){
+if(MathUtils.compareTo(tableau.getEntry(0,i),0,epsilon)<0){
+return false;
+}
+}
+return true;
+

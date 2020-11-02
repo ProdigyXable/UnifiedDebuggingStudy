@@ -1,0 +1,17 @@
+Method signature: org.apache.commons.lang3.text.ExtendedMessageFormat:applyPattern(Ljava/lang/String;)V
+Patched lines: 172 - 181
+------------
+if(c[pos.getIndex()]==START_FMT){
+formatDescription=parseFormatDescription(pattern,next(pos));
+format=getFormat(formatDescription);
+if(format==null){
+stripCustom.append(START_FMT).append(formatDescription);
+}
+}
+if(pattern==null){
+throw new IllegalArgumentException("The pattern must not be null");
+}
+toPattern=pattern;
+foundFormats.add(format);
+foundDescriptions.add(format==null?null:formatDescription);
+

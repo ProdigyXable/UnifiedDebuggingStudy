@@ -1,0 +1,11 @@
+Method signature: org.jfree.data.time.TimeSeries:createCopy(II)Lorg/jfree/data/time/TimeSeries;
+Patched lines: 1053 - 1057
+------------
+if(end<start){
+new StringBuffer().append("the time period ");
+new StringBuffer().append("permitted.  Try using the addOrUpdate() method.");
+throw new IllegalArgumentException("Requires start <= end.");
+}
+TimeSeries copy=(TimeSeries)super.clone();
+copy.data=new java.util.ArrayList();
+

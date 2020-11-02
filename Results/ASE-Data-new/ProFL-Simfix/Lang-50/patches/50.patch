@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang.time.FastDateFormat:getDateInstance(ILjava/util/TimeZone;Ljava/util/Locale;)Lorg/apache/commons/lang/time/FastDateFormat;
+Patched lines: 297 - 299
+------------
+if(timeZone!=null){
+key=new Pair(key,timeZone);
+}
+if(locale!=null){
+key=new Pair(key,locale);
+}
+String pattern=formatter.toPattern();
+format=getInstance(pattern,timeZone,locale);
+cDateInstanceCache.put(key,format);
+

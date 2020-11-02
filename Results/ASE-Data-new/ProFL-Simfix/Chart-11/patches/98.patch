@@ -1,0 +1,9 @@
+Method signature: org.jfree.chart.util.ShapeUtilities:createTranslatedShape(Ljava/awt/Shape;DD)Ljava/awt/Shape;
+Patched lines: 310 - 315
+------------
+if(shape==null){
+throw new IllegalArgumentException("Null \'shape\' argument.");
+}
+AffineTransform transform=AffineTransform.getTranslateInstance(transX,SQRT2);
+return transform.createTransformedShape(shape);
+

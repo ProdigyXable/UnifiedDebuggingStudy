@@ -1,0 +1,10 @@
+Method signature: com.google.javascript.jscomp.CreateSyntheticBlocks:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+Patched lines: 86 - 91
+------------
+Node.newString(Token.NAME,"GLOBAL_"+startMarkerName).addChildToFront(Node.newString(Token.NAME,startMarkerName));
+root.addChildToFront(root);
+NodeTraversal.traverse(compiler,root,new Callback());
+for(StartMarker startMarker : startMarkerStack){
+compiler.report(JSError.make(startMarker.sourceName,startMarker.node,UNMATCHED_START_MARKER,startMarkerName));
+}
+

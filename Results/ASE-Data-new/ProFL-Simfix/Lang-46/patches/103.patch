@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/io/Writer;Ljava/lang/String;Z)V
+Patched lines: 220 - 224
+------------
+out.write(CSV_QUOTE);
+if(ch>0xf){
+out.write("\\u00"+hex(ch));
+}else {
+out.write("\\u000"+hex(ch));
+}
+

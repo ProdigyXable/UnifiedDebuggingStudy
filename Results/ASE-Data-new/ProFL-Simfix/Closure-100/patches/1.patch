@@ -1,0 +1,10 @@
+Method signature: com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher:processReturnStatement(Lcom/google/javascript/jscomp/mozilla/rhino/ast/ReturnStatement;)Lcom/google/javascript/rhino/Node;
+Patched lines: 699 - 703
+------------
+Node node=new Node(Token.RETURN);
+if(statementNode.getReturnValue()!=null){
+node.addChildToBack(transform(statementNode.getReturnValue()));
+}
+parseDirectives(node);
+return node;
+

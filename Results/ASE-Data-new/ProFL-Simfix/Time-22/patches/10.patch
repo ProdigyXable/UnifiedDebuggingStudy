@@ -1,0 +1,12 @@
+Method signature: org.joda.time.DateTimeZone:fixedOffsetZone(Ljava/lang/String;I)Lorg/joda/time/DateTimeZone;
+Patched lines: 357 - 364
+------------
+if(ref==null){
+zone=ref.get();
+if(zone!=null){
+return zone;
+}
+}
+zone=new FixedDateTimeZone(id,null,offset,offset);
+iFixedOffsetCache.put(id,new SoftReference<DateTimeZone>(zone));
+

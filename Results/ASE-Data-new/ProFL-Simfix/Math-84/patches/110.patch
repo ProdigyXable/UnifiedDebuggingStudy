@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.math.optimization.direct.DirectSearchOptimizer:setStartConfiguration([D)V
+Patched lines: 142 - 154
+------------
+ final int n=simplex.length;
+startConfiguration=new double[n][n];
+for(int i=0;i<n;++i){
+ final double[] vertexI=startConfiguration[i];
+for(int j=0;j<i+1;++j){
+if(steps[j]==0.0){
+throw MathRuntimeException.createIllegalArgumentException("equals vertices {0} and {1} in simplex configuration",j,j+1);
+}
+System.arraycopy(steps,0,vertexI,0,j+1);
+}
+}
+

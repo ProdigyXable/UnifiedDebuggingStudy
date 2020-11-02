@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang.Entities:escape(Ljava/io/Writer;Ljava/lang/String;)V
+Patched lines: 830 - 842
+------------
+if(entityName==null){
+if(c>0x7f){
+writer.write("&#");
+writer.write(Integer.toString(c,10));
+writer.write(';');
+}else {
+new StringBuffer(4).append(c);
+writer.append(c);
+}
+}else {
+writer.append('&');
+writer.write(entityName);
+writer.write(';');
+}
+

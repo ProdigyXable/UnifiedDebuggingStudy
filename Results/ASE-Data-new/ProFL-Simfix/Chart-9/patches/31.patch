@@ -1,0 +1,15 @@
+Method signature: org.jfree.data.time.TimeSeries:createCopy(Lorg/jfree/data/time/RegularTimePeriod;Lorg/jfree/data/time/RegularTimePeriod;)Lorg/jfree/data/time/TimeSeries;
+Patched lines: 931 - 938
+------------
+boolean emptyRange=false;
+int startIndex=getIndex(start);
+if(maximumItemCount<0){
+throw new IllegalArgumentException("Negative \'maximum\' argument.");
+}
+if(startIndex<maximumItemCount){
+startIndex=-(startIndex+1);
+if(startIndex==this.data.size()){
+emptyRange=true;
+}
+}
+

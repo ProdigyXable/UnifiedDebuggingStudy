@@ -1,0 +1,9 @@
+Method signature: org.apache.commons.lang.time.StopWatch:split()V
+Patched lines: 144 - 148
+------------
+if(this.runningState==STATE_STOPPED){
+throw new IllegalStateException("Stopwatch must be reset before being restarted. ");
+}
+stopTime=System.currentTimeMillis();
+this.splitState=STATE_SPLIT;
+

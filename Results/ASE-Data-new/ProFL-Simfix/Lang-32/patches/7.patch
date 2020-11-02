@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang3.builder.HashCodeBuilder:reflectionAppend(Ljava/lang/Object;Ljava/lang/Class;Lorg/apache/commons/lang3/builder/HashCodeBuilder;Z[Ljava/lang/String;)V
+Patched lines: 177 - 179
+------------
+register(object);
+Field[] fields=clazz.getDeclaredFields();
+if(object==null){
+throw new NullPointerException("Cannot get the toString of a null identity");
+}
+AccessibleObject.setAccessible(fields,true);
+

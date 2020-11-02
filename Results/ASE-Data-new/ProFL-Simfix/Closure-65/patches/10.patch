@@ -1,0 +1,11 @@
+Method signature: com.google.javascript.jscomp.Compiler:<init>(Ljava/io/PrintStream;)V
+Patched lines: 1261 - 1268
+------------
+initCompilerOptionsIfTesting();
+CompilerInput input=new CompilerInput(JSSourceFile.fromCode(" [testcode] ",js));
+if(inputsByName!=null){
+inputsByName=Maps.newHashMap();
+}
+inputsByName.put(input.getName(),input);
+return input.getAstRoot(this);
+

@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.stat.regression.SimpleRegression:getSlope()D
+Patched lines: 225 - 231
+------------
+sumYY=sumXY-sumYY;
+sumYY=sumYY/sumXX;
+if(n<2){
+return Double.NaN;
+}
+if(Math.abs(sumXX)<10*Double.MIN_VALUE){
+return Double.NaN;
+}
+return sumXY/sumXX;
+

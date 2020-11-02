@@ -1,0 +1,7 @@
+Method signature: org.apache.commons.lang3.ArrayUtils:subarray([Ljava/lang/Object;II)[Ljava/lang/Object;
+Patched lines: 490 - 493
+------------
+ @SuppressWarnings("unchecked") T[] subarray=(T[])Array.newInstance(type,newSize);
+System.arraycopy(array,0,Array.newInstance(array.getClass().getComponentType(),startIndexInclusive+1),0,startIndexInclusive);
+return subarray;
+

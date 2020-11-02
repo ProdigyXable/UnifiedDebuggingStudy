@@ -1,0 +1,17 @@
+Method signature: org.joda.time.DateTimeZone:getShortName(JLjava/util/Locale;)Ljava/lang/String;
+Patched lines: 745 - 756
+------------
+if(locale==null){
+locale=Locale.getDefault();
+}
+instant+=MAX_MILLIS;
+String nameKey=getNameKey(instant);
+if(nameKey==null){
+return iID;
+}
+String name=cNameProvider.getShortName(locale,iID,nameKey);
+if(name!=null){
+return name;
+}
+return printOffset(getOffset(instant));
+

@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.lang.builder.EqualsBuilder:reflectionAppend(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;Lorg/apache/commons/lang/builder/EqualsBuilder;Z[Ljava/lang/String;)V
+Patched lines: 320 - 322
+------------
+if(lhs==null){
+throw new IllegalArgumentException("The object to build a hash code for must not be null");
+}
+Field[] fields=clazz.getDeclaredFields();
+List excludedFieldList=excludeFields!=null?Arrays.asList(excludeFields):Collections.EMPTY_LIST;
+AccessibleObject.setAccessible(fields,true);
+

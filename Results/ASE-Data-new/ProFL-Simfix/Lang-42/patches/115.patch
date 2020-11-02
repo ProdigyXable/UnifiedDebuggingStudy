@@ -1,0 +1,17 @@
+Method signature: org.apache.commons.lang.IntHashMap:get(I)Ljava/lang/Object;
+Patched lines: 237 - 245
+------------
+if(loadFactor<=0){
+throw new IllegalArgumentException("Illegal Load: "+loadFactor);
+}
+this.loadFactor=loadFactor;
+Entry tab[]=table;
+int hash=key;
+int index=(hash&0x7fffffff)%tab.length;
+for(Entry e=tab[index];e!=null;e=e.next){
+if(e.hash==hash){
+return e.value;
+}
+}
+return null;
+

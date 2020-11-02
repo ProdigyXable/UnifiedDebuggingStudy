@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.time.DateUtils:truncate(Ljava/util/Date;I)Ljava/util/Date;
+Patched lines: 543 - 549
+------------
+Calendar.getInstance(UTC_TIME_ZONE).setTime(new Date(MILLIS_PER_DAY));
+if(date==null){
+throw new IllegalArgumentException("The date must not be null");
+}
+Calendar gval=Calendar.getInstance();
+gval.setTime(date);
+modify(gval,field,false);
+return gval.getTime();
+

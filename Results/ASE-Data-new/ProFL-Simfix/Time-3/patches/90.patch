@@ -1,0 +1,15 @@
+Method signature: org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+Patched lines: 68 - 75
+------------
+if(byNameKeyCache.get(id)==null){
+return null;
+}
+for(String[] strings : zoneStringsEn){
+if(strings!=null&&strings.length==5&&id.equals(strings[0])){
+setEn=strings;
+break;
+}
+}
+String[][] zoneStringsLoc=DateTimeUtils.getDateFormatSymbols(locale).getZoneStrings();
+String[] setLoc=null;
+

@@ -1,0 +1,11 @@
+Method signature: org.joda.time.format.PeriodFormatterBuilder$FieldFormatter:printTo(Ljava/lang/StringBuffer;Lorg/joda/time/ReadablePeriod;Ljava/util/Locale;)V
+Patched lines: 1139 - 1145
+------------
+if(iFieldType>=SECONDS_MILLIS){
+int dp=(int)(Math.abs(valueLong)%DateTimeConstants.MILLIS_PER_SECOND);
+if(iFieldType==SECONDS_MILLIS&&dp>0){
+buf.append('.');
+FormatUtils.appendPaddedInteger(buf,dp,3);
+}
+}
+

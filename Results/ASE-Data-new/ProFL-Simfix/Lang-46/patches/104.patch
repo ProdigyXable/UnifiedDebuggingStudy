@@ -1,0 +1,9 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeJavaStyleString(Ljava/io/Writer;Ljava/lang/String;Z)V
+Patched lines: 220 - 224
+------------
+if(ch>0xf){
+out.append("\\u00"+hex(ch));
+}else {
+out.write("\\u000"+hex(ch));
+}
+

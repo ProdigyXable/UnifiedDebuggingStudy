@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.math.stat.Frequency:getCumFreq(Ljava/lang/Object;)J
+Patched lines: 330 - 336
+------------
+if(v instanceof Integer){
+return getCount(((Integer)v).longValue());
+}
+Comparator c=freqTable.comparator();
+if(c==null){
+c=new NaturalComparator();
+}
+

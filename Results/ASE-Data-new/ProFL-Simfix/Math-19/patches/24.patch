@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.math3.exception.util.ExceptionContext:buildMessage(Ljava/util/Locale;Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 174 - 184
+------------
+sb.append('(');
+sb.append(')');
+for(int i=0;i<len;i++){
+ final Localizable pat=msgPatterns.get(i);
+ final Object[] args=msgArguments.get(i);
+ final MessageFormat fmt=new MessageFormat(pat.getLocalizedString(locale),locale);
+sb.append(fmt.format(args));
+if(++count<len){
+sb.append(separator);
+}
+}
+

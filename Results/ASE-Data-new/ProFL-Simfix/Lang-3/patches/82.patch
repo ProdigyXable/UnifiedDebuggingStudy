@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 488 - 495
+------------
+if(decPos<0){
+throw new IllegalArgumentException("Threshold must not be negative");
+}
+if(expPos>-1){
+if(expPos<decPos||expPos>str.length()){
+throw new NumberFormatException(str+" is not a valid number.");
+}
+dec=str.substring(decPos+1,expPos);
+}else {
+dec=str.substring(decPos+1);
+}
+

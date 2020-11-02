@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z
+Patched lines: 1045 - 1048
+------------
+if(StringUtils.isBlank(str)){
+throw new NumberFormatException("A blank string is not a valid number");
+}
+if(str==null||searchStr==null){
+return false;
+}
+return contains(str.toUpperCase(),searchStr.toUpperCase());
+

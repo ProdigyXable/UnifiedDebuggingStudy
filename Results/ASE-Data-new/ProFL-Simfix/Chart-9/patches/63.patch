@@ -1,0 +1,10 @@
+Method signature: org.jfree.data.time.TimeSeries:getIndex(Lorg/jfree/data/time/RegularTimePeriod;)I
+Patched lines: 430 - 435
+------------
+fireSeriesChanged();
+if(period==null){
+throw new IllegalArgumentException("Null \'period\' argument.");
+}
+TimeSeriesDataItem dummy=new TimeSeriesDataItem(period,Integer.MIN_VALUE);
+return Collections.binarySearch(this.data,dummy);
+

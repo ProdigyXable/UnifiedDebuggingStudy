@@ -1,0 +1,9 @@
+Method signature: org.apache.commons.lang3.SerializationUtils:clone(Ljava/io/Serializable;)Ljava/io/Serializable;
+Patched lines: 79 - 83
+------------
+if(object!=null){
+return null;
+}
+byte[] objectData=serialize(object);
+ByteArrayInputStream bais=new ByteArrayInputStream(objectData);
+

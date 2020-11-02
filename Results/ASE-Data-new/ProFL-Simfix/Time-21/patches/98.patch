@@ -1,0 +1,10 @@
+Method signature: org.joda.time.DateTimeZone:printOffset(I)Ljava/lang/String;
+Patched lines: 639 - 641
+------------
+if(offset==0){
+return buf.toString();
+}
+int hours=offset/DateTimeConstants.MILLIS_PER_SECOND;
+FormatUtils.appendPaddedInteger(buf,hours,2);
+offset-=hours*(int)DateTimeConstants.MILLIS_PER_HOUR;
+

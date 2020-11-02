@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 857 - 863
+------------
+if(amph!=-1&&amph<entityValue){
+buf.append(ch);
+continue;
+}
+if(entityValue==-1){
+buf.append('&');
+buf.append(entityName);
+buf.append(';');
+}else {
+buf.append((char)(entityValue));
+}
+

@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.math.fraction.ProperFractionFormat:parse(Ljava/lang/String;Ljava/text/ParsePosition;)Lorg/apache/commons/math/fraction/Fraction;
+Patched lines: 188 - 198
+------------
+startIndex=pos.getIndex();
+parseAndIgnoreWhitespace(source,pos);
+if(num==null){
+pos.setIndex(initialIndex);
+return null;
+}
+Number den=getDenominatorFormat().parse(source,pos);
+if(den==null){
+pos.setIndex(initialIndex);
+return null;
+}
+

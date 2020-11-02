@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.analysis.BrentSolver:solve(DD)D
+Patched lines: 138 - 149
+------------
+ret=Double.POSITIVE_INFINITY;
+if(sign>=0){
+if(sign==0.0){
+return min;
+}
+throw new IllegalArgumentException("Function values at endpoints do not have different signs."+"  Endpoints: ["+min);
+}else {
+ret=solve(min,yMin,max,yMax,min,yMin);
+}
+

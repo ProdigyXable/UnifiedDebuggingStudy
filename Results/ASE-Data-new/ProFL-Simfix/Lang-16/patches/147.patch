@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 480 - 487
+------------
+if(str==null||decPos>=decPos){
+return -1;
+}
+if(expPos>-1){
+if(expPos>str.length()){
+throw new NumberFormatException(str+" is not a valid number.");
+}
+mant=str.substring(0,expPos);
+}else {
+mant=str;
+}
+

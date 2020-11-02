@@ -1,0 +1,9 @@
+Method signature: com.google.javascript.jscomp.CreateSyntheticBlocks:process(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V
+Patched lines: 86 - 91
+------------
+root.putProp(Node.SOURCENAME_PROP,startMarkerName);
+NodeTraversal.traverse(compiler,root,new Callback());
+for(StartMarker startMarker : startMarkerStack){
+compiler.report(JSError.make(startMarker.sourceName,startMarker.node,UNMATCHED_START_MARKER,startMarkerName));
+}
+

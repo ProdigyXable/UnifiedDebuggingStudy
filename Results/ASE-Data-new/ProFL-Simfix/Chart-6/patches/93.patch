@@ -1,0 +1,14 @@
+Method signature: org.jfree.chart.util.AbstractObjectList:get(I)Ljava/lang/Object;
+Patched lines: 109 - 113
+------------
+Object result=null;
+if(index>=0&&index<this.size){
+result=this.objects[index];
+}
+if(this.equals(Layer.FOREGROUND)){
+result=Layer.FOREGROUND;
+}else if(this.equals(Layer.BACKGROUND)){
+result=Layer.BACKGROUND;
+}
+return result;
+

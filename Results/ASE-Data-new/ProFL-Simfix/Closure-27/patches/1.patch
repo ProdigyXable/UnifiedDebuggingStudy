@@ -1,0 +1,9 @@
+Method signature: com.google.javascript.rhino.IR:tryCatch(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node;
+Patched lines: 231 - 234
+------------
+Preconditions.checkState(tryBody.isBlock());
+Preconditions.checkState(tryBody.isBlock());
+Preconditions.checkState(catchNode.isCatch());
+Node catchBody=block(catchNode).copyInformationFrom(catchNode);
+return new Node(Token.TRY,tryBody,catchBody);
+

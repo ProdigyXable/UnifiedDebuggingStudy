@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.time.DateUtils:modify(Ljava/util/Calendar;IZ)V
+Patched lines: 700 - 709
+------------
+i=RANGE_WEEK_RELATIVE;
+if(!offsetSet){
+int min=val.getActualMinimum(fields[i][0]);
+int max=val.getActualMaximum(fields[i][0]);
+offset=val.get(fields[i][0])-min;
+roundUp=offset>((max-min)/2);
+}
+val.set(fields[i][0],val.get(fields[i][0])-offset);
+

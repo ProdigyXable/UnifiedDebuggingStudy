@@ -1,0 +1,21 @@
+Method signature: com.google.javascript.jscomp.Compiler:<init>(Ljava/io/PrintStream;)V
+Patched lines: 610 - 621
+------------
+if(exception[0]!=null){
+throw new RuntimeException(exception[0]);
+}
+try{
+if(dumpTraceReport){
+Tracer.initCurrentThreadTrace();
+}
+result[0]=callable.call();
+}catch (Throwable e) {
+  exception[0]=e;
+}
+finally{
+  if (dumpTraceReport) {
+    Tracer.logAndClearCurrentThreadTrace();
+  }
+}
+
+

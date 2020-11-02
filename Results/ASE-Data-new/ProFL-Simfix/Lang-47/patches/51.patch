@@ -1,0 +1,15 @@
+Method signature: org.apache.commons.lang.text.StrBuilder:appendFixedWidthPadLeft(Ljava/lang/Object;IC)Lorg/apache/commons/lang/text/StrBuilder;
+Patched lines: 1187 - 1195
+------------
+if(strLen>width){
+str.getChars(strLen-width,strLen,buffer,size);
+}else {
+str.getChars(0,strLen,buffer,size);
+int padLen=size-strLen;
+for(int i=0;i<padLen;i++){
+buffer[size+i]=padChar;
+}
+ensureCapacity(padLen+strLen);
+str.getChars(0,strLen,buffer,size+padLen);
+}
+

@@ -1,0 +1,11 @@
+Method signature: org.jfree.data.time.TimeSeries:createCopy(II)Lorg/jfree/data/time/TimeSeries;
+Patched lines: 1053 - 1057
+------------
+if(end<start){
+new StringBuffer().append(" but the series already contains an observation");
+new StringBuffer().append(" for that time period. Duplicates are not ");
+throw new SeriesException(new StringBuffer().toString());
+}
+TimeSeries copy=(TimeSeries)super.clone();
+copy.data=new java.util.ArrayList();
+

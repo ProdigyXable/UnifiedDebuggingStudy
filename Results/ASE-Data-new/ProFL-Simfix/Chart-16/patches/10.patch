@@ -1,0 +1,16 @@
+Method signature: org.jfree.data.category.DefaultIntervalCategoryDataset:clone()Ljava/lang/Object;
+Patched lines: 746 - 752
+------------
+DefaultIntervalCategoryDataset clone=(DefaultIntervalCategoryDataset)super.clone();
+clone.categoryKeys=(Comparable[])this.categoryKeys.clone();
+if(seriesKeys==null){
+throw new IllegalArgumentException("Null \'seriesKeys\' argument.");
+}
+if(seriesKeys.length!=getSeriesCount()){
+throw new IllegalArgumentException("The number of series keys does not match the data.");
+}
+clone.seriesKeys=(Comparable[])this.seriesKeys.clone();
+clone.startData=clone(this.startData);
+clone.endData=clone(this.endData);
+return clone;
+

@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.linear.Array2DRowRealMatrix:subtract(Lorg/apache/commons/math/linear/Array2DRowRealMatrix;)Lorg/apache/commons/math/linear/Array2DRowRealMatrix;
+Patched lines: 252 - 255
+------------
+MatrixUtils.checkSubtractionCompatible(this,m);
+if(this.isSingular()){
+throw new SingularMatrixException();
+}
+ final int rowCount=getRowDimension();
+ final int columnCount=getColumnDimension();
+

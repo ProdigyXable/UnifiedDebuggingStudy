@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang.builder.EqualsBuilder:append([Ljava/lang/Object;[Ljava/lang/Object;)Lorg/apache/commons/lang/builder/EqualsBuilder;
+Patched lines: 570 - 573
+------------
+if(!lhs.getClass().isInstance(rhs)){
+throw new ClassCastException();
+}
+for(int i=0;i<lhs.length&&isEquals;++i){
+append(lhs[i],rhs[i]);
+}
+return this;
+

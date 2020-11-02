@@ -1,0 +1,25 @@
+Method signature: org.apache.commons.math.util.MathUtils:addAndCheck(JJLjava/lang/String;)J
+Patched lines: 111 - 140
+------------
+if(a>b){
+ret=addAndCheck(b,a,msg);
+}else {
+if(a<0){
+if(b<0){
+if(Long.MIN_VALUE-b<=b){
+ret=a+b;
+}else {
+throw new ArithmeticException(msg);
+}
+}else {
+ret=a+b;
+}
+}else {
+if(a<=Long.MAX_VALUE-b){
+ret=a+b;
+}else {
+throw new ArithmeticException(msg);
+}
+}
+}
+

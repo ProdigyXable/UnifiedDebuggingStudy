@@ -1,0 +1,10 @@
+Method signature: org.joda.time.Period:withMillis(I)Lorg/joda/time/Period;
+Patched lines: 967 - 969
+------------
+if(this==ZERO||millis==1){
+return this;
+}
+int[] values=getValues();
+getPeriodType().setIndexedField(this,PeriodType.MILLI_INDEX,values,millis);
+return new Period(values,getPeriodType());
+

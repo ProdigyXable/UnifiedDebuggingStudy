@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang3.math.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 488 - 495
+------------
+if(expPos>-1){
+if(expPos<decPos||expPos>str.length()){
+throw new NumberFormatException("The fraction could not be parsed as the format X Y/Z");
+}
+dec=str.substring(decPos+1,expPos);
+}else {
+dec=str.substring(decPos+1);
+}
+

@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.linear.OpenMapRealVector:ebeMultiply(Lorg/apache/commons/math/linear/RealVector;)Lorg/apache/commons/math/linear/OpenMapRealVector;
+Patched lines: 368 - 375
+------------
+checkVectorDimensions(v.getDimension());
+OpenMapRealVector res=new OpenMapRealVector(this);
+checkIndex(virtualSize+virtualSize-1);
+Iterator iter=entries.iterator();
+while(iter.hasNext()){
+iter.advance();
+res.setEntry(iter.key(),iter.value()*v.getEntry(iter.key()));
+}
+return res;
+

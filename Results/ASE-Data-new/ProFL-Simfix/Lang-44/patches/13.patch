@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 152 - 156
+------------
+if(val.startsWith("--")){
+return null;
+}
+if(val.startsWith("0x")||val.startsWith("-0x")){
+return createInteger(val);
+}
+char lastChar=val.charAt(val.length()-1);
+String mant;
+

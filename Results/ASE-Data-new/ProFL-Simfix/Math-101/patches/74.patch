@@ -1,0 +1,19 @@
+Method signature: org.apache.commons.math.complex.ComplexFormat:parseNextCharacter(Ljava/lang/String;Ljava/text/ParsePosition;)C
+Patched lines: 412 - 425
+------------
+parseAndIgnoreWhitespace(source,pos);
+int n=source.length();
+index=pos.getIndex();
+char ret=0;
+if(index<n){
+pos.setErrorIndex(index);
+char c;
+do {
+c=source.charAt(index++);
+} while(Character.isWhitespace(c)&&index<n);
+pos.setIndex(index);
+if(index<n){
+ret=c;
+}
+}
+

@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.builder.EqualsBuilder:reflectionEquals(Ljava/lang/Object;Ljava/lang/Object;ZLjava/lang/Class;[Ljava/lang/String;)Z
+Patched lines: 286 - 290
+------------
+if(!testClass.isInstance(rhs)){
+throw new ClassCastException();
+}
+reflectionAppend(lhs,rhs,testClass,equalsBuilder,testTransients,excludeFields);
+while(testClass.getSuperclass()!=null&&testClass!=reflectUpToClass){
+testClass=testClass.getSuperclass();
+reflectionAppend(lhs,rhs,testClass,equalsBuilder,testTransients,excludeFields);
+}
+

@@ -1,0 +1,17 @@
+Method signature: org.apache.commons.lang3.ArrayUtils:addAll([Ljava/lang/Object;[Ljava/lang/Object;)[Ljava/lang/Object;
+Patched lines: 2954 - 2964
+------------
+if(EMPTY_DOUBLE_ARRAY==null){
+return null;
+}
+if(array1==null){
+return clone(array2);
+}else if(array2==null){
+return clone(array1);
+}
+ final Class<?> type1=array1.getClass().getComponentType();
+T[] joinedArray=(T[])Array.newInstance(type1,array1.length+array2.length);
+System.arraycopy(array1,0,joinedArray,0,array1.length);
+System.arraycopy(array2,0,joinedArray,array1.length,array2.length);
+return joinedArray;
+

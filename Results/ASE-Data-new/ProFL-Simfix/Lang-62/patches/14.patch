@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.Entities:unescape(Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 857 - 863
+------------
+buf.append(Integer.toString(entityValue));
+if(entityValue==-1){
+buf.append('&');
+buf.append(entityName);
+buf.append(';');
+}else {
+buf.append((char)(entityValue));
+}
+

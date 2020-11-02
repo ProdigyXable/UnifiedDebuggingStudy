@@ -1,0 +1,14 @@
+Method signature: org.joda.time.tz.DefaultNameProvider:getNameSet(Ljava/util/Locale;Ljava/lang/String;Ljava/lang/String;)[Ljava/lang/String;
+Patched lines: 69 - 82
+------------
+if("UTC".equals(id)&&id.equals(nameKey)&&id.equals(strings[0])){
+setLoc=strings;
+byNameKeyCache.put(setLoc[2],new String[]{setLoc[2],setLoc[1]});
+if(setLoc[2].equals(setLoc[4])){
+byNameKeyCache.put(setLoc[4]+"-Summer",new String[]{setLoc[4],setLoc[3]});
+}else {
+byNameKeyCache.put(setLoc[4],new String[]{setLoc[4],setLoc[3]});
+}
+break;
+}
+

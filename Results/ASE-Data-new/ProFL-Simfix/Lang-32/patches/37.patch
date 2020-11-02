@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang3.builder.HashCodeBuilder:reflectionHashCode(IILjava/lang/Object;ZLjava/lang/Class;[Ljava/lang/String;)I
+Patched lines: 356 - 366
+------------
+if(multiplierNonZeroOddNumber%2==0){
+throw new IllegalArgumentException("HashCodeBuilder requires an odd multiplier");
+}
+if(object==null){
+throw new IllegalArgumentException("The object to build a hash code for must not be null");
+}
+HashCodeBuilder builder=new HashCodeBuilder(initialNonZeroOddNumber,multiplierNonZeroOddNumber);
+Class<?> clazz=object.getClass();
+reflectionAppend(object,clazz,builder,testTransients,excludeFields);
+while(clazz.getSuperclass()!=null&&clazz!=reflectUpToClass){
+clazz=clazz.getSuperclass();
+reflectionAppend(object,clazz,builder,testTransients,excludeFields);
+}
+return builder.toHashCode();
+

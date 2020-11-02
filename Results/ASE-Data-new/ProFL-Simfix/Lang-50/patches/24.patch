@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang.time.FastDateFormat:parsePattern()Ljava/util/List;
+Patched lines: 621 - 627
+------------
+indexRef[0]=i;
+i=indexRef[0];
+if(tokenLen==0){
+rule=new TextField(Calendar.MONTH,shortMonths);
+}else if(tokenLen==2){
+rule=TwoDigitMonthField.INSTANCE;
+}else {
+rule=UnpaddedMonthField.INSTANCE;
+}
+

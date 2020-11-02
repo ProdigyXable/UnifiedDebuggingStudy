@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeHtml(Ljava/io/Writer;Ljava/lang/String;)V
+Patched lines: 498 - 504
+------------
+if(writer==null){
+throw new IllegalArgumentException("The Writer must not be null.");
+}
+if(string==null){
+return ;
+}
+Entities.XML.escape(writer,string);
+

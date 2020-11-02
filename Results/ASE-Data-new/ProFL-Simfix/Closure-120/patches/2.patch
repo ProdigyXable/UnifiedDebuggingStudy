@@ -1,0 +1,12 @@
+Method signature: com.google.javascript.jscomp.InlineVariables$InliningBehavior:inlineNonConstants(Lcom/google/javascript/jscomp/Scope$Var;Lcom/google/javascript/jscomp/ReferenceCollectingCallback$ReferenceCollection;Z)V
+Patched lines: 309 - 319
+------------
+if(inlineAllStrings&&!isVarInlineForbidden(candidate.alias)){
+Reference aliasInit;
+aliasInit=candidate.refInfo.getInitializingReference();
+Node value=aliasInit.getAssignedValue();
+Preconditions.checkNotNull(value);
+inlineWellDefinedVariable(candidate.alias,value,candidate.refInfo.references);
+staleVars.add(candidate.alias);
+}
+

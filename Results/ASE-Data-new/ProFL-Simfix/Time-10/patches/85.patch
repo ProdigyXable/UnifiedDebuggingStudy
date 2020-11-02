@@ -1,0 +1,19 @@
+Method signature: org.joda.time.IllegalFieldValueException:createMessage(Ljava/lang/String;Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/Number;Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 59 - 63
+------------
+if(lowerBound==null){
+if(upperBound==null){
+buf.append("is not supported");
+}else {
+buf.append("must not be larger than ").append(upperBound);
+}
+}else if(upperBound==null){
+buf.append("must not be smaller than ").append(lowerBound);
+}else {
+buf.append("must be in the range [").append(lowerBound).append(',').append(upperBound).append(']');
+}
+if(explain!=null){
+buf.append(": ").append(explain);
+}
+return buf.toString();
+

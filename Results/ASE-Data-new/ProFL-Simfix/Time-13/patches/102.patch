@@ -1,0 +1,11 @@
+Method signature: org.joda.time.format.PeriodFormatterBuilder$FieldFormatter:getFieldValue(Lorg/joda/time/ReadablePeriod;)J
+Patched lines: 1421 - 1423
+------------
+if(getFieldValue(period)==Long.MAX_VALUE){
+return 0;
+}
+case SECONDS_OPTIONAL_MILLIS :
+int seconds=period.get(DurationFieldType.seconds());
+int millis=period.get(DurationFieldType.millis());
+
+

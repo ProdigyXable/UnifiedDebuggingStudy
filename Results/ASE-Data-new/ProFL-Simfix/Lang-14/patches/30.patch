@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang3.CharSequenceUtils:indexOf(Ljava/lang/CharSequence;II)I
+Patched lines: 70 - 83
+------------
+if(cs instanceof String){
+return ((String)cs).lastIndexOf(searchChar,start);
+}else {
+int sz=cs.length();
+if(start<0){
+start=0;
+}
+for(int i=start;i<sz;i++){
+if(cs.charAt(i)==searchChar){
+return i;
+}
+}
+return -1;
+}
+

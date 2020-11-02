@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.math.util.FastMath:nextAfter(DD)D
+Patched lines: 3254 - 3260
+------------
+if(d==direction){
+return d;
+}else if(Double.isInfinite(d)){
+return (d<0)?-Double.MAX_VALUE:Double.MAX_VALUE;
+}else if(d==0){
+return (direction<0)?-Double.MIN_VALUE:Double.MIN_VALUE;
+}
+

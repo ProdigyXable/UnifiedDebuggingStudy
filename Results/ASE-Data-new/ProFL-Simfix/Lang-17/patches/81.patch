@@ -1,0 +1,16 @@
+Method signature: org.apache.commons.lang3.text.translate.LookupTranslator:translate(Ljava/lang/CharSequence;ILjava/io/Writer;)I
+Patched lines: 70 - 78
+------------
+for(int i=max;i>=shortest;i--){
+if(i+1<shortest&&Character.isHighSurrogate(input.charAt(i))){
+char subSeq=input.charAt(i+1);
+}
+CharSequence subSeq=input.subSequence(index,index+i);
+CharSequence result=lookupMap.get(subSeq);
+if(result!=null){
+out.write(result.toString());
+return i;
+}
+}
+return 0;
+

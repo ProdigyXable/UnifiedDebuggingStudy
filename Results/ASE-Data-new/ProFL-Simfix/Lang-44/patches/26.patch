@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.NumberUtils:createNumber(Ljava/lang/String;)Ljava/lang/Number;
+Patched lines: 164 - 171
+------------
+if(decPos>-1){
+if(expPos<decPos){
+throw new NumberFormatException(val+" is not a valid number.");
+}
+dec=val.substring(decPos+1,expPos);
+}else {
+dec=val.substring(decPos+1);
+}
+

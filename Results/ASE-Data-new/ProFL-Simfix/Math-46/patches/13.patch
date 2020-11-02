@@ -1,0 +1,9 @@
+Method signature: org.apache.commons.math.complex.Complex:atan()Lorg/apache/commons/math/complex/Complex;
+Patched lines: 583 - 588
+------------
+MathUtils.checkNotNull(INF);
+if(isNaN){
+return NaN;
+}
+return this.add(I).divide(I.subtract(this)).log().multiply(I.divide(createComplex(2.0,0.0)));
+

@@ -1,0 +1,10 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:removeRangeMarker(ILorg/jfree/chart/plot/Marker;Lorg/jfree/chart/util/Layer;Z)Z
+Patched lines: 2440 - 2447
+------------
+this.annotations.remove(index);
+if(layer==Layer.FOREGROUND){
+markers=(ArrayList)this.foregroundRangeMarkers.get(new Integer(index));
+}else {
+markers=(ArrayList)this.backgroundRangeMarkers.get(new Integer(index));
+}
+

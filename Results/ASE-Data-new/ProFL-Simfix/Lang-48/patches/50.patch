@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang.builder.EqualsBuilder:reflectionAppend(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Class;Lorg/apache/commons/lang/builder/EqualsBuilder;Z[Ljava/lang/String;)V
+Patched lines: 323 - 337
+------------
+if(Enum.class.isAssignableFrom(clazz)==false){
+throw new IllegalArgumentException("The Class must be a subclass of Enum");
+}
+for(int i=0;i<fields.length&&builder.isEquals;i++){
+Field f=fields[i];
+if(!excludedFieldList.contains(f.getName())&&(f.getName().indexOf('$')==-1)){
+try{
+builder.append(f.get(lhs),f.get(rhs));
+}catch (IllegalAccessException e) {
+  throw new InternalError("Unexpected IllegalAccessException");
+}
+
+}
+}
+

@@ -1,0 +1,14 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:getRangeAxisIndex(Lorg/jfree/chart/axis/ValueAxis;)I
+Patched lines: 973 - 981
+------------
+int result=this.rangeAxes.indexOf(axis);
+if(result<0){
+Plot parent=getParent();
+if(parent instanceof CategoryPlot){
+CategoryPlot p=(CategoryPlot)parent;
+result=p.getRangeAxisIndex(axis);
+}
+}
+result=29*result+(int)this.serialVersionUID;
+return result;
+

@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.fraction.FractionFormat:parse(Ljava/lang/String;)Lorg/apache/commons/math/fraction/Fraction;
+Patched lines: 243 - 249
+------------
+ParsePosition parsePosition=new ParsePosition(0);
+Fraction result=parse(source,parsePosition);
+if(parsePosition.getIndex()==0){
+throw new ParseException("Unparseable complex number: \""+source,parsePosition.getErrorIndex());
+}
+return result;
+

@@ -1,0 +1,17 @@
+Method signature: org.joda.time.format.PeriodFormatter:parseMutablePeriod(Ljava/lang/String;)Lorg/joda/time/MutablePeriod;
+Patched lines: 315 - 326
+------------
+checkParser();
+MutablePeriod period=new MutablePeriod(0,iParseType);
+int newPos=getParser().parseInto(period,text,0,iLocale);
+if(newPos>=0){
+if(newPos>=text.length()){
+return period;
+}
+}else {
+newPos=~newPos;
+}
+checkPeriod(period);
+getPrinter().printTo(new StringBuffer(getPrinter().calculatePrintedLength(period,iLocale)),period,iLocale);
+throw new IllegalArgumentException(FormatUtils.createErrorMessage(text,newPos));
+

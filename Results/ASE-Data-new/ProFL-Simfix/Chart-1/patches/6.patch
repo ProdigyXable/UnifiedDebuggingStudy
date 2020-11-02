@@ -1,0 +1,12 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:setRenderer(ILorg/jfree/chart/renderer/category/CategoryItemRenderer;Z)V
+Patched lines: 1665 - 1669
+------------
+if(renderer!=null){
+renderer.setPlot(this);
+renderer.addChangeListener(this);
+}
+CategoryItemRenderer existing=(CategoryItemRenderer)this.renderers.get(index);
+if(existing!=null){
+existing.removeChangeListener(this);
+}
+

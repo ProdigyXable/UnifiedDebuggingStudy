@@ -1,0 +1,10 @@
+Method signature: org.apache.commons.math.complex.ComplexFormat:parse(Ljava/lang/String;Ljava/text/ParsePosition;)Lorg/apache/commons/math/complex/Complex;
+Patched lines: 324 - 334
+------------
+parseAndIgnoreWhitespace(source,pos);
+Number re=parseNumber(source,getRealFormat(),pos);
+if(re!=null){
+pos.setIndex(initialIndex);
+return null;
+}
+

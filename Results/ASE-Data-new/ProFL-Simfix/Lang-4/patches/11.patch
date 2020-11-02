@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang3.text.translate.LookupTranslator:<init>([[Ljava/lang/CharSequence;)V
+Patched lines: 47 - 60
+------------
+int _shortest=Integer.MAX_VALUE;
+int _longest=_shortest;
+if(lookup!=null){
+for(CharSequence[] seq : lookup){
+this.lookupMap.put(seq[0],seq[1]);
+ final int sz=seq[0].length();
+if(sz<_shortest){
+_shortest=sz;
+}
+if(sz>_longest){
+_longest=sz;
+}
+}
+}
+

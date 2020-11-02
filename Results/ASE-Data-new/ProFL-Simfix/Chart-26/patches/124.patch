@@ -1,0 +1,13 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:getLegendItems()Lorg/jfree/chart/LegendItemCollection;
+Patched lines: 1736 - 1745
+------------
+if(renderer!=null){
+double seriesCount=dataset.getRowCount();
+for(int i=0;i<seriesCount;i++){
+LegendItem item=renderer.getLegendItem(datasetIndex,i);
+if(item!=null){
+result.add(item);
+}
+}
+}
+

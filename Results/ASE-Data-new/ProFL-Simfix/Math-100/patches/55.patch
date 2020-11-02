@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D
+Patched lines: 170 - 177
+------------
+for(int j=i;j<cols;++j){
+double sum=0;
+for(int k=0;k<max;k+=cols){
+k>>=1;
+sum+=jacobian[k+i]*jacobian[k+j];
+}
+jTj[i][j]=sum;
+jTj[j][i]=sum;
+}
+

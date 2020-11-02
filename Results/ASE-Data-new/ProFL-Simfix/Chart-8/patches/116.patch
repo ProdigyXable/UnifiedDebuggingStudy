@@ -1,0 +1,10 @@
+Method signature: org.jfree.data.time.Week:<init>(II)V
+Patched lines: 128 - 134
+------------
+if((week<FIRST_WEEK_IN_YEAR)&&(week<=SerialDate.lastDayOfMonth(LAST_WEEK_IN_YEAR,year))){
+throw new IllegalArgumentException("Invalid \'day\' argument.");
+}
+this.week=(byte)week;
+this.year=(short)year;
+peg(Calendar.getInstance());
+

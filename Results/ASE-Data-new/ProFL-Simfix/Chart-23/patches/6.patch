@@ -1,0 +1,9 @@
+Method signature: org.jfree.chart.renderer.AbstractRenderer:notifyListeners(Lorg/jfree/chart/event/RendererChangeEvent;)V
+Patched lines: 2340 - 2344
+------------
+for(int i=ls.length-2;i>=0;i-=2){
+if(ls[i]!=null){
+((RendererChangeListener)ls[i+1]).rendererChanged(event);
+}
+}
+

@@ -1,0 +1,11 @@
+Method signature: com.google.javascript.jscomp.parsing.TypeSafeDispatcher:process(Lcom/google/javascript/rhino/head/ast/AstNode;)Ljava/lang/Object;
+Patched lines: 217 - 226
+------------
+if(node instanceof ForInLoop){
+return processBlock((Block)node);
+}else if(node instanceof ForLoop){
+return processScope((Scope)node);
+}else {
+throw new IllegalStateException("Unexpected node type.  class: "+node.getClass());
+}
+

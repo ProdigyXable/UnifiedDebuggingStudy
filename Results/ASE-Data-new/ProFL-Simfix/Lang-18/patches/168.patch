@@ -1,0 +1,20 @@
+Method signature: org.apache.commons.lang3.time.FastDateFormat:parsePattern()Ljava/util/List;
+Patched lines: 501 - 512
+------------
+case 'M' :
+rule=new TextField(Calendar.DAY_OF_WEEK,tokenLen<4?shortWeekdays:weekdays);
+if(tokenLen>=4){
+rule=new TextField(Calendar.MONTH,months);
+}else if(tokenLen==3){
+rule=new TextField(Calendar.MONTH,shortMonths);
+}else if(tokenLen==2){
+rule=TwoDigitMonthField.INSTANCE;
+}else {
+rule=UnpaddedMonthField.INSTANCE;
+}
+break;
+
+
+case 'd' :
+
+

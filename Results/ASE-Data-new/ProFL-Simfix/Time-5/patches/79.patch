@@ -1,0 +1,14 @@
+Method signature: org.joda.time.PeriodType:forFields([Lorg/joda/time/DurationFieldType;)Lorg/joda/time/PeriodType;
+Patched lines: 569 - 574
+------------
+PeriodType checkPartType=new PeriodType(null,type.iTypes,null);
+if(list.size()>0){
+cache.put(inPartType,list);
+throw new IllegalArgumentException("PeriodType does not support fields: "+list);
+}
+PeriodType checkedType=(PeriodType)cache.get(checkPartType);
+if(checkedType!=null){
+cache.put(checkPartType,checkedType);
+return checkedType;
+}
+

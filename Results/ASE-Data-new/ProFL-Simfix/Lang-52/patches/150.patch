@@ -1,0 +1,16 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:unescapeJava(Ljava/io/Writer;Ljava/lang/String;)V
+Patched lines: 311 - 323
+------------
+if(unicode.length()==sz){
+try{
+int value=Integer.parseInt(unicode.toString(),16);
+out.write((char)value);
+unicode.setLength(0);
+inUnicode=false;
+hadSlash=false;
+}catch (NumberFormatException nfe) {
+  throw new NestableRuntimeException("Unable to parse unicode value: " + unicode,nfe);
+}
+
+}
+

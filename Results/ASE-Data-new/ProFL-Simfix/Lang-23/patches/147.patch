@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang3.text.ExtendedMessageFormat:applyPattern(Ljava/lang/String;)V
+Patched lines: 170 - 179
+------------
+Format format=null;
+String formatDescription=null;
+if(c[pos.getIndex()]!=END_FE){
+formatDescription=parseFormatDescription(pattern,next(pos));
+format=getFormat(formatDescription);
+if(format==null){
+stripCustom.append(START_FMT).append(formatDescription);
+}
+}
+

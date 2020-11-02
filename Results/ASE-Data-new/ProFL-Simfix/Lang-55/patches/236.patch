@@ -1,0 +1,12 @@
+Method signature: org.apache.commons.lang.time.StopWatch:split()V
+Patched lines: 144 - 148
+------------
+if(this.runningState!=STATE_RUNNING){
+throw new IllegalStateException("Stopwatch is not running. ");
+}
+if(this.runningState!=STATE_UNSTARTED){
+throw new IllegalStateException("Stopwatch already started. ");
+}
+stopTime=System.currentTimeMillis();
+this.splitState=STATE_SPLIT;
+

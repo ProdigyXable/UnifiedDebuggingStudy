@@ -1,0 +1,11 @@
+Method signature: org.apache.commons.math3.geometry.euclidean.threed.Line:distance(Lorg/apache/commons/math3/geometry/euclidean/threed/Vector3D;)D
+Patched lines: 164 - 166
+------------
+if(direction.getNormSq()==0.0){
+throw new MathIllegalArgumentException(LocalizedFormats.ZERO_NORM);
+}
+this.direction=new Vector3D(1.0/FastMath.sqrt(direction.getNormSq()),direction);
+ final Vector3D d=p.subtract(zero);
+ final Vector3D n=new Vector3D(1.0,d,-d.dotProduct(direction),direction);
+return n.getNorm();
+

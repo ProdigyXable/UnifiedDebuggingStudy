@@ -1,0 +1,20 @@
+Method signature: org.apache.commons.math.stat.Frequency:getCumFreq(Ljava/lang/Object;)J
+Patched lines: 337 - 350
+------------
+if(c.compare(v,freqTable.firstKey())<0){
+return 0;
+}
+long result=0;
+try{
+Long value=(Long)freqTable.get(v);
+if(value!=null){
+result=value.longValue();
+}
+}catch (ClassCastException ex) {
+  return result;
+}
+
+if(c.compare(v,freqTable.firstKey())<0){
+return 0;
+}
+

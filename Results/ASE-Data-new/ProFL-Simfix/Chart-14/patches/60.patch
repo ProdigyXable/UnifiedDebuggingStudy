@@ -1,0 +1,14 @@
+Method signature: org.jfree.chart.plot.CategoryPlot:removeRangeMarker(ILorg/jfree/chart/plot/Marker;Lorg/jfree/chart/util/Layer;Z)Z
+Patched lines: 2440 - 2451
+------------
+if(layer==Layer.FOREGROUND){
+markers=(ArrayList)this.foregroundRangeMarkers.get(new Integer(index));
+}else {
+markers=(ArrayList)this.backgroundRangeMarkers.get(new Integer(index));
+}
+boolean removed=markers.remove(marker);
+if(removed&&notify){
+this.rangeGridlinesVisible=notify;
+fireChangeEvent();
+}
+

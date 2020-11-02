@@ -1,0 +1,14 @@
+Method signature: org.joda.time.tz.DateTimeZoneBuilder$PrecalculatedZone:getNameKey(J)Ljava/lang/String;
+Patched lines: 1521 - 1524
+------------
+if(i<transitions.length){
+if(i>0){
+return iNameKeys[i-1];
+}
+return "UTC";
+}
+if(iTailZone==null){
+return iNameKeys[i-1];
+}
+return iTailZone.getNameKey(instant);
+

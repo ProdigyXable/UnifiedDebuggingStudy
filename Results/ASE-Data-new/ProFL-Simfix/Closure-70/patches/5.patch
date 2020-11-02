@@ -1,0 +1,9 @@
+Method signature: com.google.javascript.jscomp.TypeValidator:expectUndeclaredVariable(Ljava/lang/String;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;Lcom/google/javascript/jscomp/Scope$Var;Ljava/lang/String;Lcom/google/javascript/rhino/jstype/JSType;)V
+Patched lines: 552 - 558
+------------
+n.setString(variableName);
+compiler.reportCodeChange();
+if(shouldReport){
+compiler.report(JSError.make(sourceName,n,DUP_VAR_DECLARATION,variableName,newType.toString(),var.getInputName(),String.valueOf(var.nameNode.getLineno()),varType.toString()));
+}
+

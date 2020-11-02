@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.lang.IntHashMap:get(I)Ljava/lang/Object;
+Patched lines: 240 - 244
+------------
+for(Entry e=tab[index];e!=null;e=e.next){
+if(e.hash==hash){
+e.value=null;
+count--;
+e.value=null;
+
+return e.value;
+}
+}
+

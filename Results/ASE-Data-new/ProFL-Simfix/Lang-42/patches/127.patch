@@ -1,0 +1,18 @@
+Method signature: org.apache.commons.lang.StringEscapeUtils:escapeHtml(Ljava/lang/String;)Ljava/lang/String;
+Patched lines: 455 - 465
+------------
+if(str==null){
+return null;
+}
+if(StringUtils.containsNone(str,CSV_SEARCH_CHARS)){
+return str;
+}
+try{
+StringWriter writer=new StringWriter((int)(str.length()*1.5));
+escapeHtml(writer,str);
+return writer.toString();
+}catch (IOException ioe) {
+  throw new UnhandledException(ioe);
+}
+
+

@@ -1,0 +1,14 @@
+Method signature: org.apache.commons.lang.time.FastDateFormat:parsePattern()Ljava/util/List;
+Patched lines: 672 - 678
+------------
+case 'z' :
+rule=selectNumberRule(Calendar.DAY_OF_WEEK_IN_MONTH,mMaxLengthEstimate);
+if(tokenLen>=4){
+rule=new TimeZoneNameRule(mTimeZone,mTimeZoneForced,mLocale,TimeZone.LONG);
+}else {
+rule=new TimeZoneNameRule(mTimeZone,mTimeZoneForced,mLocale,TimeZone.SHORT);
+}
+break;
+
+
+

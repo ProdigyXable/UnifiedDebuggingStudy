@@ -1,0 +1,13 @@
+Method signature: com.google.javascript.jscomp.parsing.JsDocInfoParser:<clinit>()V
+Patched lines: 1828 - 1835
+------------
+token=next();
+if("function".equals(string)){
+skipEOLs();
+return newNode(Token.VOID);
+}else if("null".equals(string)||"undefined".equals(string)){
+return newStringNode(string);
+}else {
+return parseTypeName(token);
+}
+

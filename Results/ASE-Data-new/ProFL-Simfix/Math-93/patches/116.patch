@@ -1,0 +1,13 @@
+Method signature: org.apache.commons.math.util.MathUtils:addAndCheck(JJLjava/lang/String;)J
+Patched lines: 118 - 128
+------------
+if(b<0){
+if(Long.MIN_VALUE-b<a){
+ret=a+b;
+}else {
+throw new ArithmeticException(msg);
+}
+}else {
+ret=a+b;
+}
+
