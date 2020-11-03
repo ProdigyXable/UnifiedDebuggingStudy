@@ -41,7 +41,6 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL
                     method_name = items[3]
                     if statement_level == "Statement":
                         if "#" in method_name:
-
                             method_name = method_name.split(":")[0] + ":" + method_name.split("#")[1]  #actually: statement
 
                     cate = items[2].split("PatchCategory.")[1]
@@ -249,10 +248,10 @@ def get_SBFL_ranking(file, buggy_methods):
 
 
 first_write = False
-single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/ProFL-"
-
-#projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
-#vers = [65,27,106,26,38,133]
+#single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/ProFL-"
+single_tool_base_path = "../../Results/ASE-Data-new/ProFL-"
+projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
+vers = [65,27,106,26,38,133]
 
 #projects = ["Mockito"]
 #vers = [38]
@@ -263,9 +262,8 @@ single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-
 #projects = ["Mockito","Closure"]
 #vers = [38,133]
 
-projects = ["Lang","Time","Math","Chart"]
-vers = [65,27,106,26]
-
+#projects = ["Lang","Time","Math","Chart"]
+#vers = [65,27,106,26]
 
 result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
