@@ -58,7 +58,15 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL
                             if not os.path.exists(folder):
                                 os.makedirs(folder)
 
-                            write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
+                            #write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
+            for method in SBFL_sus_values:
+                value = SBFL_sus_values[method]
+                if method not in method_cate:
+                    method_cate[method].append(unmodified_ranking.index(mix_unmodified))
+                    method_clean[method].append(mix_unmodified)
+                    method_value[method] = value
+
+
         else:
             pass
             #print("Missing " + result_file)
