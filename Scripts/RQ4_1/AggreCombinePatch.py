@@ -32,7 +32,10 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL
     for tool in tool_combs:
         if not os.path.exists(single_tool_base_path + tool):
             print(single_tool_base_path + tool + "DOES NOT EXISIT!")
-        result_file = single_tool_base_path + tool + "/" + proj + "-" + ver + "/" + profl_variant + "/aggregatedSusInfo.profl"
+        sep = "-"
+        if tool == "ACS":
+        	sep = "_"
+        result_file = single_tool_base_path + tool + "/" + proj + sep + ver + "/" + profl_variant + "/aggregatedSusInfo.profl"
 
         if os.path.exists(result_file):
             with open(result_file) as f:
