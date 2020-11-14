@@ -1,111 +1,154 @@
 import sys
+import copy
+sys.path.append("../RQ1_1/")
+
 from collections import defaultdict
+
 import numpy as np
 import os
-sys.path.append("../RQ1_1/")
 import utils as ut
 
-def write_data(method_name, value, path):
-    with open(path,'a') as f:
-        f.write(method_name + " " + str(value))
-        f.write("\n")
-
-
-
 def get_current_SBFL_value(file):
-    sus_dic = dict() 
+    sus_dict = dict() 
 
     if os.path.exists(file):   
         with open(file) as f:
             for line in f:
                 method_name = line.split()[0].replace(":",".")
                 value = line.split()[1].strip()
-                sus_dic[method_name] = value
-    return sus_dic
+                sus_dict[method_name] = value
+    return sus_dict
 
+def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category, SusValues, sbfl_formula, profl_variant, statement_level):
+    global cachedGeneralSus
+    global cachedAggregatedSus
 
-
-def get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, profl_variant,statement_level):
-    method_cate = defaultdict(list) #index of Unmodified_ranking
-    method_value = dict()      #suspicious value
-    method_clean = defaultdict(list) # real category list
-    for tool in tool_combs:
-        if not os.path.exists(single_tool_base_path + tool):
-            print(single_tool_base_path + tool + "DOES NOT EXISIT!")
-        sep = "-"
-        if tool == "ACS":
-        	sep = "_"
-        result_file = single_tool_base_path + tool + "/" + proj + sep + ver + "/" + profl_variant + "/aggregatedSusInfo.profl"
-
-        if os.path.exists(result_file):
-            with open(result_file) as f:
-                for line in f:
-                    items = line.strip().split("|")
-                    method_name = items[3]
-                    if statement_level == "Statement":
-                        if "#" in method_name:
-                            method_name = method_name.split(":")[0] + ":" + method_name.split("#")[1]  #actually: statement
-
-                    cate = items[2].split("PatchCategory.")[1]
-                    if cate == "Unmodified":
-                        cate = mix_unmodified
-                    #value = items[1]
-                    if method_name.replace(":",".") in SBFL_sus_values:
-
-                            value = SBFL_sus_values[method_name.replace(":",".")]
-                            method_cate[method_name.replace(":",".")].append(unmodified_ranking.index(cate))
-                            method_clean[method_name.replace(":",".")].append(cate)
-                            method_value[method_name.replace(":",".")] = value
-
-                            folder = "../../Data/DeepFLData/SusValue/" + sbfl_formula
-                            if not os.path.exists(folder):
-                                os.makedirs(folder)
-
-                            #write_data(method_name,value,folder + "/" + ver + "-" + proj + ".txt")
-            for method in SBFL_sus_values:
-                value = SBFL_sus_values[method]
-                if method not in method_cate:
-                    method_cate[method].append(unmodified_ranking.index(mix_unmodified))
-                    method_clean[method].append(mix_unmodified)
-                    method_value[method] = value
-
-
-        else:
-            pass
-            #print("Missing " + result_file)
-    return method_cate,method_value,method_clean
-
-#method_cate_number: number of tool category,for example, if M1 aggregation is
-#cleanfix, count how many tools are also cleanfix for M1
-def get_method_info(method_cate,method_value,method_clean,ver,proj,sbfl_formula):
-    method_final_cate = dict()   # final category
-    method_cate_number = dict() # number of cleanfix/Noisyfix/NoneFix for all tools
-    for m in method_cate:
-        min_number = np.array(method_cate[m]).min()
-        cat = unmodified_ranking[min_number] #the aggregated category for this method
-        method_final_cate[m] = cat
-        cat_list = method_clean[m]
-        cat_number = cat_list.count(cat)
-        if cat_number > 0:
-            method_cate_number[m] = cat_number
-            
-            #Store information
-            folder1 = "../../Data/DeepFLData/FinalRank/" + sbfl_formula
-            folder2 = "../../Data/DeepFLData/CategoryNumber/" + sbfl_formula
-            if not os.path.exists(folder1):
-                os.makedirs(folder1)
-            if not os.path.exists(folder2):
-                os.makedirs(folder2)
-            #write_data(m,cat,folder1 + "/" + ver + "-" + proj + ".txt")
-            #write_data(m,cat_number,folder2 + "/" + ver + "-" + proj + ".txt")
-            ###
+    proj_name = proj + "-" + ver
     
-    return method_final_cate,method_cate_number
+    if proj_name in cachedGeneralSus.keys():
+        method_category = copy.deepcopy(cachedGeneralSus[proj_name][0])
+        method_all_category = copy.deepcopy(cachedGeneralSus[proj_name][1])
+        method_value = copy.deepcopy(cachedGeneralSus[proj_name][2])
+    else:
+        method_category = defaultdict(list) #index of Unmodified_ranking
+        method_all_category = defaultdict(list) # real category list
+        method_value = dict() # suspicious value
+    
+        if statement_level == "Method":
+            general_file = single_tool_base_path + "../common/" + proj + "-" + ver +  "/generalSusInfo.profl"
+            # ----- Get suspicious values from common files ----- #
+            if os.path.exists(general_file):
+                g = open(general_file, "r")
 
-def get_info_for_ranking(method_value,method_final_cate,method_clean_number):
-    category_values = defaultdict(list)  #each category with a list of suspicious values
-    for m in method_final_cate:
-        category_values[method_final_cate[m]].append(float(method_value[m]))
+                for line in g:
+                    items = line.strip().split("|")
+
+                    mRank = items[0]
+                    mSus = items[1]
+                    mName = items[2].replace(":",".").strip()
+                 
+                    # ------ Added unmodified category to all methods----- #
+                    if float(mSus) > 0.0:
+                        method_category[mName].append(category_indices.index(unmodified_category))
+                        method_all_category[mName].append(unmodified_category)
+                        method_value[mName] = mSus
+            else:
+                print("Missing", general_file)
+        elif statement_level == "Statement":
+            for mName in sorted(SusValues.keys()):
+                if float(SusValues[mName]) > 0.0:
+                    method_category[mName].append(category_indices.index(unmodified_category))
+                    method_all_category[mName].append(unmodified_category)
+                    method_value[mName] = SusValues[mName]
+
+        cachedGeneralSus[proj_name] = dict()
+        cachedGeneralSus[proj_name][0] = copy.deepcopy(method_category)
+        cachedGeneralSus[proj_name][1] = copy.deepcopy(method_all_category)
+        cachedGeneralSus[proj_name][2] = copy.deepcopy(method_value)
+
+    # ----- Add AggregatedSusInfo Data ----- #
+    for tool in tool_combs:
+        tool_proj_name = tool + "-" + proj_name
+
+        if tool_proj_name in cachedAggregatedSus.keys():
+            for key in copy.deepcopy(cachedAggregatedSus[tool_proj_name][0]):
+                method_category[key].extend(copy.deepcopy(cachedAggregatedSus[tool_proj_name][0][key]))
+
+            for key in copy.deepcopy(cachedAggregatedSus[tool_proj_name][1]):
+                method_all_category[key].extend(copy.deepcopy(cachedAggregatedSus[tool_proj_name][1][key]))
+
+            method_value.update(copy.deepcopy(cachedAggregatedSus[tool_proj_name][2]))
+
+        else: 
+            if not os.path.exists(single_tool_base_path + "ProFL-" + tool):
+                print("Missing tool path", single_tool_base_path, "ProFL-" + tool)
+            aggregated_file = single_tool_base_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/" + profl_variant + "/aggregatedSusInfo.profl"
+      	
+            cachedAggregatedSus[tool_proj_name] = dict()
+            cachedAggregatedSus[tool_proj_name][0] = copy.deepcopy(cachedGeneralSus[proj_name][0])
+            cachedAggregatedSus[tool_proj_name][1] = copy.deepcopy(cachedGeneralSus[proj_name][1])
+            cachedAggregatedSus[tool_proj_name][2] = copy.deepcopy(cachedGeneralSus[proj_name][2])
+
+            # ----- Add information to dict ----- #
+            if os.path.exists(aggregated_file):
+                with open(aggregated_file, "r") as f:
+                    for line in f:
+                        items = line.strip().split("|")
+                        method_name = items[3].strip()
+                        category = items[2].split("PatchCategory.")[1]
+    
+                        # --- Set sus value --- #
+                        value = 0
+    
+                        if statement_level == "Method":
+                            method_name = method_name.replace(":",".").strip()
+                            if method_name in method_value.keys():
+                                value = method_value[method_name]
+    
+                        elif statement_level == "Statement":
+                            if "#" in method_name:
+                                method_name = method_name.split(":")[0] + ":" + method_name.split("#")[1]  # Actual statement
+                                method_name = method_name.replace(":",".").strip()
+    
+                                if method_name in SusValues.keys():
+                                    value = SusValues[method_name]
+                            else:
+                                continue
+    
+                        if float(value) > 0.0:
+                            cachedAggregatedSus[tool_proj_name][0][method_name].append(category_indices.index(category))
+                            cachedAggregatedSus[tool_proj_name][1][method_name].append(category)
+                            cachedAggregatedSus[tool_proj_name][2][method_name] = value
+
+                            method_category[method_name].append(category_indices.index(category))
+                            method_all_category[method_name].append(category)
+                            method_value[method_name] = value
+
+    return method_category, method_value, method_all_category
+
+# method_category_number: number of tool category, for example, if M1 aggregation is CleanFix, count how many tools are also CleanFix for M1
+def get_method_info(method_category, method_value, method_all_category, ver, proj, sbfl_formula):
+    method_final_category = dict() # final category
+    method_category_number = dict() # number of cleanfix/Noisyfix/NoneFix for all tools
+    method_final_category_index = dict()
+
+    for m in method_category:
+        min_number = np.array(method_category[m]).min()
+        cat = category_indices[min_number] # The aggregated category for this method
+        method_final_category[m] = cat
+        cat_list = method_all_category[m]
+        cat_number = cat_list.count(cat)
+        
+        method_final_category_index[m] = min_number
+        method_category_number[m] = cat_number
+    
+    return method_final_category, method_category_number, method_final_category_index
+
+def get_info_for_ranking(method_value, method_final_category, method_all_category_number):
+    category_values = defaultdict(list)  # Each category with a list of suspicious values
+
+    for m in method_final_category:
+        category_values[method_final_category[m]].append(float(method_value[m]))
     return category_values
 
 def get_buggy(buggy_method_path):
@@ -123,98 +166,74 @@ def get_buggy_statment(path):
             buggy.append(line.strip().replace(":","."))
     return buggy
 
+def update_ranking_by_category_number(cate_number_dict, bug, method_category_number, method_value, method_final_category):
+    best_bug_category_number = method_category_number[bug]
+    bug_sus = str(method_value[bug])
+    best_bug_category = method_final_category[bug]
+    method_category_list = np.sort(np.array(cate_number_dict[best_bug_category + "+" + bug]))
 
-def update_ranking_by_cate_number(cate_number_dict,bug,method_cate_number,method_value,method_final_cate):
-    bug_cate_number = method_cate_number[bug]
-    bug_value = method_value[bug]
-    bug_cate = method_final_cate[bug]
-
-    cate_number_list = np.sort(np.array(cate_number_dict[bug_cate + "+" + bug_value]))
-    offset = list(cate_number_list).index(bug_cate_number)
+    if best_bug_category_number in method_category_list:
+        offset = list(method_category_list).count(best_bug_category_number)
+    else:
+        offset =  0
     return offset
 
-def get_final_ranking(buggy_methods,method_final_cate,method_value,unmodified_ranking,category_values,buggy_SBFL_ranking,cate_number_dict,method_cate_number):
+def get_final_ranking(buggy_methods, method_final_category, method_value, cate_number_dict, method_final_category_index):
+    global enableUnidebugPlusPlus
+
     rankings = []
-    global unidebug_plusplus
-    for bug in buggy_methods:
-
-        if bug in method_value:
-            #print(bug)
-            bug_cat = method_final_cate[bug]
-            bug_valu = float(method_value[bug])
-            bug_ranking = 0
-            for m in unmodified_ranking:
-
-                if bug_cat != m:
-                    bug_ranking = bug_ranking + len(category_values[m])            
-                else:
-                    m_list = category_values[m]
-                    m_list = np.array(m_list)
-                    m_list_sort = np.sort(m_list) #ascending order
-                    index = list(m_list_sort).index(bug_valu)
-                    bug_ranking = len(m_list_sort) - index + bug_ranking
-
-                    offset = update_ranking_by_cate_number(cate_number_dict,bug,method_cate_number,method_value,method_final_cate)
-
-                    if(unidebug_plusplus == "False"):
-                        #print("Using Unidebug+")
-                        pass # When the third command argument is "False", output represents UniDebug+
-                    else:
-                        bug_ranking = bug_ranking - offset # Comment this line to change from UniDebug++ to UniDebug+
-
-                    rankings.append(str(bug_ranking))
-                    break
+    rankings_dict = defaultdict(dict)
+# --- construct rankings structure (sorted by category > sus > plurality) --- #
+    for methodName in sorted(method_value.keys()):
+        bug = methodName
+        
+        bug_cat = method_final_category[bug]
+        bug_cat_index = method_final_category_index[bug]
+        bug_sus = float(method_value[bug])
+ 
+        if(enableUnidebugPlusPlus != "True"):
+            plurality_rank = 0
         else:
-            bug = bug.replace(":",".")
+            plurality_rank = cate_number_dict[bug_cat + "+" + bug][0]
 
-            if bug in buggy_SBFL_ranking:
-                rankings.append(buggy_SBFL_ranking[bug])
+        if not bug_sus in rankings_dict[bug_cat_index].keys():
+            rankings_dict[bug_cat_index][bug_sus] = defaultdict(list)
+        rankings_dict[bug_cat_index][bug_sus][plurality_rank].append(bug)
 
-    return rankings
+# --- determine each method's rank --- #
+    bug_rank = 0 
+    for cat_key in sorted(rankings_dict.keys()):
+        for sus_key in sorted(rankings_dict[cat_key].keys(), reverse=True):
+            for plurality_key in sorted(rankings_dict[cat_key][sus_key].keys(), reverse=True):
+                bug_rank = bug_rank + len(rankings_dict[cat_key][sus_key][plurality_key])
 
-def get_SBFL_ranking_OLD(single_tool_base_path,buggy_methods,proj,ver):
-    buggy_SBFL_ranking = dict()
-    attempts = ["FixMiner/"]
-    
-    stop = False    
-
-    for tool in attempts:
-        if not stop:
-            try:
-                file = single_tool_base_path + tool + proj + "-" + ver + "/generalSusInfo.profl" 
-                with open(file) as f:
-                    for line in f:
-                        method_name = line.split("|")[2].strip()
-                        if method_name in buggy_methods:
-                            value = line.split("|")[0].lstrip("0")
-                            buggy_SBFL_ranking[method_name] = value
-                            stop = True
-            except Exception as e:
-                print(e)
-                pass
-    return buggy_SBFL_ranking
+                for method_key in sorted(rankings_dict[cat_key][sus_key][plurality_key]):
+                    if method_key in buggy_methods:
+                       rankings.append(str(bug_rank))
+   
+    return rankings, rankings_dict
 
 # get the dict: (category + susvalue):[1,2,3,4] "1,2,3,4" represent the number
 # of tools with same category as buggy method
-# For example, buggy-method-1 will have 3 tools assinging nonfix to it,
+# For example, buggy-method-1 will have 3 tools assigning nonfix to it,
 # 2 represents that for another method-2 (also nonefix) has 2 tools assinging
 # nonefix to method-2
 # And buggy-method-1 and method-2 has the same susvalue
-def get_cate_number_info(buggy_methods,method_final_cate,method_value,method_cate_number):
+def get_category_number_info(buggy_methods, method_final_category, method_value, method_category_number):
     cate_meth_dict = defaultdict(set)   # value:set(meth1,meth2,meth3...)
-    for buggy_m in buggy_methods:  #all bugs
-        if buggy_m in method_value:
-            buggy_value = method_value[buggy_m]            
-            buggy_cat = method_final_cate[buggy_m]
-            for meth in method_value:
-                if buggy_value == method_value[meth] and buggy_cat == method_final_cate[meth]:                                
-                    cate_meth_dict[buggy_cat + "+" + str(buggy_value)].add(meth)
-    
     cate_number_dict = defaultdict(list)
-    for cat_and_value in cate_meth_dict:
+
+    for buggy_m in sorted(method_value):  # All bugs
+        buggy_value = method_value[buggy_m]            
+        buggy_cat = method_final_category[buggy_m]
+
+        cat_and_value = buggy_cat + "+" + buggy_m
+
+        cate_meth_dict[cat_and_value].add(buggy_m)
         mtd_list = cate_meth_dict[cat_and_value]
+
         for mtd in mtd_list:
-            cate_number_dict[cat_and_value].append(method_cate_number[mtd]) 
+            cate_number_dict[cat_and_value].append(method_category_number[mtd]) 
     return cate_number_dict
 
 def read_comb(comb_file):
@@ -226,11 +245,13 @@ def read_comb(comb_file):
 
 def write_results(result_list,comb_file,comb,max_top1):
     global first_write
-    with open("result." + comb_file,'a') as f:
-        if(first_write is False):
+    if(first_write is False):
+        with open("result." + comb_file,'w') as f:
             first_write = True
             f.write("<Format = Top1 Top3 Top5 MFR MAR from Tool(s)>")
             f.write("\n")
+
+    with open("result." + comb_file,'a') as f:
         if int(result_list[0]) > max_top1:    
             value = int(result_list[0])
             print("\t- Best Top1 found! (previous max vs now)", str(max_top1), value)
@@ -242,11 +263,10 @@ def write_results(result_list,comb_file,comb,max_top1):
         f.write("\n")
     return max_top1
 
-def get_SBFL_ranking(file, buggy_methods):
+def get_SBFL_ranking(file):
     buggy_SBFL_ranking = dict()
 
     if os.path.exists(file):
-
         with open(file) as f:
             for line in f:
                 m = line.split()[0].replace(":",".")
@@ -256,53 +276,86 @@ def get_SBFL_ranking(file, buggy_methods):
 
     return buggy_SBFL_ranking
 
+def outputAggregated(all_methods_rank, proj, ver, variant, combinations, category_indices, buggy_methods):
+    if combinations == "":
+        combinations = "_SBFL"
+
+    tool_path = "-".join(combinations.split(" "))
+    output_dir = "/".join(["manual-review", tool_path, proj + "-" + str(ver), variant])
+
+    if not os.path.exists(output_dir):
+        os.makedirs(output_dir)
+
+    f = open("/".join([output_dir, "aggregatedSusInfo.profl"]), "w")
+    
+    bug_rank = 0
+    for cat_key in sorted(all_methods_rank.keys()):
+        for sus_key in sorted(all_methods_rank[cat_key].keys(), reverse=True):
+            for plurality_key in sorted(all_methods_rank[cat_key][sus_key].keys(), reverse=True):
+                bug_rank = bug_rank + len(all_methods_rank[cat_key][sus_key][plurality_key])
+
+                for method_key in sorted(all_methods_rank[cat_key][sus_key][plurality_key]):
+                    message = "|".join(["{:04d}".format(bug_rank), "{:06f}".format(sus_key), "PatchCategory." + category_indices[cat_key], "{:03d}".format(plurality_key), method_key])
+
+                    if method_key in buggy_methods:
+                        message = "***" + message + "***"
+
+                    f.write(message)
+                    f.write("\n")
 
 
+# ------------ Beginning of actual script ------------#
 first_write = False
-#single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/ProFL-"
-single_tool_base_path = "../../Results/ASE-Data-new/ProFL-"
-projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
-vers = [65,27,106,26,38,133]
 
-#projects = ["Mockito"]
-#vers = [38]
+cachedGeneralSus = dict()
+cachedAggregatedSus = dict()
 
-#projects = ["Closure"]
-#vers = [133]
+single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/" # TSE-DATA
 
-#projects = ["Mockito","Closure"]
-#vers = [38,133]
-
-#projects = ["Lang","Time","Math","Chart"]
-#vers = [65,27,106,26]
-
-result_list = [["" for x in range(0,vers[y])] for y in range(0,len(projects))]  #initialilize final results
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
-mix_unmodified = sys.argv[2]  #four mixed options: "CleanFix","NoisyFix","NoneFix","NegFix"
-
-unidebug_plusplus = sys.argv[3]
-
+unmodified_category = sys.argv[2]  #four mixed options: "CleanFix","NoisyFix","NoneFix","NegFix"
+enableUnidebugPlusPlus = sys.argv[3]
 sbfl_formula = sys.argv[4]   # formula such as: "STOchiai"
-
 profl_variant = sys.argv[5]
-
 statement_level = sys.argv[6]
+pickProjects = 0
 
-unmodified_ranking = ["CleanFixFull", "CleanFixPartial", "CleanFix","NoisyFixFull", "NoisyFixPartial", "NoisyFix","NoneFix","NegFix"]
+if len(sys.argv) >= 8:
+    pickProjects = sys.argv[7]
 
-combs_from_file = read_comb(comb_file)
+projects = ["Lang","Time","Math","Chart"]
+vers = [65,27,106,26]
+
+if pickProjects == "1":
+    projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
+    vers = [65,27,106,26,38,133]
+elif pickProjects == "2":
+    projects = ["Mockito","Closure"]
+    vers = [38,133]
+elif pickProjects == "3":
+    projects = ["Mockito"]
+    vers = [38]
+elif pickProjects == "4":
+    projects = ["Closure"]
+    vers = [133]
+
+result_list = [["" for x in range(0, vers[y])] for y in range(0, len(projects))]  #initialilize final results
+
+category_indices = ["CleanFixFull", "CleanFixPartial", "CleanFix", "NoisyFixFull", "NoisyFixPartial", "NoisyFix", "NoneFix", "NegFix", "Unmodified"]
+
+tool_combinations = read_comb(comb_file)
+
 max_top1 = 0
 index = 0
 
-for comb in combs_from_file:
+for comb in tool_combinations:
     tool_combs = comb.split()
-    for current_iteration_number in range(0,len(projects)):   #each project
+    for current_iteration_number in range(0, len(projects)): # Each project
         proj = projects[current_iteration_number]
         vs = vers[current_iteration_number]
 
-        for ver in range(1,vs + 1):
+        for ver in range(1, vs + 1):
                 ver = str(ver)
-                
                 if statement_level == "Method":
                     buggy_method_path = "../../Data/FaultyMethods/" + proj + "/" + ver + ".txt"
                     buggy_methods = get_buggy(buggy_method_path)
@@ -310,31 +363,40 @@ for comb in combs_from_file:
                     buggy_stmt_path = "../../Data/StatementLevel/buglines/" + proj + "/" + ver + ".txt"
                     buggy_methods = get_buggy_statment(buggy_stmt_path)
 
-                if statement_level == "Method":
-                    buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt",buggy_methods)
-                    SBFL_sus_values = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
+                if statement_level == "Method": # Method-level
+                    buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
+                    SusValues = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
+                else: # Statement-level
+                    buggy_SBFL_ranking = get_SBFL_ranking("../../Data/StatementLevel/BugRanks/" + proj + "-" + ver + ".txt") # default Ochiai
+                    SusValues = get_current_SBFL_value("../../Data/StatementLevel/st_results/" + proj + "/" + ver + "-s.csv")
 
-                else:  #Statement
-                    buggy_SBFL_ranking = get_SBFL_ranking("../../Data/StatementLevel/BugRanks/" + proj + "-" + ver + ".txt",buggy_methods) # default Ochiai
-                    SBFL_sus_values = get_current_SBFL_value("../../Data/StatementLevel/st_results/" + proj + "/" + ver + "-s.csv")
+		# method value = dict of method suspicious values
+		# method_category = index variant describing all the categories assigned to a tool
+		# method_all_category = describes all categories assigned per method
+                method_category, method_value, method_all_category = get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category, SusValues, sbfl_formula, profl_variant, statement_level)
+		# method_final_category = describes best category per method
+		# method_final_category_index = describes index of best category per method
+		# method_category_number = describes the number of tools which assign each method's best category
+                method_final_category, method_category_number, method_final_category_index = get_method_info(method_category, method_value, method_all_category, ver, proj, sbfl_formula)
+ 
+                cate_number_dict = get_category_number_info(buggy_methods, method_final_category, method_value, method_category_number)
 
-                method_cate, method_value, method_all_cate = get_basic(tool_combs, single_tool_base_path, proj, ver, mix_unmodified, SBFL_sus_values, sbfl_formula, profl_variant,statement_level)
-                method_final_cate,method_cate_number = get_method_info(method_cate,method_value,method_all_cate,ver,proj,sbfl_formula) 
+                # buggy_methods_rank = describes the ranks of specific buggy methods
+                # all_methods_rank = describes all the information needed to accurately detrmine the rank of all methods
+                buggy_methods_rank, all_methods_rank = get_final_ranking(buggy_methods, method_final_category, method_value, cate_number_dict, method_final_category_index)
+                buggy_methods_rank_string = ",".join(buggy_methods_rank)
+         
+                result_list[current_iteration_number][int(ver) - 1] = buggy_methods_rank_string
+		
+                if True:
+                    outputAggregated(all_methods_rank, proj, ver, profl_variant, comb, category_indices, buggy_methods)
 
-                cate_number_dict = get_cate_number_info(buggy_methods,method_final_cate,method_value,method_cate_number)
-
-                category_values = get_info_for_ranking(method_value,method_final_cate,method_cate_number)
-                
-                final_ranking = get_final_ranking(buggy_methods,method_final_cate,method_value,unmodified_ranking,category_values,buggy_SBFL_ranking,cate_number_dict,method_cate_number)
-                final_r_string = ",".join(final_ranking)
-                result_list[current_iteration_number][int(ver) - 1] = final_r_string
-
-    final_result, true_ver = ut.get_static_final(vers,projects,result_list)   # get top-1,3,5...  for each projects
-    final_result = ut.get_final(final_result,true_ver) #get final result (16 repair tools)
+    final_result, true_ver = ut.get_static_final(vers, projects, result_list) # get top-1,3,5...  for each projects
+    final_result = ut.get_final(final_result, true_ver) # get final result
     
-    index = index + 1
     print("Combination", index, "metric results =", final_result) 
-    
-    max_top1 = write_results(final_result,comb_file,comb,max_top1)
+    max_top1 = write_results(final_result, comb_file, comb, max_top1)
+    index = index + 1
+
+print("-----------------------")
 print("Best Top-1 results were", max_top1)
-    
