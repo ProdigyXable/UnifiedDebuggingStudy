@@ -82,6 +82,9 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
         else: 
             if not os.path.exists(single_tool_base_path + "ProFL-" + tool):
                 print("Missing tool path", single_tool_base_path, "ProFL-" + tool)
+            if tool == "TBarFixer":
+                pass
+                #single_tool_base_path = "/media/disk2/sam/TSE-data/UnifiedDebuggingStudy/Results/ASE-Data-new/"
             aggregated_file = single_tool_base_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/" + profl_variant + "/aggregatedSusInfo.profl"
       	
             cachedAggregatedSus[tool_proj_name] = dict()
@@ -96,7 +99,12 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
                         items = line.strip().split("|")
                         method_name = items[3].strip()
                         category = items[2].split("PatchCategory.")[1]
-    
+
+                        if tool == "PraPR": # Fixes small error where there are no full cleanfixes / noisy fixes in prapr data
+                           if category == "CleanFixPartial":
+                               catgeory = "CleanFixFull"
+                           elif category == "NoisyFixPartial":
+                               category = "NoisyFixFull"
                         # --- Set sus value --- #
                         value = 0
     
@@ -349,53 +357,56 @@ max_top1 = 0
 index = 0
 
 for comb in tool_combinations:
-    tool_combs = comb.split()
-    for current_iteration_number in range(0, len(projects)): # Each project
-        proj = projects[current_iteration_number]
-        vs = vers[current_iteration_number]
-
-        for ver in range(1, vs + 1):
-                ver = str(ver)
-                if statement_level == "Method":
-                    buggy_method_path = "../../Data/FaultyMethods/" + proj + "/" + ver + ".txt"
-                    buggy_methods = get_buggy(buggy_method_path)
-                else:
-                    buggy_stmt_path = "../../Data/StatementLevel/buglines/" + proj + "/" + ver + ".txt"
-                    buggy_methods = get_buggy_statment(buggy_stmt_path)
-
-                if statement_level == "Method": # Method-level
-                    buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
-                    SusValues = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
-                else: # Statement-level
-                    buggy_SBFL_ranking = get_SBFL_ranking("../../Data/StatementLevel/BugRanks/" + proj + "-" + ver + ".txt") # default Ochiai
-                    SusValues = get_current_SBFL_value("../../Data/StatementLevel/st_results/" + proj + "/" + ver + "-s.csv")
-
-		# method value = dict of method suspicious values
-		# method_category = index variant describing all the categories assigned to a tool
-		# method_all_category = describes all categories assigned per method
-                method_category, method_value, method_all_category = get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category, SusValues, sbfl_formula, profl_variant, statement_level)
-		# method_final_category = describes best category per method
-		# method_final_category_index = describes index of best category per method
-		# method_category_number = describes the number of tools which assign each method's best category
-                method_final_category, method_category_number, method_final_category_index = get_method_info(method_category, method_value, method_all_category, ver, proj, sbfl_formula)
- 
-                cate_number_dict = get_category_number_info(buggy_methods, method_final_category, method_value, method_category_number)
-
-                # buggy_methods_rank = describes the ranks of specific buggy methods
-                # all_methods_rank = describes all the information needed to accurately detrmine the rank of all methods
-                buggy_methods_rank, all_methods_rank = get_final_ranking(buggy_methods, method_final_category, method_value, cate_number_dict, method_final_category_index)
-                buggy_methods_rank_string = ",".join(buggy_methods_rank)
-         
-                result_list[current_iteration_number][int(ver) - 1] = buggy_methods_rank_string
-		
-                if True:
-                    outputAggregated(all_methods_rank, proj, ver, profl_variant, comb, category_indices, buggy_methods)
-
-    final_result, true_ver = ut.get_static_final(vers, projects, result_list) # get top-1,3,5...  for each projects
-    final_result = ut.get_final(final_result, true_ver) # get final result
+    if comb.startswith("#"):
+         print("---", comb[1:].strip() ,"---")
+    else:    
+        tool_combs = comb.split()
+        for current_iteration_number in range(0, len(projects)): # Each project
+            proj = projects[current_iteration_number]
+            vs = vers[current_iteration_number]
     
-    print("Combination", index, "metric results =", final_result) 
-    max_top1 = write_results(final_result, comb_file, comb, max_top1)
+            for ver in range(1, vs + 1):
+                    ver = str(ver)
+                    if statement_level == "Method":
+                        buggy_method_path = "../../Data/FaultyMethods/" + proj + "/" + ver + ".txt"
+                        buggy_methods = get_buggy(buggy_method_path)
+                    else:
+                        buggy_stmt_path = "../../Data/StatementLevel/buglines/" + proj + "/" + ver + ".txt"
+                        buggy_methods = get_buggy_statment(buggy_stmt_path)
+    
+                    if statement_level == "Method": # Method-level
+                        buggy_SBFL_ranking = get_SBFL_ranking("../../Results/SBFLRelated/SBFLBugRanks/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
+                        SusValues = get_current_SBFL_value("../../Results/SBFLRelated/SBFLSusValues/" + sbfl_formula + "/" + proj + "-" + ver + ".txt")
+                    else: # Statement-level
+                        buggy_SBFL_ranking = get_SBFL_ranking("../../Data/StatementLevel/BugRanks/" + proj + "-" + ver + ".txt") # default Ochiai
+                        SusValues = get_current_SBFL_value("../../Data/StatementLevel/st_results/" + proj + "/" + ver + "-s.csv")
+    
+    		# method value = dict of method suspicious values
+    		# method_category = index variant describing all the categories assigned to a tool
+    		# method_all_category = describes all categories assigned per method
+                    method_category, method_value, method_all_category = get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category, SusValues, sbfl_formula, profl_variant, statement_level)
+    		# method_final_category = describes best category per method
+    		# method_final_category_index = describes index of best category per method
+    		# method_category_number = describes the number of tools which assign each method's best category
+                    method_final_category, method_category_number, method_final_category_index = get_method_info(method_category, method_value, method_all_category, ver, proj, sbfl_formula)
+     
+                    cate_number_dict = get_category_number_info(buggy_methods, method_final_category, method_value, method_category_number)
+    
+                    # buggy_methods_rank = describes the ranks of specific buggy methods
+                    # all_methods_rank = describes all the information needed to accurately detrmine the rank of all methods
+                    buggy_methods_rank, all_methods_rank = get_final_ranking(buggy_methods, method_final_category, method_value, cate_number_dict, method_final_category_index)
+                    buggy_methods_rank_string = ",".join(buggy_methods_rank)
+             
+                    result_list[current_iteration_number][int(ver) - 1] = buggy_methods_rank_string
+    		
+                    if True:
+                        outputAggregated(all_methods_rank, proj, ver, profl_variant, comb, category_indices, buggy_methods)
+    
+        final_result, true_ver = ut.get_static_final(vers, projects, result_list) # get top-1,3,5...  for each projects
+        final_result = ut.get_final(final_result, true_ver) # get final result
+    
+        print("Combination", index, "metric results =", final_result) 
+        max_top1 = write_results(final_result, comb_file, comb, max_top1)
     index = index + 1
 
 print("-----------------------")
