@@ -1,0 +1,704 @@
+Setting JAVA_HOME to /home/samuel/jdk1.7.0_80
+
+Adding /home/samuel/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-93
+03:01:49.149 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 Failed Tests: 1
+Reading method line coverage from /home/samuel/XiaInformation/AllMethods/Closure/93.txt
+Reading test line coverage from /home/samuel/XiaInformation/LineCoverage/Closure/93.txt
+03:04:59.624 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+03:04:59.728 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-93/generalSusInfo.profl
+03:04:59.729 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+03:04:59.729 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.google.javascript.jscomp.Compiler ===1563
+03:05:01.293 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+@Override
+  void addChangeHandler(CodeChangeHandler handler) {
+    codeChangeHandlers.add(handler);
+  }
+03:05:01.294 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at com.google.javascript.jscomp.Compiler:1563 ---
+03:05:01.295 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix com/google/javascript/jscomp/Compiler.java 1563 ---
+03:05:01.295 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:05:01.481 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+03:05:01.481 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+03:05:01.483 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:05:04.507 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:05:04.509 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:05:08.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+03:05:08.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+03:06:15.914 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:06:15.915 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:06:15.915 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4
+03:06:15.915 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:06:15.915 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+03:06:16.008 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-93/aggregatedSusInfo.profl
+03:06:16.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.Compiler:addChangeHandler(Lcom/google/javascript/jscomp/CodeChangeHandler;)V in com.google.javascript.jscomp.Compiler:1563
+03:06:16.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Closure-93
+03:06:16.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.google.javascript.jscomp.Compiler ===1562
+03:06:16.189 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+codeChangeHandlers.add(handler);
+03:06:16.189 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at com.google.javascript.jscomp.Compiler:1562 ---
+03:06:16.189 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix com/google/javascript/jscomp/Compiler.java 1562 ---
+03:06:16.189 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:06:16.572 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: this.modules.add(handler);
+03:06:16.572 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: this.externs.add(handler);
+03:06:16.572 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: this.inputs.add(handler);
+03:06:16.572 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: createMessageFormatter().add(handler);
+03:06:16.572 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: initBasedOnOptions().add(handler);
+03:06:16.572 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: rebuildInputsFromModules().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: initInputsByNameMap().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: compile().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: disableThreads().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: compileInternal().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: parse().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getPassConfig().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: createPassConfigInternal().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: precheck().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: check().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: externExports().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: maybeSanityCheck().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: runSanityCheck().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeTryCatchFinally().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: endPass().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getResult().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getMessages().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getErrors().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getWarnings().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getRoot().add(handler);
+03:06:16.573 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: nextUniqueNameId().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: resetUniqueNameId().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getUniqueNameIdSupplier().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: setNormalized().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: setUnnormalized().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: isNormalized().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getModuleGraph().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getTypeRegistry().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getScopeCreator().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getTopScope().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getReverseAbstractInterpreter().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getTypeValidator().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: parseInputs().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: initCompilerOptionsIfTesting().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getDefaultErrorReporter().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: toSource().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: toSourceArray().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: optimize().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getCssRenamingMap().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: processDefines().add(handler);
+03:06:16.574 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: isInliningForbidden().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: computeCFG().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: normalize().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: recordFunctionInformation().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: reportCodeChange().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getCodingConvention().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: isIdeMode().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getParserConfig().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: isTypeCheckingEnabled().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getDiagnosticGroups().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getErrorCount().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getWarningCount().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: hasHaltingErrors().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: hasErrors().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getSourceMap().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getVariableMap().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getPropertyMap().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getOptions().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getFunctionalInformationMap().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getErrorManager().add(handler);
+03:06:16.575 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getInputsInOrder().add(handler);
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getState().add(handler);
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getInputsForTesting().add(handler);
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getExternsForTesting().add(handler);
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: hasRegExpGlobalReferences().add(handler);
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(createMessageFormatter());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(initBasedOnOptions());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(rebuildInputsFromModules());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(initInputsByNameMap());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(compile());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(disableThreads());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(compileInternal());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(parse());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getPassConfig());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(createPassConfigInternal());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(precheck());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(check());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(externExports());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(maybeSanityCheck());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(runSanityCheck());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(removeTryCatchFinally());
+03:06:16.576 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(endPass());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getResult());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getMessages());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getErrors());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getWarnings());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getRoot());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(nextUniqueNameId());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(resetUniqueNameId());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getUniqueNameIdSupplier());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(setNormalized());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(setUnnormalized());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(isNormalized());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getModuleGraph());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getTypeRegistry());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getScopeCreator());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getTopScope());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getReverseAbstractInterpreter());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getTypeValidator());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(parseInputs());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(initCompilerOptionsIfTesting());
+03:06:16.577 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getDefaultErrorReporter());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(toSource());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(toSourceArray());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(optimize());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getCssRenamingMap());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(processDefines());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(isInliningForbidden());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(computeCFG());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(normalize());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(recordFunctionInformation());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(reportCodeChange());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getCodingConvention());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(isIdeMode());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getParserConfig());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(isTypeCheckingEnabled());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getDiagnosticGroups());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getErrorCount());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getWarningCount());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(hasHaltingErrors());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(hasErrors());
+03:06:16.578 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getSourceMap());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getVariableMap());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getPropertyMap());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getOptions());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getFunctionalInformationMap());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getErrorManager());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getInputsInOrder());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getState());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getInputsForTesting());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(getExternsForTesting());
+03:06:16.579 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: codeChangeHandlers.add(hasRegExpGlobalReferences());
+---------------- Testing New Patch ----------------
+03:06:16.580 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:19.649 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:19.650 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:22.729 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:22.730 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:25.656 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:25.657 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:28.917 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:28.918 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:32.235 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:32.236 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:35.432 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:35.433 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:38.652 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:38.653 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:41.684 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:41.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:44.709 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:44.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:47.721 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:47.722 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:50.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:50.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:53.865 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:53.867 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:06:56.880 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:06:56.881 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:00.156 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:00.157 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:03.497 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:03.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:06.465 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:06.467 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:09.529 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:09.531 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:12.452 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:12.453 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:15.520 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:15.521 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:18.529 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:18.530 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:21.581 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:21.582 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:24.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:24.676 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:27.801 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:27.802 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:30.958 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:30.960 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:33.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:33.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:36.988 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:36.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:40.160 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:40.161 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:43.317 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:43.318 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:46.329 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:46.331 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:49.548 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:49.549 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:52.712 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:52.713 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:55.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:55.807 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:07:58.979 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:07:58.980 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:02.186 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:02.188 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:05.299 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:05.300 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:08.459 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:08.460 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:11.575 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:11.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:14.692 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:14.693 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:17.943 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:17.945 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:21.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:21.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:24.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:24.219 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:27.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:27.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:30.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:30.645 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:33.780 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:33.782 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:37.057 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:37.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:40.029 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:40.030 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:43.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:43.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:46.387 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:46.388 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:49.416 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:49.417 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:52.578 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:52.578 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:55.922 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:55.923 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:08:58.907 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:08:58.908 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:01.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:01.978 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:05.064 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:05.065 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:08.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:08.364 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:11.613 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:11.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:14.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:14.841 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:17.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:17.975 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:21.205 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:21.206 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:24.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:24.194 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:27.421 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:27.422 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:30.613 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:30.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:33.732 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:33.733 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:36.901 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:36.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:40.167 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:40.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:43.286 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:43.287 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:46.424 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:46.426 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:49.587 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:49.588 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:52.805 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:52.806 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:55.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:55.835 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:09:59.038 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:09:59.039 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:02.108 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:02.109 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:05.378 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:05.379 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:08.668 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:08.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:11.935 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:11.937 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:15.106 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:15.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:18.243 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:18.244 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:21.528 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:21.529 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:24.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:24.815 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:28.033 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:28.034 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:31.179 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:31.180 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:34.243 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:34.245 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:37.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:37.297 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:40.538 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:40.539 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:43.823 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:43.824 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:46.990 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:46.991 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:50.008 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:50.009 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:53.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:53.218 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:56.334 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:56.335 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:10:59.418 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:10:59.419 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:02.743 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:02.744 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:05.941 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:05.941 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:09.012 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:09.013 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:12.068 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:12.069 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:15.209 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:15.210 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:18.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:18.338 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:21.537 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:21.539 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:24.613 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:24.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:27.832 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:27.834 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:30.872 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:30.874 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:34.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:34.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:37.142 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:37.143 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:40.289 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:40.290 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:43.427 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:43.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:46.578 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:46.579 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:49.833 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:49.835 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:53.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:53.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:56.342 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:56.344 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:11:59.517 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:11:59.519 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:02.672 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:02.673 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:05.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:05.743 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:08.766 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:08.767 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:12.039 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:12.040 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:15.451 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:15.452 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:18.910 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:18.910 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:22.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:22.059 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:25.135 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:25.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:28.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:28.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:31.406 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:31.407 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:34.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:34.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:37.760 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:37.761 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:40.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:40.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:43.856 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:43.857 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:46.969 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:46.970 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:50.021 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:50.022 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:53.026 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:53.027 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:56.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:56.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:12:59.176 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:12:59.177 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:02.458 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:13:02.459 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:05.848 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:13:05.848 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:08.980 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:13:08.981 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:11.933 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:13:11.934 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:15.046 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:13:15.047 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:18.100 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:13:18.101 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:21.233 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:13:21.234 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:24.230 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:13:24.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:27.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+03:13:27.370 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (codeChangeHandlers != null) {
+	
+
+	}
+
+03:13:27.370 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (codeChangeHandlers == null) {
+	    throw new IllegalArgumentException("Null 'codeChangeHandlers' argument.");
+	}
+
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (codeChangeHandlers == null) {
+	    return;
+	}
+
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (codeChangeHandlers == null) codeChangeHandlers = this.externs;
+ 
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (codeChangeHandlers == null) codeChangeHandlers = this.modules;
+ 
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (codeChangeHandlers == null) codeChangeHandlers = this.inputs;
+ 
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (codeChangeHandlers == null) codeChangeHandlers = new List();
+ 
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (handler != null) {
+	
+
+	}
+
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (handler == null) {
+	    throw new IllegalArgumentException("Null 'handler' argument.");
+	}
+
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (handler == null) {
+	    return;
+	}
+
+03:13:27.371 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (handler == null) handler = new CodeChangeHandler();
+ 
+03:13:27.373 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (codeChangeHandlers != null && handler != null) {
+	
+
+	}
+
+---------------- Testing New Patch ----------------
+03:13:27.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:13:31.345 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+03:13:31.345 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+03:14:36.068 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:14:36.069 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:14:36.069 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4
+03:14:36.069 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:14:36.069 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+03:14:36.376 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-93/aggregatedSusInfo.profl
+03:14:36.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.Compiler:addChangeHandler(Lcom/google/javascript/jscomp/CodeChangeHandler;)V in com.google.javascript.jscomp.Compiler:1562
+03:14:36.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Closure-93
+---------------- Testing New Patch ----------------
+03:14:36.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:14:40.357 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+03:14:40.358 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+03:15:44.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:15:44.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:15:44.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4
+03:15:44.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:15:44.525 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+03:15:50.614 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-93/aggregatedSusInfo.profl
+03:15:50.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.Compiler:addChangeHandler(Lcom/google/javascript/jscomp/CodeChangeHandler;)V in com.google.javascript.jscomp.Compiler:1562
+03:15:50.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Closure-93
+---------------- Testing New Patch ----------------
+03:15:50.615 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:15:54.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+03:15:54.735 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+03:17:00.972 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:17:00.972 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:17:00.972 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4
+03:17:00.972 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:17:00.972 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+03:19:27.201 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-93/aggregatedSusInfo.profl
+03:19:27.201 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.Compiler:addChangeHandler(Lcom/google/javascript/jscomp/CodeChangeHandler;)V in com.google.javascript.jscomp.Compiler:1562
+03:19:27.201 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Closure-93
+---------------- Testing New Patch ----------------
+03:19:27.202 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:19:30.240 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:19:30.241 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:19:33.281 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:19:33.283 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:19:36.098 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:19:36.099 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:19:39.004 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:19:39.006 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:19:42.929 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+03:19:42.929 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+03:20:44.927 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:20:44.927 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+03:20:44.927 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4
+03:20:44.927 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:20:44.927 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+04:15:33.052 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/samuel/repair-tools/tbar/ProFL-TBarFixer/Closure-93/aggregatedSusInfo.profl
+04:15:33.052 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = com.google.javascript.jscomp.Compiler:addChangeHandler(Lcom/google/javascript/jscomp/CodeChangeHandler;)V in com.google.javascript.jscomp.Compiler:1562
+04:15:33.052 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Closure-93
+---------------- Testing New Patch ----------------
+04:15:33.053 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+04:15:36.942 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+04:15:36.942 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+04:16:38.007 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+04:16:38.008 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4]
+04:16:38.008 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ProcessClosurePrimitivesTest::testProvideInIndependentModules4
+04:16:38.008 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+04:16:38.008 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

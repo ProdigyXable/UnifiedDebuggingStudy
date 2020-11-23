@@ -1,0 +1,552 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-24
+13:56:27.670 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/24.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/24.txt
+13:56:30.721 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+13:56:30.755 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Lang-24/ochiai.txt
+13:56:30.759 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+13:56:30.759 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1693
+13:56:31.760 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+case Calendar.DAY_OF_YEAR:
+13:56:31.762 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1693 ---
+13:56:31.769 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:56:31.771 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:32.610 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+13:56:32.611 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:56:32.612 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:33.475 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:56:33.476 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:34.379 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+13:56:34.380 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:56:34.381 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:35.289 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+13:56:35.289 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:56:35.290 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:36.182 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:56:36.182 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:37.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+13:56:37.039 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:56:37.039 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:37.865 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+13:56:37.865 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1680
+13:56:38.056 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+result += (calendar.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / millisPerUnit;
+13:56:38.057 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1680 ---
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (result.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (millisPerUnit.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (fragment.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (unit.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (fields.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * result) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * millisPerUnit) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * calendar) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * fragment) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * unit) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * fields) / millisPerUnit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / result;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / calendar;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / fragment;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / unit;
+13:56:38.058 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: result += (calendar.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / fields;
+---------------- Testing New Patch ----------------
+13:56:38.059 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:38.902 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:56:38.903 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:39.749 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:56:39.749 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:40.625 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:56:40.626 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:41.495 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:56:41.496 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:42.348 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:56:42.349 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:43.329 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:56:43.329 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar]
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+13:56:54.710 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+13:56:54.711 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:56:54.714 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+13:56:54.714 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+13:56:54.714 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Lang-24
+---------------- Testing New Patch ----------------
+13:56:54.715 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:56:55.597 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:56:55.597 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:57:06.463 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar]
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+13:57:06.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:57:06.471 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+13:57:06.472 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+13:57:06.472 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Lang-24
+---------------- Testing New Patch ----------------
+13:57:06.472 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:57:07.290 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:57:07.291 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:57:08.169 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:57:08.169 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:57:19.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:57:19.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar]
+13:57:19.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+13:57:19.163 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:57:19.169 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+13:57:19.169 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+13:57:19.169 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Lang-24
+---------------- Testing New Patch ----------------
+13:57:19.170 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:57:20.059 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:57:20.060 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:57:31.097 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:57:31.097 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar]
+13:57:31.097 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+13:57:31.097 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+13:57:31.097 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+13:57:31.097 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+13:57:31.098 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+13:57:31.098 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+13:57:31.098 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+13:57:31.098 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+13:57:31.098 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+13:57:31.098 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+13:57:31.098 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:57:31.117 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+13:57:31.117 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+13:57:31.118 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Lang-24
+---------------- Testing New Patch ----------------
+13:57:31.118 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:57:31.909 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:57:31.909 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:57:32.955 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:57:32.955 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:57:43.663 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:57:43.663 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar]
+13:57:43.663 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+13:57:43.664 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:57:43.899 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+13:57:43.899 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+13:57:43.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Lang-24
+---------------- Testing New Patch ----------------
+13:57:43.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:57:44.846 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:57:44.847 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:57:45.738 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:57:45.738 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar]
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+13:57:56.497 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:57:58.708 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+13:57:58.708 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+13:57:58.708 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Lang-24
+---------------- Testing New Patch ----------------
+13:57:58.709 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:57:59.589 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:57:59.589 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar]
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithDate
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithDate
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithDate
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testHoursOfYearWithCalendar
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMillisecondsOfYearWithCalendar
+13:58:10.358 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testSecondsOfYearWithCalendar
+13:58:10.359 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithDate
+13:58:10.359 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testMinutesOfYearWithCalendar
+13:58:10.359 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=8, pp=Unknown
+13:58:10.359 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:58:35.181 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+13:58:35.181 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+13:58:35.181 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Lang-24
+---------------- Testing New Patch ----------------
+13:58:35.182 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:58:36.073 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+13:58:36.074 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (calendar != null) {
+	
+
+}
+
+13:58:36.074 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (calendar == null) {
+    throw new IllegalArgumentException("Null 'calendar' argument.");
+}
+
+13:58:36.074 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (calendar == null) {
+    return 0;
+}
+
+---------------- Testing New Patch ----------------
+13:58:36.075 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:58:36.430 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:58:36.431 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:58:37.369 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:58:37.369 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:58:48.285 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:58:48.285 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+13:58:48.285 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+13:58:48.285 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+13:58:48.285 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+14:03:18.349 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+14:03:18.349 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+14:03:18.349 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-24
+---------------- Testing New Patch ----------------
+14:03:18.349 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:03:19.190 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+14:03:19.190 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+14:03:29.690 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+14:03:29.690 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+14:03:29.690 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+14:03:29.690 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:03:29.690 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+14:53:34.175 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-24/aggregatedSusInfo.profl
+14:53:34.175 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1680
+14:53:34.175 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Lang-24
+14:53:34.177 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:34.177 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:35.003 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:35.004 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:35.004 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:35.828 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:35.829 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:36.580 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:36.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:36.581 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:37.356 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:37.356 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:37.357 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:38.134 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:38.135 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:38.978 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:38.979 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:38.979 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:39.752 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:39.753 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:39.753 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:40.515 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:40.516 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:41.341 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:41.342 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:41.343 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:42.091 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:42.091 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:42.092 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:42.855 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:42.855 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:43.691 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:43.691 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:43.692 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:44.460 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:44.461 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:44.461 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:45.294 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:45.295 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:46.077 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:46.077 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:46.078 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:46.858 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:46.859 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:46.860 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:47.718 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:47.719 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:48.489 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:48.490 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:48.490 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:49.259 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:49.260 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:49.260 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:50.075 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:50.076 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:50.894 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:50.895 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:50.895 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:51.657 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:51.657 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1679
+14:53:51.723 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+case Calendar.YEAR:
+14:53:51.724 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1679 ---
+14:53:51.725 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:51.725 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:52.483 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:52.484 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:52.484 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:53.300 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:53.300 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:54.047 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:54.047 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:54.048 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:54.810 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:54.810 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:54.811 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:55.575 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:55.576 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:56.394 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:56.394 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:56.395 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:57.145 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:57.145 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1677
+14:53:57.205 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1677
+14:53:57.205 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1676
+14:53:57.259 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1676
+14:53:57.259 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1696
+14:53:57.301 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1696
+14:53:57.301 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1699
+14:53:57.340 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1699
+14:53:57.340 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.text.ExtendedMessageFormat ===138
+14:53:57.374 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * Apply the specified pattern.
+     * 
+     * @param pattern String
+     */
+    @Override
+    public final void applyPattern(String pattern) {
+        if (registry == null) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+        ArrayList<Format> foundFormats = new ArrayList<Format>();
+        ArrayList<String> foundDescriptions = new ArrayList<String>();
+        StringBuilder stripCustom = new StringBuilder(pattern.length());
+
+        ParsePosition pos = new ParsePosition(0);
+        char[] c = pattern.toCharArray();
+        int fmtCount = 0;
+        while (pos.getIndex() < pattern.length()) {
+            switch (c[pos.getIndex()]) {
+            case QUOTE:
+                appendQuotedString(pattern, pos, stripCustom, true);
+                break;
+            case START_FE:
+                fmtCount++;
+                seekNonWs(pattern, pos);
+                int start = pos.getIndex();
+                int index = readArgumentIndex(pattern, next(pos));
+                stripCustom.append(START_FE).append(index);
+                seekNonWs(pattern, pos);
+                Format format = null;
+                String formatDescription = null;
+                if (c[pos.getIndex()] == START_FMT) {
+                    formatDescription = parseFormatDescription(pattern,
+                            next(pos));
+                    format = getFormat(formatDescription);
+                    if (format == null) {
+                        stripCustom.append(START_FMT).append(formatDescription);
+                    }
+                }
+                foundFormats.add(format);
+                foundDescriptions.add(format == null ? null : formatDescription);
+                Validate.isTrue(foundFormats.size() == fmtCount);
+                Validate.isTrue(foundDescriptions.size() == fmtCount);
+                if (c[pos.getIndex()] != END_FE) {
+                    throw new IllegalArgumentException(
+                            "Unreadable format element at position " + start);
+                }
+                //$FALL-THROUGH$
+            default:
+                stripCustom.append(c[pos.getIndex()]);
+                next(pos);
+            }
+        }
+        super.applyPattern(stripCustom.toString());
+        toPattern = insertFormats(super.toPattern(), foundDescriptions);
+        if (containsElements(foundFormats)) {
+            Format[] origFormats = getFormats();
+            // only loop over what we know we have, as MessageFormat on Java 1.3 
+            // seems to provide an extra format element:
+            int i = 0;
+            for (Iterator<Format> it = foundFormats.iterator(); it.hasNext(); i++) {
+                Format f = it.next();
+                if (f != null) {
+                    origFormats[i] = f;
+                }
+            }
+            super.setFormats(origFormats);
+        }
+    }
+14:53:57.374 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/text/ExtendedMessageFormat.java:138 ---
+14:53:57.375 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1703
+14:53:57.468 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+case Calendar.SECOND:
+14:53:57.469 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1703 ---
+14:53:57.470 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:57.470 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:58.255 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:58.255 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:58.256 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:59.010 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:53:59.011 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:53:59.770 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:53:59.770 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:53:59.771 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:54:00.568 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:54:00.569 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:54:00.569 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:54:01.341 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:54:01.342 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:54:02.180 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:54:02.181 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:54:02.181 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:54:02.938 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:54:02.938 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1702
+14:54:02.980 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1702
+14:54:02.980 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1707
+14:54:03.020 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+default:
+14:54:03.021 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1707 ---
+14:54:03.021 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:54:03.022 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:54:03.808 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:54:03.808 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.text.ExtendedMessageFormat ===151
+14:54:03.823 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+ArrayList<String> foundDescriptions = new ArrayList<String>();
+14:54:03.823 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/text/ExtendedMessageFormat.java:151 ---
+14:54:03.824 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+14:54:03.824 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:54:04.632 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-24 ---Fixer: fix fail because of failed compiling! 
+14:54:04.633 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: final ArrayList<String> foundDescriptions = new ArrayList<String>();
+---------------- Testing New Patch ----------------
+14:54:04.634 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+14:54:05.471 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+14:54:05.471 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+14:54:15.957 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+14:54:15.957 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber]
+14:54:15.957 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.math.NumberUtilsTest::testIsNumber
+14:54:15.958 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:54:15.958 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found

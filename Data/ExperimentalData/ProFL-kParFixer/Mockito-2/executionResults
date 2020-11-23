@@ -1,0 +1,190 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-2
+21:13:46.134 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 Failed Tests: 3
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/2.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/2.txt
+21:13:53.431 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+21:13:53.449 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-2/generalSusInfo.profl
+21:13:53.470 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-2/aggregatedSusInfo.profl
+21:13:53.472 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+21:13:53.472 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.mockito.Mockito ===2203
+21:13:54.454 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return new After(millis, VerificationModeFactory.times(1));
+21:13:54.483 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.times());
+21:13:54.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:13:55.585 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:13:55.595 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.times(0));
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, millis.times(1));
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, MOCKITO_CORE.times(1));
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, RETURNS_DEFAULTS.times(1));
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, RETURNS_SMART_NULLS.times(1));
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, RETURNS_MOCKS.times(1));
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, RETURNS_DEEP_STUBS.times(1));
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, CALLS_REAL_METHODS.times(1));
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.millis);
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.MOCKITO_CORE);
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.RETURNS_DEFAULTS);
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.RETURNS_SMART_NULLS);
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.RETURNS_MOCKS);
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.RETURNS_DEEP_STUBS);
+21:13:55.596 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.CALLS_REAL_METHODS);
+21:13:55.597 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:13:56.622 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+21:13:56.622 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+21:18:12.752 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:18:12.753 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:18:12.753 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative
+21:18:12.753 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method
+21:18:12.753 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method
+21:18:12.753 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=0, pp=Unknown
+21:18:12.753 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+21:18:12.913 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-2/aggregatedSusInfo.profl
+21:18:12.913 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:after(J)Lorg/mockito/verification/VerificationAfterDelay; in org.mockito.Mockito:2203
+21:18:12.913 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-2
+21:18:12.914 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:13.738 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:13.739 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:14.620 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:14.621 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:15.449 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:15.450 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:16.296 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:16.297 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:17.173 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:17.175 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:18.010 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:18.012 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:18.899 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:18.900 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:19.742 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:19.743 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:20.629 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:20.630 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:21.537 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:21.538 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:22.406 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:22.407 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:23.304 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:23.305 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:24.199 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:24.200 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:25.045 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:18:25.056 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.atLeast(1));
+21:18:25.056 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.atMost(1));
+21:18:25.056 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.calls(1));
+21:18:25.057 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:18:25.922 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+21:18:25.923 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+21:22:41.535 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:22:41.535 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:22:41.535 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative
+21:22:41.535 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method
+21:22:41.535 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method
+21:22:41.536 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=0, pp=Unknown
+21:22:41.536 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+21:22:41.731 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-2/aggregatedSusInfo.profl
+21:22:41.731 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:after(J)Lorg/mockito/verification/VerificationAfterDelay; in org.mockito.Mockito:2203
+21:22:41.731 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-2
+21:22:41.732 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:22:42.640 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+21:22:42.640 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+21:26:58.090 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:26:58.091 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:26:58.091 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative
+21:26:58.091 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method
+21:26:58.091 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method
+21:26:58.091 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=0, pp=Unknown
+21:26:58.091 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+21:27:01.332 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-2/aggregatedSusInfo.profl
+21:27:01.332 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:after(J)Lorg/mockito/verification/VerificationAfterDelay; in org.mockito.Mockito:2203
+21:27:01.332 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-2
+21:27:01.334 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:27:02.163 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+21:27:02.163 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+21:31:17.918 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:31:17.918 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:31:17.918 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative
+21:31:17.918 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method
+21:31:17.918 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method
+21:31:17.918 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=0, pp=Unknown
+21:31:17.918 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+21:32:21.337 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-2/aggregatedSusInfo.profl
+21:32:21.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:after(J)Lorg/mockito/verification/VerificationAfterDelay; in org.mockito.Mockito:2203
+21:32:21.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-2
+21:32:21.359 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.times());
+21:32:21.360 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:32:22.203 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.times(0));
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, millis.times(1));
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, MOCKITO_CORE.times(1));
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, RETURNS_DEFAULTS.times(1));
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, RETURNS_SMART_NULLS.times(1));
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, RETURNS_MOCKS.times(1));
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, RETURNS_DEEP_STUBS.times(1));
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, CALLS_REAL_METHODS.times(1));
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.millis);
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.MOCKITO_CORE);
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.RETURNS_DEFAULTS);
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.RETURNS_SMART_NULLS);
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.RETURNS_MOCKS);
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.RETURNS_DEEP_STUBS);
+21:32:22.212 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.CALLS_REAL_METHODS);
+21:32:22.213 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:32:23.046 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+21:32:23.046 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+21:36:36.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:36:36.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:36:36.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative
+21:36:36.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method
+21:36:36.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method
+21:36:36.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=0, pp=Unknown
+21:36:36.841 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+21:55:13.296 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Mockito-2/aggregatedSusInfo.profl
+21:55:13.297 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.mockito.Mockito:after(J)Lorg/mockito/verification/VerificationAfterDelay; in org.mockito.Mockito:2203
+21:55:13.297 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Mockito-2
+21:55:13.298 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:14.206 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:14.207 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:15.078 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:15.079 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:15.896 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:15.898 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:16.758 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:16.783 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:17.612 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:17.613 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:18.479 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:18.481 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:19.346 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:19.348 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:20.237 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:20.238 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:21.173 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:21.175 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:22.009 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:22.010 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:22.866 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:22.867 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:23.739 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:23.740 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:24.601 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:24.602 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:25.463 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mockito-2 ---Fixer: fix fail because of failed compiling! 
+21:55:25.472 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.atLeast(1));
+21:55:25.472 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.atMost(1));
+21:55:25.472 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return new After(millis, VerificationModeFactory.calls(1));
+21:55:25.473 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+21:55:26.313 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+21:55:26.313 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+21:59:40.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 3, [org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:59:40.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method, - org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method]
+21:59:40.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.internal.util.TimerTest::should_throw_friendly_reminder_exception_when_duration_is_negative
+21:59:40.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_timeout_method
+21:59:40.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.mockito.verification.NegativeDurationTest::should_throw_exception_when_duration_is_negative_for_after_method
+21:59:40.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=3, fp=0, pf=0, pp=Unknown
+21:59:40.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

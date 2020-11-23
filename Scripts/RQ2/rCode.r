@@ -21,7 +21,7 @@ losses<-c("NegFix","NoneFix","NoisyFix","CleanFix")
 
 model<-"result"
 
-epochs<-c("jGenProg","GenProg-A","jMutRepair","kPar","RSRepair-A","jKali","Kali-A","Dynamoth","ACS","Cardumen","Arja","Simfix","FixMiner","AVATAR","TBar","PraPR")
+epochs<-c("PraPR","ACS","Simfix","Dynamoth","TBar","AVATAR","FixMiner","kPar","Kali-A","RSRepair-A","jGenProg","jMutRepair","jKali","Cardumen","Arja","GenProg-A")
 
 #Metrics<-c("Top1","Top3","Top5","MFR","MAR")
 Metrics<-c("Top1","MFR")
@@ -60,7 +60,7 @@ for(sub in Subs){
 						#plot_list[[5]]+theme(legend.position="none"),
 						#nrow = 1, align = 'h',labels = sub)
 						nrow = 2, align = 'h')
-		legend_b <- get_legend(plot_list[[1]] + theme(legend.position=c(0.967,45), legend.title = element_blank(),
+		legend_b <- get_legend(plot_list[[1]] + theme(legend.position=c(0.93,49), legend.title = element_blank(),
 														legend.text = element_text( size = 11)))
 		p <- plot_grid( prow, legend_b, ncol = 1, rel_heights = c(1.1, .01))
 		print(p)

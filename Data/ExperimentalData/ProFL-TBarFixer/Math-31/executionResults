@@ -1,0 +1,134 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-31
+10:15:46.196 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-31 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/31.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/31.txt
+10:15:58.395 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+10:15:58.439 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-31/generalSusInfo.profl
+10:15:58.443 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+10:15:58.443 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.util.ContinuedFraction ===177
+10:15:59.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               x);
+10:15:59.975 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.util.ContinuedFraction:177 ---
+10:15:59.975 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/util/ContinuedFraction.java 177 ---
+10:15:59.976 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, - org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:16:00.387 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               deltaN);
+10:16:00.388 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               q2);
+10:16:00.388 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               cN);
+10:16:00.388 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               b);
+10:16:00.388 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               a);
+10:16:00.388 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               hN);
+10:16:00.389 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               cPrev);
+10:16:00.389 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               q1);
+10:16:00.389 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               p0);
+10:16:00.389 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               dPrev);
+10:16:00.389 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               hPrev);
+10:16:00.389 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               small);
+10:16:00.389 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new ConvergenceException(LocalizedFormats.CONTINUED_FRACTION_NAN_DIVERGENCE,
+                                               epsilon);
+---------------- Testing New Patch ----------------
+10:16:00.395 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:16:01.974 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:16:01.981 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:17:23.705 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:17:23.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, - org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:17:23.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718
+10:17:23.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.FDistributionTest::testMath785
+10:17:23.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+10:17:23.706 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:17:23.741 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-31/aggregatedSusInfo.profl
+10:17:23.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.ContinuedFraction:evaluate(DDI)D in org.apache.commons.math3.util.ContinuedFraction:177
+10:17:23.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-31
+---------------- Testing New Patch ----------------
+10:17:23.742 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:24.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:17:24.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:18:39.714 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:18:39.714 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, - org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:18:39.715 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718
+10:18:39.715 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.FDistributionTest::testMath785
+10:18:39.715 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+10:18:39.715 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:18:39.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-31/aggregatedSusInfo.profl
+10:18:39.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.ContinuedFraction:evaluate(DDI)D in org.apache.commons.math3.util.ContinuedFraction:177
+10:18:39.891 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-31
+---------------- Testing New Patch ----------------
+10:18:39.892 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:18:41.104 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:18:41.104 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:19:49.925 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:19:49.925 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, - org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:19:49.925 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718
+10:19:49.925 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.FDistributionTest::testMath785
+10:19:49.925 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+10:19:49.925 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:19:50.113 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-31/aggregatedSusInfo.profl
+10:19:50.113 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.ContinuedFraction:evaluate(DDI)D in org.apache.commons.math3.util.ContinuedFraction:177
+10:19:50.113 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-31
+---------------- Testing New Patch ----------------
+10:19:50.113 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:19:51.280 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:19:51.280 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:21:07.166 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:21:07.166 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, - org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:21:07.166 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718
+10:21:07.166 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.FDistributionTest::testMath785
+10:21:07.166 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+10:21:07.167 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:21:11.221 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-31/aggregatedSusInfo.profl
+10:21:11.221 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.ContinuedFraction:evaluate(DDI)D in org.apache.commons.math3.util.ContinuedFraction:177
+10:21:11.221 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-31
+---------------- Testing New Patch ----------------
+10:21:11.225 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:12.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:21:12.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:22:24.624 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:22:24.624 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, - org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:22:24.624 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718
+10:22:24.624 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.FDistributionTest::testMath785
+10:22:24.624 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+10:22:24.624 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:23:45.162 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-31/aggregatedSusInfo.profl
+10:23:45.163 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.ContinuedFraction:evaluate(DDI)D in org.apache.commons.math3.util.ContinuedFraction:177
+10:23:45.163 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-31
+---------------- Testing New Patch ----------------
+10:23:45.164 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:23:46.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:23:46.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:24:46.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:24:46.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, - org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:24:46.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718
+10:24:46.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.FDistributionTest::testMath785
+10:24:46.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+10:24:46.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:46:46.344 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-31/aggregatedSusInfo.profl
+10:46:46.344 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.util.ContinuedFraction:evaluate(DDI)D in org.apache.commons.math3.util.ContinuedFraction:177
+10:46:46.344 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-31
+---------------- Testing New Patch ----------------
+10:46:46.345 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:46:47.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:46:47.341 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:47:44.215 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:47:44.215 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718, - org.apache.commons.math3.distribution.FDistributionTest::testMath785]
+10:47:44.215 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.BinomialDistributionTest::testMath718
+10:47:44.216 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.distribution.FDistributionTest::testMath785
+10:47:44.216 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+10:47:44.216 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

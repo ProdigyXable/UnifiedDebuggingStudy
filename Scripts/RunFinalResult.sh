@@ -34,7 +34,7 @@ fi
 if [ $RQ = "RQ3" ]
   then
    rm -rf ../Results/FinalResults/RQ3*
-   cd RQ3
+   cd RQ3FourProject
    Rscript rCode.r
 fi
 

@@ -1,0 +1,354 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-3
+01:56:16.486 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Time-3 Failed Tests: 5
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/3.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/3.txt
+01:56:22.408 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+01:56:22.437 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-3/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Time-3/ochiai.txt
+01:56:22.450 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+01:56:22.450 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.joda.time.MutableDateTime ===786
+01:56:23.427 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * Add a number of hours to the date.
+     *
+     * @param hours  the hours to add
+     * @throws IllegalArgumentException if the value is invalid
+     */
+    public void addHours(final int hours) {
+            setMillis(getChronology().hours().add(getMillis(), hours));
+    }
+01:56:23.429 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/joda/time/MutableDateTime.java:786 ---
+01:56:23.440 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.joda.time.MutableDateTime ===785
+01:56:23.617 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+setMillis(getChronology().hours().add(getMillis(), hours));
+01:56:23.618 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/joda/time/MutableDateTime.java:785 ---
+01:56:23.619 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: setMillis(getChronology().hours().add(getMillis(), serialVersionUID));
+01:56:23.619 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: setMillis(getChronology().hours().add(getMillis(), this.iRoundingField));
+01:56:23.619 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: setMillis(getChronology().hours().add(getMillis(), this.iRoundingMode));
+---------------- Testing New Patch ----------------
+01:56:23.620 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:30.011 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:56:30.011 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 5, [org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero]
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 14, [- org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int1, - org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero]
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapSummer_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int1
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero
+01:56:45.344 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero
+01:56:45.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero
+01:56:45.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero
+01:56:45.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=5, fp=0, pf=9, pp=Unknown
+01:56:45.345 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+01:56:45.367 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-3/aggregatedSusInfo.profl
+01:56:45.367 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.MutableDateTime:addHours(I)V in org.joda.time.MutableDateTime:785
+01:56:45.367 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 14 Time-3
+---------------- Testing New Patch ----------------
+01:56:45.368 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:48.166 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:56:48.167 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:56:54.187 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:56:54.187 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:09.321 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 5, [org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero]
+01:57:09.321 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 13, [- org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int1, - org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero]
+01:57:09.321 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero
+01:57:09.321 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero
+01:57:09.321 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero
+01:57:09.321 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int1
+01:57:09.321 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero
+01:57:09.321 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=5, fp=0, pf=8, pp=Unknown
+01:57:09.322 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+01:57:09.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-3/aggregatedSusInfo.profl
+01:57:09.424 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.MutableDateTime:addHours(I)V in org.joda.time.MutableDateTime:785
+01:57:09.424 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 13 Time-3
+01:57:09.425 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:57:09.426 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:11.968 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+01:57:11.968 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:57:11.969 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:14.506 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:14.507 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:17.049 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+01:57:17.049 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:57:17.050 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:19.796 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+01:57:19.797 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:57:19.797 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:22.425 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:22.426 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:25.173 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+01:57:25.173 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+01:57:25.174 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:27.716 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+01:57:27.717 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.joda.time.DateTimeZone ===931
+01:57:27.851 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return offsetPrev;
+01:57:27.851 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/joda/time/DateTimeZone.java:931 ---
+01:57:27.851 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return diff;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return prev;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return offsetAdjusted;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return instantAdjusted;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return offsetLocal;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return instantLocal;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return serialVersionUID;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return cProvider;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return cNameProvider;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return cAvailableIDs;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return cDefault;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return cOffsetFormatter;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return iFixedOffsetCache;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return cZoneIdConversion;
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.iID;
+---------------- Testing New Patch ----------------
+01:57:27.852 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:33.893 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:57:33.893 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 5, [org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero]
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 30, [- org.joda.time.TestDateTimeZoneCutover::test_DateTime_constructor_Moscow_Autumn, - org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_paris, - org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn_overlap_mins, - org.joda.time.TestDateTimeZoneCutover::testPeriod, - org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn, - org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_athens, - org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapSummer_addZero]
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_DateTime_constructor_Moscow_Autumn
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_paris
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn_overlap_mins
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testPeriod
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_athens
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapSummer_addZero
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapSummer_addZero
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapSummer_addZero
+01:57:48.424 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapSummer_addZero
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=5, fp=0, pf=25, pp=Unknown
+01:57:48.425 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+01:57:48.966 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-3/aggregatedSusInfo.profl
+01:57:48.966 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:getOffsetFromLocal(J)I in org.joda.time.DateTimeZone:931
+01:57:48.966 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 30 Time-3
+---------------- Testing New Patch ----------------
+01:57:48.966 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:51.682 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:57:51.683 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:57:57.313 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:57:57.314 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 5, [org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero]
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 31, [- org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_london, - org.joda.time.TestDateTimeZoneCutover::test_DateTime_constructor_Moscow_Autumn, - org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_paris, - org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn_overlap_mins, - org.joda.time.TestDateTimeZoneCutover::testPeriod, - org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn, - org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_athens, - org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapSummer_addZero]
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_london
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_DateTime_constructor_Moscow_Autumn
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_paris
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn_overlap_mins
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testPeriod
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_athens
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapSummer_addZero
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapSummer_addZero
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapSummer_addZero
+01:58:11.243 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapSummer_addZero
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=5, fp=0, pf=26, pp=Unknown
+01:58:11.244 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+01:58:23.153 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-3/aggregatedSusInfo.profl
+01:58:23.154 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:getOffsetFromLocal(J)I in org.joda.time.DateTimeZone:931
+01:58:23.154 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 31 Time-3
+---------------- Testing New Patch ----------------
+01:58:23.154 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:58:25.593 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:58:25.593 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+01:58:30.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+01:58:30.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+01:58:43.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 5, [org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero]
+01:58:43.811 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 31, [- org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_london, - org.joda.time.TestDateTimeZoneCutover::test_DateTime_constructor_Moscow_Autumn, - org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_paris, - org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn_overlap_mins, - org.joda.time.TestDateTimeZoneCutover::testPeriod, - org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn, - org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_athens, - org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapSummer_addZero, - org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapSummer_addZero]
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_london
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_DateTime_constructor_Moscow_Autumn
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_paris
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn_overlap_mins
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testPeriod
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::test_getOffsetFromLocal_Moscow_Autumn
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testDateTimeCreation_athens
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapSummer_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapSummer_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapWinter_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapSummer_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapWinter_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapSummer_addZero
+01:58:43.812 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddSeconds_int_dstOverlapWinter_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddHours_int_dstOverlapWinter_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapSummer_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapSummer_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapSummer_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMillis_int_dstOverlapSummer_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMinutes_int_dstOverlapSummer_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapSummer_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapWinter_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapWinter_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfMonth_int_dstOverlapWinter_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetMonthOfYear_int_dstOverlapSummer_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets::testSetDayOfYear_int_dstOverlapSummer_addZero
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=5, fp=0, pf=26, pp=Unknown
+01:58:43.813 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+02:02:46.403 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-3/aggregatedSusInfo.profl
+02:02:46.403 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.DateTimeZone:getOffsetFromLocal(J)I in org.joda.time.DateTimeZone:931
+02:02:46.403 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 31 Time-3
+---------------- Testing New Patch ----------------
+02:02:46.403 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:02:48.717 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:02:48.718 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:02:50.982 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:02:50.982 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:02:53.379 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:02:53.379 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:02:55.941 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:02:55.942 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:02:58.327 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:02:58.328 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:00.848 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:03:00.849 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:03.196 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:03:03.197 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:05.592 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:03:05.592 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:07.938 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:03:07.938 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:10.253 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+02:03:10.253 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:03:10.254 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:12.737 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+02:03:12.737 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:03:12.738 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:15.266 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+02:03:15.267 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:17.778 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+02:03:17.778 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+02:03:17.779 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:20.175 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Time-3 ---Fixer: fix fail because of failed compiling! 
+02:03:20.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.joda.time.Duration ===167
+02:03:20.202 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return new Duration(millis);
+02:03:20.202 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/joda/time/Duration.java:167 ---
+02:03:20.203 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Duration(serialVersionUID);
+---------------- Testing New Patch ----------------
+02:03:20.203 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+02:03:24.652 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+02:03:24.652 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+02:03:36.901 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 5, [org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero]
+02:03:36.901 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.joda.time.TestDuration_Constructors::testFactory_millis_long, - org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero, - org.joda.time.TestSerialization::testDuration]
+02:03:36.901 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors::testFactory_millis_long
+02:03:36.902 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero
+02:03:36.902 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero
+02:03:36.902 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero
+02:03:36.902 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero
+02:03:36.902 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero
+02:03:36.902 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization::testDuration
+02:03:36.902 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=5, fp=0, pf=2, pp=Unknown
+02:03:36.902 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+03:31:41.596 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Time-3/aggregatedSusInfo.profl
+03:31:41.596 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.joda.time.Duration:millis(J)Lorg/joda/time/Duration; in org.joda.time.Duration:167
+03:31:41.596 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Time-3
+03:31:41.597 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+03:31:41.597 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+03:31:46.269 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+03:31:46.269 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 5, [org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero]
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.joda.time.TestDuration_Constructors::testFactory_millis_long, - org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero, - org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero, - org.joda.time.TestSerialization::testDuration]
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors::testFactory_millis_long
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddYears_int_dstOverlapWinter_addZero
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddDays_int_dstOverlapWinter_addZero
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddWeeks_int_dstOverlapWinter_addZero
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAdd_DurationFieldType_int_dstOverlapWinter_addZero
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestMutableDateTime_Adds::testAddMonths_int_dstOverlapWinter_addZero
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization::testDuration
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=5, fp=0, pf=2, pp=Unknown
+03:31:58.402 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

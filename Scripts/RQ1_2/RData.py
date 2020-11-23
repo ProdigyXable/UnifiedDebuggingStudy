@@ -42,7 +42,7 @@ with open("toolName.txt", "w") as f:
 
 final_matrix = np.array(final_matrix)
 
-#print(final_matrix)
+print(final_matrix)
 
 metric_idx = [0,1,2,3,4]
 patch_idx = [5,6,7,8]  #All and Unique

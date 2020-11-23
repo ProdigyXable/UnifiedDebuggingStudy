@@ -1,0 +1,858 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-40
+01:18:31.486 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/40.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/40.txt
+01:18:33.815 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:18:33.833 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/generalSusInfo.profl
+01:18:33.835 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:18:33.836 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang.StringUtils ===1048
+01:18:36.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return contains(str.toUpperCase(), searchStr.toUpperCase());
+01:18:36.519 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang.StringUtils:1048 ---
+01:18:36.519 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang/StringUtils.java 1048 ---
+01:18:36.519 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:18:37.010 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.length() <= (pos + len));
+01:18:37.011 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.length() <= (pos + len));
+01:18:37.011 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.length() <= (pos + len));
+01:18:37.011 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.length() <= (pos + len));
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (prefix.length() > str.length());
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (prefix.length() > str.length());
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(prefix.length() > str.length());
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(prefix.length() > str.length());
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((idx = str.indexOf(sub, idx)) != -1);
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((idx = str.indexOf(sub, idx)) != -1);
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((idx = str.indexOf(sub, idx)) != -1);
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((idx = str.indexOf(sub, idx)) != -1);
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (startsWithIgnoreCase(str, remove));
+01:18:37.012 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (startsWithIgnoreCase(str, remove));
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(startsWithIgnoreCase(str, remove));
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(startsWithIgnoreCase(str, remove));
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (suffix.length() > str.length());
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (suffix.length() > str.length());
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(suffix.length() > str.length());
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(suffix.length() > str.length());
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (isEmpty(str));
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (isEmpty(str));
+01:18:37.013 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(isEmpty(str));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(isEmpty(str));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (isEmpty(str) || isEmpty(remove));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (isEmpty(str) || isEmpty(remove));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(isEmpty(str) || isEmpty(remove));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(isEmpty(str) || isEmpty(remove));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((str.length() - offset) < (maxWidth - 3));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((str.length() - offset) < (maxWidth - 3));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((str.length() - offset) < (maxWidth - 3));
+01:18:37.014 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((str.length() - offset) < (maxWidth - 3));
+01:18:37.015 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.length() == 0);
+01:18:37.015 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.length() == 0);
+01:18:37.015 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.length() == 0);
+01:18:37.015 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.length() == 0);
+01:18:37.015 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (offset > str.length());
+01:18:37.015 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (offset > str.length());
+01:18:37.015 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(offset > str.length());
+01:18:37.015 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(offset > str.length());
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (isEmpty(str) || ArrayUtils.isEmpty(searchChars));
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (isEmpty(str) || ArrayUtils.isEmpty(searchChars));
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(isEmpty(str) || ArrayUtils.isEmpty(searchChars));
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(isEmpty(str) || ArrayUtils.isEmpty(searchChars));
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (endsWithIgnoreCase(str, remove));
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (endsWithIgnoreCase(str, remove));
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(endsWithIgnoreCase(str, remove));
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(endsWithIgnoreCase(str, remove));
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (end > str.length());
+01:18:37.016 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (end > str.length());
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(end > str.length());
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(end > str.length());
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (isEmpty(str) || isEmpty(separator));
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (isEmpty(str) || isEmpty(separator));
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(isEmpty(str) || isEmpty(separator));
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(isEmpty(str) || isEmpty(separator));
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((offset + (maxWidth - 3)) < str.length());
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((offset + (maxWidth - 3)) < str.length());
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((offset + (maxWidth - 3)) < str.length());
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((offset + (maxWidth - 3)) < str.length());
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (isEmpty(str) || isEmpty(sub));
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (isEmpty(str) || isEmpty(sub));
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(isEmpty(str) || isEmpty(sub));
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(isEmpty(str) || isEmpty(sub));
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (searchStr.length() == 0);
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (searchStr.length() == 0);
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(searchStr.length() == 0);
+01:18:37.017 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(searchStr.length() == 0);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (isEmpty(str) || isEmpty(searchChars));
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (isEmpty(str) || isEmpty(searchChars));
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(isEmpty(str) || isEmpty(searchChars));
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(isEmpty(str) || isEmpty(searchChars));
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.length() <= len);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.length() <= len);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.length() <= len);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.length() <= len);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.length() <= maxWidth);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.length() <= maxWidth);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.length() <= maxWidth);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.length() <= maxWidth);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (isEmpty(str) || str.indexOf(remove) == -1);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (isEmpty(str) || str.indexOf(remove) == -1);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(isEmpty(str) || str.indexOf(remove) == -1);
+01:18:37.018 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(isEmpty(str) || str.indexOf(remove) == -1);
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (pos == -1 || pos == (str.length() - separator.length()));
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (pos == -1 || pos == (str.length() - separator.length()));
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(pos == -1 || pos == (str.length() - separator.length()));
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(pos == -1 || pos == (str.length() - separator.length()));
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (searchStr.length() == 0 && startPos >= str.length());
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (searchStr.length() == 0 && startPos >= str.length());
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(searchStr.length() == 0 && startPos >= str.length());
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(searchStr.length() == 0 && startPos >= str.length());
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (len < 0 || pos > str.length());
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (len < 0 || pos > str.length());
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(len < 0 || pos > str.length());
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(len < 0 || pos > str.length());
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.endsWith(separator));
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.endsWith(separator));
+01:18:37.019 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.endsWith(separator));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.endsWith(separator));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.endsWith(remove));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.endsWith(remove));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.endsWith(remove));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.endsWith(remove));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.length() == 1);
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.length() == 1);
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.length() == 1);
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.length() == 1);
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.startsWith(remove));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.startsWith(remove));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.startsWith(remove));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.startsWith(remove));
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (start > str.length());
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (start > str.length());
+01:18:37.020 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(start > str.length());
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(start > str.length());
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (Character.isDigit(str.charAt(i)) == false);
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (Character.isDigit(str.charAt(i)) == false);
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(Character.isDigit(str.charAt(i)) == false);
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(Character.isDigit(str.charAt(i)) == false);
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((Character.isDigit(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((Character.isDigit(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((Character.isDigit(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((Character.isDigit(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (Character.isUpperCase(str.charAt(i)) == false);
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (Character.isUpperCase(str.charAt(i)) == false);
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(Character.isUpperCase(str.charAt(i)) == false);
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(Character.isUpperCase(str.charAt(i)) == false);
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (StringUtils.isEmpty(str));
+01:18:37.021 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (StringUtils.isEmpty(str));
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(StringUtils.isEmpty(str));
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(StringUtils.isEmpty(str));
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((end = str.length()) == 0);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((end = str.length()) == 0);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((end = str.length()) == 0);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((end = str.length()) == 0);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (Character.isLetter(str.charAt(i)) == false);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (Character.isLetter(str.charAt(i)) == false);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(Character.isLetter(str.charAt(i)) == false);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(Character.isLetter(str.charAt(i)) == false);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.indexOf(remove) == -1);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.indexOf(remove) == -1);
+01:18:37.022 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.indexOf(remove) == -1);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.indexOf(remove) == -1);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (CharUtils.isAsciiPrintable(str.charAt(i)) == false);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (CharUtils.isAsciiPrintable(str.charAt(i)) == false);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(CharUtils.isAsciiPrintable(str.charAt(i)) == false);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(CharUtils.isAsciiPrintable(str.charAt(i)) == false);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (startPos >= str.length());
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (startPos >= str.length());
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(startPos >= str.length());
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(startPos >= str.length());
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((Character.isWhitespace(str.charAt(i)) == false));
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((Character.isWhitespace(str.charAt(i)) == false));
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((Character.isWhitespace(str.charAt(i)) == false));
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((Character.isWhitespace(str.charAt(i)) == false));
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((strLen = str.length()) == 0);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((strLen = str.length()) == 0);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((strLen = str.length()) == 0);
+01:18:37.023 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((strLen = str.length()) == 0);
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (Character.isLetterOrDigit(str.charAt(i)) == false);
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (Character.isLetterOrDigit(str.charAt(i)) == false);
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(Character.isLetterOrDigit(str.charAt(i)) == false);
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(Character.isLetterOrDigit(str.charAt(i)) == false);
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (pos > str.length());
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (pos > str.length());
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(pos > str.length());
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(pos > str.length());
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((Character.isLetter(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((Character.isLetter(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((Character.isLetter(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((Character.isLetter(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.024 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (pos == (str.length() - separator.length()));
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (pos == (str.length() - separator.length()));
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(pos == (str.length() - separator.length()));
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(pos == (str.length() - separator.length()));
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (Character.isLowerCase(str.charAt(i)) == false);
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (Character.isLowerCase(str.charAt(i)) == false);
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(Character.isLowerCase(str.charAt(i)) == false);
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(Character.isLowerCase(str.charAt(i)) == false);
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((Character.isLetterOrDigit(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((Character.isLetterOrDigit(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((Character.isLetterOrDigit(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.025 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((Character.isLetterOrDigit(str.charAt(i)) == false) && (str.charAt(i) != ' '));
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (!Character.isWhitespace(str.charAt(i)));
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (!Character.isWhitespace(str.charAt(i)));
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(!Character.isWhitespace(str.charAt(i)));
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(!Character.isWhitespace(str.charAt(i)));
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (searchChars.indexOf(str.charAt(i)) < 0);
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (searchChars.indexOf(str.charAt(i)) < 0);
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(searchChars.indexOf(str.charAt(i)) < 0);
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(searchChars.indexOf(str.charAt(i)) < 0);
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.charAt(i) == separatorChar);
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.charAt(i) == separatorChar);
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.charAt(i) == separatorChar);
+01:18:37.026 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.charAt(i) == separatorChar);
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.charAt(lastIdx - 1) == CharUtils.CR);
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.charAt(lastIdx - 1) == CharUtils.CR);
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.charAt(lastIdx - 1) == CharUtils.CR);
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.charAt(lastIdx - 1) == CharUtils.CR);
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((Character.isLetterOrDigit(str.charAt(i)) == false));
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((Character.isLetterOrDigit(str.charAt(i)) == false));
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((Character.isLetterOrDigit(str.charAt(i)) == false));
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((Character.isLetterOrDigit(str.charAt(i)) == false));
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((start != strLen) && Character.isWhitespace(str.charAt(start)));
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((start != strLen) && Character.isWhitespace(str.charAt(start)));
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((start != strLen) && Character.isWhitespace(str.charAt(start)));
+01:18:37.027 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((start != strLen) && Character.isWhitespace(str.charAt(start)));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((Character.isLetter(str.charAt(i)) == false));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((Character.isLetter(str.charAt(i)) == false));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((Character.isLetter(str.charAt(i)) == false));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((Character.isLetter(str.charAt(i)) == false));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((Character.isDigit(str.charAt(i)) == false));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((Character.isDigit(str.charAt(i)) == false));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((Character.isDigit(str.charAt(i)) == false));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((Character.isDigit(str.charAt(i)) == false));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((str.charAt(i) != ' '));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((str.charAt(i) != ' '));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((str.charAt(i) != ' '));
+01:18:37.028 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((str.charAt(i) != ' '));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((end != 0) && Character.isWhitespace(str.charAt(end - 1)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((end != 0) && Character.isWhitespace(str.charAt(end - 1)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((end != 0) && Character.isWhitespace(str.charAt(end - 1)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((end != 0) && Character.isWhitespace(str.charAt(end - 1)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (Character.isWhitespace(str.charAt(i)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (Character.isWhitespace(str.charAt(i)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(Character.isWhitespace(str.charAt(i)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(Character.isWhitespace(str.charAt(i)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (Character.isWhitespace(str.charAt(end - 1)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (Character.isWhitespace(str.charAt(end - 1)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(Character.isWhitespace(str.charAt(end - 1)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(Character.isWhitespace(str.charAt(end - 1)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (Character.isWhitespace(str.charAt(start)));
+01:18:37.029 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (Character.isWhitespace(str.charAt(start)));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(Character.isWhitespace(str.charAt(start)));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(Character.isWhitespace(str.charAt(start)));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((end != 0) && (stripChars.indexOf(str.charAt(end - 1)) != -1));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((end != 0) && (stripChars.indexOf(str.charAt(end - 1)) != -1));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((end != 0) && (stripChars.indexOf(str.charAt(end - 1)) != -1));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((end != 0) && (stripChars.indexOf(str.charAt(end - 1)) != -1));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((start != strLen) && (stripChars.indexOf(str.charAt(start)) != -1));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((start != strLen) && (stripChars.indexOf(str.charAt(start)) != -1));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((start != strLen) && (stripChars.indexOf(str.charAt(start)) != -1));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((start != strLen) && (stripChars.indexOf(str.charAt(start)) != -1));
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (str.charAt(i) == sep);
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (str.charAt(i) == sep);
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(str.charAt(i) == sep);
+01:18:37.030 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(str.charAt(i) == sep);
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((stripChars.indexOf(str.charAt(end - 1)) != -1));
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((stripChars.indexOf(str.charAt(end - 1)) != -1));
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((stripChars.indexOf(str.charAt(end - 1)) != -1));
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((stripChars.indexOf(str.charAt(end - 1)) != -1));
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || (separatorChars.indexOf(str.charAt(i)) >= 0);
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && (separatorChars.indexOf(str.charAt(i)) >= 0);
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !(separatorChars.indexOf(str.charAt(i)) >= 0);
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !(separatorChars.indexOf(str.charAt(i)) >= 0);
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || ((stripChars.indexOf(str.charAt(start)) != -1));
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && ((stripChars.indexOf(str.charAt(start)) != -1));
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) || !((stripChars.indexOf(str.charAt(start)) != -1));
+01:18:37.031 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return (contains(str.toUpperCase(), searchStr.toUpperCase())) && !((stripChars.indexOf(str.charAt(start)) != -1));
+---------------- Testing New Patch ----------------
+01:18:37.043 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:39.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:39.027 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:40.762 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:40.764 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:42.632 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:42.635 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:44.947 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:44.949 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:46.663 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:46.666 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:48.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:48.130 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:49.886 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:49.888 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:52.057 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:52.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:53.840 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:53.843 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:55.462 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:55.464 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:57.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:57.136 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:58.799 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:18:58.801 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:00.380 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:00.383 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:02.449 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:02.451 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:04.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:04.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:05.824 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:05.826 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:07.550 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:07.553 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:09.537 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:09.539 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:11.375 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:11.378 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:13.081 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:19:13.083 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:14.959 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:19:14.959 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:19:28.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:19:28.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:19:28.426 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:19:28.427 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:19:28.427 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:19:28.427 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:19:28.428 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:19:28.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:19:28.428 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:19:28.430 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:30.230 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:19:30.230 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:19:44.162 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:19:44.162 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:19:44.162 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:19:44.163 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:19:44.163 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:19:44.163 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:19:44.164 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:19:44.164 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:19:44.164 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:19:44.168 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:46.043 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:19:46.043 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:19:58.625 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:19:58.625 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:19:58.626 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:19:58.626 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:19:58.626 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:19:58.626 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:19:58.627 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:19:58.627 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:19:58.627 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:19:58.629 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:00.775 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:20:00.775 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:20:14.614 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:20:14.614 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:20:14.614 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:20:14.614 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:20:14.615 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:20:14.615 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:20:14.616 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:20:14.616 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:20:14.616 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:20:14.618 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:15.997 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:15.999 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:17.408 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:17.410 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:19.003 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:19.005 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:20.941 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:20.943 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:22.700 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:22.701 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:24.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:24.203 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:25.595 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:25.597 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:27.335 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:27.338 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:29.195 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:20:29.195 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:20:42.733 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:20:42.733 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:20:42.734 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:20:42.734 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:20:42.734 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:20:42.734 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:20:42.737 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:20:42.737 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:20:42.737 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:20:42.739 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:44.325 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:20:44.325 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:20:57.247 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:20:57.247 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:20:57.247 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:20:57.247 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:20:57.247 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:20:57.247 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:20:57.263 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:20:57.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:20:57.263 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:20:57.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:59.106 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:20:59.106 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:21:12.318 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:21:12.318 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:21:12.319 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:21:12.319 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:21:12.319 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:21:12.319 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:21:12.324 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:21:12.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:21:12.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:21:12.326 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:14.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:21:14.096 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:21:26.686 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:21:26.686 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:21:26.686 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:21:26.686 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:21:26.686 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:21:26.686 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:21:26.693 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:21:26.693 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:21:26.693 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:21:26.695 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:28.614 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:28.617 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:30.446 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:30.448 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:31.927 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:31.929 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:33.291 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:33.293 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:34.935 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:34.937 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:36.707 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:36.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:38.204 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:38.206 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:39.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:39.831 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:41.531 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:41.533 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:43.111 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:43.146 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:44.667 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:44.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:46.226 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:46.228 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:47.825 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:47.827 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:49.359 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:49.361 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:50.946 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:50.948 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:52.591 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:52.593 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:54.228 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:54.230 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:55.816 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:55.818 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:57.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:57.399 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:59.034 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:21:59.036 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:00.676 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:00.678 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:02.248 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:02.250 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:03.969 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:03.971 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:05.748 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:05.750 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:07.276 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:07.279 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:08.851 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:08.853 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:10.401 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:10.404 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:12.025 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:12.027 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:13.812 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:22:13.812 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:22:26.249 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:22:26.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:22:26.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:22:26.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:22:26.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:22:26.268 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:22:26.268 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:22:26.268 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-40
+---------------- Testing New Patch ----------------
+01:22:26.270 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:27.882 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:22:27.882 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:22:40.240 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:22:40.240 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:22:40.240 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:22:40.240 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:22:40.240 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:22:40.240 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:22:40.297 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:22:40.298 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:22:40.298 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:22:40.300 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:41.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:22:41.985 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:22:54.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:22:54.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:22:54.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:22:54.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:22:54.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:22:54.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:22:54.246 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:22:54.246 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:22:54.246 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:22:54.249 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:55.858 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:22:55.858 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:23:08.505 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:23:08.506 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:23:08.506 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:23:08.506 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:23:08.506 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:23:08.506 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:23:09.336 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:23:09.336 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:23:09.336 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:23:09.339 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:10.933 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:10.936 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:12.573 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:12.576 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:14.118 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:14.121 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:15.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:15.646 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:17.215 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:17.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:18.832 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:18.835 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:20.348 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:20.351 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:21.868 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:21.871 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:23.393 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:23.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:25.014 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:25.017 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:26.602 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:26.604 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:28.135 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:28.138 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:29.828 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:29.831 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:31.351 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:31.353 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:32.873 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:32.876 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:34.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:34.366 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:35.826 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:35.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:37.488 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:37.491 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:39.159 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:39.162 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:40.679 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:40.682 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:42.360 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:42.363 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:43.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:43.979 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:45.596 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:45.598 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:47.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:47.150 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:48.674 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:48.757 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:50.359 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:50.362 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:51.863 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:51.866 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:53.470 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:53.472 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:55.223 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:55.225 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:56.812 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:56.815 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:23:58.442 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:23:58.445 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:24:00.059 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:24:00.062 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:24:01.604 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:24:01.607 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:24:03.321 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:24:03.324 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:24:04.893 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:24:04.895 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:24:06.410 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:24:06.412 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:24:07.979 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:24:07.979 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:24:20.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:24:20.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:24:20.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:24:20.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:24:20.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:24:20.287 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:24:23.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:24:23.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:24:23.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:24:23.905 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:24:25.555 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:24:25.555 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:24:37.755 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:24:37.755 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:24:37.755 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:24:37.755 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:24:37.755 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:24:37.756 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:24:51.382 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:24:51.383 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:24:51.383 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:24:51.386 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:24:52.998 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:24:52.998 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:25:05.655 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:25:05.655 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:25:05.655 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:25:05.655 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:25:05.655 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:25:05.655 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:26:01.422 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:26:01.422 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:26:01.423 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:26:01.425 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:26:03.035 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:26:03.036 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:26:15.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:26:15.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:26:15.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:26:15.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:26:15.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:26:15.245 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:29:39.170 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:29:39.171 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:29:39.171 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:29:39.174 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:40.771 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:40.774 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:42.373 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:42.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:44.036 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:44.039 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:45.548 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:45.551 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:47.134 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:47.137 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:48.728 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:48.731 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:50.343 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:50.346 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:51.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:51.987 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:53.600 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:53.603 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:55.307 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:55.310 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:56.957 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:56.960 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:29:58.651 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:29:58.654 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:00.220 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:30:00.222 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:01.744 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:30:01.747 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:03.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:30:03.304 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:04.925 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:30:04.928 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:06.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:30:06.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:08.058 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:30:08.061 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:09.652 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:30:09.655 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:11.283 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-40 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:30:11.286 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:12.931 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:30:12.931 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:30:25.389 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:30:25.389 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:30:25.389 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:30:25.389 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:30:25.390 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:30:25.390 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:44:44.497 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+01:44:44.498 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+01:44:44.498 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+01:44:44.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:44:46.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:44:46.337 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:44:59.315 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:44:59.315 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+01:44:59.315 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+01:44:59.315 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+01:44:59.316 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:44:59.316 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+02:42:06.842 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-40/aggregatedSusInfo.profl
+02:42:06.843 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang.StringUtils:containsIgnoreCase(Ljava/lang/String;Ljava/lang/String;)Z in org.apache.commons.lang.StringUtils:1048
+02:42:06.843 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Lang-40
+---------------- Testing New Patch ----------------
+02:42:06.846 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:42:08.603 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:42:08.603 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:42:20.708 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+02:42:20.708 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString, - org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence]
+02:42:20.708 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_StringString
+02:42:20.709 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang.StringUtilsEqualsIndexOfTest::testContainsIgnoreCase_LocaleIndependence
+02:42:20.709 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+02:42:20.709 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

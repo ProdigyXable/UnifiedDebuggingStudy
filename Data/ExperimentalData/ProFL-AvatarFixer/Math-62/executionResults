@@ -1,0 +1,696 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-62
+18:57:35.696 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-62 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/62.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/62.txt
+18:57:40.673 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+18:57:40.701 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-62/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-62/ochiai.txt
+18:57:40.703 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+18:57:40.703 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer ===205
+18:57:41.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * Sort the optima from best to worst, followed by {@code null} elements.
+     *
+     * @param goal Goal type.
+     */
+    private void sortPairs(final GoalType goal) {
+        Arrays.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+    }
+18:57:41.651 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/univariate/MultiStartUnivariateRealOptimizer.java:205 ---
+18:57:41.660 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer ===191
+18:57:41.765 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+Arrays.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.766 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/univariate/MultiStartUnivariateRealOptimizer.java:191 ---
+18:57:41.767 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: goal.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.optimizer.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.maxEvaluations.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.totalEvaluations.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.starts.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.generator.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.optima.sort(optima, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: Arrays.sort(goal, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: Arrays.sort(this.optimizer, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: Arrays.sort(this.maxEvaluations, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: Arrays.sort(this.totalEvaluations, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: Arrays.sort(this.starts, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+18:57:41.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: Arrays.sort(this.generator, new Comparator<UnivariateRealPointValuePair>() {
+                public int compare(final UnivariateRealPointValuePair o1,
+                                   final UnivariateRealPointValuePair o2) {
+                    if (o1 == null) {
+                        return (o2 == null) ? 0 : 1;
+                    } else if (o2 == null) {
+                        return -1;
+                    }
+                    final double v1 = o1.getValue();
+                    final double v2 = o2.getValue();
+                    return (goal == GoalType.MINIMIZE) ?
+                        Double.compare(v1, v2) : Double.compare(v2, v1);
+                }
+            });
+---------------- Testing New Patch ----------------
+18:57:41.769 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:43.020 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:43.021 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:44.193 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:44.194 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:45.384 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:45.385 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:46.562 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:46.563 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:47.689 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:47.690 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:48.788 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:48.789 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:49.913 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:49.913 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:51.183 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:51.183 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:52.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:52.412 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:53.533 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:53.533 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:54.668 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:54.668 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:55.827 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:57:55.827 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:57.027 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+18:57:57.028 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima != null) {
+	
+
+}
+
+18:57:57.028 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima == null) {
+    throw new IllegalArgumentException("Null 'optima' argument.");
+}
+
+18:57:57.028 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima == null) {
+    return;
+}
+
+---------------- Testing New Patch ----------------
+18:57:57.029 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:57:58.645 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:57:58.645 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:58:38.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+18:58:38.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+18:58:38.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin
+18:58:38.361 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+18:58:38.361 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+18:58:38.370 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-62/aggregatedSusInfo.profl
+18:58:38.370 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:sortPairs(Lorg/apache/commons/math/optimization/GoalType;)V in org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:191
+18:58:38.370 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-62
+---------------- Testing New Patch ----------------
+18:58:38.371 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:58:39.937 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:58:39.937 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:59:16.928 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+18:59:16.929 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+18:59:16.929 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin
+18:59:16.929 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+18:59:16.930 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+18:59:16.994 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-62/aggregatedSusInfo.profl
+18:59:16.995 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:sortPairs(Lorg/apache/commons/math/optimization/GoalType;)V in org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:191
+18:59:16.995 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-62
+---------------- Testing New Patch ----------------
+18:59:16.995 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:17.898 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:59:17.898 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:59:52.289 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+18:59:52.289 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+18:59:52.289 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin
+18:59:52.289 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+18:59:52.289 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+18:59:52.337 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-62/aggregatedSusInfo.profl
+18:59:52.337 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:sortPairs(Lorg/apache/commons/math/optimization/GoalType;)V in org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:191
+18:59:52.337 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-62
+18:59:52.338 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:59:52.338 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:53.231 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+18:59:53.231 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:59:53.232 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:54.123 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:59:54.123 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:55.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+18:59:55.038 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:59:55.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:55.960 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+18:59:55.961 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:59:55.961 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:56.907 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:59:56.907 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:57.781 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+18:59:57.782 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:59:57.782 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:58.658 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+18:59:58.658 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+18:59:58.659 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:59:59.533 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+18:59:59.533 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:00.507 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:00.507 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:00.508 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:01.396 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:01.396 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:01.396 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:02.144 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:02.145 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:02.914 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:02.914 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:02.915 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:03.713 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:03.713 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:03.713 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:04.472 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:04.473 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:05.263 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:05.263 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:05.264 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:06.024 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:06.024 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:06.025 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:06.844 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:06.845 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:07.718 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:07.719 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:07.719 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:08.532 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:08.532 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:08.533 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:09.408 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:09.408 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:10.225 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:10.225 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:00:10.226 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:11.034 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:11.035 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer ===182
+19:00:11.105 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return optima[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/univariate/MultiStartUnivariateRealOptimizer.java:182 ---
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return i[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return f[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return goal[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return min[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return max[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return startValue[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.optimizer[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.maxEvaluations[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.totalEvaluations[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.starts[0];
+19:00:11.106 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return this.generator[0];
+---------------- Testing New Patch ----------------
+19:00:11.107 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:11.962 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:11.963 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:12.780 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:12.781 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:13.725 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:13.725 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:14.516 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:14.516 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:15.314 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:15.314 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:16.151 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:16.152 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:17.044 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:17.045 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:17.901 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:17.901 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:18.798 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:18.799 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:19.751 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:19.751 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:20.621 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:00:20.621 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima != null) {
+	
+
+}
+
+19:00:20.621 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima == null) {
+    throw new IllegalArgumentException("Null 'optima' argument.");
+}
+
+19:00:20.621 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+19:00:20.622 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:21.430 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:00:21.431 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:22.337 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+19:00:22.337 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+19:00:51.270 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+19:00:51.270 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+19:00:51.270 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin
+19:00:51.270 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:00:51.270 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+19:00:51.983 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-62/aggregatedSusInfo.profl
+19:00:51.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:optimize(Lorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DDD)Lorg/apache/commons/math/optimization/univariate/UnivariateRealPointValuePair; in org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:182
+19:00:51.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-62
+---------------- Testing New Patch ----------------
+19:00:51.984 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:00:52.910 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+19:00:52.911 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+19:01:22.159 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+19:01:22.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+19:01:22.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin
+19:01:22.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:01:22.160 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+19:01:30.767 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-62/aggregatedSusInfo.profl
+19:01:30.767 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:optimize(Lorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DDD)Lorg/apache/commons/math/optimization/univariate/UnivariateRealPointValuePair; in org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:182
+19:01:30.768 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-62
+19:01:30.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:01:30.768 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:31.646 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:01:31.647 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:01:31.647 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:32.547 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:01:32.547 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:33.350 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:01:33.350 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:01:33.350 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:34.125 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:01:34.125 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:01:34.125 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:34.972 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:01:34.972 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:35.677 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:01:35.677 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:01:35.678 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:36.488 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:01:36.488 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:01:36.488 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:37.332 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:01:37.333 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:38.219 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:01:38.219 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+19:01:38.219 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:38.955 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:01:38.955 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer ===176
+19:01:39.017 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+if (optima[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:01:39.018 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/optimization/univariate/MultiStartUnivariateRealOptimizer.java:176 ---
+19:01:39.018 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima[0] != null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+---------------- Testing New Patch ----------------
+19:01:39.019 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:01:39.933 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+19:01:39.933 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+19:02:08.175 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+19:02:08.175 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin, - org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testSinMin]
+19:02:08.175 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin
+19:02:08.175 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testSinMin
+19:02:08.176 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+19:02:08.176 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+19:05:01.036 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-62/aggregatedSusInfo.profl
+19:05:01.036 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:optimize(Lorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DDD)Lorg/apache/commons/math/optimization/univariate/UnivariateRealPointValuePair; in org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:176
+19:05:01.036 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-62
+19:05:01.037 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima[0] != null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+---------------- Testing New Patch ----------------
+19:05:01.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:05:01.860 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+19:05:01.861 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+19:05:29.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+19:05:29.297 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin, - org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testSinMin]
+19:05:29.297 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin
+19:05:29.297 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testSinMin
+19:05:29.297 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+19:05:29.297 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+19:43:29.577 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-62/aggregatedSusInfo.profl
+19:43:29.577 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:optimize(Lorg/apache/commons/math/analysis/UnivariateRealFunction;Lorg/apache/commons/math/optimization/GoalType;DDD)Lorg/apache/commons/math/optimization/univariate/UnivariateRealPointValuePair; in org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizer:176
+19:43:29.577 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-62
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (i[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (f[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (goal[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (min[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (max[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (startValue[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (this.optimizer[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (this.maxEvaluations[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (this.totalEvaluations[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (this.starts[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (this.generator[0] == null) {
+            throw new ConvergenceException(LocalizedFormats.NO_CONVERGENCE_WITH_ANY_START_POINT,
+                                           starts);
+        }
+---------------- Testing New Patch ----------------
+19:43:29.578 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:30.317 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:30.317 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:31.051 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:31.051 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:31.854 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:31.855 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:32.728 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:32.729 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:33.578 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:33.579 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:34.429 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:34.430 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:35.274 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:35.274 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:36.115 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:36.116 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:36.951 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:36.951 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:37.796 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:37.796 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:38.647 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+19:43:38.648 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima != null) {
+	
+
+}
+
+19:43:38.648 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima == null) {
+    throw new IllegalArgumentException("Null 'optima' argument.");
+}
+
+19:43:38.648 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (optima == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+19:43:38.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:39.476 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-62 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:43:39.476 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+19:43:40.385 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+19:43:40.385 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+19:44:14.136 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+19:44:14.136 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin]
+19:44:14.136 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.optimization.univariate.MultiStartUnivariateRealOptimizerTest::testQuinticMin
+19:44:14.136 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+19:44:14.136 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found

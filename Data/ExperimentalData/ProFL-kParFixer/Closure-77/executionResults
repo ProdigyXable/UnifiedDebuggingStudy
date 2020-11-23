@@ -1,0 +1,431 @@
+Setting JAVA_HOME to /home/samuel/jdk1.7.0_80
+
+Adding /home/samuel/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-77
+21:59:01.431 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 Failed Tests: 1
+Reading method line coverage from /home/samuel/XiaInformation/AllMethods/Closure/77.txt
+Reading test line coverage from /home/samuel/XiaInformation/LineCoverage/Closure/77.txt
+22:06:02.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+22:06:02.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/samuel/repair-tools/kPar/ProFL-kParFixer/Closure-77/generalSusInfo.profl
+22:06:02.734 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+22:06:02.734 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1159
+22:06:04.182 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+   * Returns a javascript representation of the character in a hex escaped
+   * format.
+   *
+   * @param codePoint The codepoint to append.
+   * @param out The buffer to which the hex representation should be appended.
+   */
+  private static void appendHexJavaScriptRepresentation(
+      int codePoint, Appendable out)
+      throws IOException {
+    if (Character.isSupplementaryCodePoint(codePoint)) {
+      // Handle supplementary unicode values which are not representable in
+      // javascript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from java to javascript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+    out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+  }
+22:06:04.193 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1154
+22:06:04.536 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.540 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(codePoint)
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(out)
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS)
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.cc)
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.outputCharsetEncoder)
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(codePoint)
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(out)
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS)
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.cc)
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.outputCharsetEncoder)
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(codePoint);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(out);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.cc);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.outputCharsetEncoder);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(codePoint)
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(out)
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS)
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.cc)
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.541 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.outputCharsetEncoder)
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+22:06:04.542 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:11.984 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:11.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:16.796 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:16.797 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:21.503 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:21.504 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:26.181 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:26.184 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:30.885 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:30.886 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:35.677 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:35.678 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:40.492 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:40.493 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:45.372 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:45.374 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:50.160 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:50.161 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:54.870 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:54.871 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:06:59.486 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:06:59.487 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:04.080 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:04.081 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:08.813 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:08.813 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:13.696 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:13.698 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:18.534 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:18.535 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:23.161 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:23.162 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:27.561 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:27.562 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:32.355 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:32.356 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:37.167 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:37.168 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:42.021 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+22:07:42.024 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out != null) {
+	
+
+}
+
+22:07:42.024 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out == null) {
+    throw new IllegalArgumentException("Null 'out' argument.");
+}
+
+22:07:42.024 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (out == null) {
+    return;
+}
+
+22:07:42.024 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (HEX_CHARS != null) {
+	
+
+}
+
+22:07:42.024 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (HEX_CHARS == null) {
+    throw new IllegalArgumentException("Null 'HEX_CHARS' argument.");
+}
+
+22:07:42.025 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (HEX_CHARS == null) {
+    return;
+}
+
+22:07:42.025 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:07:50.067 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+22:07:50.067 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+22:09:10.253 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:09:10.253 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:09:10.254 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testZero
+22:09:10.254 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:09:10.254 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+22:09:10.369 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/samuel/repair-tools/kPar/ProFL-kParFixer/Closure-77/aggregatedSusInfo.profl
+22:09:10.369 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1154
+22:09:10.369 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Closure-77
+22:09:10.370 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:09:16.187 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+22:09:16.187 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+22:10:37.405 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:10:37.405 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:10:37.405 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testZero
+22:10:37.405 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:10:37.405 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+22:10:37.666 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/samuel/repair-tools/kPar/ProFL-kParFixer/Closure-77/aggregatedSusInfo.profl
+22:10:37.666 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1154
+22:10:37.666 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Closure-77
+22:10:37.667 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:10:43.523 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+22:10:43.523 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+22:12:05.449 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:12:05.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:12:05.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testZero
+22:12:05.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:12:05.450 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+22:12:06.859 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/samuel/repair-tools/kPar/ProFL-kParFixer/Closure-77/aggregatedSusInfo.profl
+22:12:06.859 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1154
+22:12:06.859 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Closure-77
+22:12:06.860 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:12:12.904 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+22:12:12.904 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+22:13:35.966 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:13:35.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:13:35.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testZero
+22:13:35.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:13:35.967 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+22:14:06.952 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/samuel/repair-tools/kPar/ProFL-kParFixer/Closure-77/aggregatedSusInfo.profl
+22:14:06.953 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1154
+22:14:06.953 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Closure-77
+22:14:06.953 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:14:12.887 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+22:14:12.887 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+22:15:31.713 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:15:31.713 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:15:31.713 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testZero
+22:15:31.714 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:15:31.714 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+22:25:46.473 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/samuel/repair-tools/kPar/ProFL-kParFixer/Closure-77/aggregatedSusInfo.profl
+22:25:46.474 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1154
+22:25:46.474 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Closure-77
+22:25:46.475 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+22:25:52.164 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+22:25:52.164 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+22:27:07.433 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:27:07.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CodePrinterTest::testZero]
+22:27:07.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testZero
+22:27:07.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+22:27:07.434 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+02:13:04.154 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/samuel/repair-tools/kPar/ProFL-kParFixer/Closure-77/aggregatedSusInfo.profl
+02:13:04.154 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = com.google.javascript.jscomp.CodeGenerator:appendHexJavaScriptRepresentation(ILjava/lang/Appendable;)V in com.google.javascript.jscomp.CodeGenerator:1154
+02:13:04.154 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Closure-77
+02:13:04.155 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (HEX_CHARS.length() <= (codePoint >>> 12) & 0xf) {
+	
+
+}
+
+02:13:04.155 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (HEX_CHARS.length() <= (codePoint >>> 8) & 0xf) {
+	
+
+}
+
+02:13:04.155 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (HEX_CHARS.length() <= (codePoint >>> 4) & 0xf) {
+	
+
+}
+
+02:13:04.156 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:07.323 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:07.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:10.508 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:10.509 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:13.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:13.611 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1144
+02:13:13.768 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (Character.isSupplementaryCodePoint(codePoint)) {
+      // Handle supplementary unicode values which are not representable in
+      // javascript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from java to javascript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+02:13:13.772 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (Character.isSupplementaryCodePoint(out)) {
+      // Handle supplementary unicode values which are not representable in
+      // javascript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from java to javascript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+02:13:13.772 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (Character.isSupplementaryCodePoint(HEX_CHARS)) {
+      // Handle supplementary unicode values which are not representable in
+      // javascript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from java to javascript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+02:13:13.772 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (Character.isSupplementaryCodePoint(this.cc)) {
+      // Handle supplementary unicode values which are not representable in
+      // javascript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from java to javascript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+02:13:13.772 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (Character.isSupplementaryCodePoint(this.outputCharsetEncoder)) {
+      // Handle supplementary unicode values which are not representable in
+      // javascript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from java to javascript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+02:13:13.773 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:16.872 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:16.873 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:19.901 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:19.902 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:22.968 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:22.970 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:26.185 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:26.187 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1132
+02:13:26.324 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+   * @see #appendHexJavaScriptRepresentation(int, Appendable)
+   */
+  private static void appendHexJavaScriptRepresentation(
+      StringBuilder sb, char c) {
+    try {
+      appendHexJavaScriptRepresentation(c, sb);
+    } catch (IOException ex) {
+      // StringBuilder does not throw IOException.
+      throw new RuntimeException(ex);
+    }
+  }
+02:13:26.325 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1131
+02:13:26.401 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+try {
+      appendHexJavaScriptRepresentation(c, sb);
+    } catch (IOException ex) {
+      // StringBuilder does not throw IOException.
+      throw new RuntimeException(ex);
+    }
+02:13:26.401 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1127
+02:13:26.459 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+appendHexJavaScriptRepresentation(c, sb);
+02:13:26.461 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendHexJavaScriptRepresentation(sb, sb);
+02:13:26.461 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendHexJavaScriptRepresentation(HEX_CHARS, sb);
+02:13:26.461 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendHexJavaScriptRepresentation(this.cc, sb);
+02:13:26.461 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendHexJavaScriptRepresentation(this.outputCharsetEncoder, sb);
+02:13:26.461 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendHexJavaScriptRepresentation(c, c);
+02:13:26.461 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendHexJavaScriptRepresentation(c, HEX_CHARS);
+02:13:26.461 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendHexJavaScriptRepresentation(c, this.cc);
+02:13:26.461 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: appendHexJavaScriptRepresentation(c, this.outputCharsetEncoder);
+02:13:26.467 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:29.598 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:29.599 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:32.677 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:32.679 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:35.677 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:35.678 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:38.773 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:38.774 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:41.923 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:41.924 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:45.098 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:45.099 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:48.201 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:48.202 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:51.369 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+02:13:51.371 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (sb != null) {
+	
+
+}
+
+02:13:51.371 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (sb == null) {
+    throw new IllegalArgumentException("Null 'sb' argument.");
+}
+
+02:13:51.372 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (sb == null) {
+    return;
+}
+
+02:13:51.373 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+02:13:56.987 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+02:13:56.987 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+02:15:13.688 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.CodePrinterTest::testZero]
+02:15:13.689 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.CodePrinterTest::testZero]
+02:15:13.689 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.CodePrinterTest::testZero
+02:15:13.689 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+02:15:13.689 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

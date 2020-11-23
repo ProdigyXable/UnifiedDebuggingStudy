@@ -1,0 +1,203 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Chart-21
+06:29:17.459 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Chart-21 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/21.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/21.txt
+06:29:24.013 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+06:29:24.044 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/generalSusInfo.profl
+06:29:24.047 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+06:29:24.048 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.Range ===365
+06:29:25.279 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return ("Range[" + this.lower + "," + this.upper + "]");
+06:29:25.294 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset ===175
+06:29:25.586 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+this.maximumRangeValueColumn = c;
+06:29:25.588 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset ===174
+06:29:25.827 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+this.maximumRangeValueRow = r;
+06:29:25.829 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset ===173
+06:29:25.969 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+this.maximumRangeValue = maxval;
+06:29:25.970 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset ===742
+06:29:26.051 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Resets the cached bounds, by iterating over the entire dataset to find
+     * the current bounds.
+     */
+    private void updateBounds() {
+        this.minimumRangeValue = Double.NaN;
+        this.maximumRangeValue = Double.NaN;
+    }
+06:29:26.053 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset ===741
+06:29:26.126 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+this.maximumRangeValue = Double.NaN;
+06:29:26.127 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset ===740
+06:29:26.187 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+this.minimumRangeValue = Double.NaN;
+06:29:26.189 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset ===183
+06:29:26.243 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (minval < this.minimumRangeValue) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.247 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (minval <= this.minimumRangeValue) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.247 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (minval >= this.minimumRangeValue) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.247 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (minval > this.minimumRangeValue) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.248 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((item.getMinOutlier() != null)) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.248 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((Double.isNaN(this.minimumRangeValue))) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.248 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((item.getMaxOutlier() != null)) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.248 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((Double.isNaN(this.maximumRangeValue))) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.248 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((this.maximumRangeValueRow == r && this.maximumRangeValueColumn 
+                == c) || (this.minimumRangeValueRow == r 
+                && this.minimumRangeValueColumn == c))) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.248 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((this.maximumRangeValueRow == r && this.maximumRangeValueColumn 
+                == c))) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.248 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (((this.minimumRangeValueRow == r 
+                && this.minimumRangeValueColumn == c))) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.248 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((maxval > this.maximumRangeValue)) {
+                this.minimumRangeValue = minval;
+                this.minimumRangeValueRow = r;
+                this.minimumRangeValueColumn = c;
+            }
+06:29:26.250 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:29:27.686 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:29:27.686 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:29:51.116 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:29:51.117 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:29:51.117 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+06:29:51.117 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:29:51.117 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:29:51.136 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/aggregatedSusInfo.profl
+06:29:51.137 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:add(Lorg/jfree/data/statistics/BoxAndWhiskerItem;Ljava/lang/Comparable;Ljava/lang/Comparable;)V in org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:183
+06:29:51.137 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Chart-21
+06:29:51.138 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:29:52.522 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:29:52.523 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:30:14.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:30:14.636 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:30:14.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+06:30:14.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:30:14.637 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:30:14.699 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/aggregatedSusInfo.profl
+06:30:14.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:add(Lorg/jfree/data/statistics/BoxAndWhiskerItem;Ljava/lang/Comparable;Ljava/lang/Comparable;)V in org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:183
+06:30:14.699 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Chart-21
+06:30:14.700 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:30:15.930 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:30:15.930 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:30:37.519 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:30:37.519 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:30:37.519 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+06:30:37.520 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:30:37.520 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:30:37.546 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/aggregatedSusInfo.profl
+06:30:37.546 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:add(Lorg/jfree/data/statistics/BoxAndWhiskerItem;Ljava/lang/Comparable;Ljava/lang/Comparable;)V in org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:183
+06:30:37.546 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Chart-21
+06:30:37.547 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:30:38.774 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:30:38.775 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:31:00.255 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:31:00.255 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:31:00.255 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+06:31:00.255 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:31:00.255 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:31:00.476 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/aggregatedSusInfo.profl
+06:31:00.476 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:add(Lorg/jfree/data/statistics/BoxAndWhiskerItem;Ljava/lang/Comparable;Ljava/lang/Comparable;)V in org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:183
+06:31:00.476 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Chart-21
+06:31:00.476 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:31:01.687 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:31:01.688 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:31:22.622 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:31:22.623 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:31:22.623 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+06:31:22.623 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:31:22.623 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:31:25.892 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/aggregatedSusInfo.profl
+06:31:25.893 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:add(Lorg/jfree/data/statistics/BoxAndWhiskerItem;Ljava/lang/Comparable;Ljava/lang/Comparable;)V in org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:183
+06:31:25.893 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Chart-21
+06:31:25.894 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:31:27.038 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:31:27.039 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:31:47.420 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:31:47.420 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:31:47.420 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+06:31:47.420 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:31:47.420 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:32:27.277 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/aggregatedSusInfo.profl
+06:32:27.277 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:add(Lorg/jfree/data/statistics/BoxAndWhiskerItem;Ljava/lang/Comparable;Ljava/lang/Comparable;)V in org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:183
+06:32:27.277 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Chart-21
+06:32:27.278 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:32:28.456 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:32:28.456 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:32:49.840 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:32:49.840 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:32:49.840 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+06:32:49.840 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:32:49.840 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+06:41:02.503 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/aggregatedSusInfo.profl
+06:41:02.504 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:add(Lorg/jfree/data/statistics/BoxAndWhiskerItem;Ljava/lang/Comparable;Ljava/lang/Comparable;)V in org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:183
+06:41:02.504 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Chart-21
+06:41:02.504 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+06:41:03.702 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+06:41:03.703 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+06:41:20.445 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:41:20.445 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+06:41:20.445 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+06:41:20.446 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+06:41:20.446 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:52:11.928 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Chart-21/aggregatedSusInfo.profl
+08:52:11.928 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:add(Lorg/jfree/data/statistics/BoxAndWhiskerItem;Ljava/lang/Comparable;Ljava/lang/Comparable;)V in org.jfree.data.statistics.DefaultBoxAndWhiskerCategoryDataset:183
+08:52:11.928 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Chart-21
+08:52:11.929 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:52:13.136 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:52:13.136 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:52:34.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+08:52:34.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds]
+08:52:34.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds
+08:52:34.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+08:52:34.155 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

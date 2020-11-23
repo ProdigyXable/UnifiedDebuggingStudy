@@ -19,7 +19,7 @@ def get_sbfl_result_list(projects):
     sbfl_result = []
     for p in range(0,len(projects)):
         result_by_p = []
-        with open("../../Results/SBFLResults/" + projects[p] + ".txt") as f:
+        with open("../../Results/SBFLRelated/SBFLResults/" + projects[p] + ".txt") as f:
             for line in f:
                 result_by_p.append(line.strip())
             sbfl_result.append(result_by_p)
@@ -44,7 +44,7 @@ def get_profl_result(projects):
     return results
 def get_versions(repair_tool,projects,ver, ifPlau):
     version_dic = defaultdict(list)      # all plausible versions for all projects
-    with open("Results/VersionsWithCorrect/" + ifPlau + ".txt") as f:
+    with open("../RQ3FourProject/" + ifPlau + ".txt") as f:
         for line in f:
             if ":" in line:
                 tool = line.split(":")[0]
@@ -52,7 +52,7 @@ def get_versions(repair_tool,projects,ver, ifPlau):
                 version_dic[tool] = vs
     #deal with the specific tool
     
-    plau_versions = version_dic[repair_tool.split("-")[1]]   #get plausible versions for one specific tool
+    plau_versions = version_dic[repair_tool]   #get plausible versions for one specific tool
     #print(plau_versions)
     
     version_list = [[] for y in range(0,len(projects))]    # for all projects
@@ -61,9 +61,9 @@ def get_versions(repair_tool,projects,ver, ifPlau):
         p_v = i.split("-")[1]
         p_index = projects.index(p_name.capitalize())
         version_list[p_index].append(int(p_v) - 1 )
-    #print(version_list)
     return version_list
 def get_result_from_selected_versions(result_list,plausible_versions):
+
     result_list = np.array(result_list)
     new_result = []
     for i in range(0,len(result_list)):
@@ -94,9 +94,9 @@ def print_latex_plau(sbfl_res,profl_res,repair_tool,version_sum,ifPlau):
         f.write("\\\\" + "\n")
         f.write("\\hline" + "\n")
 def write_results(res,path):
-    write_path = "Results/VersionsWithCorrect/" + path + "/result.txt"
+    write_path = "../RQ3FourProject/" + path + "/result.txt"
 
-    with open(write_path,'a') as f:
+    with open(write_path,'a+') as f:
         for r in res:
             f.write(str(r) + " ")
         f.write("\n")
@@ -117,20 +117,27 @@ def write_to_csv(tool_name,final_result,result_path):
             else:
                 f.write(i + ",")
         f.write("\n")
+def get_results(repair_tool,result_list):
 
+    file = "./SingleToolResults/" + repair_tool + ".txt"
+    with open(file) as f:
+        line_no = 0
+        for line in f:
+            result_list[line_no] = line.strip().split("|")[0:-1]
+            line_no = line_no + 1
+            
 
-
-tool_name_1 = ["jGenProg", "GenProgA", "jMutRepair", "kParFixer", "RSRepair", "jKali","KaliA", 
-            "Dynamoth", "ACS", "Cardumen", "Arja", "Simfix", "FixMiner", "AvatarFixer", "TBarFixer","PraPR"]
-tool_name_2 = ["jGenProg","genprogA","jMutRepair","kPar","rsrepair","jKali","kaliA",
-            "dynamoth","acs","cardumen","arja","simfix","fixMiner","avatar","tbar","prapr"]
+tool_name_1 = ["jGenProg", "GenProgA", "jMutRepair", "kPar", "RSRepair", "jKali","KaliA","Dynamoth", "ACS", "Cardumen", "Arja", "Simfix", "FixMiner", "AVATAR", "TBar","PraPR"]
+tool_name_3 = ["jGenProg", "GenProgA", "jMutRepair", "kParFixer", "RSRepair", "jKali","KaliA","Dynamoth", "ACS", "Cardumen", "Arja", "Simfix", "FixMiner", "AvatarFixer", "TBarFixer","PraPR"]
+tool_name_2 = ["jGenProg","genprogA","jMutRepair","kPar","rsrepair","jKali","kaliA","dynamoth","acs","cardumen","arja","simfix","fixMiner","avatar","tbar","prapr"]
 tool_name_list = ["jGenProg", "GenProg-A", "jMutRepair", "kPar", "RSRepair-A", "jKali","Kali-A", 
             "Dynamoth", "ACS", "Cardumen", "Arja", "Simfix", "FixMiner", "AVATAR", "TBar","PraPR"]
 repair_tool = sys.argv[1]
-unmodified = sys.argv[2]  # 5th, 4th, 3rd...
-ifPlau = sys.argv[3]    #all results vs non-palusible versions
-root_path = "../../Results/IntermediateResults/profl-unmodified-" + unmodified + "-mixed/"
+ifPlau = sys.argv[2]
+
 #projects = ["Lang","Time","Math","Chart","Mockito","Closure"]
+#ver = [65,27,106,26,38,133]
+
 projects = ["Lang","Time","Math","Chart"]
 ver = [65,27,106,26]
 
@@ -138,6 +145,9 @@ sbfl_result = get_sbfl_result_list(projects)
 
 result_list = [["" for x in range(0,ver[y])] for y in range(0,len(projects))]  #initialilize final results
 
+get_results(repair_tool,result_list)
+#print(result_list)
+'''
 for index in range(0,len(projects)):
     p = projects[index]
     result_file = root_path + "/" + repair_tool + p
@@ -160,16 +170,19 @@ for index in range(0,len(projects)):
                         result_list[index][int(proj_id) - 1] = localization_result
                     else:
                         result_list[index][int(proj_id) - 1] = value + "," + localization_result
-
+            else:
+                proj_id = line.split("/")[-1].split(" ")[0].split("-")[1]
+                result_list[index][int(proj_id) - 1] = sbfl_result[index][int(proj_id) - 1]
 
 if check_result(sbfl_result) != check_result(result_list):
     print(repair_tool + " has issue!!!")
+'''
 
 #print(result_list)
 
 
-if ifPlau == "plausible" or ifPlau == "allincorrect" or ifPlau == "correct" or ifPlau == "incorrectBUTplau": #incorrect: incorrect but plausible  
-    
+if ifPlau == "plausible" or ifPlau == "implausible" or ifPlau == "correct" or ifPlau == "incorrectBUTplau": #incorrect: incorrect but plausible  
+    #repair_tool = tool_name_2[tool_name_1.index(repair_tool)]
     selected_versions = get_versions(repair_tool,projects,ver,ifPlau)
     selected_profl_result = get_result_from_selected_versions(result_list,selected_versions)  # profl result of different repair tools
     selected_sbfl_result = get_result_from_selected_versions(sbfl_result,selected_versions)
@@ -180,15 +193,16 @@ if ifPlau == "plausible" or ifPlau == "allincorrect" or ifPlau == "correct" or i
     profl_res = ut.get_final(profl_res,true_ver)
     sbfl_res = ut.get_final(sbfl_res,true_ver)
 
-    write_results(profl_res,"profl/" + ifPlau)
-    write_results(sbfl_res,"sbfl/" + ifPlau)
+    write_results(profl_res,"ProFL/" + ifPlau)
+    write_results(sbfl_res,"SBFL/" + ifPlau)
 
 
     version_sum = np.sum(np.array(true_ver))
 
-    print_latex_plau(sbfl_res,profl_res,repair_tool,str(version_sum),ifPlau)
+    #print_latex_plau(sbfl_res,profl_res,repair_tool,str(version_sum),ifPlau)
     #print(*profl_res, sep=' ')
     #print(*sbfl_res, sep=' ')
+'''
 else:  # all versions
     final_result = final_ranking_result(ver,projects,result_list)
     tool_name = repair_tool.split("-")[1]
@@ -203,3 +217,4 @@ else:  # all versions
     #    for i in final_result:
     #        f.write(str(i) + " ")
     #    f.write("\n")
+'''

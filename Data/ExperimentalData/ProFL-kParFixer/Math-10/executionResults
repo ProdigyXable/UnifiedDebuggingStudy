@@ -1,0 +1,120 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-10
+09:37:06.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-10 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/10.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/10.txt
+09:37:20.258 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+09:37:20.326 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-10/generalSusInfo.profl
+09:37:20.345 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+09:37:20.346 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.analysis.differentiation.DSCompiler ===1420
+09:37:22.263 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/** Compute two arguments arc tangent of a derivative structure.
+     * @param y array holding the first operand
+     * @param yOffset offset of the first operand in its array
+     * @param x array holding the second operand
+     * @param xOffset offset of the second operand in its array
+     * @param result array where result must be stored (for
+     * two arguments arc tangent the result array <em>cannot</em>
+     * be the input array)
+     * @param resultOffset offset of the result in its array
+     */
+    public void atan2(final double[] y, final int yOffset,
+                      final double[] x, final int xOffset,
+                      final double[] result, final int resultOffset) {
+
+        // compute r = sqrt(x^2+y^2)
+        double[] tmp1 = new double[getSize()];
+        multiply(x, xOffset, x, xOffset, tmp1, 0);      // x^2
+        double[] tmp2 = new double[getSize()];
+        multiply(y, yOffset, y, yOffset, tmp2, 0);      // y^2
+        add(tmp1, 0, tmp2, 0, tmp2, 0);                 // x^2 + y^2
+        rootN(tmp2, 0, 2, tmp1, 0);                     // r = sqrt(x^2 + y^2)
+
+        if (x[xOffset] >= 0) {
+
+            // compute atan2(y, x) = 2 atan(y / (r + x))
+            add(tmp1, 0, x, xOffset, tmp2, 0);          // r + x
+            divide(y, yOffset, tmp2, 0, tmp1, 0);       // y /(r + x)
+            atan(tmp1, 0, tmp2, 0);                     // atan(y / (r + x))
+            for (int i = 0; i < tmp2.length; ++i) {
+                result[resultOffset + i] = 2 * tmp2[i]; // 2 * atan(y / (r + x))
+            }
+
+        } else {
+
+            // compute atan2(y, x) = +/- pi - 2 atan(y / (r - x))
+            subtract(tmp1, 0, x, xOffset, tmp2, 0);     // r - x
+            divide(y, yOffset, tmp2, 0, tmp1, 0);       // y /(r - x)
+            atan(tmp1, 0, tmp2, 0);                     // atan(y / (r - x))
+            result[resultOffset] =
+                    ((tmp2[0] <= 0) ? -FastMath.PI : FastMath.PI) - 2 * tmp2[0]; // +/-pi - 2 * atan(y / (r - x))
+            for (int i = 1; i < tmp2.length; ++i) {
+                result[resultOffset + i] = -2 * tmp2[i]; // +/-pi - 2 * atan(y / (r - x))
+            }
+
+        }
+
+        // fix value to take special cases (+0/+0, +0/-0, -0/+0, -0/-0, +/-infinity) correctly
+
+    }
+09:37:22.277 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.analysis.differentiation.DSCompiler ===1401
+09:37:22.567 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+result[resultOffset + i] = 2 * tmp2[i];
+09:37:22.569 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (tmp2.length() <= i) {
+	
+
+}
+
+09:37:22.569 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (result.length() <= resultOffset + i) {
+	
+
+}
+
+09:37:22.574 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:37:24.296 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-10 ---Fixer: fix fail because of failed compiling! 
+09:37:24.297 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:37:26.273 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-10 ---Fixer: fix fail because of failed compiling! 
+09:37:26.274 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (result != null) {
+	
+
+}
+
+09:37:26.274 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (result == null) {
+    throw new IllegalArgumentException("Null 'result' argument.");
+}
+
+09:37:26.274 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (result == null) {
+    return;
+}
+
+09:37:26.274 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (tmp2 != null) {
+	
+
+}
+
+09:37:26.274 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (tmp2 == null) {
+    throw new IllegalArgumentException("Null 'tmp2' argument.");
+}
+
+09:37:26.275 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (tmp2 == null) {
+    return;
+}
+
+09:37:26.276 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+09:37:28.785 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+09:37:28.786 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+09:40:09.075 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.analysis.differentiation.DerivativeStructureTest::testAtan2SpecialCases]
+09:40:09.076 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 0, []
+09:40:09.076 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=0, fp=1, pf=0, pp=Unknown
+09:40:09.081 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] CleanFix found
+09:40:09.088 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-10/aggregatedSusInfo.profl
+09:40:09.088 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.analysis.differentiation.DSCompiler:atan2([DI[DI[DI)V in org.apache.commons.math3.analysis.differentiation.DSCompiler:1401
+09:40:09.089 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Succeeded to fix the bug Math-10====================
+09:40:10.364 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Finish off fixing======
+09:40:10.380 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-10/aggregatedSusInfo.profl
+Succeeded to fix bug Math-10

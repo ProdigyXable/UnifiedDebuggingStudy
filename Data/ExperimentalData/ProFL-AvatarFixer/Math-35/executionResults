@@ -1,0 +1,443 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-35
+13:09:19.202 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-35 Failed Tests: 4
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/35.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/35.txt
+13:09:26.108 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+13:09:26.152 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-35/ochiai.txt
+13:09:26.154 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+13:09:26.154 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math3.genetics.ElitisticListPopulation ===36
+13:09:26.894 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+private double elitismRate = 0.9;
+13:09:26.896 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math3/genetics/ElitisticListPopulation.java:36 ---
+13:09:26.906 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math3.genetics.ListPopulation ===50
+13:09:26.953 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * Creates a new ListPopulation instance.
+     *
+     * @param chromosomes list of chromosomes in the population
+     * @param populationLimit maximal size of the population
+     * @throws NumberIsTooLargeException if the list of chromosomes exceeds the population limit
+     * @throws NotPositiveException if the population limit is not a positive number (&lt; 1)
+     */
+    public ListPopulation(final List<Chromosome> chromosomes, final int populationLimit) {
+        if (chromosomes.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+        if (populationLimit <= 0) {
+            throw new NotPositiveException(LocalizedFormats.POPULATION_LIMIT_NOT_POSITIVE, populationLimit);
+        }
+
+        this.chromosomes = chromosomes;
+        this.populationLimit = populationLimit;
+    }
+13:09:26.953 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math3/genetics/ListPopulation.java:50 ---
+13:09:26.954 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math3.genetics.ElitisticListPopulation ===50
+13:09:26.978 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+super(chromosomes, populationLimit);
+13:09:26.979 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math3/genetics/ElitisticListPopulation.java:50 ---
+13:09:26.979 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: super(populationLimit, populationLimit);
+13:09:26.980 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: super(elitismRate, populationLimit);
+13:09:26.980 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: super(this.elitismRate, populationLimit);
+13:09:26.980 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: super(chromosomes, chromosomes);
+13:09:26.980 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: super(chromosomes, elitismRate);
+13:09:26.980 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: super(chromosomes, this.elitismRate);
+---------------- Testing New Patch ----------------
+13:09:26.980 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:28.037 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:09:28.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:29.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:09:29.038 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:30.000 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:09:30.000 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:31.095 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:09:31.095 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:32.032 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:09:32.032 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:33.154 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+13:09:33.155 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes != null) {
+	
+
+}
+
+13:09:33.155 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes == null) {
+    throw new IllegalArgumentException("Null 'chromosomes' argument.");
+}
+
+13:09:33.155 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+13:09:33.155 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:34.184 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:09:34.185 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:35.197 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:09:35.197 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:36.222 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+13:09:36.223 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:09:36.223 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:37.198 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:09:37.198 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test]
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=3, pp=Unknown
+13:10:36.904 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:10:36.906 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:10:36.906 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ElitisticListPopulation:<init>(Ljava/util/List;ID)V in org.apache.commons.math3.genetics.ElitisticListPopulation:50
+13:10:36.906 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-35
+13:10:36.906 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:10:36.907 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:10:37.912 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:10:37.912 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:11:39.579 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test]
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=3, pp=Unknown
+13:11:39.580 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:11:39.581 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:11:39.581 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ElitisticListPopulation:<init>(Ljava/util/List;ID)V in org.apache.commons.math3.genetics.ElitisticListPopulation:50
+13:11:39.581 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-35
+---------------- Testing New Patch ----------------
+13:11:39.582 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:11:40.704 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:11:40.704 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:12:42.040 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:12:42.040 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test]
+13:12:42.040 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:12:42.040 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:12:42.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:12:42.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:12:42.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:12:42.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:12:42.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:12:42.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=3, pp=Unknown
+13:12:42.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:12:42.043 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:12:42.044 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ElitisticListPopulation:<init>(Ljava/util/List;ID)V in org.apache.commons.math3.genetics.ElitisticListPopulation:50
+13:12:42.044 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-35
+13:12:42.044 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:12:42.044 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:12:43.056 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:12:43.056 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:13:45.571 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test]
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=3, pp=Unknown
+13:13:45.572 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:13:45.574 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:13:45.574 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ElitisticListPopulation:<init>(Ljava/util/List;ID)V in org.apache.commons.math3.genetics.ElitisticListPopulation:50
+13:13:45.574 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 7 Math-35
+13:13:45.575 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math3.genetics.ListPopulation ===51
+13:13:45.613 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+if (chromosomes.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+13:13:45.614 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math3/genetics/ListPopulation.java:51 ---
+13:13:45.615 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes.size() >= populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+13:13:45.615 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes.size() <= populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+13:13:45.615 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes.size() < populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+---------------- Testing New Patch ----------------
+13:13:45.615 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:13:46.792 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:13:46.792 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:14:43.950 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:14:43.950 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 8, [- org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test]
+13:14:43.950 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome
+13:14:43.950 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:14:43.950 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:14:43.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:14:43.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:14:43.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:14:43.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:14:43.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:14:43.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=4, pp=Unknown
+13:14:43.951 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:14:43.953 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:14:43.953 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:14:43.953 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 8 Math-35
+---------------- Testing New Patch ----------------
+13:14:43.954 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:14:45.284 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:14:45.284 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test, - org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome]
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:15:41.645 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome
+13:15:41.646 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=5, pp=Unknown
+13:15:41.646 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:15:41.652 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:15:41.652 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:15:41.652 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Math-35
+---------------- Testing New Patch ----------------
+13:15:41.653 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:15:42.756 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:15:42.756 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome]
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=1, pp=Unknown
+13:16:38.800 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:16:38.815 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:16:38.816 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:16:38.816 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 5 Math-35
+13:16:38.817 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (populationLimit.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+13:16:38.817 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (this.populationLimit.size() > populationLimit) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+13:16:38.817 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes.size() > chromosomes) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+13:16:38.817 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes.size() > this.chromosomes) {
+            throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+        }
+---------------- Testing New Patch ----------------
+13:16:38.817 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:16:39.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:16:39.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:16:40.835 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:16:40.835 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:16:41.856 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:16:41.856 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:16:42.855 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+13:16:42.856 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes != null) {
+	
+
+}
+
+13:16:42.856 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes == null) {
+    throw new IllegalArgumentException("Null 'chromosomes' argument.");
+}
+
+13:16:42.856 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (chromosomes == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+13:16:42.856 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:16:43.908 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:16:43.908 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:17:45.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:17:45.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:17:45.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:17:45.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:17:45.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:17:45.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:17:45.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:17:45.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:17:45.387 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:17:45.387 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:17:45.387 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-35
+---------------- Testing New Patch ----------------
+13:17:45.387 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:17:46.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:17:46.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:18:49.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:18:49.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:18:49.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:18:49.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:18:49.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:18:49.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:18:49.869 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:18:49.870 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:18:50.796 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:18:50.796 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:18:50.797 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-35
+---------------- Testing New Patch ----------------
+13:18:50.797 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:18:51.831 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+13:18:51.832 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw new NumberIsTooLargeException(LocalizedFormats.LIST_OF_CHROMOSOMES_BIGGER_THAN_POPULATION_SIZE,
+                                                chromosomes.size(), populationLimit, false);
+13:18:51.832 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+---------------- Testing New Patch ----------------
+13:18:51.832 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:18:52.895 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:18:52.896 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:18:53.917 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:18:53.917 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:19:50.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:19:50.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:19:50.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:19:50.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:19:50.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:19:50.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:19:50.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:19:50.599 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:19:55.620 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:19:55.620 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:19:55.620 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-35
+13:19:55.621 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:19:55.621 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:19:56.739 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:19:56.740 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:20:53.418 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:20:53.418 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test, - org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome]
+13:20:53.418 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome
+13:20:53.418 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:20:53.418 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:20:53.419 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:20:53.419 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:20:53.419 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:20:53.419 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:20:53.419 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:20:53.419 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome
+13:20:53.419 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=5, pp=Unknown
+13:20:53.419 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:21:26.100 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:21:26.100 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:21:26.100 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Math-35
+13:21:26.100 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:21:26.101 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:21:27.058 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:21:27.058 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:22:27.627 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:22:27.627 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test, - org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome]
+13:22:27.627 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome
+13:22:27.627 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:22:27.627 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:22:27.627 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:22:27.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:22:27.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:22:27.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:22:27.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:22:27.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome
+13:22:27.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=5, pp=Unknown
+13:22:27.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:24:27.884 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:24:27.884 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:24:27.884 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Math-35
+---------------- Testing New Patch ----------------
+13:24:27.884 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:24:28.818 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:24:28.818 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:25:25.788 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test, - org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome]
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=5, pp=Unknown
+13:25:25.789 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+13:37:08.267 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+13:37:08.267 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+13:37:08.267 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Math-35
+13:37:08.267 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:37:08.268 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:37:09.331 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:37:09.332 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:38:00.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+13:38:00.628 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test, - org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome]
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=5, pp=Unknown
+13:38:00.629 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+15:07:36.787 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-35/aggregatedSusInfo.profl
+15:07:36.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:<init>(Ljava/util/List;I)V in org.apache.commons.math3.genetics.ListPopulation:51
+15:07:36.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 9 Math-35
+15:07:36.787 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+15:07:36.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+15:07:37.836 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+15:07:37.836 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh]
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 9, [- org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow, - org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh, - org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching, - org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test, - org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test, - org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome]
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ChromosomeTest::testFindSameChromosome
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooLow
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooHigh
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testConstructorTooLow
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.genetics.ElitisticListPopulationTest::testChromosomeListConstructorTooHigh
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.FitnessCachingTest::testFitnessCaching
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestBinary::test
+15:08:40.026 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.GeneticAlgorithmTestPermutations::test
+15:08:40.027 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.genetics.ListPopulationTest::testGetFittestChromosome
+15:08:40.027 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=5, pp=Unknown
+15:08:40.027 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

@@ -1,0 +1,295 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-104
+01:55:16.827 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-104 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/104.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/104.txt
+01:55:19.740 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:55:19.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/generalSusInfo.profl
+01:55:19.797 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:55:19.798 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.special.Gamma ===200
+01:55:21.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return regularizedGammaQ(a, x, DEFAULT_EPSILON, Integer.MAX_VALUE);
+01:55:21.642 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.special.Gamma:200 ---
+01:55:21.642 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/special/Gamma.java 200 ---
+01:55:21.642 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:55:21.958 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaP(a, x, DEFAULT_EPSILON, Integer.MAX_VALUE);
+01:55:21.959 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(x, DEFAULT_EPSILON, Integer.MAX_VALUE);
+01:55:21.959 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(a, DEFAULT_EPSILON, Integer.MAX_VALUE);
+01:55:21.959 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(a, x, Integer.MAX_VALUE);
+01:55:21.960 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(a, x, DEFAULT_EPSILON);
+01:55:21.960 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(x, a, DEFAULT_EPSILON, Integer.MAX_VALUE);
+01:55:21.960 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(x, x, a, Integer.MAX_VALUE);
+01:55:21.960 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(x, x, x, Integer.MAX_VALUE);
+01:55:21.960 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(a, a, a, Integer.MAX_VALUE);
+01:55:21.960 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(a, a, x, Integer.MAX_VALUE);
+---------------- Testing New Patch ----------------
+01:55:21.982 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:24.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:24.128 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:55:44.781 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:55:44.782 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+01:55:44.782 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+01:55:44.782 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+01:55:44.782 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+01:55:44.782 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:55:44.786 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+01:55:44.786 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+01:55:44.786 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-104
+---------------- Testing New Patch ----------------
+01:55:44.787 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:46.866 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:55:46.866 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:48.795 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:55:48.795 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:50.542 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:55:50.543 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:52.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:55:52.295 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:55:54.146 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:55:54.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:14.440 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:56:14.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+01:56:14.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+01:56:14.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+01:56:14.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+01:56:14.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:56:14.441 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:56:14.462 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+01:56:14.465 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+01:56:14.465 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Math-104
+---------------- Testing New Patch ----------------
+01:56:14.466 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:16.253 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:16.253 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:35.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:56:35.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+01:56:35.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+01:56:35.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive
+01:56:35.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+01:56:35.272 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+01:56:35.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+01:56:35.273 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:56:35.276 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+01:56:35.277 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+01:56:35.277 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-104
+---------------- Testing New Patch ----------------
+01:56:35.277 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:36.898 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:36.898 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:56:55.181 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:56:55.181 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+01:56:55.181 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+01:56:55.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive
+01:56:55.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+01:56:55.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive
+01:56:55.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+01:56:55.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+01:56:55.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:56:55.199 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+01:56:55.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+01:56:55.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-104
+---------------- Testing New Patch ----------------
+01:56:55.200 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:56:56.999 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:56:56.999 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:15.318 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:57:15.318 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+01:57:15.318 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+01:57:15.318 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative
+01:57:15.318 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan
+01:57:15.318 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+01:57:15.319 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=3, pp=Unknown
+01:57:15.319 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:57:15.612 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+01:57:15.612 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+01:57:15.612 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Math-104
+---------------- Testing New Patch ----------------
+01:57:15.613 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:17.373 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:17.373 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:35.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:57:35.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+01:57:35.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+01:57:35.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan
+01:57:35.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+01:57:35.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:57:35.207 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:57:36.790 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+01:57:36.790 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+01:57:36.790 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Math-104
+01:57:37.136 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(a, x, HALF_LOG_2_PI, Integer.MAX_VALUE);
+---------------- Testing New Patch ----------------
+01:57:37.137 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:57:39.071 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:57:39.071 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:57:56.555 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:57:56.555 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:57:56.555 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+01:57:56.555 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:57:56.555 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:58:12.570 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+01:58:12.571 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+01:58:12.571 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-104
+01:58:12.662 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (Integer.MAX_VALUE != null) {
+	
+
+	}
+
+01:58:12.662 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (Integer.MAX_VALUE == null) {
+	    throw new IllegalArgumentException("Null 'Integer.MAX_VALUE' argument.");
+	}
+
+01:58:12.663 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (Integer.MAX_VALUE == null) {
+	    return 0.0;
+	}
+
+01:58:12.663 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (Integer.MAX_VALUE == null) Integer.MAX_VALUE = new null();
+ 
+01:58:12.663 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (Integer.MAX_VALUE == null) return HALF_LOG_2_PI;
+	 
+---------------- Testing New Patch ----------------
+01:58:12.665 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:14.297 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:58:14.297 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:15.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:58:15.675 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:17.499 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:58:17.500 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:18.344 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:58:18.345 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:19.883 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-104 ---Fixer: fix fail because of failed compiling! 
+01:58:19.993 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return regularizedGammaQ(a, x, HALF_LOG_2_PI, Integer.MAX_VALUE);
+---------------- Testing New Patch ----------------
+01:58:20.092 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:58:20.093 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:58:21.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:58:21.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:58:36.102 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+01:58:36.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero]
+01:58:36.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+01:58:36.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNegative
+01:58:36.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNanPositive
+01:58:36.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaZeroPositive
+01:58:36.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaNegativePositive
+01:58:36.103 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveNan
+01:58:36.104 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositiveZero
+01:58:36.104 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+01:58:36.104 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+02:00:49.626 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+02:00:49.626 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DD)D in org.apache.commons.math.special.Gamma:200
+02:00:49.626 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 7 Math-104
+02:00:49.646 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math.special.Gamma ===257
+02:00:49.669 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+ret = Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.669 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math.special.Gamma:257 ---
+02:00:49.671 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math/special/Gamma.java 257 ---
+02:00:49.671 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+02:00:49.688 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret += Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret -= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret *= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret /= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret %= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret &= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret ^= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret |= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret <<= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret >>= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: ret >>>= Math.exp(-x + (a * Math.log(x)) - logGamma(a)) * ret;
+---------------- Testing New Patch ----------------
+02:00:49.689 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:00:50.754 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:00:50.755 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:01:03.700 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+02:01:03.700 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 18, [- org.apache.commons.math.distribution.ChiSquareDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.ChiSquareDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testValues, - org.apache.commons.math.distribution.GammaDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.distribution.PoissonDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.PoissonDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+02:01:03.700 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.ChiSquareDistributionTest::testInverseCumulativeProbabilities
+02:01:03.700 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.ChiSquareDistributionTest::testCumulativeProbabilities
+02:01:03.700 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testProbabilities
+02:01:03.700 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testValues
+02:01:03.700 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testInverseCumulativeProbabilities
+02:01:03.700 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testCumulativeProbabilities
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.PoissonDistributionTest::testInverseCumulativeProbabilities
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.PoissonDistributionTest::testCumulativeProbabilities
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareIndependence
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareZeroCount
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareIndependence
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareZeroCount
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+02:01:03.701 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareIndependence
+02:01:03.702 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareZeroCount
+02:01:03.702 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+02:01:03.702 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=17, pp=Unknown
+02:01:03.702 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+02:18:49.579 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+02:18:49.579 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DDDI)D in org.apache.commons.math.special.Gamma:257
+02:18:49.579 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 18 Math-104
+---------------- Testing New Patch ----------------
+02:18:49.580 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:18:50.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:18:50.710 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:19:03.018 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 18, [- org.apache.commons.math.distribution.ChiSquareDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.ChiSquareDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testValues, - org.apache.commons.math.distribution.GammaDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.distribution.PoissonDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.PoissonDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.ChiSquareDistributionTest::testInverseCumulativeProbabilities
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.ChiSquareDistributionTest::testCumulativeProbabilities
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testProbabilities
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testValues
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testInverseCumulativeProbabilities
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testCumulativeProbabilities
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.PoissonDistributionTest::testInverseCumulativeProbabilities
+02:19:03.019 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.PoissonDistributionTest::testCumulativeProbabilities
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareIndependence
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareZeroCount
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareIndependence
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareZeroCount
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareIndependence
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareZeroCount
+02:19:03.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+02:19:03.021 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=17, pp=Unknown
+02:19:03.021 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+04:42:28.508 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-104/aggregatedSusInfo.profl
+04:42:28.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math.special.Gamma:regularizedGammaQ(DDDI)D in org.apache.commons.math.special.Gamma:257
+04:42:28.508 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 18 Math-104
+---------------- Testing New Patch ----------------
+04:42:28.509 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+04:42:29.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+04:42:29.641 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+04:42:42.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive]
+04:42:42.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 17, [- org.apache.commons.math.distribution.ChiSquareDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.ChiSquareDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testValues, - org.apache.commons.math.distribution.GammaDistributionTest::testInverseCumulativeProbabilities, - org.apache.commons.math.distribution.GammaDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.distribution.PoissonDistributionTest::testCumulativeProbabilities, - org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareIndependence, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareZeroCount, - org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare]
+04:42:42.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.ChiSquareDistributionTest::testInverseCumulativeProbabilities
+04:42:42.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.ChiSquareDistributionTest::testCumulativeProbabilities
+04:42:42.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testProbabilities
+04:42:42.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testValues
+04:42:42.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testInverseCumulativeProbabilities
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.GammaDistributionTest::testCumulativeProbabilities
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.distribution.PoissonDistributionTest::testCumulativeProbabilities
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.special.GammaTest::testRegularizedGammaPositivePositive
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareIndependence
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquareZeroCount
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareFactoryTest::testChiSquare
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareIndependence
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquareZeroCount
+04:42:42.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.ChiSquareTestTest::testChiSquare
+04:42:42.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareIndependence
+04:42:42.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquareZeroCount
+04:42:42.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.stat.inference.TestUtilsTest::testChiSquare
+04:42:42.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=16, pp=Unknown
+04:42:42.582 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

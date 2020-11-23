@@ -1,0 +1,216 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-100
+07:34:22.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/100.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/100.txt
+07:34:24.658 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+07:34:24.672 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-100/generalSusInfo.profl
+07:34:24.674 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+07:34:24.674 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.SimpleEstimationProblem ===58
+07:34:25.693 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return (EstimatedParameter[]) parameters.toArray(new EstimatedParameter[parameters.size()]);
+07:34:25.705 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: Object _tempVar = parameters.toArray(new EstimatedParameter[parameters.size()]);
+if (_temVar instanceof EstimatedParameter[]) {
+	
+
+} else {
+	throw new IllegalArgumentException("Illegal argument: parameters.toArray(new EstimatedParameter[parameters.size()])");
+}
+
+07:34:25.707 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:26.796 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:34:26.800 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return (EstimatedParameter[]) parameters.toArray(this.parameters);
+07:34:26.800 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: return (EstimatedParameter[]) parameters.toArray(this.measurements);
+07:34:26.801 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:27.728 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:34:27.729 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:28.672 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:34:28.673 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (parameters != null) {
+	
+
+}
+
+07:34:28.674 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (parameters == null) {
+    throw new IllegalArgumentException("Null 'parameters' argument.");
+}
+
+07:34:28.674 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (parameters == null) {
+    return null;
+}
+
+07:34:28.674 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:29.554 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:34:29.555 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:30.572 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:30.572 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:34:42.662 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:34:42.662 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:34:42.662 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:34:42.662 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:34:42.663 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:34:42.676 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-100/aggregatedSusInfo.profl
+07:34:42.676 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.estimation.SimpleEstimationProblem:getAllParameters()[Lorg/apache/commons/math/estimation/EstimatedParameter; in org.apache.commons.math.estimation.SimpleEstimationProblem:58
+07:34:42.676 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-100
+07:34:42.676 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:43.584 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:43.584 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:34:56.500 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:34:56.500 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:34:56.500 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:34:56.500 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:34:56.501 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:34:56.623 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-100/aggregatedSusInfo.profl
+07:34:56.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.estimation.SimpleEstimationProblem:getAllParameters()[Lorg/apache/commons/math/estimation/EstimatedParameter; in org.apache.commons.math.estimation.SimpleEstimationProblem:58
+07:34:56.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-100
+07:34:56.623 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===173
+07:34:56.751 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+sum += jacobian[k + i] * jacobian[k + j];
+07:34:56.752 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (jacobian != null) {
+	
+
+}
+
+07:34:56.752 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (jacobian == null) {
+    throw new IllegalArgumentException("Null 'jacobian' argument.");
+}
+
+07:34:56.752 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (jacobian == null) {
+    return null;
+}
+
+07:34:56.753 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:34:57.726 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:34:57.726 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:10.317 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:10.317 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:10.317 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:35:10.317 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:10.317 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:35:10.406 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-100/aggregatedSusInfo.profl
+07:35:10.406 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D in org.apache.commons.math.estimation.AbstractEstimator:173
+07:35:10.406 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-100
+07:35:10.407 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:11.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:11.464 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:23.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:23.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:23.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:35:23.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:23.587 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:35:24.493 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-100/aggregatedSusInfo.profl
+07:35:24.493 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D in org.apache.commons.math.estimation.AbstractEstimator:173
+07:35:24.493 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-100
+07:35:24.494 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:25.441 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:35:25.441 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:35:37.892 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:37.892 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:37.893 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:35:37.893 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:37.893 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:35:54.604 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-100/aggregatedSusInfo.profl
+07:35:54.604 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D in org.apache.commons.math.estimation.AbstractEstimator:173
+07:35:54.604 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-100
+07:35:54.605 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (jacobian.length() <= k + j) {
+	
+
+}
+
+07:35:54.606 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (jacobian.length() <= k + i) {
+	
+
+}
+
+07:35:54.606 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:55.723 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:55.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:56.775 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:56.776 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===172
+07:35:56.889 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+for (int k = 0; k < max; k += cols) {
+                    sum += jacobian[k + i] * jacobian[k + j];
+                }
+07:35:56.890 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===171
+07:35:56.998 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+double sum = 0;
+07:35:56.999 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===170
+07:35:57.110 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+for (int j = i; j < cols; ++j) {
+                double sum = 0;
+                for (int k = 0; k < max; k += cols) {
+                    sum += jacobian[k + i] * jacobian[k + j];
+                }
+                jTj[i][j] = sum;
+                jTj[j][i] = sum;
+            }
+07:35:57.111 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===169
+07:35:57.187 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+for (int i = 0; i < cols; ++i) {
+            for (int j = i; j < cols; ++j) {
+                double sum = 0;
+                for (int k = 0; k < max; k += cols) {
+                    sum += jacobian[k + i] * jacobian[k + j];
+                }
+                jTj[i][j] = sum;
+                jTj[j][i] = sum;
+            }
+        }
+07:35:57.188 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===168
+07:35:57.239 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+double[][] jTj = new double[cols][cols];
+07:35:57.239 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===167
+07:35:57.282 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+final int max  = cols * rows;
+07:35:57.282 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===166
+07:35:57.318 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+final int cols = problem.getAllParameters().length;
+07:35:57.319 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (problem.getAllParameters().length != null) {
+	
+
+}
+
+07:35:57.319 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (problem.getAllParameters().length == null) {
+    throw new IllegalArgumentException("Null 'problem.getAllParameters().length' argument.");
+}
+
+07:35:57.319 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (problem.getAllParameters().length == null) {
+    return null;
+}
+
+07:35:57.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:58.291 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:58.291 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:35:59.249 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:59.250 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:36:00.157 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:36:00.165 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: final int cols = problem.getUnboundParameters().length;
+07:36:00.165 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: final int cols = problem.getMeasurements().length;
+07:36:00.165 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:36:01.160 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:36:01.160 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:36:12.675 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:36:12.676 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:36:12.676 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:36:12.676 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:36:12.676 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+07:39:59.553 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-100/aggregatedSusInfo.profl
+07:39:59.554 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D in org.apache.commons.math.estimation.AbstractEstimator:166
+07:39:59.554 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-100
+07:39:59.554 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+07:40:00.382 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+07:40:00.382 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+07:40:10.044 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:40:10.044 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters, - org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting]
+07:40:10.044 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:40:10.044 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting
+07:40:10.044 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:40:10.044 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+08:44:31.325 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Math-100/aggregatedSusInfo.profl
+08:44:31.325 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D in org.apache.commons.math.estimation.AbstractEstimator:166
+08:44:31.325 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-100
+08:44:31.326 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Finish off fixing======
