@@ -37,6 +37,7 @@ def get_static_final(projects, ver, result_list):
                     venn_result.append(0)
 
                 if min <= -1:
+                    print("Rank is below 0 / -1")
                     continue
                 if min <= 1: # Top-1
                     tops[0] += 1
@@ -63,8 +64,7 @@ def get_static_final(projects, ver, result_list):
         else:
             ranks = ranks / actual_ver 
 
-        result = (int(tops[0]), int(tops[1]), int(tops[2]), int(tops[3]), int(tops[4]), int(tops[5]), round(float(ranks[0]),2), round(float(ranks[1]),2),)
-       # result = (int(tops[0]), int(tops[1]), int(tops[2]), round(float(ranks[0]),2), round(float(ranks[1]),2),)
+        result = (int(tops[0]), int(tops[1]), int(tops[2]), int(tops[3]), int(tops[4]), int(tops[5]), float(ranks[0]), float(ranks[1]))
         result = np.array(result, dtype=object)
 
         final_result.append(result)

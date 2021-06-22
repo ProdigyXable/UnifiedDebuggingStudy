@@ -1,10 +1,6 @@
 === Number of PatchCategory.CleanFixFull = 0 ===
 === Number of PatchCategory.CleanFixPartial = 0 ===
-=== Number of PatchCategory.NoisyFixFull = 0 ===
-=== Number of PatchCategory.NoisyFixPartial = 256 ===
-	 com.google.javascript.jscomp.AbstractPeepholeOptimization:mayHaveSideEffects(Lcom/google/javascript/rhino/Node;)Z#118 = 3
-	 com.google.javascript.jscomp.AstValidator:validateBinaryOp(Lcom/google/javascript/rhino/Node;)V#742 = 1
-	 com.google.javascript.jscomp.AstValidator:validateScript(Lcom/google/javascript/rhino/Node;)V#86 = 2
+=== Number of PatchCategory.NoisyFixFull = 96 ===
 	 com.google.javascript.jscomp.Compiler:checkFirstModule(Ljava/util/List;)V#387 = 1
 	 com.google.javascript.jscomp.Compiler:getAllInputsFromModules(Ljava/util/List;)Ljava/util/List;#424 = 1
 	 com.google.javascript.jscomp.Compiler:getAllInputsFromModules(Ljava/util/List;)Ljava/util/List;#425 = 3
@@ -21,6 +17,32 @@
 	 com.google.javascript.jscomp.JSSourceFile:<init>(Lcom/google/javascript/jscomp/SourceFile;)V#72 = 2
 	 com.google.javascript.jscomp.JSSourceFile:fromCode(Ljava/lang/String;Ljava/lang/String;)Lcom/google/javascript/jscomp/JSSourceFile;#55 = 2
 	 com.google.javascript.jscomp.JSSourceFile:getCode()Ljava/lang/String;#78 = 1
+	 com.google.javascript.jscomp.SourceFile$Preloaded:<init>(Ljava/lang/String;Ljava/lang/String;)V#300 = 4
+	 com.google.javascript.jscomp.SourceFile$Preloaded:<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V#304 = 1
+	 com.google.javascript.jscomp.SourceFile:<init>(Ljava/lang/String;)V#62 = 1
+	 com.google.javascript.jscomp.SourceFile:<init>(Ljava/lang/String;)V#70 = 1
+	 com.google.javascript.jscomp.SourceFile:<init>(Ljava/lang/String;)V#80 = 6
+	 com.google.javascript.jscomp.SourceFile:<init>(Ljava/lang/String;)V#83 = 6
+	 com.google.javascript.jscomp.SourceFile:fromCode(Ljava/lang/String;Ljava/lang/String;)Lcom/google/javascript/jscomp/SourceFile;#260 = 4
+	 com.google.javascript.jscomp.SourceFile:getCode()Ljava/lang/String;#97 = 1
+	 com.google.javascript.jscomp.SourceFile:getName()Ljava/lang/String;#139 = 5
+	 com.google.javascript.jscomp.SourceFile:setCode(Ljava/lang/String;)V#113 = 1
+	 com.google.javascript.jscomp.SourceFile:setOriginalPath(Ljava/lang/String;)V#121 = 1
+	 com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher:parseDirectives(Lcom/google/javascript/rhino/Node;)V#444 = 2
+	 com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher:processAstRoot(Lcom/google/javascript/jscomp/mozilla/rhino/ast/AstRoot;)Lcom/google/javascript/rhino/Node;#426 = 1
+	 com.google.javascript.jscomp.parsing.IRFactory:transform(Lcom/google/javascript/jscomp/mozilla/rhino/ast/AstNode;)Lcom/google/javascript/rhino/Node;#256 = 1
+	 com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String;#1459 = 3
+	 com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String;#1460 = 1
+	 com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String;#1461 = 2
+	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1490 = 3
+	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1495 = 5
+	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1496 = 5
+	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1501 = 3
+	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1503 = 2
+=== Number of PatchCategory.NoisyFixPartial = 160 ===
+	 com.google.javascript.jscomp.AbstractPeepholeOptimization:mayHaveSideEffects(Lcom/google/javascript/rhino/Node;)Z#118 = 3
+	 com.google.javascript.jscomp.AstValidator:validateBinaryOp(Lcom/google/javascript/rhino/Node;)V#742 = 1
+	 com.google.javascript.jscomp.AstValidator:validateScript(Lcom/google/javascript/rhino/Node;)V#86 = 2
 	 com.google.javascript.jscomp.NodeUtil:checkForStateChangeHelper(Lcom/google/javascript/rhino/Node;ZLcom/google/javascript/jscomp/AbstractCompiler;)Z#799 = 5
 	 com.google.javascript.jscomp.NodeUtil:checkForStateChangeHelper(Lcom/google/javascript/rhino/Node;ZLcom/google/javascript/jscomp/AbstractCompiler;)Z#804 = 3
 	 com.google.javascript.jscomp.NodeUtil:checkForStateChangeHelper(Lcom/google/javascript/rhino/Node;ZLcom/google/javascript/jscomp/AbstractCompiler;)Z#859 = 4
@@ -50,35 +72,13 @@
 	 com.google.javascript.jscomp.PeepholeRemoveDeadCode:trySimpilifyUnusedResult(Lcom/google/javascript/rhino/Node;Z)Lcom/google/javascript/rhino/Node;#256 = 3
 	 com.google.javascript.jscomp.PeepholeRemoveDeadCode:trySimpilifyUnusedResult(Lcom/google/javascript/rhino/Node;Z)Lcom/google/javascript/rhino/Node;#259 = 1
 	 com.google.javascript.jscomp.PeepholeRemoveDeadCode:trySimpilifyUnusedResult(Lcom/google/javascript/rhino/Node;Z)Lcom/google/javascript/rhino/Node;#264 = 1
-	 com.google.javascript.jscomp.SourceFile$Preloaded:<init>(Ljava/lang/String;Ljava/lang/String;)V#300 = 4
-	 com.google.javascript.jscomp.SourceFile$Preloaded:<init>(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V#304 = 1
-	 com.google.javascript.jscomp.SourceFile:<init>(Ljava/lang/String;)V#62 = 1
-	 com.google.javascript.jscomp.SourceFile:<init>(Ljava/lang/String;)V#70 = 1
-	 com.google.javascript.jscomp.SourceFile:<init>(Ljava/lang/String;)V#80 = 6
-	 com.google.javascript.jscomp.SourceFile:<init>(Ljava/lang/String;)V#83 = 6
-	 com.google.javascript.jscomp.SourceFile:fromCode(Ljava/lang/String;Ljava/lang/String;)Lcom/google/javascript/jscomp/SourceFile;#260 = 4
-	 com.google.javascript.jscomp.SourceFile:getCode()Ljava/lang/String;#97 = 1
-	 com.google.javascript.jscomp.SourceFile:getName()Ljava/lang/String;#139 = 5
-	 com.google.javascript.jscomp.SourceFile:setCode(Ljava/lang/String;)V#113 = 1
-	 com.google.javascript.jscomp.SourceFile:setOriginalPath(Ljava/lang/String;)V#121 = 1
 	 com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher:isDirective(Lcom/google/javascript/rhino/Node;)Z#462 = 1
-	 com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher:parseDirectives(Lcom/google/javascript/rhino/Node;)V#444 = 2
-	 com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher:processAstRoot(Lcom/google/javascript/jscomp/mozilla/rhino/ast/AstRoot;)Lcom/google/javascript/rhino/Node;#426 = 1
 	 com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher:processFunctionCall(Lcom/google/javascript/jscomp/mozilla/rhino/ast/FunctionCall;)Lcom/google/javascript/rhino/Node;#570 = 1
 	 com.google.javascript.jscomp.parsing.IRFactory$TransformDispatcher:processFunctionCall(Lcom/google/javascript/jscomp/mozilla/rhino/ast/FunctionCall;)Lcom/google/javascript/rhino/Node;#578 = 1
-	 com.google.javascript.jscomp.parsing.IRFactory:transform(Lcom/google/javascript/jscomp/mozilla/rhino/ast/AstNode;)Lcom/google/javascript/rhino/Node;#256 = 1
 	 com.google.javascript.rhino.Node:addChildToBack(Lcom/google/javascript/rhino/Node;)V#676 = 1
 	 com.google.javascript.rhino.Node:addChildToBack(Lcom/google/javascript/rhino/Node;)V#678 = 7
 	 com.google.javascript.rhino.Node:areBitFlagsSet(II)Z#2320 = 15
-	 com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String;#1459 = 3
-	 com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String;#1460 = 1
-	 com.google.javascript.rhino.Node:checkTreeEquals(Lcom/google/javascript/rhino/Node;)Ljava/lang/String;#1461 = 2
 	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1489 = 4
-	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1490 = 3
-	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1495 = 5
-	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1496 = 5
-	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1501 = 3
-	 com.google.javascript.rhino.Node:checkTreeEqualsImpl(Lcom/google/javascript/rhino/Node;)Lcom/google/javascript/rhino/Node$NodeMismatch;#1503 = 2
 	 com.google.javascript.rhino.Node:getLastChild()Lcom/google/javascript/rhino/Node;#623 = 2
 	 com.google.javascript.rhino.Node:isEquivalentTo(Lcom/google/javascript/rhino/Node;ZZ)Z#1676 = 4
 	 com.google.javascript.rhino.Node:isEquivalentTo(Lcom/google/javascript/rhino/Node;ZZ)Z#1679 = 3

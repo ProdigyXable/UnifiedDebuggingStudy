@@ -19,9 +19,20 @@ def get_current_SBFL_value(file):
                 sus_dict[method_name] = value
     return sus_dict
 
+def getProperMethodName(statement_level, method_name):
+    if statement_level == "Method":
+        return_value = method_name.replace(":",".").strip()
+    
+    elif statement_level == "Statement":
+        if "#" in method_name:
+            return_value = method_name.split(":")[0] + ":" + method_name.split("#")[1]  # Actual statement
+            return_value = return_value.replace(":",".").strip()
+    return return_value
+    
 def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category, SusValues, sbfl_formula, profl_variant, statement_level):
     global cachedGeneralSus
     global cachedAggregatedSus
+    global cachedMethodCount 
 
     proj_name = proj + "-" + ver
     
@@ -67,9 +78,41 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
         cachedGeneralSus[proj_name][2] = copy.deepcopy(method_value)
 
     # ----- Add AggregatedSusInfo Data ----- #
-    for tool in tool_combs:
-        tool_proj_name = tool + "-" + proj_name
+    accumulated_method_count = defaultdict(int)
 
+    for tool in tool_combs:
+        repeatedKeys = list()
+        tool_proj_name = tool + "-" + proj_name
+        
+        # ----- Add category_information data----- #
+        if tool_proj_name in cachedMethodCount.keys():
+            pass
+        else:
+            cachedMethodCount[tool_proj_name] = defaultdict(int)
+
+            cat_info_file_path = single_tool_base_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/category_information.profl"
+            try:
+                cat_info_file = open(cat_info_file_path, "r")
+    
+                for cat_line in cat_info_file:
+                    cat_line = cat_line.strip()
+                    if "PatchCategory" in cat_line:
+                        pass
+                    else:
+                        cat_line_data = cat_line.split(" = ")
+                        cat_line_data[0] = getProperMethodName(statement_level, cat_line_data[0])
+                        if not cat_line_data[0] in repeatedKeys:
+                            if not cat_line_data[0] in cachedMethodCount[tool_proj_name].keys():
+                                cachedMethodCount[tool_proj_name][cat_line_data[0]] = 0
+                            cachedMethodCount[tool_proj_name][cat_line_data[0]] = int(cat_line_data[1]) + cachedMethodCount[tool_proj_name][cat_line_data[0]]
+                            #repeatedKeys.add(cat_line_data[0])
+            except:
+                pass
+
+        for methodSig in cachedMethodCount[tool_proj_name].keys():
+            accumulated_method_count[methodSig] = accumulated_method_count[methodSig] + cachedMethodCount[tool_proj_name][methodSig]
+    
+        # ----- Get actual AggregatedSusInfo information ----- #
         if tool_proj_name in cachedAggregatedSus.keys():
             for key in copy.deepcopy(cachedAggregatedSus[tool_proj_name][0]):
                 method_category[key].extend(copy.deepcopy(cachedAggregatedSus[tool_proj_name][0][key]))
@@ -85,8 +128,10 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
             if tool == "TBarFixer":
                 pass
                 #single_tool_base_path = "/media/disk2/sam/TSE-data/UnifiedDebuggingStudy/Results/ASE-Data-new/"
-            aggregated_file = single_tool_base_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/" + profl_variant + "/aggregatedSusInfo.profl"
-      	
+
+            ase_path = "/media/disk2/sam/ASE-data/proflstudy/ResultsFromSam/profl-unmodified-4th-mixed/worst-case/" # ASE-DATA
+            aggregated_file = single_tool_base_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/aggregatedSusInfo.profl"
+            #aggregated_file = ase_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/aggregatedSusInfo.profl"
             cachedAggregatedSus[tool_proj_name] = dict()
             cachedAggregatedSus[tool_proj_name][0] = copy.deepcopy(cachedGeneralSus[proj_name][0])
             cachedAggregatedSus[tool_proj_name][1] = copy.deepcopy(cachedGeneralSus[proj_name][1])
@@ -100,29 +145,23 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
                         method_name = items[3].strip()
                         category = items[2].split("PatchCategory.")[1]
 
-                        if tool == "PraPR": # Fixes small error where there are no full cleanfixes / noisy fixes in prapr data
-                           if category == "CleanFixPartial":
-                               catgeory = "CleanFixFull"
-                           elif category == "NoisyFixPartial":
-                               category = "NoisyFixFull"
                         # --- Set sus value --- #
                         value = 0
-    
+
                         if statement_level == "Method":
-                            method_name = method_name.replace(":",".").strip()
+                            method_name = getProperMethodName(statement_level, method_name)
+
                             if method_name in method_value.keys():
                                 value = method_value[method_name]
     
                         elif statement_level == "Statement":
                             if "#" in method_name:
-                                method_name = method_name.split(":")[0] + ":" + method_name.split("#")[1]  # Actual statement
-                                method_name = method_name.replace(":",".").strip()
+                                method_name = getProperMethodName(statement_level, method_name)
     
                                 if method_name in SusValues.keys():
                                     value = SusValues[method_name]
                             else:
                                 continue
-    
                         if float(value) > 0.0:
                             cachedAggregatedSus[tool_proj_name][0][method_name].append(category_indices.index(category))
                             cachedAggregatedSus[tool_proj_name][1][method_name].append(category)
@@ -132,7 +171,7 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
                             method_all_category[method_name].append(category)
                             method_value[method_name] = value
 
-    return method_category, method_value, method_all_category
+    return method_category, method_value, method_all_category, accumulated_method_count
 
 # method_category_number: number of tool category, for example, if M1 aggregation is CleanFix, count how many tools are also CleanFix for M1
 def get_method_info(method_category, method_value, method_all_category, ver, proj, sbfl_formula):
@@ -149,7 +188,6 @@ def get_method_info(method_category, method_value, method_all_category, ver, pro
         
         method_final_category_index[m] = min_number
         method_category_number[m] = cat_number
-    
     return method_final_category, method_category_number, method_final_category_index
 
 def get_info_for_ranking(method_value, method_final_category, method_all_category_number):
@@ -186,9 +224,8 @@ def update_ranking_by_category_number(cate_number_dict, bug, method_category_num
         offset =  0
     return offset
 
-def get_final_ranking(buggy_methods, method_final_category, method_value, cate_number_dict, method_final_category_index):
+def get_final_ranking(buggy_methods, method_final_category, method_value, cate_number_dict, method_final_category_index, accumulated_method_count):
     global enableUnidebugPlusPlus
-
     rankings = []
     rankings_dict = defaultdict(dict)
 # --- construct rankings structure (sorted by category > sus > plurality) --- #
@@ -199,26 +236,31 @@ def get_final_ranking(buggy_methods, method_final_category, method_value, cate_n
         bug_cat_index = method_final_category_index[bug]
         bug_sus = float(method_value[bug])
  
-        if(enableUnidebugPlusPlus != "True"):
-            plurality_rank = 0
-        else:
+        #if int(bug_cat_index) != category_indices.index("NoneFix"): # Only look at these type of categorizations
+            #continue
+        #print(cat_key)
+
+        if(enableUnidebugPlusPlus == "True"):
             plurality_rank = cate_number_dict[bug_cat + "+" + bug][0]
+        elif(enableUnidebugPlusPlus == "Star"):
+           plurality_rank = accumulated_method_count[methodName]
+        else:
+            plurality_rank = 0
 
         if not bug_sus in rankings_dict[bug_cat_index].keys():
             rankings_dict[bug_cat_index][bug_sus] = defaultdict(list)
         rankings_dict[bug_cat_index][bug_sus][plurality_rank].append(bug)
 
 # --- determine each method's rank --- #
-    bug_rank = 0 
+    bug_rank = 0
     for cat_key in sorted(rankings_dict.keys()):
         for sus_key in sorted(rankings_dict[cat_key].keys(), reverse=True):
             for plurality_key in sorted(rankings_dict[cat_key][sus_key].keys(), reverse=True):
-                bug_rank = bug_rank + len(rankings_dict[cat_key][sus_key][plurality_key])
-
+                bug_rank = bug_rank + len(rankings_dict[cat_key][sus_key][plurality_key]) # WORST-CASE
                 for method_key in sorted(rankings_dict[cat_key][sus_key][plurality_key]):
                     if method_key in buggy_methods:
                        rankings.append(str(bug_rank))
-   
+                #bug_rank = bug_rank + len(rankings_dict[cat_key][sus_key][plurality_key]) # BEST-CASE
     return rankings, rankings_dict
 
 # get the dict: (category + susvalue):[1,2,3,4] "1,2,3,4" represent the number
@@ -264,10 +306,22 @@ def write_results(result_list,comb_file,comb,max_top1):
             value = int(result_list[0])
             print("\t- Best Top1 found! (previous max vs now)", str(max_top1), value)
             max_top1 = value
-        
-        for r in result_list:
-            f.write(str(r) + " ")
-        f.write("from " + comb)
+       
+        f.write(" ".join(
+        [
+        "{:d}".format(result_list[0]),
+        "{:d}".format(result_list[1]),
+        "{:d}".format(result_list[2]),
+        "{:d}".format(result_list[3]),
+        "{:d}".format(result_list[4]),
+        "{:d}".format(result_list[5]),
+        "{:3.06f}".format(result_list[6]),
+        "{:3.06f}".format(result_list[7]),
+         ]))
+ 
+        if(comb == ""):
+            comb = "SBFL"
+        f.write(" from " + comb)
         f.write("\n")
     return max_top1
 
@@ -300,16 +354,24 @@ def outputAggregated(all_methods_rank, proj, ver, variant, combinations, categor
     for cat_key in sorted(all_methods_rank.keys()):
         for sus_key in sorted(all_methods_rank[cat_key].keys(), reverse=True):
             for plurality_key in sorted(all_methods_rank[cat_key][sus_key].keys(), reverse=True):
-                bug_rank = bug_rank + len(all_methods_rank[cat_key][sus_key][plurality_key])
+                bug_rank = bug_rank + len(all_methods_rank[cat_key][sus_key][plurality_key]) # WORST-CASE
 
                 for method_key in sorted(all_methods_rank[cat_key][sus_key][plurality_key]):
-                    message = "|".join(["{:04d}".format(bug_rank), "{:06f}".format(sus_key), "PatchCategory." + category_indices[cat_key], "{:03d}".format(plurality_key), method_key])
+                    message = "|".join(["{:04d}".format(bug_rank), "{:06f}".format(sus_key), "PatchCategory." + category_indices[cat_key], "{:010d}".format(plurality_key), method_key])
 
                     if method_key in buggy_methods:
                         message = "***" + message + "***"
 
+                        if int(bug_rank) <= 1:
+                           message = "{} RankTop-1".format(message)
+                        if int(bug_rank) <= 3:
+                           message = "{} RankTop-3".format(message)
+                        if int(bug_rank) <= 5:
+                           message = "{} RankTop-5".format(message)
+
                     f.write(message)
                     f.write("\n")
+                #bug_rank = bug_rank + len(all_methods_rank[cat_key][sus_key][plurality_key]) # BEST-CASE
 
 
 # ------------ Beginning of actual script ------------#
@@ -317,6 +379,7 @@ first_write = False
 
 cachedGeneralSus = dict()
 cachedAggregatedSus = dict()
+cachedMethodCount = dict()
 
 single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/" # TSE-DATA
 
@@ -357,8 +420,10 @@ max_top1 = 0
 index = 0
 
 for comb in tool_combinations:
-    if comb.startswith("#"):
-         print("---", comb[1:].strip() ,"---")
+    if comb.startswith("#"): # Provide way for clean data separation
+        print("---", comb[1:].strip() ,"---")
+    elif comb.startswith("!"): # Skip line
+        pass
     else:    
         tool_combs = comb.split()
         for current_iteration_number in range(0, len(projects)): # Each project
@@ -384,7 +449,8 @@ for comb in tool_combinations:
     		# method value = dict of method suspicious values
     		# method_category = index variant describing all the categories assigned to a tool
     		# method_all_category = describes all categories assigned per method
-                    method_category, method_value, method_all_category = get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category, SusValues, sbfl_formula, profl_variant, statement_level)
+                    method_category, method_value, method_all_category, accumulated_method_count = get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category, SusValues, sbfl_formula, profl_variant, statement_level)
+                    # print(method_all_category)
     		# method_final_category = describes best category per method
     		# method_final_category_index = describes index of best category per method
     		# method_category_number = describes the number of tools which assign each method's best category
@@ -394,7 +460,7 @@ for comb in tool_combinations:
     
                     # buggy_methods_rank = describes the ranks of specific buggy methods
                     # all_methods_rank = describes all the information needed to accurately detrmine the rank of all methods
-                    buggy_methods_rank, all_methods_rank = get_final_ranking(buggy_methods, method_final_category, method_value, cate_number_dict, method_final_category_index)
+                    buggy_methods_rank, all_methods_rank = get_final_ranking(buggy_methods, method_final_category, method_value, cate_number_dict, method_final_category_index, accumulated_method_count)
                     buggy_methods_rank_string = ",".join(buggy_methods_rank)
              
                     result_list[current_iteration_number][int(ver) - 1] = buggy_methods_rank_string
