@@ -90,7 +90,7 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
         else:
             cachedMethodCount[tool_proj_name] = defaultdict(int)
 
-            cat_info_file_path = single_tool_base_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/category_information.profl"
+            cat_info_file_path = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/category_information.profl"
             try:
                 cat_info_file = open(cat_info_file_path, "r")
     
@@ -129,9 +129,7 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
                 pass
                 #single_tool_base_path = "/media/disk2/sam/TSE-data/UnifiedDebuggingStudy/Results/ASE-Data-new/"
 
-            ase_path = "/media/disk2/sam/ASE-data/proflstudy/ResultsFromSam/profl-unmodified-4th-mixed/worst-case/" # ASE-DATA
-            aggregated_file = single_tool_base_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/aggregatedSusInfo.profl"
-            #aggregated_file = ase_path + "ProFL-" + tool + "/" + proj + "-" + ver + "/aggregatedSusInfo.profl"
+            aggregated_file = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/aggregatedSusInfo.profl"
             cachedAggregatedSus[tool_proj_name] = dict()
             cachedAggregatedSus[tool_proj_name][0] = copy.deepcopy(cachedGeneralSus[proj_name][0])
             cachedAggregatedSus[tool_proj_name][1] = copy.deepcopy(cachedGeneralSus[proj_name][1])
@@ -244,6 +242,10 @@ def get_final_ranking(buggy_methods, method_final_category, method_value, cate_n
             plurality_rank = cate_number_dict[bug_cat + "+" + bug][0]
         elif(enableUnidebugPlusPlus == "Star"):
            plurality_rank = accumulated_method_count[methodName]
+        elif(enableUnidebugPlusPlus == "TrueStar"):
+            plurality_rank = (cate_number_dict[bug_cat + "+" + bug][0] * 100) + accumulated_method_count[methodName]
+        elif(enableUnidebugPlusPlus == "StarTrue"):
+           plurality_rank = (accumulated_method_count[methodName] * 100) + (cate_number_dict[bug_cat + "+" + bug][0])
         else:
             plurality_rank = 0
 
@@ -382,6 +384,7 @@ cachedAggregatedSus = dict()
 cachedMethodCount = dict()
 
 single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/" # TSE-DATA
+single_tool_base_data = "/media/disk2/sam/TSE-data/uds2/Data/PatchCountData/"
 
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
 unmodified_category = sys.argv[2]  #four mixed options: "CleanFix","NoisyFix","NoneFix","NegFix"
