@@ -7,6 +7,7 @@ from collections import defaultdict
 import numpy as np
 import os
 import utils as ut
+import time
 
 def get_current_SBFL_value(file):
     sus_dict = dict() 
@@ -58,6 +59,12 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
                     mSus = items[1]
                     mName = items[2].replace(":",".").strip()
                  
+                    if(mName in SusValues.keys()):
+                        mSus = SusValues[mName]
+                    else:
+                        mSus = items[1] 
+                        mSus = 0 # Skip methods not found SusValues file 
+
                     # ------ Added unmodified category to all methods----- #
                     if float(mSus) > 0.0:
                         method_category[mName].append(category_indices.index(unmodified_category))
@@ -90,7 +97,7 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
         else:
             cachedMethodCount[tool_proj_name] = defaultdict(int)
 
-            cat_info_file_path = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/category_information.profl"
+            cat_info_file_path = patch_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/category_information.profl"
             try:
                 cat_info_file = open(cat_info_file_path, "r")
     
@@ -125,11 +132,11 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
         else: 
             if not os.path.exists(single_tool_base_path + "ProFL-" + tool):
                 print("Missing tool path", single_tool_base_path, "ProFL-" + tool)
-            if tool == "TBarFixer":
-                pass
-                #single_tool_base_path = "/media/disk2/sam/TSE-data/UnifiedDebuggingStudy/Results/ASE-Data-new/"
 
-            aggregated_file = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/aggregatedSusInfo.profl"
+            if statement_level == "Statement":
+                aggregated_file = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/aggregatedSusInfo.profl"
+            else:
+                aggregated_file = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/aggregatedSusInfo.profl"
             cachedAggregatedSus[tool_proj_name] = dict()
             cachedAggregatedSus[tool_proj_name][0] = copy.deepcopy(cachedGeneralSus[proj_name][0])
             cachedAggregatedSus[tool_proj_name][1] = copy.deepcopy(cachedGeneralSus[proj_name][1])
@@ -142,7 +149,6 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
                         items = line.strip().split("|")
                         method_name = items[3].strip()
                         category = items[2].split("PatchCategory.")[1]
-
                         # --- Set sus value --- #
                         value = 0
 
@@ -234,10 +240,6 @@ def get_final_ranking(buggy_methods, method_final_category, method_value, cate_n
         bug_cat_index = method_final_category_index[bug]
         bug_sus = float(method_value[bug])
  
-        #if int(bug_cat_index) != category_indices.index("NoneFix"): # Only look at these type of categorizations
-            #continue
-        #print(cat_key)
-
         if(enableUnidebugPlusPlus == "True"):
             plurality_rank = cate_number_dict[bug_cat + "+" + bug][0]
         elif(enableUnidebugPlusPlus == "Star"):
@@ -295,7 +297,7 @@ def read_comb(comb_file):
             co_list.append(line.strip())
     return co_list
 
-def write_results(result_list,comb_file,comb,max_top1):
+def write_results(result_list,comb_file,comb,max_top1, start_time):
     global first_write
     if(first_write is False):
         with open("result." + comb_file,'w') as f:
@@ -309,6 +311,8 @@ def write_results(result_list,comb_file,comb,max_top1):
             print("\t- Best Top1 found! (previous max vs now)", str(max_top1), value)
             max_top1 = value
        
+        f.write("[{:.2f}s] ".format(time.time() - start))
+
         f.write(" ".join(
         [
         "{:d}".format(result_list[0]),
@@ -359,7 +363,7 @@ def outputAggregated(all_methods_rank, proj, ver, variant, combinations, categor
                 bug_rank = bug_rank + len(all_methods_rank[cat_key][sus_key][plurality_key]) # WORST-CASE
 
                 for method_key in sorted(all_methods_rank[cat_key][sus_key][plurality_key]):
-                    message = "|".join(["{:04d}".format(bug_rank), "{:06f}".format(sus_key), "PatchCategory." + category_indices[cat_key], "{:010d}".format(plurality_key), method_key])
+                    message = "|".join(["{:04d}".format(bug_rank), "{:0.12f}".format(sus_key), "PatchCategory." + category_indices[cat_key], "{:010d}".format(plurality_key), method_key])
 
                     if method_key in buggy_methods:
                         message = "***" + message + "***"
@@ -383,9 +387,6 @@ cachedGeneralSus = dict()
 cachedAggregatedSus = dict()
 cachedMethodCount = dict()
 
-single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/" # TSE-DATA
-single_tool_base_data = "/media/disk2/sam/TSE-data/uds2/Data/PatchCountData/"
-
 comb_file = sys.argv[1] #what tools for aggregation: for example, "SimFix PraPR FixMiner"
 unmodified_category = sys.argv[2]  #four mixed options: "CleanFix","NoisyFix","NoneFix","NegFix"
 enableUnidebugPlusPlus = sys.argv[3]
@@ -393,6 +394,16 @@ sbfl_formula = sys.argv[4]   # formula such as: "STOchiai"
 profl_variant = sys.argv[5]
 statement_level = sys.argv[6]
 pickProjects = 0
+
+if statement_level == "Method":
+    patch_tool_base_data = "/media/disk2/sam/TSE-data/uds2/Data/PatchCountData/"
+    single_tool_base_data = "/media/disk2/sam/TSE-data/uds2/Data/ExperimentalData/"
+    single_tool_base_path = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/"
+
+elif statement_level == "Statement":
+    single_tool_base_data = "../../Results/IntermediateResults/profl-unmodified-5th-mixed/worst-case/" # TSE-DATA
+    single_tool_base_path = single_tool_base_data
+    patch_tool_base_data = single_tool_base_path
 
 if len(sys.argv) >= 8:
     pickProjects = sys.argv[7]
@@ -423,6 +434,8 @@ max_top1 = 0
 index = 0
 
 for comb in tool_combinations:
+
+    start = time.time()
     if comb.startswith("#"): # Provide way for clean data separation
         print("---", comb[1:].strip() ,"---")
     elif comb.startswith("!"): # Skip line
@@ -474,8 +487,8 @@ for comb in tool_combinations:
         final_result, true_ver = ut.get_static_final(vers, projects, result_list) # get top-1,3,5...  for each projects
         final_result = ut.get_final(final_result, true_ver) # get final result
     
-        print("Combination", index, "metric results =", final_result) 
-        max_top1 = write_results(final_result, comb_file, comb, max_top1)
+        print("[{:.2f}s]".format(time.time() - start), "Combination", index, "metric results =", final_result)
+        max_top1 = write_results(final_result, comb_file, comb, max_top1, start)
     index = index + 1
 
 print("-----------------------")
