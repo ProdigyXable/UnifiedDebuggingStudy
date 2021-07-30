@@ -1,0 +1,156 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-69
+08:12:26.790 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-69 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/69.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/69.txt
+08:12:29.671 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+08:12:29.683 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-69/generalSusInfo.profl
+08:12:29.684 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+08:12:29.684 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.correlation.PearsonsCorrelation ===175
+08:12:30.395 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return new BlockRealMatrix(out);
+if (out != null) {
+
+
+}
+
+08:12:30.404 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:12:31.111 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-69 ---Fixer: fix fail because of failed compiling! 
+if (out == null) {
+    return null;
+}
+
+if (out == null) {
+    throw new IllegalArgumentException("Empty variable: " + out);
+}
+
+08:12:31.112 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:12:31.952 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:12:31.952 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:12:46.392 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:12:46.393 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:12:46.393 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+08:12:46.393 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+08:12:46.393 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+08:12:46.393 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:12:46.402 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-69/aggregatedSusInfo.profl
+08:12:46.403 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+08:12:46.403 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-69
+08:12:46.403 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:12:47.238 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:12:47.238 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:13:01.188 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:13:01.188 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:13:01.188 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+08:13:01.188 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+08:13:01.188 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+08:13:01.189 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:13:01.281 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-69/aggregatedSusInfo.profl
+08:13:01.282 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:175
+08:13:01.282 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-69
+
+08:13:01.285 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:13:02.049 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-69 ---Fixer: fix fail because of failed compiling! 
+08:13:02.049 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.stat.correlation.PearsonsCorrelation ===171
+08:13:02.149 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+out[i][j] = 2 * (1 - tDistribution.cumulativeProbability(t));
+if (out != null) {
+
+
+}
+
+if (tDistribution != null) {
+
+
+}
+
+08:13:02.152 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:13:02.976 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:13:02.976 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:13:15.694 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:13:15.694 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:13:15.694 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+08:13:15.694 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+08:13:15.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+08:13:15.695 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:13:15.737 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-69/aggregatedSusInfo.profl
+08:13:15.737 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:171
+08:13:15.737 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-69
+08:13:15.737 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:13:16.541 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:13:16.541 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:13:30.048 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:13:30.048 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:13:30.048 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+08:13:30.048 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+08:13:30.048 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+08:13:30.048 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:13:30.761 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-69/aggregatedSusInfo.profl
+08:13:30.762 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:171
+08:13:30.762 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-69
+if (out == null) {
+    return null;
+}
+
+if (out == null) {
+    throw new IllegalArgumentException("Empty variable: " + out);
+}
+
+if (tDistribution == null) {
+    return null;
+}
+
+if (tDistribution == null) {
+    throw new IllegalArgumentException("Empty variable: " + tDistribution);
+}
+
+08:13:30.762 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:13:31.579 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:13:31.579 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:13:44.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:13:44.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:13:44.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+08:13:44.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+08:13:44.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+08:13:44.836 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:13:53.708 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-69/aggregatedSusInfo.profl
+08:13:53.708 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:171
+08:13:53.708 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-69
+08:13:53.709 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:13:54.513 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:13:54.514 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:14:06.052 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:14:06.052 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:14:06.052 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+08:14:06.052 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+08:14:06.052 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+08:14:06.053 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:16:23.112 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-69/aggregatedSusInfo.profl
+08:16:23.112 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:171
+08:16:23.112 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-69
+08:16:23.113 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:16:23.944 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:16:23.944 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:16:34.787 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:16:34.787 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:16:34.787 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+08:16:34.787 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+08:16:34.788 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+08:16:34.788 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+08:50:52.996 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-69/aggregatedSusInfo.profl
+08:50:52.996 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.stat.correlation.PearsonsCorrelation:getCorrelationPValues()Lorg/apache/commons/math/linear/RealMatrix; in org.apache.commons.math.stat.correlation.PearsonsCorrelation:171
+08:50:52.996 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 2 Math-69
+08:50:52.996 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+08:50:53.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+08:50:53.724 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+08:51:04.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:51:04.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero, - org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero]
+08:51:04.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.PearsonsCorrelationTest::testPValueNearZero
+08:51:04.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.stat.correlation.SpearmansRankCorrelationTest::testPValueNearZero
+08:51:04.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+08:51:04.454 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found

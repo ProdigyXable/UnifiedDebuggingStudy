@@ -1,0 +1,217 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Chart-18
+13:24:47.665 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Chart-18 Failed Tests: 4
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Chart/18.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Chart/18.txt
+13:24:53.403 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+13:24:53.431 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/generalSusInfo.profl
+13:24:53.494 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+13:24:53.494 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.jfree.data.DefaultKeyedValues ===338
+13:24:54.620 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+/**
+     * Removes a value from the collection.
+     *
+     * @param key  the item key (<code>null</code> not permitted).
+     * 
+     * @throws IllegalArgumentException if <code>key</code> is 
+     *     <code>null</code>.
+     * @throws UnknownKeyException if <code>key</code> is not recognised.
+     */
+    public void removeValue(Comparable key) {
+        int index = getIndex(key);
+        if (index < 0) {
+			return;
+        }
+        removeValue(index);
+    }
+13:24:54.621 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.jfree.data.DefaultKeyedValues:338 ---
+13:24:54.622 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/jfree/data/DefaultKeyedValues.java 338 ---
+13:24:54.622 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, - org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:24:54.752 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+13:24:54.752 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+13:24:54.754 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:24:55.955 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:24:55.955 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:25:17.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:25:17.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, - org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:25:17.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955
+13:25:17.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+13:25:17.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+13:25:17.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+13:25:17.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:25:17.349 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+13:25:17.355 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/aggregatedSusInfo.profl
+13:25:17.355 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DefaultKeyedValues:removeValue(Ljava/lang/Comparable;)V in org.jfree.data.DefaultKeyedValues:338
+13:25:17.355 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Chart-18
+---------------- Testing New Patch ----------------
+13:25:17.356 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:18.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:25:18.644 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:25:41.480 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:25:41.481 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, - org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:25:41.481 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955
+13:25:41.481 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+13:25:41.481 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+13:25:41.481 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+13:25:41.481 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:25:41.481 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+13:25:41.540 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/aggregatedSusInfo.profl
+13:25:41.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DefaultKeyedValues:removeValue(Ljava/lang/Comparable;)V in org.jfree.data.DefaultKeyedValues:338
+13:25:41.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Chart-18
+13:25:41.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.jfree.data.DefaultKeyedValues ===337
+13:25:41.759 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+removeValue(index);
+13:25:41.760 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.jfree.data.DefaultKeyedValues:337 ---
+13:25:41.760 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/jfree/data/DefaultKeyedValues.java 337 ---
+13:25:41.760 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, - org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:25:41.903 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getIndex(index);
+13:25:41.903 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getValue(index);
+13:25:41.903 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: sortByKeys(index);
+13:25:41.903 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: sortByValues(index);
+13:25:41.903 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: equals(index);
+13:25:41.903 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getKey(index);
+13:25:41.903 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeValue();
+---------------- Testing New Patch ----------------
+13:25:41.904 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:25:43.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:25:43.193 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:26:05.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:26:05.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:26:05.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+13:26:05.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+13:26:05.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+13:26:05.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=3, fp=1, pf=0, pp=Unknown
+13:26:05.663 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+13:26:05.685 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/aggregatedSusInfo.profl
+13:26:05.686 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DefaultKeyedValues:removeValue(Ljava/lang/Comparable;)V in org.jfree.data.DefaultKeyedValues:337
+13:26:05.686 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Partially Succeeded to fix the bug Chart-18====================
+---------------- Testing New Patch ----------------
+13:26:05.979 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:07.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:26:07.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:26:29.536 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:26:29.536 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:26:29.536 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+13:26:29.536 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+13:26:29.537 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+13:26:29.537 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=3, fp=1, pf=0, pp=Unknown
+13:26:29.537 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+13:26:29.734 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/aggregatedSusInfo.profl
+13:26:29.734 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DefaultKeyedValues:removeValue(Ljava/lang/Comparable;)V in org.jfree.data.DefaultKeyedValues:337
+13:26:29.734 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Partially Succeeded to fix the bug Chart-18====================
+---------------- Testing New Patch ----------------
+13:26:29.745 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:30.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-18 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:30.984 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:32.301 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-18 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:26:32.302 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:26:33.651 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:26:33.651 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:26:56.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:26:56.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:26:56.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+13:26:56.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+13:26:56.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+13:26:56.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=3, fp=1, pf=0, pp=Unknown
+13:26:56.244 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+13:26:58.817 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/aggregatedSusInfo.profl
+13:26:58.818 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DefaultKeyedValues:removeValue(Ljava/lang/Comparable;)V in org.jfree.data.DefaultKeyedValues:337
+13:26:58.818 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Partially Succeeded to fix the bug Chart-18====================
+---------------- Testing New Patch ----------------
+13:26:58.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:27:00.122 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:27:00.122 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:27:20.911 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:27:20.911 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:27:20.911 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+13:27:20.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+13:27:20.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+13:27:20.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=3, fp=1, pf=0, pp=Unknown
+13:27:20.912 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+13:27:57.724 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/aggregatedSusInfo.profl
+13:27:57.725 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DefaultKeyedValues:removeValue(Ljava/lang/Comparable;)V in org.jfree.data.DefaultKeyedValues:337
+13:27:57.725 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Partially Succeeded to fix the bug Chart-18====================
+---------------- Testing New Patch ----------------
+13:27:57.747 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:27:58.812 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-18 ---Fixer: fix fail because of failed compiling! 
+13:27:59.002 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeValue(getItemCount());
+13:27:59.002 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeValue(getKeys());
+13:27:59.002 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeValue(rebuildIndex());
+13:27:59.002 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeValue(clear());
+13:27:59.002 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeValue(hashCode());
+---------------- Testing New Patch ----------------
+13:27:59.003 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:28:00.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:28:00.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:28:21.327 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:28:21.327 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, - org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:28:21.327 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955
+13:28:21.327 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+13:28:21.328 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+13:28:21.328 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+13:28:21.328 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:28:21.328 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+13:35:44.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/aggregatedSusInfo.profl
+13:35:44.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DefaultKeyedValues:removeValue(Ljava/lang/Comparable;)V in org.jfree.data.DefaultKeyedValues:337
+13:35:44.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Chart-18
+---------------- Testing New Patch ----------------
+13:35:44.830 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:35:45.877 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-18 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:35:45.878 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:35:47.055 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-18 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:35:47.056 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:35:48.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-18 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:35:48.148 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+13:35:49.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+13:35:49.272 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+13:36:08.292 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:36:08.292 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, - org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+13:36:08.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955
+13:36:08.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+13:36:08.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+13:36:08.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+13:36:08.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:36:08.293 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+15:35:31.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Chart-18/aggregatedSusInfo.profl
+15:35:31.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.jfree.data.DefaultKeyedValues:removeValue(Ljava/lang/Comparable;)V in org.jfree.data.DefaultKeyedValues:337
+15:35:31.829 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 4 Chart-18
+15:35:31.877 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeValue(index);
+	int index = getIndex(key);
+        if (index < 0) {
+			return;
+        }
+        
+null
+15:35:31.877 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: removeValue(index);
+	if (index < 0) {
+			return;
+        }
+        
+null
+---------------- Testing New Patch ----------------
+15:35:31.878 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+15:35:33.062 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Chart-18 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+15:35:33.063 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+15:35:34.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+15:35:34.175 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+15:35:55.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 4, [org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+15:35:55.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 4, [- org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955, - org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey, - org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue, - org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2]
+15:35:55.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.category.junit.DefaultCategoryDatasetTests::testBug1835955
+15:35:55.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValues2DTests::testRemoveColumnByKey
+15:35:55.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testRemoveValue
+15:35:55.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.jfree.data.junit.DefaultKeyedValuesTests::testGetIndex2
+15:35:55.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+15:35:55.868 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

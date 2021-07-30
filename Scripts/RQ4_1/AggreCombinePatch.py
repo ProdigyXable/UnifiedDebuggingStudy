@@ -97,7 +97,10 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
         else:
             cachedMethodCount[tool_proj_name] = defaultdict(int)
 
-            cat_info_file_path = patch_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/category_information.profl"
+            if statement_level == "Method":
+                cat_info_file_path = patch_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/category_information.profl"
+            else:
+                cat_info_file_path = patch_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-statementlevel-" + profl_variant + "/category_information.profl"
             try:
                 cat_info_file = open(cat_info_file_path, "r")
     
@@ -113,8 +116,9 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
                                 cachedMethodCount[tool_proj_name][cat_line_data[0]] = 0
                             cachedMethodCount[tool_proj_name][cat_line_data[0]] = int(cat_line_data[1]) + cachedMethodCount[tool_proj_name][cat_line_data[0]]
                             #repeatedKeys.add(cat_line_data[0])
-            except:
+            except Exception as e:
                 pass
+                # print(e)
 
         for methodSig in cachedMethodCount[tool_proj_name].keys():
             accumulated_method_count[methodSig] = accumulated_method_count[methodSig] + cachedMethodCount[tool_proj_name][methodSig]
@@ -133,10 +137,13 @@ def get_basic(tool_combs, single_tool_base_path, proj, ver, unmodified_category,
             if not os.path.exists(single_tool_base_path + "ProFL-" + tool):
                 print("Missing tool path", single_tool_base_path, "ProFL-" + tool)
 
-            if statement_level == "Statement":
-                aggregated_file = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-" + profl_variant + "/aggregatedSusInfo.profl"
+            if tool == "PIT":
+                aggregated_file = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/aggregatedSusInfo.profl"
+            elif statement_level == "Statement":
+                aggregated_file = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/proflvariant-statementlevel-" + profl_variant + "/aggregatedSusInfo.profl"
             else:
                 aggregated_file = single_tool_base_data + "ProFL-" + tool + "/" + proj + "-" + ver + "/aggregatedSusInfo.profl"
+
             cachedAggregatedSus[tool_proj_name] = dict()
             cachedAggregatedSus[tool_proj_name][0] = copy.deepcopy(cachedGeneralSus[proj_name][0])
             cachedAggregatedSus[tool_proj_name][1] = copy.deepcopy(cachedGeneralSus[proj_name][1])

@@ -1,0 +1,730 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-24
+16:45:49.883 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/24.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/24.txt
+16:50:16.897 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+16:50:16.953 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-24/generalSusInfo.profl
+16:50:17.017 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-24/aggregatedSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Closure-24/ochiai.txt
+16:50:17.020 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+16:50:17.020 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.ScopedAliases ===51
+16:50:17.784 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+ScopedAliases implements HotSwapCompilerPass {
+  /** Name used to denote an scoped function block used for aliasing. */
+  static final String SCOPING_METHOD_NAME = "goog.scope";
+
+  private final AbstractCompiler compiler;
+  private final PreprocessorSymbolTable preprocessorSymbolTable;
+  private final AliasTransformationHandler transformationHandler;
+
+  // Errors
+  static final DiagnosticType GOOG_SCOPE_USED_IMPROPERLY = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_USED_IMPROPERLY",
+      "The call to goog.scope must be alone in a single statement.");
+
+  static final DiagnosticType GOOG_SCOPE_HAS_BAD_PARAMETERS =
+      DiagnosticType.error(
+          "JSC_GOOG_SCOPE_HAS_BAD_PARAMETERS",
+          "The call to goog.scope must take only a single parameter.  It must" +
+              " be an anonymous function that itself takes no parameters.");
+
+  static final DiagnosticType GOOG_SCOPE_REFERENCES_THIS = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_REFERENCES_THIS",
+      "The body of a goog.scope function cannot reference 'this'.");
+
+  static final DiagnosticType GOOG_SCOPE_USES_RETURN = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_USES_RETURN",
+      "The body of a goog.scope function cannot use 'return'.");
+
+  static final DiagnosticType GOOG_SCOPE_USES_THROW = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_USES_THROW",
+      "The body of a goog.scope function cannot use 'throw'.");
+
+  static final DiagnosticType GOOG_SCOPE_ALIAS_REDEFINED = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_ALIAS_REDEFINED",
+      "The alias {0} is assigned a value more than once.");
+
+  static final DiagnosticType GOOG_SCOPE_NON_ALIAS_LOCAL = DiagnosticType.error(
+      "JSC_GOOG_SCOPE_NON_ALIAS_LOCAL",
+      "The local variable {0} is in a goog.scope and is not an alias.");
+
+  ScopedAliases(AbstractCompiler compiler,
+      @Nullable PreprocessorSymbolTable preprocessorSymbolTable,
+      AliasTransformationHandler transformationHandler) {
+    this.compiler = compiler;
+    this.preprocessorSymbolTable = preprocessorSymbolTable;
+    this.transformationHandler = transformationHandler;
+  }
+
+  @Override
+  public void process(Node externs, Node root) {
+    hotSwapScript(root, null);
+  }
+
+  @Override
+  public void hotSwapScript(Node root, Node originalRoot) {
+    Traversal traversal = new Traversal();
+    NodeTraversal.traverse(compiler, root, traversal);
+
+    if (!traversal.hasErrors()) {
+
+      // Apply the aliases.
+      for (AliasUsage aliasUsage : traversal.getAliasUsages()) {
+        aliasUsage.applyAlias();
+      }
+
+      // Remove the alias definitions.
+      for (Node aliasDefinition : traversal.getAliasDefinitionsInOrder()) {
+        if (aliasDefinition.getParent().isVar() &&
+            aliasDefinition.getParent().hasOneChild()) {
+          aliasDefinition.getParent().detachFromParent();
+        } else {
+          aliasDefinition.detachFromParent();
+        }
+      }
+
+      // Collapse the scopes.
+      for (Node scopeCall : traversal.getScopeCalls()) {
+        Node expressionWithScopeCall = scopeCall.getParent();
+        Node scopeClosureBlock = scopeCall.getLastChild().getLastChild();
+        scopeClosureBlock.detachFromParent();
+        expressionWithScopeCall.getParent().replaceChild(
+            expressionWithScopeCall,
+            scopeClosureBlock);
+        NodeUtil.tryMergeBlock(scopeClosureBlock);
+      }
+
+      if (traversal.getAliasUsages().size() > 0 ||
+          traversal.getAliasDefinitionsInOrder().size() > 0 ||
+          traversal.getScopeCalls().size() > 0) {
+        compiler.reportCodeChange();
+      }
+    }
+  }
+
+  private interface AliasUsage {
+    public void applyAlias();
+  }
+
+  private class AliasedNode implements AliasUsage {
+    private final Node aliasReference;
+
+    private final Node aliasDefinition;
+
+    AliasedNode(Node aliasReference, Node aliasDefinition) {
+      this.aliasReference = aliasReference;
+      this.aliasDefinition = aliasDefinition;
+    }
+
+    @Override
+    public void applyAlias() {
+      aliasReference.getParent().replaceChild(
+          aliasReference, aliasDefinition.cloneTree());
+    }
+  }
+
+  private class AliasedTypeNode implements AliasUsage {
+    private final Node aliasReference;
+
+    private final String correctedType;
+
+    AliasedTypeNode(Node aliasReference, String correctedType) {
+      this.aliasReference = aliasReference;
+      this.correctedType = correctedType;
+    }
+
+    @Override
+    public void applyAlias() {
+      aliasReference.setString(correctedType);
+    }
+  }
+
+
+  private class Traversal implements NodeTraversal.ScopedCallback {
+    // The job of this class is to collect these three data sets.
+
+    // The order of this list determines the order that aliases are applied.
+    private final List<Node> aliasDefinitionsInOrder = Lists.newArrayList();
+
+    private final List<Node> scopeCalls = Lists.newArrayList();
+
+    private final List<AliasUsage> aliasUsages = Lists.newArrayList();
+
+    // This map is temporary and cleared for each scope.
+    private final Map<String, Var> aliases = Maps.newHashMap();
+
+    private boolean hasErrors = false;
+
+    private AliasTransformation transformation = null;
+
+    Collection<Node> getAliasDefinitionsInOrder() {
+      return aliasDefinitionsInOrder;
+    }
+
+    private List<AliasUsage> getAliasUsages() {
+      return aliasUsages;
+    }
+
+    List<Node> getScopeCalls() {
+      return scopeCalls;
+    }
+
+    boolean hasErrors() {
+      return hasErrors;
+    }
+
+    private boolean isCallToScopeMethod(Node n) {
+      return n.isCall() &&
+          SCOPING_METHOD_NAME.equals(n.getFirstChild().getQualifiedName());
+    }
+
+    @Override
+    public void enterScope(NodeTraversal t) {
+      Node n = t.getCurrentNode().getParent();
+      if (n != null && isCallToScopeMethod(n)) {
+        transformation = transformationHandler.logAliasTransformation(
+            n.getSourceFileName(), getSourceRegion(n));
+        findAliases(t);
+      }
+    }
+
+    @Override
+    public void exitScope(NodeTraversal t) {
+      if (t.getScopeDepth() == 2) {
+        aliases.clear();
+        transformation = null;
+      }
+    }
+
+    @Override
+    public final boolean shouldTraverse(NodeTraversal t, Node n, Node parent) {
+      if (n.isFunction() && t.inGlobalScope()) {
+        // Do not traverse in to functions except for goog.scope functions.
+        if (parent == null || !isCallToScopeMethod(parent)) {
+          return false;
+        }
+      }
+      return true;
+    }
+
+    private SourcePosition<AliasTransformation> getSourceRegion(Node n) {
+      Node testNode = n;
+      Node next = null;
+      for (; next != null || testNode.isScript();) {
+        next = testNode.getNext();
+        testNode = testNode.getParent();
+      }
+
+      int endLine = next == null ? Integer.MAX_VALUE : next.getLineno();
+      int endChar = next == null ? Integer.MAX_VALUE : next.getCharno();
+      SourcePosition<AliasTransformation> pos =
+          new SourcePosition<AliasTransformation>() {};
+      pos.setPositionInformation(
+          n.getLineno(), n.getCharno(), endLine, endChar);
+      return pos;
+    }
+
+    private void report(NodeTraversal t, Node n, DiagnosticType error,
+        String... arguments) {
+      compiler.report(t.makeError(n, error, arguments));
+      hasErrors = true;
+    }
+
+    private void findAliases(NodeTraversal t) {
+      Scope scope = t.getScope();
+      for (Var v : scope.getVarIterable()) {
+        Node n = v.getNode();
+        int type = n.getType();
+        Node parent = n.getParent();
+        if (parent.isVar()) {
+          if (n.hasChildren() && n.getFirstChild().isQualifiedName()) {
+          String name = n.getString();
+          Var aliasVar = scope.getVar(name);
+          aliases.put(name, aliasVar);
+
+          String qualifiedName =
+              aliasVar.getInitialValue().getQualifiedName();
+          transformation.addAlias(name, qualifiedName);
+          // Bleeding functions already get a BAD_PARAMETERS error, so just
+          // do nothing.
+          // Parameters of the scope function also get a BAD_PARAMETERS
+          // error.
+        } else {
+          // TODO(robbyw): Support using locals for private variables.
+          report(t, n, GOOG_SCOPE_NON_ALIAS_LOCAL, n.getString());
+        }
+        }
+      }
+    }
+
+    private void validateScopeCall(NodeTraversal t, Node n, Node parent) {
+      if (preprocessorSymbolTable != null) {
+        preprocessorSymbolTable.addReference(n.getFirstChild());
+      }
+      if (!parent.isExprResult()) {
+        report(t, n, GOOG_SCOPE_USED_IMPROPERLY);
+      }
+      if (n.getChildCount() != 2) {
+        // The goog.scope call should have exactly 1 parameter.  The first
+        // child is the "goog.scope" and the second should be the parameter.
+        report(t, n, GOOG_SCOPE_HAS_BAD_PARAMETERS);
+      } else {
+        Node anonymousFnNode = n.getChildAtIndex(1);
+        if (!anonymousFnNode.isFunction() ||
+            NodeUtil.getFunctionName(anonymousFnNode) != null ||
+            NodeUtil.getFunctionParameters(anonymousFnNode).hasChildren()) {
+          report(t, anonymousFnNode, GOOG_SCOPE_HAS_BAD_PARAMETERS);
+        } else {
+          scopeCalls.add(n);
+        }
+      }
+    }
+
+    @Override
+    public void visit(NodeTraversal t, Node n, Node parent) {
+      if (isCallToScopeMethod(n)) {
+        validateScopeCall(t, n, n.getParent());
+      }
+
+      if (t.getScopeDepth() < 2) {
+        return;
+      }
+
+      int type = n.getType();
+      Var aliasVar = null;
+      if (type == Token.NAME) {
+        String name = n.getString();
+        Var lexicalVar = t.getScope().getVar(n.getString());
+        if (lexicalVar != null && lexicalVar == aliases.get(name)) {
+          aliasVar = lexicalVar;
+        }
+      }
+
+      // Validate the top-level of the goog.scope block.
+      if (t.getScopeDepth() == 2) {
+        if (aliasVar != null && NodeUtil.isLValue(n)) {
+          if (aliasVar.getNode() == n) {
+            aliasDefinitionsInOrder.add(n);
+
+            // Return early, to ensure that we don't record a definition
+            // twice.
+            return;
+          } else {
+            report(t, n, GOOG_SCOPE_ALIAS_REDEFINED, n.getString());
+          }
+        }
+
+        if (type == Token.RETURN) {
+          report(t, n, GOOG_SCOPE_USES_RETURN);
+        } else if (type == Token.THIS) {
+          report(t, n, GOOG_SCOPE_REFERENCES_THIS);
+        } else if (type == Token.THROW) {
+          report(t, n, GOOG_SCOPE_USES_THROW);
+        }
+      }
+
+      // Validate all descendent scopes of the goog.scope block.
+      if (t.getScopeDepth() >= 2) {
+        // Check if this name points to an alias.
+        if (aliasVar != null) {
+          // Note, to support the transitive case, it's important we don't
+          // clone aliasedNode here.  For example,
+          // var g = goog; var d = g.dom; d.createElement('DIV');
+          // The node in aliasedNode (which is "g") will be replaced in the
+          // changes pass above with "goog".  If we cloned here, we'd end up
+          // with <code>g.dom.createElement('DIV')</code>.
+          Node aliasedNode = aliasVar.getInitialValue();
+          aliasUsages.add(new AliasedNode(n, aliasedNode));
+        }
+
+        JSDocInfo info = n.getJSDocInfo();
+        if (info != null) {
+          for (Node node : info.getTypeNodes()) {
+            fixTypeNode(node);
+          }
+        }
+
+        // TODO(robbyw): Error for goog.scope not at root.
+      }
+    }
+
+    private void fixTypeNode(Node typeNode) {
+      if (typeNode.isString()) {
+        String name = typeNode.getString();
+        int endIndex = name.indexOf('.');
+        if (endIndex == -1) {
+          endIndex = name.length();
+        }
+        String baseName = name.substring(0, endIndex);
+        Var aliasVar = aliases.get(baseName);
+        if (aliasVar != null) {
+          Node aliasedNode = aliasVar.getInitialValue();
+          aliasUsages.add(new AliasedTypeNode(typeNode,
+              aliasedNode.getQualifiedName() + name.substring(endIndex)));
+        }
+      }
+
+      for (Node child = typeNode.getFirstChild(); child != null;
+           child = child.getNext()) {
+        fixTypeNode(child);
+      }
+    }
+  }
+}
+16:50:17.788 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/ScopedAliases.java:51 ---
+16:50:17.794 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate:     public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof ScopedAliases)) return false;
+        ScopedAliases _var = (ScopedAliases) obj;
+        return super.equals(obj);
+    }
+---------------- Testing New Patch ----------------
+16:50:17.794 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:20.738 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+16:50:20.739 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.ScopedAliases ===139
+16:50:20.844 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+compiler.reportCodeChange();
+16:50:20.844 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/ScopedAliases.java:139 ---
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: scopeCall.reportCodeChange();
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: aliasDefinition.reportCodeChange();
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: aliasUsage.reportCodeChange();
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: traversal.reportCodeChange();
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: root.reportCodeChange();
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: originalRoot.reportCodeChange();
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.preprocessorSymbolTable.reportCodeChange();
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.transformationHandler.reportCodeChange();
+---------------- Testing New Patch ----------------
+16:50:20.845 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:25.275 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+16:50:25.275 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:29.080 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+16:50:29.080 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:32.832 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+16:50:32.832 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:37.009 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+16:50:37.010 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:40.775 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+16:50:40.776 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:44.521 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+16:50:44.521 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:48.286 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+16:50:48.286 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:52.478 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+16:50:52.479 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (compiler != null) {
+	
+
+}
+
+16:50:52.479 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (compiler == null) {
+    throw new IllegalArgumentException("Null 'compiler' argument.");
+}
+
+16:50:52.479 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (compiler == null) {
+    return;
+}
+
+---------------- Testing New Patch ----------------
+16:50:52.479 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:50:59.625 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+16:50:59.625 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+16:54:35.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+16:54:35.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+16:54:35.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+16:54:35.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+16:54:35.360 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+16:54:35.666 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-24/aggregatedSusInfo.profl
+16:54:35.666 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.ScopedAliases:hotSwapScript(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V in com.google.javascript.jscomp.ScopedAliases:139
+16:54:35.666 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-24
+---------------- Testing New Patch ----------------
+16:54:35.666 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:54:42.575 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+16:54:42.575 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+16:58:16.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+16:58:16.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+16:58:16.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+16:58:16.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+16:58:16.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+16:58:21.809 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-24/aggregatedSusInfo.profl
+16:58:21.809 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.ScopedAliases:hotSwapScript(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V in com.google.javascript.jscomp.ScopedAliases:139
+16:58:21.809 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-24
+---------------- Testing New Patch ----------------
+16:58:21.809 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+16:58:28.713 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+16:58:28.713 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+17:02:02.931 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+17:02:02.931 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+17:02:02.931 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+17:02:02.931 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+17:02:02.931 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+17:04:34.630 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-24/aggregatedSusInfo.profl
+17:04:34.630 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.ScopedAliases:hotSwapScript(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V in com.google.javascript.jscomp.ScopedAliases:139
+17:04:34.630 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Closure-24
+17:04:34.630 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:04:34.630 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:04:38.278 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:04:38.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:04:38.279 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:04:41.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:04:41.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:04:45.522 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:04:45.523 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:04:45.523 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:04:49.200 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:04:49.200 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:04:49.201 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:04:52.832 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:04:52.833 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:04:56.480 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:04:56.480 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:04:56.480 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:00.069 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:00.070 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.ScopedAliases ===134
+17:05:00.147 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+for (Node scopeCall : traversal.getScopeCalls()) {
+        Node expressionWithScopeCall = scopeCall.getParent();
+        Node scopeClosureBlock = scopeCall.getLastChild().getLastChild();
+        scopeClosureBlock.detachFromParent();
+        expressionWithScopeCall.getParent().replaceChild(
+            expressionWithScopeCall,
+            scopeClosureBlock);
+        NodeUtil.tryMergeBlock(scopeClosureBlock);
+      }
+17:05:00.147 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/ScopedAliases.java:134 ---
+17:05:00.148 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:00.148 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:03.754 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:03.755 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:03.755 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:07.362 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:05:07.362 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:10.951 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:10.952 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:10.952 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:14.570 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:14.571 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:14.571 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:18.247 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:05:18.247 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:21.916 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:21.917 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:21.917 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:25.556 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:25.556 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:25.556 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:29.140 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:05:29.141 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:32.775 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:32.776 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:32.776 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:36.417 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:36.418 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:36.418 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:39.998 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:05:39.998 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:43.597 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:43.598 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+17:05:43.598 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:47.207 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+17:05:47.207 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.ScopedAliases ===133
+17:05:47.277 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+NodeUtil.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/ScopedAliases.java:133 ---
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: scopeClosureBlock.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: expressionWithScopeCall.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: scopeCall.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: aliasDefinition.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: aliasUsage.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: traversal.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: root.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: originalRoot.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.compiler.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.preprocessorSymbolTable.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.transformationHandler.tryMergeBlock(scopeClosureBlock);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(expressionWithScopeCall);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(scopeCall);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(aliasDefinition);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(aliasUsage);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(traversal);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(root);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(originalRoot);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(this.compiler);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(this.preprocessorSymbolTable);
+17:05:47.278 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: NodeUtil.tryMergeBlock(this.transformationHandler);
+---------------- Testing New Patch ----------------
+17:05:47.279 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:50.912 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:05:50.912 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:54.544 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:05:54.545 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:05:58.204 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:05:58.204 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:01.867 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:06:01.867 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:05.507 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:06:05.507 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:09.123 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:06:09.124 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:12.753 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:06:12.753 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:16.450 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:06:16.450 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:20.084 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:06:20.085 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:23.728 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:06:23.728 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:27.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-24 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+17:06:27.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+17:06:34.092 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+17:06:34.092 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 39, [- com.google.javascript.jscomp.ScopedAliasesTest::testTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar, - com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testNullType, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition, - com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases, - com.google.javascript.jscomp.ScopedAliasesTest::testOverridden, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged, - com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef, - com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testTestTypes, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar, - com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope, - com.google.javascript.jscomp.SymbolTableTest::testGoogScopeReferences]
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitive
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNullType
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOverridden
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends
+17:10:05.250 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTestTypes
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SymbolTableTest::testGoogScopeReferences
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=38, pp=Unknown
+17:10:05.251 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+18:10:49.304 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-24/aggregatedSusInfo.profl
+18:10:49.304 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = com.google.javascript.jscomp.ScopedAliases:hotSwapScript(Lcom/google/javascript/rhino/Node;Lcom/google/javascript/rhino/Node;)V in com.google.javascript.jscomp.ScopedAliases:133
+18:10:49.304 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 39 Closure-24
+---------------- Testing New Patch ----------------
+18:10:49.304 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+18:10:56.064 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+18:10:56.064 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal]
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 39, [- com.google.javascript.jscomp.ScopedAliasesTest::testTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar, - com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive, - com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures, - com.google.javascript.jscomp.ScopedAliasesTest::testOverridden, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel, - com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testTestTypes, - com.google.javascript.jscomp.ScopedAliasesTest::testNullType, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition, - com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases, - com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar, - com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes, - com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis, - com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged, - com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType, - com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef, - com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc, - com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc, - com.google.javascript.jscomp.SymbolTableTest::testGoogScopeReferences]
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitive
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOneLevel
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoLevel
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTransitiveInSameVar
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testMultipleTransitive
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testWorksInClosures
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testOverridden
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoScopes
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFourLevel
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testForwardJsDoc
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTestTypes
+18:14:26.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNullType
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasNonRedefinition
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testNonAliasLocal
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordOneAlias
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordMultipleAliases
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testRecordAliasFromMultipleGoogScope
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionAssignsToVar
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testTwoSymbolsInTwoScopes
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testAliasOfSymbolInGoogScope
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionReturnThis
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testScopedFunctionThrows
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testPropertiesNotChanged
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testShadowedVar
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocType
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocParameter
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocExtends
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocImplements
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocEnum
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocReturn
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThis
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocThrows
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocSubType
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testJsDocTypedef
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testArrayJsDoc
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testObjectJsDoc
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testUnionJsDoc
+18:14:26.546 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.ScopedAliasesTest::testFunctionJsDoc
+18:14:26.547 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->com.google.javascript.jscomp.SymbolTableTest::testGoogScopeReferences
+18:14:26.547 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=38, pp=Unknown
+18:14:26.547 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

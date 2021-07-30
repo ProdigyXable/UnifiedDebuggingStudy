@@ -1,0 +1,1423 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-32
+23:07:16.216 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/32.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/32.txt
+23:07:19.538 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+23:07:19.554 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/generalSusInfo.profl
+23:07:19.556 [main] INFO edu.lu.uni.serval.bug.fixer.kParFixer - =======kPARFixer: Start to fix suspicious code======
+23:07:19.556 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1693
+23:07:20.741 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1693
+23:07:20.741 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1680
+23:07:20.967 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case Calendar.MINUTE:
+23:07:20.982 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1679
+23:07:21.166 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1679
+23:07:21.167 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1677
+23:07:21.257 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case Calendar.HOUR_OF_DAY:
+23:07:21.259 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1676
+23:07:21.329 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1676
+23:07:21.329 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1696
+23:07:21.395 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1696
+23:07:21.395 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1699
+23:07:21.446 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1699
+23:07:21.446 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ArrayUtils ===521
+23:07:21.913 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.ArrayUtils --- 521
+23:07:21.913 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ArrayUtils ===520
+23:07:22.222 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.ArrayUtils --- 520
+23:07:22.222 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.text.ExtendedMessageFormat ===138
+23:07:22.263 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * Apply the specified pattern.
+     * 
+     * @param pattern String
+     */
+    @Override
+    public final void applyPattern(String pattern) {
+        if (registry == null) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+        ArrayList<Format> foundFormats = new ArrayList<Format>();
+        ArrayList<String> foundDescriptions = new ArrayList<String>();
+        StringBuilder stripCustom = new StringBuilder(pattern.length());
+
+        ParsePosition pos = new ParsePosition(0);
+        char[] c = pattern.toCharArray();
+        int fmtCount = 0;
+        while (pos.getIndex() < pattern.length()) {
+            switch (c[pos.getIndex()]) {
+            case QUOTE:
+                appendQuotedString(pattern, pos, stripCustom, true);
+                break;
+            case START_FE:
+                fmtCount++;
+                seekNonWs(pattern, pos);
+                int start = pos.getIndex();
+                int index = readArgumentIndex(pattern, next(pos));
+                stripCustom.append(START_FE).append(index);
+                seekNonWs(pattern, pos);
+                Format format = null;
+                String formatDescription = null;
+                if (c[pos.getIndex()] == START_FMT) {
+                    formatDescription = parseFormatDescription(pattern,
+                            next(pos));
+                    format = getFormat(formatDescription);
+                    if (format == null) {
+                        stripCustom.append(START_FMT).append(formatDescription);
+                    }
+                }
+                foundFormats.add(format);
+                foundDescriptions.add(format == null ? null : formatDescription);
+                Validate.isTrue(foundFormats.size() == fmtCount);
+                Validate.isTrue(foundDescriptions.size() == fmtCount);
+                if (c[pos.getIndex()] != END_FE) {
+                    throw new IllegalArgumentException(
+                            "Unreadable format element at position " + start);
+                }
+                //$FALL-THROUGH$
+            default:
+                stripCustom.append(c[pos.getIndex()]);
+                next(pos);
+            }
+        }
+        super.applyPattern(stripCustom.toString());
+        toPattern = insertFormats(super.toPattern(), foundDescriptions);
+        if (containsElements(foundFormats)) {
+            Format[] origFormats = getFormats();
+            // only loop over what we know we have, as MessageFormat on Java 1.3 
+            // seems to provide an extra format element:
+            int i = 0;
+            for (Iterator<Format> it = foundFormats.iterator(); it.hasNext(); i++) {
+                Format f = it.next();
+                if (f != null) {
+                    origFormats[i] = f;
+                }
+            }
+            super.setFormats(origFormats);
+        }
+    }
+23:07:22.264 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1703
+23:07:22.342 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case Calendar.DAY_OF_YEAR:
+23:07:22.344 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1702
+23:07:22.418 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+switch (unit) {
+            case Calendar.DAY_OF_YEAR:
+            case Calendar.DATE:
+                result = MILLIS_PER_DAY;
+                break;
+            case Calendar.HOUR_OF_DAY:
+                result = MILLIS_PER_HOUR;
+                break;
+            case Calendar.MINUTE:
+                result = MILLIS_PER_MINUTE;
+                break;
+            case Calendar.SECOND:
+                result = MILLIS_PER_SECOND;
+                break;
+            case Calendar.MILLISECOND:
+                result = 1;
+                break;
+            default: throw new IllegalArgumentException("The unit " + unit + " cannot be represented is milleseconds");
+        }
+23:07:22.421 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1707
+23:07:22.485 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case Calendar.HOUR_OF_DAY:
+23:07:22.488 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===1158
+23:07:22.573 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.ClassUtils --- 1158
+23:07:22.573 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===1157
+23:07:22.652 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.ClassUtils --- 1157
+23:07:22.652 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ClassUtils ===1155
+23:07:22.746 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.ClassUtils --- 1155
+23:07:22.746 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ArrayUtils ===501
+23:07:22.944 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+/**
+     * <p>Defensive programming technique to change a <code>null</code>
+     * reference to an empty one..</p>
+     *
+     * <p>This method returns an empty array for a <code>null</code> input array.</p>
+     * 
+     * <p>As a memory optimizing technique an empty array passed in will be overridden with 
+     * the empty <code>public static</code> references in this class.</p>
+     *
+     * @param array  the array to check for <code>null</code> or empty
+     * @return the same array, <code>public static</code> empty array if <code>null</code> or empty input
+     */
+    public static long[] nullToEmpty(long[] array) {
+        if (array == null) {
+            return EMPTY_LONG_ARRAY;
+        }
+        if (array.length == 0) {
+            return EMPTY_LONG_ARRAY;
+        }
+        return array;
+    }
+23:07:22.946 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.ArrayUtils ===500
+23:07:23.078 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.ArrayUtils --- 500
+23:07:23.078 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.text.ExtendedMessageFormat ===151
+23:07:23.124 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+ArrayList<String> foundDescriptions = new ArrayList<String>();
+23:07:23.129 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new foundDescriptions<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new foundFormats<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new pattern<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new serialVersionUID<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new DUMMY_PATTERN<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ESCAPED_QUOTE<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new START_FMT<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new END_FE<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new START_FE<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new QUOTE<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new this.toPattern<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new this.registry<String>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<foundDescriptions>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<foundFormats>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<pattern>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<serialVersionUID>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<DUMMY_PATTERN>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<ESCAPED_QUOTE>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<START_FMT>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<END_FE>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<START_FE>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<QUOTE>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<this.toPattern>();
+23:07:23.130 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<String> foundDescriptions = new ArrayList<this.registry>();
+23:07:23.132 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:24.224 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:24.225 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:25.323 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:25.323 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:26.378 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:26.378 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:27.468 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:27.469 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:28.570 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:28.571 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:29.711 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:29.712 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:30.814 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:30.814 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:31.885 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:31.886 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:33.079 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:33.080 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:34.381 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:34.382 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:34.840 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:34.840 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:35.343 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:35.344 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:36.463 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:36.463 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:37.714 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:37.715 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:38.817 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:38.818 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:39.997 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:39.997 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:41.233 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:41.234 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:42.418 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:42.419 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:43.605 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:43.606 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:44.810 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:44.811 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:46.104 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:46.105 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:47.390 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:47.391 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:47.869 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:47.869 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:48.420 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:48.421 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.text.ExtendedMessageFormat ===150
+23:07:48.471 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+ArrayList<Format> foundFormats = new ArrayList<Format>();
+23:07:48.473 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new foundFormats<Format>();
+23:07:48.473 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new pattern<Format>();
+23:07:48.473 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new serialVersionUID<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new DUMMY_PATTERN<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ESCAPED_QUOTE<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new START_FMT<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new END_FE<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new START_FE<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new QUOTE<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new this.toPattern<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new this.registry<Format>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<foundFormats>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<pattern>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<serialVersionUID>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<DUMMY_PATTERN>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<ESCAPED_QUOTE>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<START_FMT>();
+23:07:48.474 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<END_FE>();
+23:07:48.475 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<START_FE>();
+23:07:48.475 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<QUOTE>();
+23:07:48.475 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<this.toPattern>();
+23:07:48.475 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: ArrayList<Format> foundFormats = new ArrayList<this.registry>();
+23:07:48.475 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:49.732 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:49.732 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:50.927 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:50.928 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:52.266 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:52.267 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:53.421 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:53.421 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:54.554 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:54.554 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:55.738 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:55.739 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:56.921 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:56.922 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:58.231 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:58.232 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:07:59.461 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:07:59.461 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:00.032 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:00.032 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:00.521 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:00.521 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:01.789 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:01.790 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:03.133 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:03.134 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:04.319 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:04.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:05.424 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:05.424 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:06.607 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:06.607 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:07.833 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:07.833 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:09.101 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:09.101 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:10.347 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:10.348 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:11.698 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:11.698 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:12.662 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:12.663 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:13.545 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:13.546 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.text.ExtendedMessageFormat ===149
+23:08:13.577 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (registry == null) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:13.584 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (registry != null) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:13.584 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((containsElements(foundFormats))) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:13.584 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((pos.getIndex() < pattern.length())) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:13.584 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((c[pos.getIndex()] == START_FMT)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:13.584 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((f != null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:13.584 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((c[pos.getIndex()] != END_FE)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:13.584 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((format == null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:13.585 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:15.071 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:08:15.071 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:08:27.976 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:08:27.976 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.text.ExtendedMessageFormatTest::testOverriddenBuiltinFormat, - org.apache.commons.lang3.text.ExtendedMessageFormatTest::testEscapedQuote_LANG_477, - org.apache.commons.lang3.text.ExtendedMessageFormatTest::testExtendedFormats, - org.apache.commons.lang3.text.ExtendedMessageFormatTest::testExtendedAndBuiltInFormats]
+23:08:27.976 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:08:27.976 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.text.ExtendedMessageFormatTest::testOverriddenBuiltinFormat
+23:08:27.976 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.text.ExtendedMessageFormatTest::testEscapedQuote_LANG_477
+23:08:27.976 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.text.ExtendedMessageFormatTest::testExtendedFormats
+23:08:27.976 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.text.ExtendedMessageFormatTest::testExtendedAndBuiltInFormats
+23:08:27.976 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+23:08:27.978 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+23:08:27.984 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/aggregatedSusInfo.profl
+23:08:27.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.text.ExtendedMessageFormat:applyPattern(Ljava/lang/String;)V in org.apache.commons.lang3.text.ExtendedMessageFormat:149
+23:08:27.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Lang-32
+23:08:27.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:29.193 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:29.194 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:30.503 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:30.503 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:31.700 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:31.701 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:32.899 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:32.899 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:34.026 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:34.027 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:35.208 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || (containsElements(foundFormats))) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && (containsElements(foundFormats))) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || !(containsElements(foundFormats))) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && !(containsElements(foundFormats))) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || (pos.getIndex() < pattern.length())) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && (pos.getIndex() < pattern.length())) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || !(pos.getIndex() < pattern.length())) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && !(pos.getIndex() < pattern.length())) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || (c[pos.getIndex()] == START_FMT)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && (c[pos.getIndex()] == START_FMT)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || !(c[pos.getIndex()] == START_FMT)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && !(c[pos.getIndex()] == START_FMT)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || (f != null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && (f != null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || !(f != null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && !(f != null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || (c[pos.getIndex()] != END_FE)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && (c[pos.getIndex()] != END_FE)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || !(c[pos.getIndex()] != END_FE)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && !(c[pos.getIndex()] != END_FE)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.210 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || (format == null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.211 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && (format == null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.211 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) || !(format == null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.211 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((registry == null) && !(format == null)) {
+            super.applyPattern(pattern);
+            toPattern = super.toPattern();
+            return;
+        }
+23:08:35.211 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:36.351 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:36.352 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:37.582 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:37.583 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:38.759 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:38.759 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:39.961 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:39.962 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:41.167 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:41.168 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:42.334 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:42.334 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:43.577 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:43.578 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:44.944 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:44.945 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:46.219 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:46.220 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:47.335 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:47.336 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:48.556 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:48.557 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:49.721 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:49.721 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:50.855 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:50.856 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:51.972 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:51.973 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:53.062 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:53.063 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:54.351 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:54.351 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:55.478 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:55.479 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:56.577 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:56.578 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:57.765 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:57.766 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:08:59.040 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:08:59.041 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:00.279 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:09:00.280 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:01.450 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:09:01.451 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:02.550 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:09:02.550 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:03.767 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:09:03.768 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.text.ExtendedMessageFormat ===148
+23:09:03.792 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return;
+23:09:03.793 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1685
+23:09:03.849 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+break;
+23:09:03.850 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1674
+23:09:03.906 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case Calendar.DATE:
+23:09:03.908 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1671
+23:09:03.965 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1671
+23:09:03.965 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1669
+23:09:04.020 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+case Calendar.YEAR:
+23:09:04.021 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1665
+23:09:04.075 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+switch (fragment) {
+            case Calendar.YEAR:
+                result += (calendar.get(Calendar.DAY_OF_YEAR) * MILLIS_PER_DAY) / millisPerUnit;
+                break;
+            case Calendar.MONTH:
+                result += (calendar.get(Calendar.DAY_OF_MONTH) * MILLIS_PER_DAY) / millisPerUnit;
+                break;
+        }
+23:09:04.077 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.reflect.TypeUtils ===1270
+23:09:04.085 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.reflect.TypeUtils --- 1270
+23:09:04.085 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.reflect.TypeUtils ===1272
+23:09:04.093 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.reflect.TypeUtils --- 1272
+23:09:04.093 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.FastDateFormat ===587
+23:09:04.218 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDateFormat --- 587
+23:09:04.219 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.reflect.MethodUtils ===451
+23:09:04.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.reflect.MethodUtils --- 451
+23:09:04.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.reflect.MethodUtils ===447
+23:09:04.326 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.reflect.MethodUtils --- 447
+23:09:04.326 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===309
+23:09:04.342 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 309
+23:09:04.342 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===297
+23:09:04.359 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 297
+23:09:04.359 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.FastDateFormat ===179
+23:09:04.462 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDateFormat --- 179
+23:09:04.462 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.reflect.MethodUtils ===678
+23:09:04.486 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.reflect.MethodUtils --- 678
+23:09:04.486 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.reflect.MethodUtils ===677
+23:09:04.502 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.reflect.MethodUtils --- 677
+23:09:04.502 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.reflect.MethodUtils ===676
+23:09:04.518 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+public class MethodUtils {
+
+    /**
+     * <p>MethodUtils instances should NOT be constructed in standard programming.
+     * Instead, the class should be used as
+     * <code>MethodUtils.getAccessibleMethod(method)</code>.</p>
+     *
+     * <p>This constructor is public to permit tools that require a JavaBean
+     * instance to operate.</p>
+     */
+    public MethodUtils() {
+        super();
+    }
+
+    /**
+     * <p>Invoke a named method whose parameter type matches the object type.</p>
+     *
+     * <p>This method delegates the method search to {@link #getMatchingAccessibleMethod(Class, String, Class[])}.</p>
+     *
+     * <p>This method supports calls to methods taking primitive parameters 
+     * via passing in wrapping classes. So, for example, a <code>Boolean</code> object
+     * would match a <code>boolean</code> primitive.</p>
+     *
+     * <p> This is a convenient wrapper for
+     * {@link #invokeMethod(Object object, String methodName, Object[] args)}.
+     * </p>
+     *
+     * @param object invoke method on this object
+     * @param methodName get method with this name
+     * @param arg use this argument
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the method invoked
+     * @throws IllegalAccessException if the requested method is not accessible via reflection
+     */
+    public static Object invokeMethod(Object object, String methodName,
+            Object arg) throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        return invokeMethod(object, methodName, new Object[] { arg });
+    }
+
+    /**
+     * <p>Invoke a named method whose parameter type matches the object type.</p>
+     *
+     * <p>This method delegates the method search to {@link #getMatchingAccessibleMethod(Class, String, Class[])}.</p>
+     *
+     * <p>This method supports calls to methods taking primitive parameters 
+     * via passing in wrapping classes. So, for example, a <code>Boolean</code> object
+     * would match a <code>boolean</code> primitive.</p>
+     *
+     * <p> This is a convenient wrapper for
+     * {@link #invokeMethod(Object object,String methodName, Object[] args, Class[] parameterTypes)}.
+     * </p>
+     *
+     * @param object invoke method on this object
+     * @param methodName get method with this name
+     * @param args use these arguments - treat null as empty array
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the method invoked
+     * @throws IllegalAccessException if the requested method is not accessible via reflection
+     */
+    public static Object invokeMethod(Object object, String methodName,
+            Object[] args) throws NoSuchMethodException,
+            IllegalAccessException, InvocationTargetException {
+        if (args == null) {
+            args = ArrayUtils.EMPTY_OBJECT_ARRAY;
+        }
+        int arguments = args.length;
+        Class<?>[] parameterTypes = new Class[arguments];
+        for (int i = 0; i < arguments; i++) {
+            parameterTypes[i] = args[i].getClass();
+        }
+        return invokeMethod(object, methodName, args, parameterTypes);
+    }
+
+    /**
+     * <p>Invoke a named method whose parameter type matches the object type.</p>
+     *
+     * <p>This method delegates the method search to {@link #getMatchingAccessibleMethod(Class, String, Class[])}.</p>
+     *
+     * <p>This method supports calls to methods taking primitive parameters 
+     * via passing in wrapping classes. So, for example, a <code>Boolean</code> object
+     * would match a <code>boolean</code> primitive.</p>
+     *
+     * @param object invoke method on this object
+     * @param methodName get method with this name
+     * @param args use these arguments - treat null as empty array
+     * @param parameterTypes match these parameters - treat null as empty array
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the method invoked
+     * @throws IllegalAccessException if the requested method is not accessible via reflection
+     */
+    public static Object invokeMethod(Object object, String methodName,
+            Object[] args, Class<?>[] parameterTypes)
+            throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        if (parameterTypes == null) {
+            parameterTypes = ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+        if (args == null) {
+            args = ArrayUtils.EMPTY_OBJECT_ARRAY;
+        }
+        Method method = getMatchingAccessibleMethod(object.getClass(),
+                methodName, parameterTypes);
+        if (method == null) {
+            throw new NoSuchMethodException("No such accessible method: "
+                    + methodName + "() on object: "
+                    + object.getClass().getName());
+        }
+        return method.invoke(object, args);
+    }
+
+    /**
+     * <p>Invoke a method whose parameter type matches exactly the object
+     * type.</p>
+     *
+     * <p> This is a convenient wrapper for
+     * {@link #invokeExactMethod(Object object,String methodName,Object [] args)}.
+     * </p>
+     *
+     * @param object invoke method on this object
+     * @param methodName get method with this name
+     * @param arg use this argument
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeExactMethod(Object object, String methodName,
+            Object arg) throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        return invokeExactMethod(object, methodName, new Object[] { arg });
+    }
+
+    /**
+     * <p>Invoke a method whose parameter types match exactly the object
+     * types.</p>
+     *
+     * <p> This uses reflection to invoke the method obtained from a call to
+     * <code>getAccessibleMethod()</code>.</p>
+     *
+     * @param object invoke method on this object
+     * @param methodName get method with this name
+     * @param args use these arguments - treat null as empty array
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeExactMethod(Object object, String methodName,
+            Object[] args) throws NoSuchMethodException,
+            IllegalAccessException, InvocationTargetException {
+        if (args == null) {
+            args = ArrayUtils.EMPTY_OBJECT_ARRAY;
+        }
+        int arguments = args.length;
+        Class<?>[] parameterTypes = new Class[arguments];
+        for (int i = 0; i < arguments; i++) {
+            parameterTypes[i] = args[i].getClass();
+        }
+        return invokeExactMethod(object, methodName, args, parameterTypes);
+    }
+
+    /**
+     * <p>Invoke a method whose parameter types match exactly the parameter
+     * types given.</p>
+     *
+     * <p>This uses reflection to invoke the method obtained from a call to
+     * <code>getAccessibleMethod()</code>.</p>
+     *
+     * @param object invoke method on this object
+     * @param methodName get method with this name
+     * @param args use these arguments - treat null as empty array
+     * @param parameterTypes match these parameters - treat null as empty array
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeExactMethod(Object object, String methodName,
+            Object[] args, Class<?>[] parameterTypes)
+            throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        if (args == null) {
+            args = ArrayUtils.EMPTY_OBJECT_ARRAY;
+        }
+        if (parameterTypes == null) {
+            parameterTypes = ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+        Method method = getAccessibleMethod(object.getClass(), methodName,
+                parameterTypes);
+        if (method == null) {
+            throw new NoSuchMethodException("No such accessible method: "
+                    + methodName + "() on object: "
+                    + object.getClass().getName());
+        }
+        return method.invoke(object, args);
+    }
+
+    /**
+     * <p>Invoke a static method whose parameter types match exactly the parameter
+     * types given.</p>
+     *
+     * <p>This uses reflection to invoke the method obtained from a call to
+     * {@link #getAccessibleMethod(Class, String, Class[])}.</p>
+     *
+     * @param cls invoke static method on this class
+     * @param methodName get method with this name
+     * @param args use these arguments - treat null as empty array
+     * @param parameterTypes match these parameters - treat null as empty array
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeExactStaticMethod(Class<?> cls, String methodName,
+            Object[] args, Class<?>[] parameterTypes)
+            throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        if (args == null) {
+            args = ArrayUtils.EMPTY_OBJECT_ARRAY;
+        }
+        if (parameterTypes == null) {
+            parameterTypes = ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+        Method method = getAccessibleMethod(cls, methodName, parameterTypes);
+        if (method == null) {
+            throw new NoSuchMethodException("No such accessible method: "
+                    + methodName + "() on class: " + cls.getName());
+        }
+        return method.invoke(null, args);
+    }
+
+    /**
+     * <p>Invoke a named static method whose parameter type matches the object type.</p>
+     *
+     * <p>This method delegates the method search to {@link #getMatchingAccessibleMethod(Class, String, Class[])}.</p>
+     *
+     * <p>This method supports calls to methods taking primitive parameters 
+     * via passing in wrapping classes. So, for example, a <code>Boolean</code> class
+     * would match a <code>boolean</code> primitive.</p>
+     *
+     * <p> This is a convenient wrapper for
+     * {@link #invokeStaticMethod(Class objectClass,String methodName,Object [] args)}.
+     * </p>
+     *
+     * @param cls invoke static method on this class
+     * @param methodName get method with this name
+     * @param arg use this argument
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeStaticMethod(Class<?> cls, String methodName,
+            Object arg) throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        return invokeStaticMethod(cls, methodName, new Object[] { arg });
+    }
+
+    /**
+     * <p>Invoke a named static method whose parameter type matches the object type.</p>
+     *
+     * <p>This method delegates the method search to {@link #getMatchingAccessibleMethod(Class, String, Class[])}.</p>
+     *
+     * <p>This method supports calls to methods taking primitive parameters 
+     * via passing in wrapping classes. So, for example, a <code>Boolean</code> class
+     * would match a <code>boolean</code> primitive.</p>
+     *
+     * <p> This is a convenient wrapper for
+     * {@link #invokeStaticMethod(Class objectClass,String methodName,Object [] args,Class[] parameterTypes)}.
+     * </p>
+     *
+     * @param cls invoke static method on this class
+     * @param methodName get method with this name
+     * @param args use these arguments - treat null as empty array
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeStaticMethod(Class<?> cls, String methodName,
+            Object[] args) throws NoSuchMethodException,
+            IllegalAccessException, InvocationTargetException {
+        if (args == null) {
+            args = ArrayUtils.EMPTY_OBJECT_ARRAY;
+        }
+        int arguments = args.length;
+        Class<?>[] parameterTypes = new Class[arguments];
+        for (int i = 0; i < arguments; i++) {
+            parameterTypes[i] = args[i].getClass();
+        }
+        return invokeStaticMethod(cls, methodName, args, parameterTypes);
+    }
+
+    /**
+     * <p>Invoke a named static method whose parameter type matches the object type.</p>
+     *
+     * <p>This method delegates the method search to {@link #getMatchingAccessibleMethod(Class, String, Class[])}.</p>
+     *
+     * <p>This method supports calls to methods taking primitive parameters 
+     * via passing in wrapping classes. So, for example, a <code>Boolean</code> class
+     * would match a <code>boolean</code> primitive.</p>
+     *
+     *
+     * @param cls invoke static method on this class
+     * @param methodName get method with this name
+     * @param args use these arguments - treat null as empty array
+     * @param parameterTypes match these parameters - treat null as empty array
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeStaticMethod(Class<?> cls, String methodName,
+            Object[] args, Class<?>[] parameterTypes)
+            throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        if (parameterTypes == null) {
+            parameterTypes = ArrayUtils.EMPTY_CLASS_ARRAY;
+        }
+        if (args == null) {
+            args = ArrayUtils.EMPTY_OBJECT_ARRAY;
+        }
+        Method method = getMatchingAccessibleMethod(cls, methodName,
+                parameterTypes);
+        if (method == null) {
+            throw new NoSuchMethodException("No such accessible method: "
+                    + methodName + "() on class: " + cls.getName());
+        }
+        return method.invoke(null, args);
+    }
+
+    /**
+     * <p>Invoke a static method whose parameter type matches exactly the object
+     * type.</p>
+     *
+     * <p> This is a convenient wrapper for
+     * {@link #invokeExactStaticMethod(Class objectClass,String methodName,Object [] args)}.
+     * </p>
+     *
+     * @param cls invoke static method on this class
+     * @param methodName get method with this name
+     * @param arg use this argument
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeExactStaticMethod(Class<?> cls, String methodName,
+            Object arg) throws NoSuchMethodException, IllegalAccessException,
+            InvocationTargetException {
+        return invokeExactStaticMethod(cls, methodName, new Object[] { arg });
+    }
+
+    /**
+     * <p>Invoke a static method whose parameter types match exactly the object
+     * types.</p>
+     *
+     * <p> This uses reflection to invoke the method obtained from a call to
+     * {@link #getAccessibleMethod(Class, String, Class[])}.</p>
+     *
+     * @param cls invoke static method on this class
+     * @param methodName get method with this name
+     * @param args use these arguments - treat null as empty array
+     * @return The value returned by the invoked method
+     *
+     * @throws NoSuchMethodException if there is no such accessible method
+     * @throws InvocationTargetException wraps an exception thrown by the
+     *  method invoked
+     * @throws IllegalAccessException if the requested method is not accessible
+     *  via reflection
+     */
+    public static Object invokeExactStaticMethod(Class<?> cls, String methodName,
+            Object[] args) throws NoSuchMethodException,
+            IllegalAccessException, InvocationTargetException {
+        if (args == null) {
+            args = ArrayUtils.EMPTY_OBJECT_ARRAY;
+        }
+        int arguments = args.length;
+        Class<?>[] parameterTypes = new Class[arguments];
+        for (int i = 0; i < arguments; i++) {
+            parameterTypes[i] = args[i].getClass();
+        }
+        return invokeExactStaticMethod(cls, methodName, args, parameterTypes);
+    }
+
+    /**
+     * <p>Return an accessible method (that is, one that can be invoked via
+     * reflection) with given name and a single parameter.  If no such method
+     * can be found, return <code>null</code>.
+     * Basically, a convenience wrapper that constructs a <code>Class</code>
+     * array for you.</p>
+     *
+     * @param cls get method from this class
+     * @param methodName get method with this name
+     * @param parameterType taking this type of parameter
+     * @return The accessible method
+     */
+    public static Method getAccessibleMethod(Class<?> cls, String methodName,
+            Class<?> parameterType) {
+        return getAccessibleMethod(cls, methodName,
+                new Class<?>[] { parameterType });
+    }
+
+    /**
+     * <p>Return an accessible method (that is, one that can be invoked via
+     * reflection) with given name and parameters.  If no such method
+     * can be found, return <code>null</code>.
+     * This is just a convenient wrapper for
+     * {@link #getAccessibleMethod(Method method)}.</p>
+     *
+     * @param cls get method from this class
+     * @param methodName get method with this name
+     * @param parameterTypes with these parameters types
+     * @return The accessible method
+     */
+    public static Method getAccessibleMethod(Class<?> cls, String methodName,
+            Class<?>[] parameterTypes) {
+        try {
+            return getAccessibleMethod(cls.getMethod(methodName,
+                    parameterTypes));
+        } catch (NoSuchMethodException e) {
+            return (null);
+        }
+    }
+
+    /**
+     * <p>Return an accessible method (that is, one that can be invoked via
+     * reflection) that implements the specified Method.  If no such method
+     * can be found, return <code>null</code>.</p>
+     *
+     * @param method The method that we wish to call
+     * @return The accessible method
+     */
+    public static Method getAccessibleMethod(Method method) {
+        if (!MemberUtils.isAccessible(method)) {
+            return null;
+        }
+        // If the declaring class is public, we are done
+        Class<?> cls = method.getDeclaringClass();
+        if (Modifier.isPublic(cls.getModifiers())) {
+            return method;
+        }
+        String methodName = method.getName();
+        Class<?>[] parameterTypes = method.getParameterTypes();
+
+        // Check the implemented interfaces and subinterfaces
+        method = getAccessibleMethodFromInterfaceNest(cls, methodName,
+                parameterTypes);
+
+        // Check the superclass chain
+        if (method == null) {
+            method = getAccessibleMethodFromSuperclass(cls, methodName,
+                    parameterTypes);
+        }
+        return method;
+    }
+
+    /**
+     * <p>Return an accessible method (that is, one that can be invoked via
+     * reflection) by scanning through the superclasses. If no such method
+     * can be found, return <code>null</code>.</p>
+     *
+     * @param cls Class to be checked
+     * @param methodName Method name of the method we wish to call
+     * @param parameterTypes The parameter type signatures
+     */
+    private static Method getAccessibleMethodFromSuperclass(Class<?> cls,
+            String methodName, Class<?>[] parameterTypes) {
+        Class<?> parentClass = cls.getSuperclass();
+        while (parentClass != null) {
+            if (Modifier.isPublic(parentClass.getModifiers())) {
+                try {
+                    return parentClass.getMethod(methodName, parameterTypes);
+                } catch (NoSuchMethodException e) {
+                    return null;
+                }
+            }
+            parentClass = parentClass.getSuperclass();
+        }
+        return null;
+    }
+
+    /**
+     * <p>Return an accessible method (that is, one that can be invoked via
+     * reflection) that implements the specified method, by scanning through
+     * all implemented interfaces and subinterfaces.  If no such method
+     * can be found, return <code>null</code>.</p>
+     *
+     * <p> There isn't any good reason why this method must be private.
+     * It is because there doesn't seem any reason why other classes should
+     * call this rather than the higher level methods.</p>
+     *
+     * @param cls Parent class for the interfaces to be checked
+     * @param methodName Method name of the method we wish to call
+     * @param parameterTypes The parameter type signatures
+     */
+    private static Method getAccessibleMethodFromInterfaceNest(Class<?> cls,
+            String methodName, Class<?>[] parameterTypes) {
+        Method method = null;
+
+        // Search up the superclass chain
+        for (; cls != null; cls = cls.getSuperclass()) {
+
+            // Check the implemented interfaces of the parent class
+            Class<?>[] interfaces = cls.getInterfaces();
+            for (int i = 0; i < interfaces.length; i++) {
+                // Is this interface public?
+                if (!Modifier.isPublic(interfaces[i].getModifiers())) {
+                    continue;
+                }
+                // Does the method exist on this interface?
+                try {
+                    method = interfaces[i].getDeclaredMethod(methodName,
+                            parameterTypes);
+                } catch (NoSuchMethodException e) {
+                    /*
+                     * Swallow, if no method is found after the loop then this
+                     * method returns null.
+                     */
+                }
+                if (method != null) {
+                    break;
+                }
+                // Recursively check our parent interfaces
+                method = getAccessibleMethodFromInterfaceNest(interfaces[i],
+                        methodName, parameterTypes);
+                if (method != null) {
+                    break;
+                }
+            }
+        }
+        return method;
+    }
+
+    /**
+     * <p>Find an accessible method that matches the given name and has compatible parameters.
+     * Compatible parameters mean that every method parameter is assignable from 
+     * the given parameters.
+     * In other words, it finds a method with the given name 
+     * that will take the parameters given.<p>
+     *
+     * <p>This method is used by 
+     * {@link 
+     * #invokeMethod(Object object, String methodName, Object[] args, Class[] parameterTypes)}.
+     *
+     * <p>This method can match primitive parameter by passing in wrapper classes.
+     * For example, a <code>Boolean</code> will match a primitive <code>boolean</code>
+     * parameter.
+     *
+     * @param cls find method in this class
+     * @param methodName find method with this name
+     * @param parameterTypes find method with most compatible parameters 
+     * @return The accessible method
+     */
+    public static Method getMatchingAccessibleMethod(Class<?> cls,
+            String methodName, Class<?>[] parameterTypes) {
+        try {
+            Method method = cls.getMethod(methodName, parameterTypes);
+            MemberUtils.setAccessibleWorkaround(method);
+            return method;
+        } catch (NoSuchMethodException e) { /* SWALLOW */
+        }
+        // search through all methods
+        Method bestMatch = null;
+        Method[] methods = cls.getMethods();
+        for (int i = 0, size = methods.length; i < size; i++) {
+            if (methods[i].getName().equals(methodName)) {
+                // compare parameters
+                if (ClassUtils.isAssignable(parameterTypes, methods[i]
+                        .getParameterTypes(), true)) {
+                    // get accessible version of method
+                    Method accessibleMethod = getAccessibleMethod(methods[i]);
+                    if (accessibleMethod != null) {
+                        if (bestMatch == null
+                                || MemberUtils.compareParameterTypes(
+                                        accessibleMethod.getParameterTypes(),
+                                        bestMatch.getParameterTypes(),
+                                        parameterTypes) < 0) {
+                            bestMatch = accessibleMethod;
+                        }
+                    }
+                }
+            }
+        }
+        if (bestMatch != null) {
+            MemberUtils.setAccessibleWorkaround(bestMatch);
+        }
+        return bestMatch;
+    }
+}
+23:09:04.520 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===388
+23:09:04.527 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 388
+23:09:04.527 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===387
+23:09:04.533 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 387
+23:09:04.533 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.lang3.time.FastDateFormat ===599
+23:09:04.576 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if (tokenLen == 0) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if (tokenLen != 0) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((tokenLen >= 4)) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((tokenLen >= 4)) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((sub.length() == 1)) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((tokenLen >= 4)) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((tokenLen == 1)) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((tokenLen == 3)) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((tokenLen == 2)) {
+                break;
+            }
+23:09:04.578 [main] DEBUG edu.lu.uni.serval.par.templates.FixTemplate - Patch Candiate: if ((tokenLen < 4)) {
+                break;
+            }
+23:09:04.579 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:06.018 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:06.018 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:19.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:09:19.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 16, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538]
+23:09:19.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:09:19.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+23:09:19.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO
+23:09:19.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+23:09:19.422 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+23:09:19.423 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+23:09:19.424 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+23:09:19.424 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+23:09:19.424 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=15, pp=Unknown
+23:09:19.426 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+23:09:19.445 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/aggregatedSusInfo.profl
+23:09:19.445 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDateFormat:parsePattern()Ljava/util/List; in org.apache.commons.lang3.time.FastDateFormat:599
+23:09:19.445 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 16 Lang-32
+23:09:19.446 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:20.911 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:20.912 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:34.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:09:34.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 14, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538]
+23:09:34.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:09:34.628 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+23:09:34.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+23:09:34.630 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+23:09:34.630 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+23:09:34.630 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=13, pp=Unknown
+23:09:34.632 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+23:09:34.644 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/aggregatedSusInfo.profl
+23:09:34.644 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDateFormat:parsePattern()Ljava/util/List; in org.apache.commons.lang3.time.FastDateFormat:599
+23:09:34.644 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 14 Lang-32
+23:09:34.645 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:36.003 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:36.003 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:09:49.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:09:49.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 14, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538]
+23:09:49.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:09:49.164 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+23:09:49.165 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+23:09:49.166 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+23:09:49.166 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+23:09:49.166 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=13, pp=Unknown
+23:09:49.167 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+23:09:49.245 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/aggregatedSusInfo.profl
+23:09:49.245 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDateFormat:parsePattern()Ljava/util/List; in org.apache.commons.lang3.time.FastDateFormat:599
+23:09:49.245 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 14 Lang-32
+23:09:49.246 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:50.451 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Lang-32 ---Fixer: fix fail because of failed compiling! 
+23:09:50.452 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:09:51.881 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:09:51.881 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:04.452 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:10:04.452 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 14, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538]
+23:10:04.452 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:10:04.452 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+23:10:04.452 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+23:10:04.452 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+23:10:04.452 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+23:10:04.453 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=13, pp=Unknown
+23:10:04.455 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+23:10:05.375 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/aggregatedSusInfo.profl
+23:10:05.375 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDateFormat:parsePattern()Ljava/util/List; in org.apache.commons.lang3.time.FastDateFormat:599
+23:10:05.375 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 14 Lang-32
+23:10:05.376 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:06.891 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:10:06.891 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:19.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:10:19.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales]
+23:10:19.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:10:19.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+23:10:19.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+23:10:19.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+23:10:19.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+23:10:19.797 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+23:10:19.799 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+23:10:33.222 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/aggregatedSusInfo.profl
+23:10:33.223 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDateFormat:parsePattern()Ljava/util/List; in org.apache.commons.lang3.time.FastDateFormat:599
+23:10:33.223 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Lang-32
+23:10:33.224 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:10:34.638 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:10:34.638 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:10:47.332 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:10:47.333 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538]
+23:10:47.333 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:10:47.333 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+23:10:47.333 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+23:10:47.333 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+23:10:47.340 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+23:13:18.703 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/aggregatedSusInfo.profl
+23:13:18.704 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDateFormat:parsePattern()Ljava/util/List; in org.apache.commons.lang3.time.FastDateFormat:599
+23:13:18.704 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 3 Lang-32
+23:13:18.704 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:13:20.134 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:13:20.134 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:13:33.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:13:33.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 14, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538]
+23:13:33.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:13:33.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+23:13:33.240 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+23:13:33.241 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=13, pp=Unknown
+23:13:33.244 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+23:44:19.699 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/kPar/ProFL-kParFixer/Lang-32/aggregatedSusInfo.profl
+23:44:19.700 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDateFormat:parsePattern()Ljava/util/List; in org.apache.commons.lang3.time.FastDateFormat:599
+23:44:19.700 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 14 Lang-32
+23:44:19.701 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+23:44:21.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+23:44:21.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+23:44:35.249 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle]
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 16, [- org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar, - org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO, - org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat, - org.apache.commons.lang3.time.DateUtilsTest::testLang530, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO, - org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate, - org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales, - org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug, - org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding, - org.apache.commons.lang3.time.FastDateFormatTest::testLang538]
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.builder.HashCodeBuilderTest::testReflectionObjectCycle
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatUTC
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeISO
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormatCalendar
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testSMTP
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateTimeISO
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testTimeNoTISO
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testDateISO
+23:44:35.250 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateFormatUtilsTest::testFormat
+23:44:35.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsTest::testLang530
+23:44:35.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriodISO
+23:44:35.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testSimpleDate
+23:44:35.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testShortDateStyleWithLocales
+23:44:35.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testMilleniumBug
+23:44:35.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLowYearPadding
+23:44:35.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormatTest::testLang538
+23:44:35.251 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=15, pp=Unknown
+23:44:35.255 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

@@ -1,0 +1,282 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-93
+07:34:54.747 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-93 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/93.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/93.txt
+07:34:57.209 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+07:34:57.226 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-93/ochiai.txt
+07:34:57.227 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+07:34:57.227 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.util.MathUtils ===350
+07:34:58.358 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return factorials[n];
+07:34:58.360 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/util/MathUtils.java:350 ---
+07:34:58.366 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return result[n];
+07:34:58.366 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return n[n];
+07:34:58.366 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return factorials[result];
+07:34:58.366 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return factorials[factorials];
+---------------- Testing New Patch ----------------
+07:34:58.368 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:34:59.336 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:34:59.336 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:00.206 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:00.207 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:01.080 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:01.081 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:01.907 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-93 ---Fixer: fix fail because of failed compiling! 
+07:35:01.908 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (factorials != null) {
+	
+
+}
+
+07:35:01.908 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (factorials == null) {
+    throw new IllegalArgumentException("Null 'factorials' argument.");
+}
+
+07:35:01.908 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (factorials == null) {
+    return 0;
+}
+
+---------------- Testing New Patch ----------------
+07:35:01.908 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:02.748 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:02.749 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:03.615 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:03.615 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:15.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:35:15.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:35:15.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:35:15.534 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:15.535 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:15.536 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:35:15.536 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:35:15.536 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-93
+---------------- Testing New Patch ----------------
+07:35:15.537 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:16.450 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:16.450 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:29.252 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:35:29.252 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:35:29.252 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:35:29.252 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:29.253 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:29.253 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:35:29.253 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:35:29.253 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-93
+07:35:29.254 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:29.254 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:30.119 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:30.119 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:42.214 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:35:42.214 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:35:42.214 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:35:42.214 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:35:42.214 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:42.214 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:42.216 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:35:42.216 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:35:42.216 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+07:35:42.217 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:42.217 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:43.178 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:43.178 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:56.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:35:56.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:35:56.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:35:56.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:35:56.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:56.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:56.092 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:35:56.092 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:35:56.092 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+---------------- Testing New Patch ----------------
+07:35:56.092 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:57.036 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:57.036 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:09.551 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:09.551 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:09.551 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:36:09.551 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:36:09.551 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:09.551 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:09.552 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:36:09.553 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:36:09.553 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+07:36:09.553 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:09.554 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:10.516 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:10.516 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:22.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:22.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:22.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:36:22.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:36:22.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:22.283 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:22.288 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:36:22.288 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:36:22.288 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+07:36:22.288 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:22.289 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:23.190 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:23.191 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:34.655 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:34.656 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:34.656 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:36:34.656 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:36:34.656 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:34.656 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:34.671 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:36:34.671 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:36:34.671 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+---------------- Testing New Patch ----------------
+07:36:34.672 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:35.555 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:35.555 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:47.544 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:47.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:47.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:36:47.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:36:47.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:47.545 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:47.720 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:36:47.720 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:36:47.720 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+07:36:47.721 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:47.721 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:48.701 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:48.702 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:59.911 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:59.911 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:36:59.912 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:36:59.912 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:36:59.912 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:59.912 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:37:00.598 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:37:00.598 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:350
+07:37:00.598 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+07:37:00.599 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.util.MathUtils ===346
+07:37:00.848 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+if (result == Long.MAX_VALUE) {
+            throw new ArithmeticException(
+                    "factorial value is too large to fit in a long");
+        }
+07:37:00.849 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/util/MathUtils.java:346 ---
+07:37:00.849 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (result != Long.MAX_VALUE) {
+            throw new ArithmeticException(
+                    "factorial value is too large to fit in a long");
+        }
+---------------- Testing New Patch ----------------
+07:37:00.850 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:01.717 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:37:01.717 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:37:12.292 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:37:12.292 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:37:12.292 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:37:12.292 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:37:12.292 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:37:12.292 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:37:15.797 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:37:15.797 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:346
+07:37:15.797 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+07:37:15.799 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (n == Long.MAX_VALUE) {
+            throw new ArithmeticException(
+                    "factorial value is too large to fit in a long");
+        }
+07:37:15.799 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (factorials == Long.MAX_VALUE) {
+            throw new ArithmeticException(
+                    "factorial value is too large to fit in a long");
+        }
+---------------- Testing New Patch ----------------
+07:37:15.799 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:16.682 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:37:16.682 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:37:27.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:37:27.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:37:27.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:37:27.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:37:27.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:37:27.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:37:45.899 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:37:45.899 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:346
+07:37:45.899 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+---------------- Testing New Patch ----------------
+07:37:45.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:46.695 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-93 ---Fixer: fix fail because of failed compiling! 
+07:37:46.696 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: throw new ArithmeticException(
+                    "factorial value is too large to fit in a long");
+07:37:46.696 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+---------------- Testing New Patch ----------------
+07:37:46.697 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:47.493 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-93 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:37:47.494 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:37:48.331 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:37:48.331 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:37:58.460 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:37:58.460 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:37:58.460 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:37:58.460 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:37:58.460 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:37:58.461 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:40:04.208 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:40:04.208 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:346
+07:40:04.208 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+07:40:04.208 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:40:04.209 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:40:05.020 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:40:05.021 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:40:14.880 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:40:14.880 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:40:14.881 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:40:14.881 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:40:14.881 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:40:14.881 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:51:04.464 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+07:51:04.464 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:346
+07:51:04.464 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+07:51:04.464 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:51:04.465 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:51:05.206 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:51:05.206 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:51:15.311 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:51:15.311 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+07:51:15.311 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+07:51:15.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+07:51:15.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:51:15.312 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+09:06:03.837 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-93/aggregatedSusInfo.profl
+09:06:03.838 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.util.MathUtils:factorial(I)J in org.apache.commons.math.util.MathUtils:346
+09:06:03.838 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-93
+---------------- Testing New Patch ----------------
+09:06:03.838 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:06:04.600 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+09:06:04.600 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+09:06:15.004 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.util.MathUtilsTest::testFactorial]
+09:06:15.004 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.util.MathUtilsTest::testFactorialFail, - org.apache.commons.math.util.MathUtilsTest::testFactorial]
+09:06:15.004 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorialFail
+09:06:15.004 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.util.MathUtilsTest::testFactorial
+09:06:15.004 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+09:06:15.004 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

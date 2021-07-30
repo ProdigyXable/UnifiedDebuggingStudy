@@ -1,0 +1,39 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-34
+03:18:24.248 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-34 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/34.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/34.txt
+03:18:29.629 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:18:29.662 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-34/generalSusInfo.profl
+03:18:29.664 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+03:18:29.664 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math3.genetics.ListPopulation ===209
+03:18:30.350 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return chromosomes.iterator();
+return chromosomes.iterator(this.populationLimit);
+03:18:30.364 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:31.287 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-34 ---Fixer: fix fail because of failed compiling! 
+return getChromosomes().iterator();
+return getChromosomeList().iterator();
+return getFittestChromosome().iterator();
+return getPopulationLimit().iterator();
+return getPopulationSize().iterator();
+return toString().iterator();
+return iterator().iterator();
+03:18:31.290 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:32.242 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:18:32.242 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:19:20.037 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.genetics.ListPopulationTest::testIterator]
+03:19:20.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 0, []
+03:19:20.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=0, fp=1, pf=0, pp=Unknown
+03:19:20.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] CleanFix found
+03:19:20.041 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-34/aggregatedSusInfo.profl
+03:19:20.041 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math3.genetics.ListPopulation:iterator()Ljava/util/Iterator; in org.apache.commons.math3.genetics.ListPopulation:209
+03:19:20.041 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Succeeded to fix the bug Math-34====================
+03:19:20.191 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Finish off Fixing======
+03:19:20.194 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-34/aggregatedSusInfo.profl
+Succeeded to fix bug Math-34

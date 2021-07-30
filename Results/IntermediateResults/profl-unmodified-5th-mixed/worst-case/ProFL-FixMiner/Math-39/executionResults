@@ -1,0 +1,473 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-39
+03:18:14.080 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/39.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/39.txt
+03:18:18.997 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - ProFL successfully initialized
+03:18:19.014 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-39/generalSusInfo.profl
+03:18:19.016 [main] INFO edu.lu.uni.serval.bug.fixer.FixMinerFixer - =======Fixing Beginning======
+03:18:19.016 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.util.FastMath ===3259
+03:18:20.525 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return (direction < 0) ? -Double.MIN_VALUE : Double.MIN_VALUE;
+
+03:18:20.551 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:21.680 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:18:21.680 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:18:55.660 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:18:55.660 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases]
+03:18:55.660 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+03:18:55.660 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep
+03:18:55.660 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+03:18:55.660 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42]
+03:18:55.660 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+03:18:55.660 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+03:18:55.661 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:18:55.679 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-39/aggregatedSusInfo.profl
+03:18:55.679 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3259
+03:18:55.679 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 5 Math-39
+03:18:55.680 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.util.FastMath ===3267
+03:18:56.009 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(sign, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(bits, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(d, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(direction, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(PI, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(E, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(EXP_INT_TABLE_MAX_INDEX, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(EXP_INT_TABLE_LEN, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(LN_MANT_LEN, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(EXP_FRAC_TABLE_LEN, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(RECOMPUTE_TABLES_AT_RUNTIME, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(LOAD_RESOURCES, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(LN_2_A, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(LN_2_B, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(LN_QUICK_COEF, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(LN_HI_PREC_COEF, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(SINE_TABLE_LEN, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(SINE_TABLE_A, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(SINE_TABLE_B, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(COSINE_TABLE_A, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(COSINE_TABLE_B, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(TANGENT_TABLE_A, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(TANGENT_TABLE_B, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(RECIP_2PI, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(PI_O_4_BITS, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(EIGHTHS, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(CBRTTWO, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(HEX_40000000, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(MASK_30BITS, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(TWO_POWER_52, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_3, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_5, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_7, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_9, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_11, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_13, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_15, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_17, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_3_4, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_15_16, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_13_14, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_11_12, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_9_10, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_7_8, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_5_6, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(F_1_2, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), sign);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), bits);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), d);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), direction);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), PI);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), E);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), EXP_INT_TABLE_MAX_INDEX);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), EXP_INT_TABLE_LEN);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), LN_MANT_LEN);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), EXP_FRAC_TABLE_LEN);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), RECOMPUTE_TABLES_AT_RUNTIME);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), LOAD_RESOURCES);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), LN_2_A);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), LN_2_B);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), LN_QUICK_COEF);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), LN_HI_PREC_COEF);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), SINE_TABLE_LEN);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), SINE_TABLE_A);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), SINE_TABLE_B);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), COSINE_TABLE_A);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), COSINE_TABLE_B);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), TANGENT_TABLE_A);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), TANGENT_TABLE_B);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), RECIP_2PI);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), PI_O_4_BITS);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), EIGHTHS);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), CBRTTWO);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), HEX_40000000);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), MASK_30BITS);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), TWO_POWER_52);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_3);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_5);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_7);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_9);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_11);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_13);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_15);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_17);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_3_4);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_15_16);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_13_14);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_11_12);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_9_10);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_7_8);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_5_6);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), F_1_2);
+03:18:56.013 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:56.982 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:18:56.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:57.867 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:18:57.868 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:58.778 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:18:58.779 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:18:59.687 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:18:59.688 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:00.586 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:00.587 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:01.468 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:01.469 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:02.409 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:02.410 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:03.279 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:03.280 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:04.274 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:04.275 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:05.255 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:05.256 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:06.273 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:06.274 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:07.257 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:07.258 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:08.312 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:08.314 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:09.404 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:09.405 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:10.482 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:10.483 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:11.627 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:11.628 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:12.613 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:12.613 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:13.830 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:13.831 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:14.906 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:14.907 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:15.918 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:15.919 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:16.935 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:16.936 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:18.022 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:18.023 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:18.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:18.987 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:19.892 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:19.893 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:20.894 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:20.895 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:21.877 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:21.886 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:22.854 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:22.855 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:23.783 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:23.784 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:24.756 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:24.757 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:25.703 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:25.705 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:26.690 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:26.691 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:27.602 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:27.603 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:28.583 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:28.584 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:29.428 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:29.429 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:30.348 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:30.349 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:31.240 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:31.241 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:32.332 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:32.333 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:33.319 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:33.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:34.357 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:34.358 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:35.364 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:35.365 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:36.336 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:36.337 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:37.295 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:37.297 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:38.292 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:38.293 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:39.272 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:39.273 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:40.346 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:40.347 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:41.303 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:41.304 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:42.388 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:42.389 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:43.425 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:43.427 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:44.389 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:44.390 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:45.383 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:45.384 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:46.355 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:46.356 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:47.320 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:47.321 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:48.255 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:48.256 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:49.305 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:49.306 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:50.242 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:50.243 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:51.169 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:51.170 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:52.269 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:52.275 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:53.304 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:53.305 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:54.380 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:54.381 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:55.343 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:55.344 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:56.396 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:56.397 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:57.373 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:57.374 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:58.327 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:58.328 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:19:59.226 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:19:59.227 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:00.222 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:00.224 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:01.203 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:01.204 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:02.197 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:02.198 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:03.113 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:03.114 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:04.033 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:04.034 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:04.915 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:04.916 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:05.797 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:05.798 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:06.680 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:06.681 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:07.657 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:07.658 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:08.615 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:08.616 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:09.525 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:09.526 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:10.385 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:10.386 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:11.300 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:11.301 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:12.240 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:12.241 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:13.141 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:13.142 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:14.097 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:14.098 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:14.983 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:14.985 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:15.904 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:15.905 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:16.832 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:16.833 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:17.821 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:17.822 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:18.807 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:18.808 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:19.876 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:19.877 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:20.903 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:20.904 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:22.017 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:22.018 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:23.051 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:23.052 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:24.051 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:24.052 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:25.042 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:25.043 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:26.063 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+return random().longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1));
+03:20:26.066 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:27.080 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+return Double.longBitsToDouble(true, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(false, sign | ((bits & 0x7fffffffffffffffL) + 1));
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), true);
+return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1), false);
+03:20:27.082 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:28.144 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:28.146 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:29.182 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:29.183 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:30.100 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:20:30.100 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:31.044 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+if (sign == 0) {
+    new IllegalArgumentException("");
+}
+
+if (sign != 0) {
+
+    
+}
+
+if (sign > 0) {
+
+    
+}
+
+if (bits == 0) {
+    new IllegalArgumentException("");
+}
+
+if (bits != 0) {
+
+    
+}
+
+if (bits > 0) {
+
+    
+}
+
+03:20:31.047 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:20:32.087 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:20:32.087 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:21:02.291 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:21:02.291 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:21:02.291 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+03:21:02.291 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:21:02.291 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:21:02.409 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-39/aggregatedSusInfo.profl
+03:21:02.410 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3267
+03:21:02.410 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-39
+03:21:02.411 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:03.290 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:21:03.291 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:04.186 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:21:04.188 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:05.197 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:21:05.197 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:21:34.238 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:21:34.239 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:21:34.239 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+03:21:34.239 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:21:34.239 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:21:34.351 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-39/aggregatedSusInfo.profl
+03:21:34.351 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3267
+03:21:34.351 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-39
+03:21:34.352 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:35.220 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:21:35.221 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:36.155 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+
+03:21:36.158 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:37.042 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Math-39 ---Fixer: fix fail because of failed compiling! 
+03:21:37.043 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - org.apache.commons.math.util.FastMath ===3266
+03:21:37.153 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Suspicious Code: 
+if ((direction < d) ^ (sign == 0L)) {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1));
+        } else {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) - 1));
+        }
+if ((direction <= d) ^ (sign == 0L)) {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1));
+        } else {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) - 1));
+        }
+if ((direction >= d) ^ (sign == 0L)) {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1));
+        } else {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) - 1));
+        }
+if ((direction > d) ^ (sign == 0L)) {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1));
+        } else {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) - 1));
+        }
+if ((direction < d) ^ (sign != 0L)) {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) + 1));
+        } else {
+            return Double.longBitsToDouble(sign | ((bits & 0x7fffffffffffffffL) - 1));
+        }
+03:21:37.155 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:21:38.111 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:21:38.111 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:22:07.343 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:22:07.343 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:22:07.343 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+03:22:07.343 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+03:22:07.343 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NoneFix found
+03:22:09.287 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-39/aggregatedSusInfo.profl
+03:22:09.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3266
+03:22:09.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 1 Math-39
+03:22:09.288 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:22:10.268 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:22:10.268 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases, - org.apache.commons.math.util.FastMathTest::testNextAfter, - org.apache.commons.math.util.PrecisionTest::testRoundFloat]
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42]
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testNextAfter
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.PrecisionTest::testRoundFloat
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+03:22:39.038 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:23:14.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-39/aggregatedSusInfo.profl
+03:23:14.483 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3266
+03:23:14.483 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 7 Math-39
+03:23:14.484 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:23:15.393 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:23:15.393 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:23:42.482 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:23:42.482 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases, - org.apache.commons.math.util.FastMathTest::testNextAfter, - org.apache.commons.math.util.PrecisionTest::testRoundFloat]
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42]
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testNextAfter
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.PrecisionTest::testRoundFloat
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+03:23:42.483 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found
+03:34:44.722 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/fixminer/ProFL-FixMiner/Math-39/aggregatedSusInfo.profl
+03:34:44.722 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Mutated = org.apache.commons.math.util.FastMath:nextAfter(DD)D in org.apache.commons.math.util.FastMath:3266
+03:34:44.722 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed Tests after fixing: 7 Math-39
+03:34:44.723 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Compiling
+03:34:45.708 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Finish of compiling.
+03:34:45.708 [main] DEBUG edu.lu.uni.serval.bug.fixer.AbstractFixer - Test previously failed test cases.
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep]
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Failed tests AFTER patch = 7, [- org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep, - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41], - org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42], - org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases, - org.apache.commons.math.util.FastMathTest::testNextAfter, - org.apache.commons.math.util.PrecisionTest::testRoundFloat]
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.ode.nonstiff.DormandPrince853IntegratorTest::testTooLargeFirstStep
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.ode.nonstiff.GraggBulirschStoerIntegratorTest::testTooLargeFirstStep
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[41]
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathStrictComparisonTest::test1[42]
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testDoubleNextAfterSpecialCases
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.FastMathTest::testNextAfter
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.util.PrecisionTest::testRoundFloat
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - Patch test results ff=1, fp=0, pf=6, pp=Unknown
+03:35:13.732 [main] INFO edu.lu.uni.serval.bug.fixer.AbstractFixer - [ProFL] NegFix found

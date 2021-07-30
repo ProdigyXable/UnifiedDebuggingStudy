@@ -1,0 +1,142 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Mockito-35
+09:35:10.611 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 Failed Tests: 4
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Mockito/35.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Mockito/35.txt
+09:35:12.696 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+09:35:12.712 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-35/generalSusInfo.profl
+09:35:12.739 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-35/aggregatedSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Mockito-35/ochiai.txt
+09:35:12.742 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+09:35:12.742 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.mockito.Matchers ===362
+09:35:13.419 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return reportMatcher(new InstanceOf(clazz)).<T>returnNull();
+09:35:13.421 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/mockito/Matchers.java:362 ---
+09:35:13.428 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return reportMatcher(new InstanceOf(mockingProgress)).<T>returnNull();
+---------------- Testing New Patch ----------------
+09:35:13.428 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:35:17.013 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:35:17.013 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (clazz != null) {
+	
+
+}
+
+09:35:17.014 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (clazz == null) {
+    throw new IllegalArgumentException("Null 'clazz' argument.");
+}
+
+09:35:17.014 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (clazz == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+09:35:17.014 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:35:20.607 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:35:20.607 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:35:30.101 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+09:35:30.101 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+09:37:39.170 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame]
+09:37:39.170 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed, - org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed, - org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq, - org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame]
+09:37:39.170 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed
+09:37:39.171 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed
+09:37:39.171 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq
+09:37:39.171 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame
+09:37:39.171 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+09:37:39.171 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+09:37:39.241 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-35/aggregatedSusInfo.profl
+09:37:39.241 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.Matchers:isA(Ljava/lang/Class;)Ljava/lang/Object; in org.mockito.Matchers:362
+09:37:39.241 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Mockito-35
+---------------- Testing New Patch ----------------
+09:37:39.242 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:37:49.546 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+09:37:49.546 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+09:39:56.881 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq, org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame]
+09:39:56.881 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed, - org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed, - org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq, - org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame]
+09:39:56.881 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntPassed
+09:39:56.882 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassed
+09:39:56.882 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToEq
+09:39:56.882 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.mockitousage.bugs.NPEWithCertainMatchersTest::shouldNotThrowNPEWhenIntegerPassedToSame
+09:39:56.882 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+09:39:56.882 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+09:39:57.268 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-35/aggregatedSusInfo.profl
+09:39:57.268 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.mockito.Matchers:isA(Ljava/lang/Class;)Ljava/lang/Object; in org.mockito.Matchers:362
+09:39:57.268 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Mockito-35
+09:39:57.269 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:39:57.269 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:40:06.069 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:40:06.069 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:40:06.069 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:40:14.732 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:40:14.732 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:40:23.612 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:40:23.612 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:40:23.612 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:40:32.373 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:40:32.373 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:40:32.374 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:40:41.242 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:40:41.243 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:40:49.935 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:40:49.935 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:40:49.936 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:40:58.955 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:40:58.955 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:40:58.956 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:41:08.048 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:41:08.048 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:41:17.001 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:41:17.001 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:41:17.002 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:41:25.686 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:41:25.686 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:41:25.687 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:41:34.520 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:41:34.520 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:41:43.584 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:41:43.584 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:41:43.585 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:41:52.554 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:41:52.555 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:41:52.555 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:42:01.804 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+09:42:01.804 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:42:10.744 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:42:10.744 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+09:42:10.744 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+09:42:19.564 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mockito-35 ---Fixer: fix fail because of failed compiling! 
+09:42:19.565 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Finish off fixing======
+09:42:27.524 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Mockito-35/aggregatedSusInfo.profl
+Failed to fix bug Mockito-35

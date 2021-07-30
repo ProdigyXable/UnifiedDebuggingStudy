@@ -1,0 +1,81 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-28
+10:17:42.468 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-28 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/28.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/28.txt
+10:17:48.454 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+10:17:48.475 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-28/generalSusInfo.profl
+10:17:48.482 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+10:17:48.482 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer ===128
+10:17:49.209 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+throw new MaxCountExceededException(maxIterations);
+10:17:49.210 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer:128 ---
+10:17:49.210 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/optimization/linear/AbstractLinearOptimizer.java 128 ---
+10:17:49.210 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle]
+10:17:49.267 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new MaxCountExceededException(this.iterations);
+10:17:49.268 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new MaxCountExceededException(restrictToNonNegative());
+10:17:49.268 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new MaxCountExceededException(getGoalType());
+10:17:49.268 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new MaxCountExceededException(getFunction());
+10:17:49.268 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new MaxCountExceededException(getConstraints());
+10:17:49.268 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new MaxCountExceededException(getMaxIterations());
+10:17:49.268 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new MaxCountExceededException(getIterations());
+---------------- Testing New Patch ----------------
+10:17:49.268 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:17:50.065 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:17:50.066 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:18:53.058 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle]
+10:18:53.058 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle]
+10:18:53.058 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle
+10:18:53.058 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:18:53.058 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:18:53.102 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-28/aggregatedSusInfo.profl
+10:18:53.102 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer:incrementIterationsCounter()V in org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer:128
+10:18:53.102 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-28
+---------------- Testing New Patch ----------------
+10:18:53.103 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:18:53.880 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-28 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:18:53.880 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:18:54.676 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-28 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:18:54.676 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:18:55.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-28 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:18:55.437 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:18:56.173 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-28 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:18:56.174 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:18:56.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:18:56.994 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:19:59.217 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle]
+10:19:59.218 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle]
+10:19:59.218 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle
+10:19:59.218 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:19:59.221 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:19:59.368 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-28/aggregatedSusInfo.profl
+10:19:59.368 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer:incrementIterationsCounter()V in org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer:128
+10:19:59.369 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-28
+---------------- Testing New Patch ----------------
+10:19:59.369 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:20:00.440 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:20:00.440 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+10:21:10.249 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle]
+10:21:10.249 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle]
+10:21:10.249 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath828Cycle
+10:21:10.249 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+10:21:10.249 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+10:21:10.464 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-28/aggregatedSusInfo.profl
+10:21:10.464 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer:incrementIterationsCounter()V in org.apache.commons.math3.optimization.linear.AbstractLinearOptimizer:128
+10:21:10.464 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-28
+10:21:10.527 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+10:21:10.527 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+10:21:10.527 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+10:21:11.297 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+10:21:11.297 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.

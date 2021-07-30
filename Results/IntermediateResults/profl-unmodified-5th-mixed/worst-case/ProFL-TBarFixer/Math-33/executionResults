@@ -1,0 +1,270 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-33
+14:08:55.534 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Math-33 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/33.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/33.txt
+14:09:04.484 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+14:09:04.510 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-33/generalSusInfo.profl
+14:09:04.513 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+14:09:04.513 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.optimization.linear.Relationship ===59
+14:09:05.658 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return GEQ;
+14:09:05.667 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.optimization.linear.Relationship:59 ---
+14:09:05.668 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/optimization/linear/Relationship.java 59 ---
+14:09:05.676 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:09:05.690 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (GEQ != null) {
+	
+
+	}
+
+14:09:05.691 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (GEQ == null) {
+	    throw new IllegalArgumentException("Null 'GEQ' argument.");
+	}
+
+14:09:05.691 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (GEQ == null) {
+	    return null;
+	}
+
+14:09:05.691 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (GEQ == null) GEQ = new null();
+ 
+14:09:05.691 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (GEQ == null) return new Relationship();
+	 
+---------------- Testing New Patch ----------------
+14:09:05.693 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:06.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:09:06.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:09:07.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:09:07.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:10:32.579 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:10:32.579 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:10:32.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781
+14:10:32.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:10:32.580 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:10:32.622 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-33/aggregatedSusInfo.profl
+14:10:32.623 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.Relationship:oppositeRelationship()Lorg/apache/commons/math3/optimization/linear/Relationship; in org.apache.commons.math3.optimization.linear.Relationship:59
+14:10:32.623 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-33
+---------------- Testing New Patch ----------------
+14:10:32.623 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:10:34.131 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:10:34.131 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:11:57.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:11:57.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:11:57.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781
+14:11:57.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+14:11:57.020 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+14:11:57.148 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-33/aggregatedSusInfo.profl
+14:11:57.148 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.Relationship:oppositeRelationship()Lorg/apache/commons/math3/optimization/linear/Relationship; in org.apache.commons.math3.optimization.linear.Relationship:59
+14:11:57.148 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Math-33
+---------------- Testing New Patch ----------------
+14:11:57.149 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:57.686 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:11:57.686 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:58.719 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+14:11:58.720 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+14:11:58.721 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:11:59.864 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:11:59.864 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:13:24.043 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:13:24.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 5, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath290GEQ, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath290LEQ, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434NegativeVariable]
+14:13:24.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath290GEQ
+14:13:24.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath290LEQ
+14:13:24.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781
+14:13:24.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2
+14:13:24.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434NegativeVariable
+14:13:24.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=4, pp=Unknown
+14:13:24.044 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:13:24.387 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-33/aggregatedSusInfo.profl
+14:13:24.387 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.Relationship:oppositeRelationship()Lorg/apache/commons/math3/optimization/linear/Relationship; in org.apache.commons.math3.optimization.linear.Relationship:59
+14:13:24.387 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 5 Math-33
+14:13:24.388 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.optimization.linear.SimplexTableau ===407
+14:13:24.807 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+continue;
+14:13:24.807 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.optimization.linear.SimplexTableau:407 ---
+14:13:24.808 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/optimization/linear/SimplexTableau.java 407 ---
+14:13:24.808 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:13:25.244 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+14:13:25.245 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:13:26.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:13:26.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:14:48.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:14:48.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 20, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testRestrictVariablesToNonNegative, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testEpsilon, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testSimplexSolver, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath290GEQ, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testTrivialModel, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath713NegativeVariable, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath272, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath286, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath288, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath293, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testModelWithNoArtificialVars, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMinimization, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testDegeneracy, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testLargeModel, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testSolutionWithNegativeDecisionVariable, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434NegativeVariable]
+14:14:48.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testRestrictVariablesToNonNegative
+14:14:48.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testEpsilon
+14:14:48.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testSingleVariableAndConstraint
+14:14:48.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testSimplexSolver
+14:14:48.250 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath290GEQ
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testTrivialModel
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath713NegativeVariable
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath272
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath286
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath288
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath293
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testModelWithNoArtificialVars
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMinimization
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testDegeneracy
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection
+14:14:48.251 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testLargeModel
+14:14:48.252 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testSolutionWithNegativeDecisionVariable
+14:14:48.252 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434NegativeVariable
+14:14:48.252 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=19, pp=Unknown
+14:14:48.252 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:14:55.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-33/aggregatedSusInfo.profl
+14:14:55.176 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.SimplexTableau:getSolution()Lorg/apache/commons/math3/optimization/PointValuePair; in org.apache.commons.math3.optimization.linear.SimplexTableau:407
+14:14:55.176 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 20 Math-33
+14:14:55.266 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.math3.optimization.linear.SimplexTableau ===406
+14:14:55.374 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+coefficients[i] = 0;
+14:14:55.374 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.math3.optimization.linear.SimplexTableau:406 ---
+14:14:55.374 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/math3/optimization/linear/SimplexTableau.java 406 ---
+14:14:55.374 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:14:55.452 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if ((i < coefficients.length())) {
+	
+
+}
+
+---------------- Testing New Patch ----------------
+14:14:55.453 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:14:56.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: initializeColumnLabels()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getNumObjectiveFunctions()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: dropPhase1Objective()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: isOptimal()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getSolution()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getWidth()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getHeight()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getSlackVariableOffset()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getArtificialVariableOffset()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getRhsOffset()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getNumDecisionVariables()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getOriginalNumDecisionVariables()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getNumSlackVariables()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getNumArtificialVariables()[i] = 0;
+14:14:56.787 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: getData()[i] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: hashCode()[i] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[initializeColumnLabels()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getNumObjectiveFunctions()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[dropPhase1Objective()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[isOptimal()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getSolution()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getWidth()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getHeight()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getSlackVariableOffset()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getArtificialVariableOffset()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getRhsOffset()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getNumDecisionVariables()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getOriginalNumDecisionVariables()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getNumSlackVariables()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getNumArtificialVariables()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[getData()] = 0;
+14:14:56.788 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: coefficients[hashCode()] = 0;
+---------------- Testing New Patch ----------------
+14:14:56.789 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:14:58.063 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:14:58.064 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:14:59.413 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:14:59.414 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:00.759 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:00.760 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:02.210 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:02.211 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:03.475 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:03.475 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:04.741 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:04.741 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:06.060 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:06.061 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:07.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:07.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:08.687 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:08.688 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:09.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:09.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:11.291 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:11.292 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:12.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:12.541 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:13.903 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:13.903 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:15.205 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:15.205 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:16.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:16.725 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:18.229 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:18.231 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:19.855 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:15:19.856 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:15:21.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:15:21.518 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:16:36.430 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:16:36.430 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2]
+14:16:36.430 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781
+14:16:36.430 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2
+14:16:36.430 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+14:16:36.430 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+14:18:53.247 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-33/aggregatedSusInfo.profl
+14:18:53.247 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.SimplexTableau:getSolution()Lorg/apache/commons/math3/optimization/PointValuePair; in org.apache.commons.math3.optimization.linear.SimplexTableau:406
+14:18:53.247 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Math-33
+---------------- Testing New Patch ----------------
+14:18:53.248 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:18:54.649 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:18:54.650 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:18:55.988 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:18:55.989 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:18:57.287 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Math-33 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+14:18:57.288 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+14:18:58.726 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+14:18:58.726 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+14:20:01.829 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+14:20:01.830 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath293, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2]
+14:20:01.830 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath293
+14:20:01.830 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781
+14:20:01.830 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2
+14:20:01.830 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+14:20:01.830 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+15:00:42.785 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Math-33/aggregatedSusInfo.profl
+15:00:42.785 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.math3.optimization.linear.SimplexTableau:getSolution()Lorg/apache/commons/math3/optimization/PointValuePair; in org.apache.commons.math3.optimization.linear.SimplexTableau:406
+15:00:42.786 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Math-33
+---------------- Testing New Patch ----------------
+15:00:42.786 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+15:00:44.165 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+15:00:44.165 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+15:01:53.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781]
+15:01:53.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath293, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781, - org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2]
+15:01:53.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath293
+15:01:53.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath781
+15:01:53.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math3.optimization.linear.SimplexSolverTest::testMath434PivotRowSelection2
+15:01:53.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+15:01:53.516 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

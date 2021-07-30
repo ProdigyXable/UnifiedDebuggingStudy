@@ -1,0 +1,400 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-100
+07:34:57.300 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-100 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/100.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/100.txt
+07:34:58.987 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+07:34:58.998 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-100/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-100/ochiai.txt
+07:34:58.999 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+07:34:58.999 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.estimation.SimpleEstimationProblem ===58
+07:34:59.693 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return (EstimatedParameter[]) parameters.toArray(new EstimatedParameter[parameters.size()]);
+07:34:59.695 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/estimation/SimpleEstimationProblem.java:58 ---
+07:34:59.701 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: Object _tempVar = parameters.toArray(new EstimatedParameter[parameters.size()]);
+if (_temVar instanceof EstimatedParameter[]) {
+	
+
+} else {
+	throw new IllegalArgumentException("Illegal argument: parameters.toArray(new EstimatedParameter[parameters.size()])");
+}
+
+---------------- Testing New Patch ----------------
+07:34:59.702 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:00.524 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:00.525 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (EstimatedParameter[]) this.measurements.toArray(new EstimatedParameter[parameters.size()]);
+07:35:00.525 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return (EstimatedParameter[]) parameters.toArray(new EstimatedParameter[this.measurements.size()]);
+---------------- Testing New Patch ----------------
+07:35:00.526 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:01.298 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:01.298 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:12.076 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:12.076 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testRedundantEquations, - org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:12.076 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testRedundantEquations
+07:35:12.076 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:35:12.076 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:12.076 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:12.087 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-100/aggregatedSusInfo.profl
+07:35:12.087 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.estimation.SimpleEstimationProblem:getAllParameters()[Lorg/apache/commons/math/estimation/EstimatedParameter; in org.apache.commons.math.estimation.SimpleEstimationProblem:58
+07:35:12.087 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-100
+---------------- Testing New Patch ----------------
+07:35:12.088 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:12.898 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:12.898 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:23.487 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:23.487 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testRedundantEquations, - org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:23.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testRedundantEquations
+07:35:23.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:35:23.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:35:23.488 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:35:23.561 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-100/aggregatedSusInfo.profl
+07:35:23.561 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.estimation.SimpleEstimationProblem:getAllParameters()[Lorg/apache/commons/math/estimation/EstimatedParameter; in org.apache.commons.math.estimation.SimpleEstimationProblem:58
+07:35:23.561 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-100
+07:35:23.562 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (parameters != null) {
+	
+
+}
+
+07:35:23.562 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (parameters == null) {
+    throw new IllegalArgumentException("Null 'parameters' argument.");
+}
+
+07:35:23.562 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: if (parameters == null) {
+    return null;
+}
+
+---------------- Testing New Patch ----------------
+07:35:23.562 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:24.381 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:24.381 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:25.222 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:25.222 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:35.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:35.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:35.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:35:35.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:35.526 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:35.585 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-100/aggregatedSusInfo.profl
+07:35:35.585 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.estimation.SimpleEstimationProblem:getAllParameters()[Lorg/apache/commons/math/estimation/EstimatedParameter; in org.apache.commons.math.estimation.SimpleEstimationProblem:58
+07:35:35.585 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-100
+---------------- Testing New Patch ----------------
+07:35:35.586 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:36.410 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:35:36.410 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:35:46.918 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:46.918 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:35:46.918 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:35:46.918 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+07:35:46.918 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+07:35:47.589 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-100/aggregatedSusInfo.profl
+07:35:47.589 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.estimation.SimpleEstimationProblem:getAllParameters()[Lorg/apache/commons/math/estimation/EstimatedParameter; in org.apache.commons.math.estimation.SimpleEstimationProblem:58
+07:35:47.589 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 1 Math-100
+07:35:47.590 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:47.590 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:48.329 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:48.329 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:48.329 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:49.144 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:49.144 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:50.008 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:50.008 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:50.009 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:50.780 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:50.780 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:50.781 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:51.618 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:51.618 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:52.400 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:52.401 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:52.401 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:53.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:53.176 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:53.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:54.112 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:54.113 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:54.947 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:54.948 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:54.948 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:55.843 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:55.843 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:55.843 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:56.733 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:56.733 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:57.537 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:57.537 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:57.537 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:58.355 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:58.356 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:58.356 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:59.050 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:35:59.051 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:35:59.786 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:35:59.787 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:35:59.787 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:00.563 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:36:00.563 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:00.564 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:01.226 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:01.226 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:02.001 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:36:02.001 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+07:36:02.001 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:02.668 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+07:36:02.668 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.estimation.AbstractEstimator ===173
+07:36:02.772 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+sum += jacobian[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/estimation/AbstractEstimator.java:173 ---
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += k[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += sum[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += j[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += i[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jTj[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += max[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += cols[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += rows[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += problem[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.measurements[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.parameters[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.cols[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.rows[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.residuals[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.cost[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.maxCostEval[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.costEvaluations[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += this.jacobianEvaluations[k + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[sum + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[j + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[i + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[jTj + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[max + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[cols + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[rows + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[problem + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.measurements + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.parameters + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.jacobian + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.cols + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.rows + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.residuals + i] * jacobian[k + j];
+07:36:02.773 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.cost + i] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.maxCostEval + i] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.costEvaluations + i] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[this.jacobianEvaluations + i] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + k] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + sum] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + j] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + jTj] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + max] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + cols] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + rows] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + problem] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.measurements] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.parameters] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.jacobian] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.cols] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.rows] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.residuals] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.cost] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.maxCostEval] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.costEvaluations] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + this.jacobianEvaluations] * jacobian[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * k[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * sum[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * j[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * i[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jTj[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * max[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * cols[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * rows[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * problem[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.measurements[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.parameters[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.cols[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.rows[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.residuals[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.cost[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.maxCostEval[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.costEvaluations[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * this.jacobianEvaluations[k + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[sum + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[j + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[i + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[jTj + j];
+07:36:02.774 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[max + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[cols + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[rows + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[problem + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.measurements + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.parameters + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.jacobian + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.cols + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.rows + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.residuals + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.cost + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.maxCostEval + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.costEvaluations + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[this.jacobianEvaluations + j];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + k];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + sum];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + i];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + jTj];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + max];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + cols];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + rows];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + problem];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.measurements];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.parameters];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.jacobian];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.cols];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.rows];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.residuals];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.cost];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.maxCostEval];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.costEvaluations];
+07:36:02.775 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sum += jacobian[k + i] * jacobian[k + this.jacobianEvaluations];
+---------------- Testing New Patch ----------------
+07:36:02.776 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:03.486 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:03.487 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:04.249 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:04.250 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:05.162 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:05.163 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:06.030 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:06.031 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:06.995 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:06.995 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:07.976 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:07.977 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:08.914 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:08.915 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:09.776 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:09.776 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:10.606 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:10.607 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:11.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:11.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:12.150 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:12.150 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:12.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:12.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:13.720 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:13.721 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:14.540 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:14.540 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:24.383 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:36:24.384 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters, - org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testNonInversible, - org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting]
+07:36:24.384 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:36:24.384 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testNonInversible
+07:36:24.384 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting
+07:36:24.384 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+07:36:24.384 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:36:37.556 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-100/aggregatedSusInfo.profl
+07:36:37.557 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D in org.apache.commons.math.estimation.AbstractEstimator:173
+07:36:37.557 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 3 Math-100
+---------------- Testing New Patch ----------------
+07:36:37.557 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:38.356 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:38.356 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:39.150 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:39.151 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:39.865 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:39.866 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:40.657 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:40.657 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:41.533 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+07:36:41.533 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:36:42.418 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:36:42.418 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:36:52.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:36:52.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters, - org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting]
+07:36:52.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:36:52.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting
+07:36:52.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:36:52.001 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+07:40:22.350 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-100/aggregatedSusInfo.profl
+07:40:22.350 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D in org.apache.commons.math.estimation.AbstractEstimator:173
+07:40:22.350 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-100
+---------------- Testing New Patch ----------------
+07:40:22.350 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+07:40:23.028 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+07:40:23.028 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+07:40:31.611 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+07:40:31.611 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters, - org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting]
+07:40:31.611 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+07:40:31.611 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting
+07:40:31.611 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+07:40:31.611 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+08:42:48.603 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-100/aggregatedSusInfo.profl
+08:42:48.603 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.estimation.AbstractEstimator:getCovariances(Lorg/apache/commons/math/estimation/EstimationProblem;)[[D in org.apache.commons.math.estimation.AbstractEstimator:173
+08:42:48.603 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Math-100
+---------------- Testing New Patch ----------------
+08:42:48.603 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:42:49.387 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-100 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+08:42:49.388 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+08:42:50.048 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+08:42:50.048 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+08:42:58.798 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters]
+08:42:58.798 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters, - org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testNonInversible, - org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting]
+08:42:58.798 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.estimation.GaussNewtonEstimatorTest::testBoundParameters
+08:42:58.798 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testNonInversible
+08:42:58.798 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.math.estimation.LevenbergMarquardtEstimatorTest::testCircleFitting
+08:42:58.798 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+08:42:58.799 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found

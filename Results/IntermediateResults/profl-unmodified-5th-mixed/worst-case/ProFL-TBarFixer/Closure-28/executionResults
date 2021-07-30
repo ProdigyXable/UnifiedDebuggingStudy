@@ -1,0 +1,60 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-28
+03:27:47.572 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Closure-28 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/28.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/28.txt
+03:32:27.795 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+03:32:27.883 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Closure-28/generalSusInfo.profl
+03:32:27.998 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Closure-28/aggregatedSusInfo.profl
+03:32:28.002 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+03:32:28.003 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - com.google.javascript.rhino.Token ===218
+03:32:28.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+case FALSE:
+03:32:28.724 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return "FALSE";
+03:32:28.725 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at com.google.javascript.rhino.Token:218 ---
+03:32:28.725 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix com/google/javascript/rhino/Token.java 218 ---
+03:32:28.725 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- com.google.javascript.jscomp.InlineCostEstimatorTest::testCost, - com.google.javascript.jscomp.InlineFunctionsTest::testIssue728]
+03:32:28.850 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (FALSE != null) {
+	
+
+	}
+
+03:32:28.850 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (FALSE == null) {
+	    throw new IllegalArgumentException("Null 'FALSE' argument.");
+	}
+
+03:32:28.850 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (FALSE == null) {
+	    return null;
+	}
+
+03:32:28.850 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (FALSE == null) FALSE = new null();
+ 
+03:32:28.850 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (FALSE == null) return new String();
+	 
+---------------- Testing New Patch ----------------
+03:32:28.852 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:32:32.457 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-28 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:32:32.458 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:32:36.483 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-28 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:32:36.484 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:32:40.391 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-28 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:32:40.391 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:32:43.688 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-28 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+03:32:43.688 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:32:47.604 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Closure-28 ---Fixer: fix fail because of failed compiling! 
+03:32:47.694 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+03:32:47.694 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+03:32:48.373 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+03:32:48.373 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.

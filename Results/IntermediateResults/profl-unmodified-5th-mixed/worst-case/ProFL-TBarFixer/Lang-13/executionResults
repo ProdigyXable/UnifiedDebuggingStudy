@@ -1,0 +1,378 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-13
+01:17:07.814 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/13.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/13.txt
+01:17:11.073 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+01:17:11.082 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/generalSusInfo.profl
+01:17:11.085 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+01:17:11.085 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1693
+01:17:12.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1693
+01:17:12.308 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1680
+01:17:12.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1680
+01:17:12.514 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1679
+01:17:12.620 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1679
+01:17:12.620 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1677
+01:17:12.715 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1677
+01:17:12.716 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1676
+01:17:12.794 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1676
+01:17:12.794 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.FastDatePrinter ===541
+01:17:12.919 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDatePrinter --- 541
+01:17:12.920 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.FastDatePrinter ===540
+01:17:13.056 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+/**
+     * Create the object after serialization. This implementation reinitializes the
+     * transient properties.
+     *
+     * @param in ObjectInputStream from which the object is being deserialized.
+     * @throws IOException if there is an IO issue.
+     * @throws ClassNotFoundException if a class cannot be found.
+     */
+    private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException {
+        in.defaultReadObject();
+        init();
+    }
+01:17:13.057 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang3.time.FastDatePrinter:540 ---
+01:17:13.057 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/FastDatePrinter.java 540 ---
+01:17:13.057 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:17:13.140 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+01:17:13.140 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:17:13.142 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:17:14.391 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:17:14.391 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:17:36.013 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:17:36.014 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization, - org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testLang303, - org.apache.commons.lang3.time.FastDatePrinterTest::testLang303]
+01:17:36.014 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:17:36.014 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDateFormat_PrinterTest::testLang303
+01:17:36.014 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.FastDatePrinterTest::testLang303
+01:17:36.014 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:17:36.014 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:17:36.017 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:17:36.017 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDatePrinter:readObject(Ljava/io/ObjectInputStream;)V in org.apache.commons.lang3.time.FastDatePrinter:540
+01:17:36.017 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-13
+---------------- Testing New Patch ----------------
+01:17:36.023 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:17:37.561 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:17:37.561 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:18:02.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:18:02.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:18:02.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:18:02.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:18:02.945 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:18:02.949 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:18:02.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.FastDatePrinter:readObject(Ljava/io/ObjectInputStream;)V in org.apache.commons.lang3.time.FastDatePrinter:540
+01:18:02.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-13
+01:18:02.950 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1696
+01:18:03.033 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1696
+01:18:03.034 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1699
+01:18:03.140 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1699
+01:18:03.140 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1703
+01:18:03.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1703
+01:18:03.238 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1702
+01:18:03.313 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+/**
+     * Determines if two dates are equal up to no more than the specified 
+     * most significant field.
+     * 
+     * @param date1 the first date, not <code>null</code>
+     * @param date2 the second date, not <code>null</code>
+     * @param field the field from {@code Calendar}
+     * @return <code>true</code> if equal; otherwise <code>false</code>
+     * @throws IllegalArgumentException if any argument is <code>null</code>
+     * @see #truncate(Date, int)
+     * @see #truncatedEquals(Calendar, Calendar, int)
+     * @since 3.0
+     */
+    public static boolean truncatedEquals(Date date1, Date date2, int field) {
+        return truncatedCompareTo(date1, date2, field) == 0;
+    }
+01:18:03.314 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang3.time.DateUtils:1702 ---
+01:18:03.314 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/DateUtils.java 1702 ---
+01:18:03.314 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:18:03.370 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+01:18:03.370 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:18:03.372 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:04.980 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:18:04.983 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:18:34.936 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:18:34.936 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:18:34.936 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:18:34.936 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:18:34.937 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:18:34.940 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:18:34.940 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:truncatedEquals(Ljava/util/Date;Ljava/util/Date;I)Z in org.apache.commons.lang3.time.DateUtils:1702
+01:18:34.940 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-13
+---------------- Testing New Patch ----------------
+01:18:34.941 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:18:36.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:18:36.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:19:06.175 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:19:06.175 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:19:06.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:19:06.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:19:06.176 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:19:06.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:19:06.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:truncatedEquals(Ljava/util/Date;Ljava/util/Date;I)Z in org.apache.commons.lang3.time.DateUtils:1702
+01:19:06.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-13
+01:19:06.183 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1707
+01:19:06.285 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1707
+01:19:06.286 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1685
+01:19:06.347 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+/**
+     * Determines if two calendars are equal up to no more than the specified 
+     * most significant field.
+     * 
+     * @param cal1 the first calendar, not <code>null</code>
+     * @param cal2 the second calendar, not <code>null</code>
+     * @param field the field from {@code Calendar}
+     * @return <code>true</code> if equal; otherwise <code>false</code>
+     * @throws IllegalArgumentException if any argument is <code>null</code>
+     * @see #truncate(Calendar, int)
+     * @see #truncatedEquals(Date, Date, int)
+     * @since 3.0
+     */
+    public static boolean truncatedEquals(Calendar cal1, Calendar cal2, int field) {
+        return truncatedCompareTo(cal1, cal2, field) == 0;
+    }
+01:19:06.348 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang3.time.DateUtils:1685 ---
+01:19:06.348 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/DateUtils.java 1685 ---
+01:19:06.348 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:19:06.397 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+01:19:06.397 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:19:06.398 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:07.996 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:19:07.996 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:19:37.203 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:19:37.203 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:19:37.204 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:19:37.204 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:19:37.204 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:19:37.265 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:19:37.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:truncatedEquals(Ljava/util/Calendar;Ljava/util/Calendar;I)Z in org.apache.commons.lang3.time.DateUtils:1685
+01:19:37.265 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-13
+---------------- Testing New Patch ----------------
+01:19:37.267 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:19:38.909 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:19:38.909 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:20:07.048 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:20:07.049 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:20:07.049 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:20:07.049 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:20:07.049 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:20:07.478 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:20:07.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:truncatedEquals(Ljava/util/Calendar;Ljava/util/Calendar;I)Z in org.apache.commons.lang3.time.DateUtils:1685
+01:20:07.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-13
+01:20:07.479 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1674
+01:20:07.524 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1674
+01:20:07.524 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1671
+01:20:07.569 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1671
+01:20:07.569 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1669
+01:20:07.622 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1669
+01:20:07.622 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1665
+01:20:07.685 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+default:
+01:20:07.686 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+01:20:07.686 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.apache.commons.lang3.time.DateUtils:1665 ---
+01:20:07.686 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/DateUtils.java 1665 ---
+01:20:07.686 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:20:07.782 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:20:07.784 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:08.856 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: default:
+	 return 0;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return result;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return millisPerUnit;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_SECOND;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_SECOND;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_MINUTE;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_MINUTE;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_HOUR;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_HOUR;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_DAY;
+
+null
+01:20:08.900 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_DAY;
+
+null
+---------------- Testing New Patch ----------------
+01:20:08.902 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:09.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:09.980 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:11.395 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:11.396 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:12.698 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:12.700 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:13.915 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:13.916 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:15.073 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:15.075 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:16.206 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:16.207 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:17.412 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:17.413 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:18.791 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:18.793 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:20.580 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:20.581 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:22.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:22.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:23.434 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+01:20:23.435 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/apache/commons/lang3/time/DateUtils.java 1665 ---
+01:20:23.435 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:20:23.538 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("The fragment " - fragment + " is not supported");
+01:20:23.538 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("The fragment " + fragment - " is not supported");
+---------------- Testing New Patch ----------------
+01:20:23.540 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:24.766 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:20:24.768 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:26.059 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+01:20:26.252 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("The fragment " + unit + " is not supported");
+---------------- Testing New Patch ----------------
+01:20:26.253 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:20:27.825 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:20:27.826 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:20:55.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:20:55.600 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:20:55.601 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:20:55.601 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+01:20:55.601 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found
+01:21:00.107 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:21:00.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+01:21:00.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 1 Lang-13
+01:21:00.201 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+01:21:00.201 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+01:21:00.203 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:21:01.674 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:21:01.674 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:21:29.269 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:21:29.269 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+01:21:29.270 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:21:29.270 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+01:21:29.270 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+01:21:29.270 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:21:29.270 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:22:15.826 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:22:15.826 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+01:22:15.826 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-13
+---------------- Testing New Patch ----------------
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: throw new IllegalArgumentException("The fragment " + fragment + " is not supported");
+	 return 0;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return result;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return millisPerUnit;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_SECOND;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_SECOND;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_MINUTE;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_MINUTE;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_HOUR;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_HOUR;
+
+null
+01:22:15.909 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return MILLIS_PER_DAY;
+
+null
+01:22:15.910 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return DateUtils.MILLIS_PER_DAY;
+
+null
+---------------- Testing New Patch ----------------
+01:22:15.911 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:17.190 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Lang-13 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+01:22:17.191 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:22:18.495 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:22:18.496 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:22:45.869 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:22:45.869 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+01:22:45.869 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:22:45.869 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+01:22:45.870 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+01:22:45.870 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:22:45.870 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+01:29:59.456 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+01:29:59.457 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+01:29:59.457 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-13
+---------------- Testing New Patch ----------------
+01:29:59.458 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+01:30:00.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+01:30:00.813 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+01:30:28.142 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+01:30:28.142 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+01:30:28.142 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+01:30:28.142 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+01:30:28.142 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+01:30:28.142 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+01:30:28.143 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+02:44:00.581 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Lang-13/aggregatedSusInfo.profl
+02:44:00.581 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DateUtils:getFragment(Ljava/util/Calendar;II)J in org.apache.commons.lang3.time.DateUtils:1665
+02:44:00.581 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Lang-13
+---------------- Testing New Patch ----------------
+02:44:00.583 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+02:44:01.998 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+02:44:01.998 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+02:44:27.092 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization]
+02:44:27.092 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate, - org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar]
+02:44:27.092 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.SerializationUtilsTest::testPrimitiveTypeClassSerialization
+02:44:27.092 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithDate
+02:44:27.092 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DateUtilsFragmentTest::testInvalidFragmentWithCalendar
+02:44:27.092 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+02:44:27.092 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found

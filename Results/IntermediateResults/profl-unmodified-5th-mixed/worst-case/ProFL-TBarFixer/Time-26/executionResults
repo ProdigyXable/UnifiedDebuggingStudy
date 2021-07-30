@@ -1,0 +1,383 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-26
+19:47:34.236 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Time-26 Failed Tests: 8
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/26.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/26.txt
+19:47:43.924 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+19:47:44.003 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-26/generalSusInfo.profl
+19:47:44.007 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+19:47:44.007 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.joda.time.format.DateTimeFormatter ===713
+19:47:45.533 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return newPos;
+19:47:45.534 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.joda.time.format.DateTimeFormatter:713 ---
+19:47:45.534 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/joda/time/format/DateTimeFormatter.java 713 ---
+19:47:45.534 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.joda.time.TestDateTimeZoneCutover::testWithSecondOfMinuteInDstChange, - org.joda.time.TestDateTimeZoneCutover::testWithMinuteOfHourInDstChange, - org.joda.time.TestDateTimeZoneCutover::testWithMinuteOfHourInDstChange_mockZone, - org.joda.time.TestDateTimeZoneCutover::testBug2182444_usCentral, - org.joda.time.TestDateTimeZoneCutover::testWithMillisOfSecondInDstChange_Paris_summer, - org.joda.time.TestDateTimeZoneCutover::testWithHourOfDayInDstChange, - org.joda.time.TestDateTimeZoneCutover::testWithMillisOfSecondInDstChange_NewYork_winter, - org.joda.time.TestDateTimeZoneCutover::testBug2182444_ausNSW]
+19:47:46.110 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return position;
+19:47:46.110 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return this.iDefaultYear;
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return isPrinter();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getPrinter();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return isParser();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getParser();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getLocale();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return withOffsetParsed();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return isOffsetParsed();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getChronology();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getChronolgy();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return withZoneUTC();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getZone();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getPivotYear();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return getDefaultYear();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return requirePrinter();
+19:47:46.111 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return requireParser();
+---------------- Testing New Patch ----------------
+19:47:46.113 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:47:47.820 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:47:47.820 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:48:00.886 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestDateTimeZoneCutover::testWithSecondOfMinuteInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMinuteOfHourInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMinuteOfHourInDstChange_mockZone, org.joda.time.TestDateTimeZoneCutover::testBug2182444_usCentral, org.joda.time.TestDateTimeZoneCutover::testWithMillisOfSecondInDstChange_Paris_summer, org.joda.time.TestDateTimeZoneCutover::testWithHourOfDayInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMillisOfSecondInDstChange_NewYork_winter, org.joda.time.TestDateTimeZoneCutover::testBug2182444_ausNSW]
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 132, [- org.joda.time.TestChronology, - org.joda.time.TestDateMidnight_Basics, - org.joda.time.TestDateMidnight_Constructors, - org.joda.time.TestDateMidnight_Properties, - org.joda.time.TestDateTimeUtils, - org.joda.time.TestDateTimeZone, - org.joda.time.TestDateTimeZoneCutover, - org.joda.time.TestDateTime_Basics, - org.joda.time.TestDateTime_Constructors, - org.joda.time.TestDateTime_Properties, - org.joda.time.TestDuration_Basics, - org.joda.time.TestDuration_Constructors, - org.joda.time.TestInstant_Basics, - org.joda.time.TestInstant_Constructors, - org.joda.time.TestInterval_Basics, - org.joda.time.TestInterval_Constructors, - org.joda.time.TestLocalDateTime_Basics, - org.joda.time.TestLocalDateTime_Constructors, - org.joda.time.TestLocalDate_Basics, - org.joda.time.TestLocalDate_Constructors, - org.joda.time.TestLocalTime_Basics, - org.joda.time.TestLocalTime_Constructors, - org.joda.time.TestLocalTime_Properties, - org.joda.time.TestMonthDay_Basics, - org.joda.time.TestMonthDay_Constructors, - org.joda.time.TestMutableDateTime_Adds, - org.joda.time.TestMutableDateTime_Basics, - org.joda.time.TestMutableDateTime_Constructors, - org.joda.time.TestMutableDateTime_Properties, - org.joda.time.TestMutableDateTime_Sets, - org.joda.time.TestMutableInterval_Basics, - org.joda.time.TestMutableInterval_Constructors, - org.joda.time.TestMutableInterval_Updates, - org.joda.time.TestMutablePeriod_Basics, - org.joda.time.TestMutablePeriod_Constructors, - org.joda.time.TestMutablePeriod_Updates, - org.joda.time.TestPartial_Basics, - org.joda.time.TestPartial_Constructors, - org.joda.time.TestPartial_Match, - org.joda.time.TestPartial_Properties, - org.joda.time.TestPeriodType, - org.joda.time.TestPeriod_Basics, - org.joda.time.TestPeriod_Constructors, - org.joda.time.TestSerialization, - org.joda.time.TestTimeOfDay_Basics, - org.joda.time.TestTimeOfDay_Constructors, - org.joda.time.TestTimeOfDay_Properties, - org.joda.time.TestYearMonthDay_Basics, - org.joda.time.TestYearMonthDay_Constructors, - org.joda.time.TestYearMonth_Basics, - org.joda.time.TestYearMonth_Constructors, - org.joda.time.chrono.TestBuddhistChronology, - org.joda.time.chrono.TestCopticChronology, - org.joda.time.chrono.TestEthiopicChronology, - org.joda.time.chrono.TestGJChronology, - org.joda.time.chrono.TestGregorianChronology, - org.joda.time.chrono.TestISOChronology, - org.joda.time.chrono.TestIslamicChronology, - org.joda.time.chrono.TestJulianChronology, - org.joda.time.convert.TestCalendarConverter, - org.joda.time.convert.TestStringConverter, - org.joda.time.format.TestDateTimeFormat, - org.joda.time.format.TestDateTimeFormatStyle, - org.joda.time.format.TestDateTimeFormatter, - org.joda.time.format.TestISODateTimeFormat, - org.joda.time.format.TestISOPeriodFormat, - org.joda.time.format.TestISOPeriodFormatParsing, - org.joda.time.format.TestPeriodFormatParsing, - org.joda.time.format.TestPeriodFormatter, - org.joda.time.format.TestPeriodFormatterBuilder, - org.joda.time.format.TestTextFields, - org.joda.time.TestIllegalFieldValueException::testZoneTransition, - org.joda.time.chrono.TestLenientChronology::test_lenientChrononolgy_Chicago, - org.joda.time.chrono.TestLenientChronology::test_strictChrononolgy_Chicago, - org.joda.time.chrono.TestLenientChronology::test_isoChrononolgy_Chicago, - org.joda.time.convert.TestNullConverter::testSetInto_Object_Chronology1, - org.joda.time.convert.TestNullConverter::testSetInto_Object_Chronology2, - org.joda.time.convert.TestNullConverter::testSetInto_Object, - org.joda.time.convert.TestNullConverter::testGetInstantMillis_Object_Chronology, - org.joda.time.convert.TestNullConverter::testIsReadableInterval_Object_Chronology, - org.joda.time.convert.TestNullConverter::testGetPeriodType_Object, - org.joda.time.convert.TestNullConverter::testToString, - org.joda.time.convert.TestNullConverter::testGetChronology_Object_Zone, - org.joda.time.convert.TestNullConverter::testSingleton, - org.joda.time.convert.TestNullConverter::testGetPartialValues, - org.joda.time.convert.TestNullConverter::testGetChronology_Object_Chronology, - org.joda.time.convert.TestNullConverter::testSupportedType, - org.joda.time.convert.TestNullConverter::testGetDurationMillis_Object, - org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_timeElementParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_weekDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_localDateOptionalTimeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_date, - org.joda.time.format.TestISODateTimeFormatParsing::test_time, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinute, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecondMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_weekDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateElementParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_timeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_timeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateTimeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_weekDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateOptionalTimeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_localDateParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_tTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_localTimeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecond, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecondFraction, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicTTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicTTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_tTime, - org.joda.time.tz.TestCompiler::test_Amman_2003, - org.joda.time.tz.TestCompiler::test_Amman_2004, - org.joda.time.tz.TestCompiler::test_Amman_2005, - org.joda.time.tz.TestCompiler::test_Amman_2006, - org.joda.time.tz.TestCompiler::testCompile]
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestChronology
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateMidnight_Basics
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateMidnight_Constructors
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateMidnight_Properties
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeUtils
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTime_Basics
+19:48:00.887 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTime_Constructors
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTime_Properties
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Basics
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestInstant_Basics
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestInstant_Constructors
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestInterval_Basics
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestInterval_Constructors
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalDateTime_Basics
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalDateTime_Constructors
+19:48:00.888 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalDate_Basics
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalDate_Constructors
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalTime_Basics
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalTime_Constructors
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalTime_Properties
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMonthDay_Basics
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMonthDay_Constructors
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Basics
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Constructors
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Properties
+19:48:00.889 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableInterval_Basics
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableInterval_Constructors
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableInterval_Updates
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutablePeriod_Basics
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutablePeriod_Constructors
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutablePeriod_Updates
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPartial_Basics
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPartial_Constructors
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPartial_Match
+19:48:00.890 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPartial_Properties
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriodType
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Basics
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Constructors
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestTimeOfDay_Basics
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestTimeOfDay_Constructors
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestTimeOfDay_Properties
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestYearMonthDay_Basics
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestYearMonthDay_Constructors
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestYearMonth_Basics
+19:48:00.891 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestYearMonth_Constructors
+19:48:00.892 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestBuddhistChronology
+19:48:00.892 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestCopticChronology
+19:48:00.892 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestEthiopicChronology
+19:48:00.892 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestGJChronology
+19:48:00.894 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestGregorianChronology
+19:48:00.895 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestISOChronology
+19:48:00.895 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestIslamicChronology
+19:48:00.895 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestJulianChronology
+19:48:00.895 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestCalendarConverter
+19:48:00.895 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestStringConverter
+19:48:00.895 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormat
+19:48:00.896 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle
+19:48:00.896 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter
+19:48:00.896 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormat
+19:48:00.896 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISOPeriodFormat
+19:48:00.896 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISOPeriodFormatParsing
+19:48:00.896 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestPeriodFormatParsing
+19:48:00.897 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestPeriodFormatter
+19:48:00.897 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestPeriodFormatterBuilder
+19:48:00.897 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestTextFields
+19:48:00.897 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestIllegalFieldValueException::testZoneTransition
+19:48:00.897 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestLenientChronology::test_lenientChrononolgy_Chicago
+19:48:00.897 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestLenientChronology::test_strictChrononolgy_Chicago
+19:48:00.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestLenientChronology::test_isoChrononolgy_Chicago
+19:48:00.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSetInto_Object_Chronology1
+19:48:00.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSetInto_Object_Chronology2
+19:48:00.898 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSetInto_Object
+19:48:00.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetInstantMillis_Object_Chronology
+19:48:00.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testIsReadableInterval_Object_Chronology
+19:48:00.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetPeriodType_Object
+19:48:00.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testToString
+19:48:00.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetChronology_Object_Zone
+19:48:00.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSingleton
+19:48:00.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetPartialValues
+19:48:00.900 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetChronology_Object_Chronology
+19:48:00.900 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSupportedType
+19:48:00.900 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetDurationMillis_Object
+19:48:00.900 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDateTimeNoMillis
+19:48:00.900 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_timeElementParser
+19:48:00.900 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_weekDate
+19:48:00.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicDate
+19:48:00.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicTime
+19:48:00.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_localDateOptionalTimeParser
+19:48:00.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDateTime
+19:48:00.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDateTimeNoMillis
+19:48:00.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_date
+19:48:00.901 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_time
+19:48:00.902 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDate
+19:48:00.902 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinute
+19:48:00.902 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateParser
+19:48:00.902 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicDateTime
+19:48:00.902 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecondMillis
+19:48:00.902 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDateTime
+19:48:00.902 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_weekDateTime
+19:48:00.902 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateElementParser
+19:48:00.903 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_timeParser
+19:48:00.903 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicTimeNoMillis
+19:48:00.903 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_timeNoMillis
+19:48:00.903 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateTimeParser
+19:48:00.903 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_weekDateTimeNoMillis
+19:48:00.903 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateOptionalTimeParser
+19:48:00.903 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_localDateParser
+19:48:00.903 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDateTime
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_tTimeNoMillis
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_localTimeParser
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateTime
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecond
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicDateTimeNoMillis
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDate
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateTimeNoMillis
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDate
+19:48:00.904 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecondFraction
+19:48:00.905 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDateTimeNoMillis
+19:48:00.905 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicTTime
+19:48:00.905 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicTTimeNoMillis
+19:48:00.905 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_tTime
+19:48:00.905 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::test_Amman_2003
+19:48:00.905 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::test_Amman_2004
+19:48:00.905 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::test_Amman_2005
+19:48:00.906 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::test_Amman_2006
+19:48:00.906 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::testCompile
+19:48:00.906 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=8, pf=132, pp=Unknown
+19:48:00.906 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+19:48:01.095 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-26/aggregatedSusInfo.profl
+19:48:01.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:713
+19:48:01.097 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 132 Time-26
+---------------- Testing New Patch ----------------
+19:48:01.098 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:02.666 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:48:02.666 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:48:16.158 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestDateTimeZoneCutover::testWithSecondOfMinuteInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMinuteOfHourInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMinuteOfHourInDstChange_mockZone, org.joda.time.TestDateTimeZoneCutover::testBug2182444_usCentral, org.joda.time.TestDateTimeZoneCutover::testWithMillisOfSecondInDstChange_Paris_summer, org.joda.time.TestDateTimeZoneCutover::testWithHourOfDayInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMillisOfSecondInDstChange_NewYork_winter, org.joda.time.TestDateTimeZoneCutover::testBug2182444_ausNSW]
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 132, [- org.joda.time.TestChronology, - org.joda.time.TestDateMidnight_Basics, - org.joda.time.TestDateMidnight_Constructors, - org.joda.time.TestDateMidnight_Properties, - org.joda.time.TestDateTimeUtils, - org.joda.time.TestDateTimeZone, - org.joda.time.TestDateTimeZoneCutover, - org.joda.time.TestDateTime_Basics, - org.joda.time.TestDateTime_Constructors, - org.joda.time.TestDateTime_Properties, - org.joda.time.TestDuration_Basics, - org.joda.time.TestDuration_Constructors, - org.joda.time.TestInstant_Basics, - org.joda.time.TestInstant_Constructors, - org.joda.time.TestInterval_Basics, - org.joda.time.TestInterval_Constructors, - org.joda.time.TestLocalDateTime_Basics, - org.joda.time.TestLocalDateTime_Constructors, - org.joda.time.TestLocalDate_Basics, - org.joda.time.TestLocalDate_Constructors, - org.joda.time.TestLocalTime_Basics, - org.joda.time.TestLocalTime_Constructors, - org.joda.time.TestLocalTime_Properties, - org.joda.time.TestMonthDay_Basics, - org.joda.time.TestMonthDay_Constructors, - org.joda.time.TestMutableDateTime_Adds, - org.joda.time.TestMutableDateTime_Basics, - org.joda.time.TestMutableDateTime_Constructors, - org.joda.time.TestMutableDateTime_Properties, - org.joda.time.TestMutableDateTime_Sets, - org.joda.time.TestMutableInterval_Basics, - org.joda.time.TestMutableInterval_Constructors, - org.joda.time.TestMutableInterval_Updates, - org.joda.time.TestMutablePeriod_Basics, - org.joda.time.TestMutablePeriod_Constructors, - org.joda.time.TestMutablePeriod_Updates, - org.joda.time.TestPartial_Basics, - org.joda.time.TestPartial_Constructors, - org.joda.time.TestPartial_Match, - org.joda.time.TestPartial_Properties, - org.joda.time.TestPeriodType, - org.joda.time.TestPeriod_Basics, - org.joda.time.TestPeriod_Constructors, - org.joda.time.TestSerialization, - org.joda.time.TestTimeOfDay_Basics, - org.joda.time.TestTimeOfDay_Constructors, - org.joda.time.TestTimeOfDay_Properties, - org.joda.time.TestYearMonthDay_Basics, - org.joda.time.TestYearMonthDay_Constructors, - org.joda.time.TestYearMonth_Basics, - org.joda.time.TestYearMonth_Constructors, - org.joda.time.chrono.TestBuddhistChronology, - org.joda.time.chrono.TestCopticChronology, - org.joda.time.chrono.TestEthiopicChronology, - org.joda.time.chrono.TestGJChronology, - org.joda.time.chrono.TestGregorianChronology, - org.joda.time.chrono.TestISOChronology, - org.joda.time.chrono.TestIslamicChronology, - org.joda.time.chrono.TestJulianChronology, - org.joda.time.convert.TestCalendarConverter, - org.joda.time.convert.TestStringConverter, - org.joda.time.format.TestDateTimeFormat, - org.joda.time.format.TestDateTimeFormatStyle, - org.joda.time.format.TestDateTimeFormatter, - org.joda.time.format.TestISODateTimeFormat, - org.joda.time.format.TestISOPeriodFormat, - org.joda.time.format.TestISOPeriodFormatParsing, - org.joda.time.format.TestPeriodFormatParsing, - org.joda.time.format.TestPeriodFormatter, - org.joda.time.format.TestPeriodFormatterBuilder, - org.joda.time.format.TestTextFields, - org.joda.time.TestIllegalFieldValueException::testZoneTransition, - org.joda.time.chrono.TestLenientChronology::test_lenientChrononolgy_Chicago, - org.joda.time.chrono.TestLenientChronology::test_strictChrononolgy_Chicago, - org.joda.time.chrono.TestLenientChronology::test_isoChrononolgy_Chicago, - org.joda.time.convert.TestNullConverter::testSetInto_Object_Chronology1, - org.joda.time.convert.TestNullConverter::testSetInto_Object_Chronology2, - org.joda.time.convert.TestNullConverter::testSetInto_Object, - org.joda.time.convert.TestNullConverter::testGetInstantMillis_Object_Chronology, - org.joda.time.convert.TestNullConverter::testIsReadableInterval_Object_Chronology, - org.joda.time.convert.TestNullConverter::testGetPeriodType_Object, - org.joda.time.convert.TestNullConverter::testToString, - org.joda.time.convert.TestNullConverter::testGetChronology_Object_Zone, - org.joda.time.convert.TestNullConverter::testSingleton, - org.joda.time.convert.TestNullConverter::testGetPartialValues, - org.joda.time.convert.TestNullConverter::testGetChronology_Object_Chronology, - org.joda.time.convert.TestNullConverter::testSupportedType, - org.joda.time.convert.TestNullConverter::testGetDurationMillis_Object, - org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_timeElementParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_weekDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_localDateOptionalTimeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_date, - org.joda.time.format.TestISODateTimeFormatParsing::test_time, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinute, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecondMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_weekDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateElementParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_timeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_timeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateTimeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_weekDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateOptionalTimeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_localDateParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_tTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_localTimeParser, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecond, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_dateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDate, - org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecondFraction, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDateTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicTTime, - org.joda.time.format.TestISODateTimeFormatParsing::test_basicTTimeNoMillis, - org.joda.time.format.TestISODateTimeFormatParsing::test_tTime, - org.joda.time.tz.TestCompiler::test_Amman_2003, - org.joda.time.tz.TestCompiler::test_Amman_2004, - org.joda.time.tz.TestCompiler::test_Amman_2005, - org.joda.time.tz.TestCompiler::test_Amman_2006, - org.joda.time.tz.TestCompiler::testCompile]
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestChronology
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateMidnight_Basics
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateMidnight_Constructors
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateMidnight_Properties
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeUtils
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZone
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTimeZoneCutover
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTime_Basics
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTime_Constructors
+19:48:16.159 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDateTime_Properties
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Basics
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestInstant_Basics
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestInstant_Constructors
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestInterval_Basics
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestInterval_Constructors
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalDateTime_Basics
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalDateTime_Constructors
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalDate_Basics
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalDate_Constructors
+19:48:16.160 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalTime_Basics
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalTime_Constructors
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestLocalTime_Properties
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMonthDay_Basics
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMonthDay_Constructors
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Adds
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Basics
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Constructors
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Properties
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableDateTime_Sets
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableInterval_Basics
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableInterval_Constructors
+19:48:16.161 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutableInterval_Updates
+19:48:16.162 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutablePeriod_Basics
+19:48:16.162 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutablePeriod_Constructors
+19:48:16.162 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestMutablePeriod_Updates
+19:48:16.163 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPartial_Basics
+19:48:16.164 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPartial_Constructors
+19:48:16.164 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPartial_Match
+19:48:16.164 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPartial_Properties
+19:48:16.164 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriodType
+19:48:16.167 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Basics
+19:48:16.168 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestPeriod_Constructors
+19:48:16.168 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization
+19:48:16.168 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestTimeOfDay_Basics
+19:48:16.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestTimeOfDay_Constructors
+19:48:16.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestTimeOfDay_Properties
+19:48:16.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestYearMonthDay_Basics
+19:48:16.182 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestYearMonthDay_Constructors
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestYearMonth_Basics
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestYearMonth_Constructors
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestBuddhistChronology
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestCopticChronology
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestEthiopicChronology
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestGJChronology
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestGregorianChronology
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestISOChronology
+19:48:16.183 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestIslamicChronology
+19:48:16.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestJulianChronology
+19:48:16.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestCalendarConverter
+19:48:16.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestStringConverter
+19:48:16.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormat
+19:48:16.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatStyle
+19:48:16.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestDateTimeFormatter
+19:48:16.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormat
+19:48:16.184 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISOPeriodFormat
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISOPeriodFormatParsing
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestPeriodFormatParsing
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestPeriodFormatter
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestPeriodFormatterBuilder
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestTextFields
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestIllegalFieldValueException::testZoneTransition
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestLenientChronology::test_lenientChrononolgy_Chicago
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestLenientChronology::test_strictChrononolgy_Chicago
+19:48:16.185 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.chrono.TestLenientChronology::test_isoChrononolgy_Chicago
+19:48:16.186 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSetInto_Object_Chronology1
+19:48:16.186 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSetInto_Object_Chronology2
+19:48:16.186 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSetInto_Object
+19:48:16.186 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetInstantMillis_Object_Chronology
+19:48:16.186 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testIsReadableInterval_Object_Chronology
+19:48:16.186 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetPeriodType_Object
+19:48:16.186 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testToString
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetChronology_Object_Zone
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSingleton
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetPartialValues
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetChronology_Object_Chronology
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testSupportedType
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.convert.TestNullConverter::testGetDurationMillis_Object
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDateTimeNoMillis
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_timeElementParser
+19:48:16.187 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_weekDate
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicDate
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicTime
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_localDateOptionalTimeParser
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDateTime
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDateTimeNoMillis
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_date
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_time
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDate
+19:48:16.188 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinute
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateParser
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicDateTime
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecondMillis
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDateTime
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_weekDateTime
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateElementParser
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_timeParser
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicTimeNoMillis
+19:48:16.189 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_timeNoMillis
+19:48:16.190 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateTimeParser
+19:48:16.190 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_weekDateTimeNoMillis
+19:48:16.190 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateOptionalTimeParser
+19:48:16.191 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_localDateParser
+19:48:16.191 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDateTime
+19:48:16.191 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_tTimeNoMillis
+19:48:16.191 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_localTimeParser
+19:48:16.191 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateTime
+19:48:16.191 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecond
+19:48:16.196 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicDateTimeNoMillis
+19:48:16.197 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicWeekDate
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_dateTimeNoMillis
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_ordinalDate
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_hourMinuteSecondFraction
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicOrdinalDateTimeNoMillis
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicTTime
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_basicTTimeNoMillis
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.format.TestISODateTimeFormatParsing::test_tTime
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::test_Amman_2003
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::test_Amman_2004
+19:48:16.206 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::test_Amman_2005
+19:48:16.207 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::test_Amman_2006
+19:48:16.207 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.tz.TestCompiler::testCompile
+19:48:16.207 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=8, pf=132, pp=Unknown
+19:48:16.207 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoisyFix found
+19:48:16.704 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-26/aggregatedSusInfo.profl
+19:48:16.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:713
+19:48:16.704 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 132 Time-26
+---------------- Testing New Patch ----------------
+19:48:16.705 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:21.006 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:21.007 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:25.147 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:25.148 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:29.648 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:29.649 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:34.070 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:34.071 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:38.546 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:38.549 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:43.158 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:43.160 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:47.589 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:47.590 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:52.477 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:52.478 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:56.642 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:56.643 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:00.955 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:00.956 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:05.037 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-26 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:05.038 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:06.525 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:49:06.525 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:49:08.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 8, [org.joda.time.TestDateTimeZoneCutover::testWithSecondOfMinuteInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMinuteOfHourInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMinuteOfHourInDstChange_mockZone, org.joda.time.TestDateTimeZoneCutover::testBug2182444_usCentral, org.joda.time.TestDateTimeZoneCutover::testWithMillisOfSecondInDstChange_Paris_summer, org.joda.time.TestDateTimeZoneCutover::testWithHourOfDayInDstChange, org.joda.time.TestDateTimeZoneCutover::testWithMillisOfSecondInDstChange_NewYork_winter, org.joda.time.TestDateTimeZoneCutover::testBug2182444_ausNSW]
+19:49:08.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 0, []
+19:49:08.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=0, fp=8, pf=0, pp=Unknown
+19:49:08.294 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] CleanFix found
+19:49:10.920 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-26/aggregatedSusInfo.profl
+19:49:10.920 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.format.DateTimeFormatter:parseInto(Lorg/joda/time/ReadWritableInstant;Ljava/lang/String;I)I in org.joda.time.format.DateTimeFormatter:713
+19:49:10.920 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Succeeded to fix the bug Time-26====================
+diff --git a/src/main/java/org/joda/time/format/DateTimeFormatter.java b/src/main/java/org/joda/time/format/DateTimeFormatter.java
+index c1e1d9b7..24207592 100644
+--- a/src/main/java/org/joda/time/format/DateTimeFormatter.java
++++ b/src/main/java/org/joda/time/format/DateTimeFormatter.java
+@@ -710,7 +710,7 @@ public class DateTimeFormatter {
+             chrono = chrono.withZone(parsedZone);
+         }
+         instant.setChronology(chrono);
+-        return newPos;
++        return getPivotYear();
+     }
+ 
+     /**
+19:49:11.139 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Finish off fixing======
+19:50:08.750 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-26/aggregatedSusInfo.profl
+Succeeded to fix bug Time-26
+Repair process completed

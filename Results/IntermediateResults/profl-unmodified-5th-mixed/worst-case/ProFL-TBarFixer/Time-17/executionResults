@@ -1,0 +1,174 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Time-17
+19:47:20.128 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Time-17 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Time/17.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Time/17.txt
+19:47:29.914 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - ProFL successfully initialized
+19:47:30.037 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-17/generalSusInfo.profl
+19:47:30.039 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - =======StaticBugFixer: Start to fix suspicious code======
+19:47:30.039 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.joda.time.Duration ===166
+19:47:31.533 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+return new Duration(millis);
+19:47:31.534 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.joda.time.Duration:166 ---
+19:47:31.535 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/joda/time/Duration.java 166 ---
+19:47:31.535 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+19:47:31.651 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return ZERO;
+
+19:47:31.652 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return Duration.ZERO;
+
+---------------- Testing New Patch ----------------
+19:47:31.662 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:47:47.509 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:47:47.510 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:48:14.211 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+19:48:14.211 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset, - org.joda.time.TestDuration_Constructors::testFactory_millis_long, - org.joda.time.TestSerialization::testDuration]
+19:48:14.211 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset
+19:48:14.211 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors::testFactory_millis_long
+19:48:14.211 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization::testDuration
+19:48:14.211 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+19:48:14.211 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+19:48:14.331 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-17/aggregatedSusInfo.profl
+19:48:14.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.Duration:millis(J)Lorg/joda/time/Duration; in org.joda.time.Duration:166
+19:48:14.332 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Time-17
+---------------- Testing New Patch ----------------
+19:48:14.333 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:24.242 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:48:24.242 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:48:50.984 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+19:48:50.984 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset, - org.joda.time.TestDuration_Constructors::testFactory_millis_long, - org.joda.time.TestSerialization::testDuration]
+19:48:50.985 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset
+19:48:50.985 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors::testFactory_millis_long
+19:48:50.985 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization::testDuration
+19:48:50.985 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+19:48:50.985 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+19:48:51.533 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-17/aggregatedSusInfo.profl
+19:48:51.533 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.Duration:millis(J)Lorg/joda/time/Duration; in org.joda.time.Duration:166
+19:48:51.533 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Time-17
+19:48:51.841 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(this.iMillis, millis);
+19:48:51.841 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(millis, this.iMillis);
+19:48:51.841 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration();
+---------------- Testing New Patch ----------------
+19:48:51.842 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:55.846 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:55.847 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:48:59.913 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:48:59.917 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:03.510 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+19:49:03.607 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(getStandardDays());
+19:49:03.608 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(getStandardHours());
+19:49:03.608 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(getStandardMinutes());
+19:49:03.608 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(getStandardSeconds());
+19:49:03.608 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(toDuration());
+19:49:03.608 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(toStandardDays());
+19:49:03.608 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(toStandardHours());
+19:49:03.608 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(toStandardMinutes());
+19:49:03.608 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: return new Duration(toStandardSeconds());
+---------------- Testing New Patch ----------------
+19:49:03.609 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:07.443 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:07.444 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:11.036 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:11.037 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:14.849 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:14.850 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:18.376 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:18.377 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:21.846 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:21.847 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:25.165 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:25.166 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:28.510 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:28.511 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:31.976 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+19:49:31.977 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:35.192 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Time-17 ---Fixer: fix fail because of failed compiling! 
+19:49:35.496 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: 
+
+---------------- Testing New Patch ----------------
+19:49:35.501 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:49:44.181 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:49:44.181 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:50:07.885 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+19:50:07.885 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset, - org.joda.time.TestDuration_Constructors::testFactory_millis_long, - org.joda.time.TestSerialization::testDuration]
+19:50:07.885 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset
+19:50:07.885 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors::testFactory_millis_long
+19:50:07.885 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization::testDuration
+19:50:07.885 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+19:50:07.885 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+19:50:09.107 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-17/aggregatedSusInfo.profl
+19:50:09.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.Duration:millis(J)Lorg/joda/time/Duration; in org.joda.time.Duration:166
+19:50:09.107 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Time-17
+19:50:09.145 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - org.joda.time.Duration ===163
+19:50:09.195 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Suspicious Code: 
+if (millis == 0) {
+            return ZERO;
+        }
+19:50:09.196 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Looking at org.joda.time.Duration:163 ---
+19:50:09.196 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - --- Attempting to fix org/joda/time/Duration.java 163 ---
+19:50:09.196 [main] INFO edu.lu.uni.serval.tbar.TBarFixer - [- org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+19:50:09.229 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (millis!=0) {
+            return ZERO;
+        }
+19:50:09.229 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (millis<0) {
+            return ZERO;
+        }
+19:50:09.229 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (millis<=0) {
+            return ZERO;
+        }
+19:50:09.229 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (millis>0) {
+            return ZERO;
+        }
+19:50:09.229 [main] DEBUG edu.lu.uni.serval.tbar.fixtemplate.FixTemplate - Patch Candidate: if (millis>=0) {
+            return ZERO;
+        }
+---------------- Testing New Patch ----------------
+19:50:09.233 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:50:16.314 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:50:16.314 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:50:37.716 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+19:50:37.716 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 3, [- org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset, - org.joda.time.TestDuration_Constructors::testFactory_millis_long, - org.joda.time.TestSerialization::testDuration]
+19:50:37.716 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset
+19:50:37.717 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors::testFactory_millis_long
+19:50:37.717 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestSerialization::testDuration
+19:50:37.717 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=2, pp=Unknown
+19:50:37.717 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+19:51:02.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-17/aggregatedSusInfo.profl
+19:51:02.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.Duration:millis(J)Lorg/joda/time/Duration; in org.joda.time.Duration:163
+19:51:02.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 3 Time-17
+---------------- Testing New Patch ----------------
+19:51:02.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+19:51:09.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+19:51:09.751 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+19:51:30.641 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+19:51:30.641 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 2, [- org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset, - org.joda.time.TestDuration_Constructors::testFactory_millis_long]
+19:51:30.641 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset
+19:51:30.641 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Pass->Fail test case ->org.joda.time.TestDuration_Constructors::testFactory_millis_long
+19:51:30.641 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=1, pp=Unknown
+19:51:30.641 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NegFix found
+20:00:19.899 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/tbar/ProFL-TBarFixer/Time-17/aggregatedSusInfo.profl
+20:00:19.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Mutated = org.joda.time.Duration:millis(J)Lorg/joda/time/Duration; in org.joda.time.Duration:163
+20:00:19.899 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Failed Tests after fixing: 2 Time-17
+---------------- Testing New Patch ----------------
+20:00:19.900 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Compiling
+20:00:28.216 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Finish of compiling.
+20:00:28.217 [main] DEBUG edu.lu.uni.serval.tbar.AbstractFixer - Test previously failed test cases.
+20:00:53.123 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests BEFORE patch = 1, [org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+20:00:53.123 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Failed tests AFTER patch = 1, [- org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset]
+20:00:53.123 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Fail->Fail test case ->org.joda.time.TestDateTimeZoneCutover::testBug3476684_adjustOffset
+20:00:53.123 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - Patch test results ff=1, fp=0, pf=0, pp=Unknown
+20:00:53.123 [main] INFO edu.lu.uni.serval.tbar.AbstractFixer - [ProFL] NoneFix found

@@ -1,0 +1,194 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Math-37
+13:09:15.308 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Math-37 Failed Tests: 4
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Math/37.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Math/37.txt
+13:09:22.072 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+13:09:22.084 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Math-37/ochiai.txt
+13:09:22.086 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+13:09:22.086 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.math.complex.Complex ===1182
+13:09:23.193 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+return new Complex(realPart, imaginaryPart);
+13:09:23.196 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/math/complex/Complex.java:1182 ---
+13:09:23.206 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(imaginaryPart, imaginaryPart);
+13:09:23.206 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(serialVersionUID, imaginaryPart);
+13:09:23.206 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(this.imaginary, imaginaryPart);
+13:09:23.206 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(this.real, imaginaryPart);
+13:09:23.207 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(this.isNaN, imaginaryPart);
+13:09:23.207 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(this.isInfinite, imaginaryPart);
+13:09:23.207 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(realPart, realPart);
+13:09:23.207 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(realPart, serialVersionUID);
+13:09:23.207 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(realPart, this.imaginary);
+13:09:23.207 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(realPart, this.real);
+13:09:23.207 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(realPart, this.isNaN);
+13:09:23.207 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: return new Complex(realPart, this.isInfinite);
+---------------- Testing New Patch ----------------
+13:09:23.209 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:09:24.428 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:09:24.428 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:10:20.263 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:10:20.263 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:10:20.263 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:10:20.263 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:10:20.263 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:10:20.263 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:10:20.263 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:10:20.264 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:10:20.267 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/aggregatedSusInfo.profl
+13:10:20.267 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1182
+13:10:20.267 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-37
+---------------- Testing New Patch ----------------
+13:10:20.268 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:10:21.452 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:10:21.452 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:11:17.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:11:17.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:11:17.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:11:17.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:11:17.064 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:11:17.065 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:11:17.065 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:11:17.065 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:11:17.083 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/aggregatedSusInfo.profl
+13:11:17.084 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1182
+13:11:17.084 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-37
+---------------- Testing New Patch ----------------
+13:11:17.084 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:11:18.221 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:11:18.222 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:11:19.360 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:11:19.361 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:11:20.393 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:11:20.394 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:11:21.461 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:11:21.462 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:11:22.657 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:11:22.657 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:12:20.722 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:12:20.722 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:12:20.722 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:12:20.722 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:12:20.723 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:12:20.723 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:12:20.723 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:12:20.723 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:12:20.730 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/aggregatedSusInfo.profl
+13:12:20.731 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1182
+13:12:20.731 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-37
+---------------- Testing New Patch ----------------
+13:12:20.731 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:12:21.875 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:12:21.875 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:13:18.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:13:18.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:13:18.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:13:18.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:13:18.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:13:18.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:13:18.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:13:18.457 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:13:18.560 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/aggregatedSusInfo.profl
+13:13:18.560 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1182
+13:13:18.560 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-37
+---------------- Testing New Patch ----------------
+13:13:18.561 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:13:19.762 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:13:19.763 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:13:20.815 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:13:20.816 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:13:21.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+13:13:21.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:13:23.024 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Math-37 ---Fixer: fix fail because of failed compiling! 
+13:13:23.025 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:13:23.026 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:13:24.223 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:13:24.224 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:14:20.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:14:20.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:14:20.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:14:20.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:14:20.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:14:20.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:14:20.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:14:20.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:14:21.650 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/aggregatedSusInfo.profl
+13:14:21.650 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1182
+13:14:21.650 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-37
+13:14:21.651 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:14:21.651 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:14:22.967 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:14:22.967 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:15:17.214 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:15:17.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:15:17.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:15:17.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:15:17.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:15:17.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:15:17.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:15:17.215 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:15:27.773 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/aggregatedSusInfo.profl
+13:15:27.773 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1182
+13:15:27.773 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-37
+---------------- Testing New Patch ----------------
+13:15:27.774 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:15:28.930 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:15:28.930 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:16:25.248 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:16:25.248 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:16:25.248 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:16:25.248 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:16:25.248 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:16:25.249 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:16:25.249 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:16:25.249 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:18:56.693 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/aggregatedSusInfo.profl
+13:18:56.693 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1182
+13:18:56.693 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-37
+13:18:56.694 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:18:56.694 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:18:57.893 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:18:57.894 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:19:56.295 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:19:56.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:19:56.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:19:56.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:19:56.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:19:56.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:19:56.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:19:56.296 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+13:47:35.764 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Math-37/aggregatedSusInfo.profl
+13:47:35.765 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.math.complex.Complex:valueOf(DD)Lorg/apache/commons/math/complex/Complex; in org.apache.commons.math.complex.Complex:1182
+13:47:35.765 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Math-37
+13:47:35.765 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+13:47:35.766 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+13:47:36.922 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+13:47:36.922 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+13:48:34.480 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 4, [org.apache.commons.math.complex.ComplexTest::testTanhInf, org.apache.commons.math.complex.ComplexTest::testTan, org.apache.commons.math.complex.ComplexTest::testTanh, org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:48:34.480 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.math.complex.ComplexTest::testTanhInf, - org.apache.commons.math.complex.ComplexTest::testTan, - org.apache.commons.math.complex.ComplexTest::testTanh, - org.apache.commons.math.complex.ComplexTest::testTanInf]
+13:48:34.480 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanhInf
+13:48:34.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTan
+13:48:34.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanh
+13:48:34.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.math.complex.ComplexTest::testTanInf
+13:48:34.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=4, fp=0, pf=0, pp=Unknown
+13:48:34.481 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found

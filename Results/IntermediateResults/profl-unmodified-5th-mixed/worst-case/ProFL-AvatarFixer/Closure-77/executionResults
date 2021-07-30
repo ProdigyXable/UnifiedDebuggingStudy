@@ -1,0 +1,215 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Closure-77
+11:43:08.963 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Closure-77 Failed Tests: 1
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Closure/77.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Closure/77.txt
+11:47:24.583 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+11:47:24.616 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-77/generalSusInfo.profl
+11:47:24.649 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Closure-77/aggregatedSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Closure-77/ochiai.txt
+11:47:24.651 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+11:47:24.651 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1159
+11:47:29.881 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+   * Returns a javascript representation of the character in a hex escaped
+   * format.
+   *
+   * @param codePoint The codepoint to append.
+   * @param out The buffer to which the hex representation should be appended.
+   */
+  private static void appendHexJavaScriptRepresentation(
+      int codePoint, Appendable out)
+      throws IOException {
+    if (Character.isSupplementaryCodePoint(codePoint)) {
+      // Handle supplementary unicode values which are not representable in
+      // javascript.  We deal with these by escaping them as two 4B sequences
+      // so that they will round-trip properly when sent from java to javascript
+      // and back.
+      char[] surrogates = Character.toChars(codePoint);
+      appendHexJavaScriptRepresentation(surrogates[0], out);
+      appendHexJavaScriptRepresentation(surrogates[1], out);
+      return;
+    }
+    out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+  }
+11:47:29.883 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/CodeGenerator.java:1159 ---
+11:47:29.892 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - com.google.javascript.jscomp.CodeGenerator ===1154
+11:47:30.073 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.073 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate com/google/javascript/jscomp/CodeGenerator.java:1154 ---
+11:47:30.074 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: codePoint.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.cc.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: this.outputCharsetEncoder.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(codePoint[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(out[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.cc[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(this.outputCharsetEncoder[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(out >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(this.cc >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(this.outputCharsetEncoder >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(codePoint[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(out[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.cc[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(this.outputCharsetEncoder[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(out >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(this.cc >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(this.outputCharsetEncoder >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(codePoint[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(out[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.cc[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(this.outputCharsetEncoder[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(out >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(this.cc >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(this.outputCharsetEncoder >>> 4) & 0xf])
+        .append(HEX_CHARS[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(codePoint[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(out[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.cc[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(this.outputCharsetEncoder[codePoint & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[out & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[this.cc & 0xf]);
+11:47:30.075 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: out.append("\\u")
+        .append(HEX_CHARS[(codePoint >>> 12) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 8) & 0xf])
+        .append(HEX_CHARS[(codePoint >>> 4) & 0xf])
+        .append(HEX_CHARS[this.outputCharsetEncoder & 0xf]);
+---------------- Testing New Patch ----------------
+11:47:30.076 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:49:37.946 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:49:37.950 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:49:43.553 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Closure-77 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:49:43.553 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling

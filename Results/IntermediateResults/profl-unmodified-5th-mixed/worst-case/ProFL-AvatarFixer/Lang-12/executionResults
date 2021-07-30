@@ -1,0 +1,1251 @@
+Setting JAVA_HOME to /mnt/efs/fs1/jdk1.7.0_80
+
+Adding /mnt/efs/fs1/jdk1.7.0_80/bin: to PATH environmental variable
+
+
+Java 7 environment setup completed
+Lang-12
+10:23:39.936 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 Failed Tests: 2
+Reading method line coverage from /mnt/efs/fs1/XiaInformation/AllMethods/Lang/12.txt
+Reading test line coverage from /mnt/efs/fs1/XiaInformation/LineCoverage/Lang/12.txt
+10:23:43.463 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - ProFL successfully initialized
+10:23:43.476 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/generalSusInfo.profl
+Cannot find the suspicious code position file.SuspiciousCodePositions/Lang-12/ochiai.txt
+10:23:43.478 [main] INFO edu.lu.uni.serval.avatar.Avatar - =======StaticBugFixer: Start to fix suspicious code======
+10:23:43.478 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1693
+10:23:44.543 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1693
+10:23:44.543 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1680
+10:23:44.767 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1680
+10:23:44.767 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1679
+10:23:44.878 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1679
+10:23:44.878 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1677
+10:23:44.967 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1677
+10:23:44.967 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1676
+10:23:45.045 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1676
+10:23:45.045 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.FastDatePrinter ===541
+10:23:45.156 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDatePrinter --- 541
+10:23:45.156 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.FastDatePrinter ===540
+10:23:45.271 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.FastDatePrinter --- 540
+10:23:45.271 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1696
+10:23:45.423 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1696
+10:23:45.423 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1699
+10:23:45.558 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1699
+10:23:45.558 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1703
+10:23:45.697 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1703
+10:23:45.697 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1702
+10:23:45.840 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * Determines if two dates are equal up to no more than the specified 
+     * most significant field.
+     * 
+     * @param date1 the first date, not <code>null</code>
+     * @param date2 the second date, not <code>null</code>
+     * @param field the field from {@code Calendar}
+     * @return <code>true</code> if equal; otherwise <code>false</code>
+     * @throws IllegalArgumentException if any argument is <code>null</code>
+     * @see #truncate(Date, int)
+     * @see #truncatedEquals(Calendar, Calendar, int)
+     * @since 3.0
+     */
+    public static boolean truncatedEquals(Date date1, Date date2, int field) {
+        return truncatedCompareTo(date1, date2, field) == 0;
+    }
+10:23:45.842 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1702 ---
+10:23:45.855 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1707
+10:23:45.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1707
+10:23:45.900 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1685
+10:23:45.952 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * Determines if two calendars are equal up to no more than the specified 
+     * most significant field.
+     * 
+     * @param cal1 the first calendar, not <code>null</code>
+     * @param cal2 the second calendar, not <code>null</code>
+     * @param field the field from {@code Calendar}
+     * @return <code>true</code> if equal; otherwise <code>false</code>
+     * @throws IllegalArgumentException if any argument is <code>null</code>
+     * @see #truncate(Calendar, int)
+     * @see #truncatedEquals(Date, Date, int)
+     * @since 3.0
+     */
+    public static boolean truncatedEquals(Calendar cal1, Calendar cal2, int field) {
+        return truncatedCompareTo(cal1, cal2, field) == 0;
+    }
+10:23:45.952 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1685 ---
+10:23:45.956 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1674
+10:23:46.014 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1674
+10:23:46.014 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1671
+10:23:46.115 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1671
+10:23:46.115 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1669
+10:23:46.176 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1669
+10:23:46.177 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1665
+10:23:46.237 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+default:
+10:23:46.238 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1665 ---
+10:23:46.239 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:46.243 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:47.273 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:47.273 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===309
+10:23:47.281 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 309
+10:23:47.281 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===297
+10:23:47.287 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 297
+10:23:47.287 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===388
+10:23:47.294 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 388
+10:23:47.294 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateFormatUtils ===387
+10:23:47.300 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateFormatUtils --- 387
+10:23:47.300 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DurationFormatUtils ===82
+10:23:47.319 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DurationFormatUtils --- 82
+10:23:47.319 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1650
+10:23:47.352 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1650
+10:23:47.353 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1649
+10:23:47.393 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DateUtils --- 1649
+10:23:47.394 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1648
+10:23:47.441 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+case Calendar.MONTH:
+10:23:47.442 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1648 ---
+10:23:47.443 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:47.443 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:48.517 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:48.518 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:48.519 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:49.656 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:23:49.657 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:50.768 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:50.769 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:50.770 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:51.902 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:51.903 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:51.904 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:52.831 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:23:52.832 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:53.835 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:53.836 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:53.836 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:54.760 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:54.760 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DateUtils ===1647
+10:23:54.790 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+case Calendar.YEAR:
+10:23:54.790 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DateUtils.java:1647 ---
+10:23:54.792 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:54.792 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:55.801 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:55.802 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:55.803 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:56.811 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:23:56.812 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:57.825 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:57.825 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:57.826 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:58.699 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:23:58.700 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:23:58.700 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:23:59.545 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:23:59.546 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:00.479 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:00.480 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:00.481 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:01.484 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:01.484 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.FastDateFormat ===587
+10:24:01.497 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+/**
+     * <p>Performs the formatting by applying the rules to the
+     * specified calendar.</p>
+     *
+     * @param calendar  the calendar to format
+     * @param buf  the buffer to format into
+     * @return the specified string buffer
+     */
+    protected StringBuffer applyRules(Calendar calendar, StringBuffer buf) {
+        return printer.applyRules(calendar, buf);
+    }
+10:24:01.498 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/FastDateFormat.java:587 ---
+10:24:01.499 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.FormatCache ===77
+10:24:01.514 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+locale = Locale.getDefault();
+10:24:01.514 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/FormatCache.java:77 ---
+10:24:01.515 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: locale = pattern.getDefault();
+10:24:01.515 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: locale = timeZone.getDefault();
+10:24:01.515 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: locale = locale.getDefault();
+10:24:01.515 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: locale = this.cInstanceCache.getDefault();
+10:24:01.515 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: locale = cDateTimeInstanceCache.getDefault();
+---------------- Testing New Patch ----------------
+10:24:01.515 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:02.479 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:02.479 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:03.395 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:03.396 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:04.368 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:24:04.368 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:24:23.962 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:24:23.962 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 2, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:24:23.962 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:24:23.962 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:24:23.962 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=0, pp=Unknown
+10:24:23.962 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NoneFix found
+10:24:23.964 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:24:23.964 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.FormatCache:getInstance(Ljava/lang/String;Ljava/util/TimeZone;Ljava/util/Locale;)Ljava/text/Format; in org.apache.commons.lang3.time.FormatCache:77
+10:24:23.964 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 2 Lang-12
+---------------- Testing New Patch ----------------
+10:24:23.964 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:24.864 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:24.865 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:25.767 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:25.768 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:25.769 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:26.608 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:26.608 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:26.608 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:27.484 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:27.485 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:28.314 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:28.315 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:28.315 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:29.170 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:29.171 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:29.171 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:30.009 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:30.009 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:30.949 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:30.949 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:30.949 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:31.918 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:31.919 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:31.919 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:32.986 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:32.986 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:33.915 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:33.915 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:33.915 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:34.867 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:34.868 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:34.868 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:35.747 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:35.747 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:36.699 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:36.699 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: 
+null
+---------------- Testing New Patch ----------------
+10:24:36.700 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:37.665 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:37.665 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DurationFormatUtils ===543
+10:24:37.701 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+static class Token {
+
+        /**
+         * Helper method to determine if a set of tokens contain a value
+         *
+         * @param tokens set to look in
+         * @param value to look for
+         * @return boolean <code>true</code> if contained
+         */
+        static boolean containsTokenWithValue(Token[] tokens, Object value) {
+            int sz = tokens.length;
+            for (int i = 0; i < sz; i++) {
+                if (tokens[i].getValue() == value) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private final Object value;
+        private int count;
+
+        /**
+         * Wraps a token around a value. A value would be something like a 'Y'.
+         *
+         * @param value to wrap
+         */
+        Token(Object value) {
+            this.value = value;
+            this.count = 1;
+        }
+
+        /**
+         * Wraps a token around a repeated number of a value, for example it would 
+         * store 'yyyy' as a value for y and a count of 4.
+         *
+         * @param value to wrap
+         * @param count to wrap
+         */
+        Token(Object value, int count) {
+            this.value = value;
+            this.count = count;
+        }
+
+        /**
+         * Adds another one of the value
+         */
+        void increment() { 
+            count++;
+        }
+
+        /**
+         * Gets the current number of values represented
+         *
+         * @return int number of values represented
+         */
+        int getCount() {
+            return count;
+        }
+
+        /**
+         * Gets the particular value this token represents.
+         * 
+         * @return Object value
+         */
+        Object getValue() {
+            return value;
+        }
+
+        /**
+         * Supports equality of this Token to another Token.
+         *
+         * @param obj2 Object to consider equality of
+         * @return boolean <code>true</code> if equal
+         */
+        @Override
+        public boolean equals(Object obj2) {
+            if (obj2 instanceof Token) {
+                Token tok2 = (Token) obj2;
+                if (this.value.getClass() != tok2.value.getClass()) {
+                    return false;
+                }
+                if (this.count != tok2.count) {
+                    return false;
+                }
+                if (this.value instanceof StringBuffer) {
+                    return this.value.toString().equals(tok2.value.toString());
+                } else if (this.value instanceof Number) {
+                    return this.value.equals(tok2.value);
+                } else {
+                    return this.value == tok2.value;
+                }
+            }
+            return false;
+        }
+
+        /**
+         * Returns a hash code for the token equal to the 
+         * hash code for the token's value. Thus 'TT' and 'TTTT' 
+         * will have the same hash code. 
+         *
+         * @return The hash code for the token
+         */
+        @Override
+        public int hashCode() {
+            return this.value.hashCode();
+        }
+
+        /**
+         * Represents this token as a String.
+         *
+         * @return String representation of the token
+         */
+        @Override
+        public String toString() {
+            return StringUtils.repeat(this.value.toString(), this.count);
+        }
+    }
+10:24:37.701 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DurationFormatUtils.java:543 ---
+10:24:37.702 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate:     public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Token)) return false;
+        Token _var = (Token) obj;
+        if (count != _var.count) return false;
+        return true;
+    }
+10:24:37.702 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate:     public boolean equals(Object obj) {
+        if (obj == null) return false;
+        if (obj == this) return true;
+        if (!(obj instanceof Token)) return false;
+        Token _var = (Token) obj;
+        if (count != _var.count) return false;
+        return super.equals(obj);
+    }
+---------------- Testing New Patch ----------------
+10:24:37.703 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:38.620 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:38.621 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:39.529 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+10:24:39.530 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DurationFormatUtils ===542
+10:24:39.554 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed to identify the buggy statement in: org.apache.commons.lang3.time.DurationFormatUtils --- 542
+10:24:39.554 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - org.apache.commons.lang3.time.DurationFormatUtils ===458
+10:24:39.578 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Suspicious Code: 
+buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.578 [main] DEBUG edu.lu.uni.serval.avatar.Avatar - --- Attempting to mutate org/apache/commons/lang3/time/DurationFormatUtils.java:458 ---
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: str.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: count.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: value.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: token.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: i.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: sz.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: lastOutputSeconds.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: tokens.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: years.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: months.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: days.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: hours.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: minutes.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: seconds.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: milliseconds.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: padWithZeros.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: y.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: d.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: m.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: s.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(lastOutputSeconds
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? str.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? count.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? value.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? token.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? i.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? sz.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? lastOutputSeconds.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? buffer.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? tokens.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? years.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? months.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? days.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? hours.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? minutes.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? seconds.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? milliseconds.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? padWithZeros.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? y.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? d.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? m.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? s.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(str.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(count.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(value.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(token.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(i.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(sz.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(lastOutputSeconds.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(buffer.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(tokens.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(years.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(months.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(days.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(hours.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(minutes.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.579 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(seconds.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(milliseconds.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(padWithZeros.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(y.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(d.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(m.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(s.toString(milliseconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(str), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(count), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(value), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(token), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(i), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(sz), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(lastOutputSeconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(buffer), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(tokens), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(years), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(months), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(days), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(hours), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(minutes), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(seconds), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(padWithZeros), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(y), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(d), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(m), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(s), count, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), str, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), value, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), token, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), i, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), sz, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), lastOutputSeconds, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), buffer, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), tokens, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), years, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), months, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), days, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), hours, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), minutes, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), seconds, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), milliseconds, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), padWithZeros, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), y, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), d, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), m, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), s, '0')
+                                : Integer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : str.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : count.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : value.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : token.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : i.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : sz.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : lastOutputSeconds.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : buffer.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : tokens.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : years.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : months.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : days.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : hours.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : minutes.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : seconds.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : milliseconds.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : padWithZeros.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : y.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : d.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : m.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : s.toString(milliseconds));
+10:24:39.580 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(str));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(count));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(value));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(token));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(i));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(sz));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(lastOutputSeconds));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(buffer));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(tokens));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(years));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(months));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(days));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(hours));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(minutes));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(seconds));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(padWithZeros));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(y));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(d));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(m));
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.fixpattern.FixTemplate - Patch Candiate: buffer.append(padWithZeros
+                                ? StringUtils.leftPad(Integer.toString(milliseconds), count, '0')
+                                : Integer.toString(s));
+---------------- Testing New Patch ----------------
+10:24:39.581 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:40.463 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:40.463 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:41.417 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:41.418 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:42.404 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:42.405 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:43.455 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:43.456 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:44.463 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:44.464 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:45.415 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:45.416 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:46.347 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:46.347 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:47.278 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:47.279 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:48.196 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:48.197 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:49.143 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:49.143 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:50.129 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:50.130 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:51.151 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:51.152 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:52.099 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:52.100 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:53.125 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:53.126 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:54.075 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:54.076 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:54.901 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:54.901 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:55.825 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:55.825 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:56.744 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:56.745 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:57.602 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:57.603 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:58.570 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:24:58.571 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:24:59.532 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:24:59.532 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:25:19.166 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:25:19.166 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:25:19.166 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:25:19.166 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:25:19.167 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:25:19.167 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:25:19.167 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:25:19.167 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:25:19.168 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:25:19.168 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:25:19.168 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:25:19.169 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:20.103 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:20.103 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:20.960 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:20.961 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:21.782 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:21.782 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:22.754 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:22.754 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:23.804 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:23.805 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:24.716 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:24.717 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:25.658 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:25.659 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:26.560 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:26.561 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:27.419 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:27.419 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:28.309 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:28.310 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:29.305 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:29.306 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:30.481 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:30.482 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:31.506 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:31.506 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:32.447 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:32.448 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:33.352 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:33.353 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:34.208 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:34.209 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:35.025 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:35.026 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:35.842 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:35.843 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:36.827 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:36.827 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:37.724 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:37.725 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:38.628 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:38.629 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:39.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:39.648 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:40.583 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:40.583 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:41.445 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:41.445 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:42.247 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:42.247 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:43.091 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:43.091 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:44.009 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:44.010 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:44.940 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:44.941 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:45.814 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:45.815 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:46.760 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:46.761 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:47.713 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:47.713 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:48.599 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:48.600 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:49.524 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:49.524 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:50.485 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:50.486 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:51.427 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:51.428 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:52.471 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:52.472 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:53.366 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:53.367 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:54.289 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:54.290 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:55.235 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:55.236 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:56.188 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:56.189 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:57.067 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:57.067 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:57.988 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:57.989 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:58.843 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:25:58.844 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:25:59.691 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:25:59.691 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:26:18.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:26:18.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:26:18.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:26:18.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:26:18.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:26:18.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:26:18.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:26:18.935 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:26:18.946 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:26:18.946 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:26:18.946 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:26:18.947 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:26:19.778 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:26:19.778 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:26:20.660 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:26:20.660 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:26:21.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:26:21.539 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:26:41.091 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:26:41.091 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:26:41.091 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:26:41.091 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:26:41.091 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:26:41.091 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:26:41.091 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:26:41.091 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:26:41.094 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:26:41.094 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:26:41.094 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:26:41.094 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:26:42.023 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:26:42.023 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:27:01.150 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:27:01.150 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:27:01.150 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:27:01.150 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:27:01.150 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:27:01.150 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:27:01.151 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:27:01.151 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:27:01.162 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:27:01.162 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:27:01.162 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:27:01.163 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:27:02.083 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:27:02.083 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:27:02.999 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:27:02.999 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:27:03.878 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+10:27:03.878 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:27:04.866 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:27:04.866 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:27:23.270 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:27:23.271 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:27:23.271 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:27:23.271 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:27:23.271 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:27:23.271 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:27:23.271 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:27:23.271 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:27:23.413 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:27:23.413 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:27:23.413 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:27:23.414 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:27:24.311 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:27:24.311 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:27:42.861 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:27:42.861 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:27:42.861 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:27:42.861 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:27:42.861 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:27:42.861 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:27:42.862 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:27:42.862 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:27:43.542 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:27:43.542 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:27:43.542 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:27:43.543 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:27:44.456 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:27:44.456 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:28:02.956 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:28:02.956 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:28:02.956 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:28:02.956 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:28:02.956 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:28:02.956 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:28:02.956 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:28:02.956 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:28:08.314 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:28:08.314 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:28:08.314 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:28:08.314 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:28:09.151 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:28:09.152 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:28:27.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:28:27.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:28:27.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:28:27.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:28:27.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:28:27.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:28:27.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:28:27.041 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:29:10.005 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:29:10.006 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:29:10.006 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:29:10.006 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:29:10.988 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:29:10.988 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:29:29.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:29:29.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:29:29.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:29:29.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:29:29.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:29:29.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:29:29.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:29:29.845 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+10:35:09.782 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+10:35:09.782 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+10:35:09.782 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+10:35:09.782 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+10:35:10.579 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+10:35:10.580 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+10:35:27.854 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+10:35:27.854 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+10:35:27.854 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+10:35:27.854 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+10:35:27.854 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+10:35:27.854 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+10:35:27.854 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+10:35:27.854 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
+11:20:11.888 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Profl information saved to /home/ubuntu/repair-tool/avatar/ProFL-AvatarFixer/Lang-12/aggregatedSusInfo.profl
+11:20:11.888 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Mutated = org.apache.commons.lang3.time.DurationFormatUtils:format([Lorg/apache/commons/lang3/time/DurationFormatUtils$Token;IIIIIIIZ)Ljava/lang/String; in org.apache.commons.lang3.time.DurationFormatUtils:458
+11:20:11.888 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Failed Tests after fixing: 4 Lang-12
+---------------- Testing New Patch ----------------
+11:20:11.889 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:12.816 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:20:12.816 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:13.677 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:20:13.678 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:14.554 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:20:14.554 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:15.409 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:20:15.410 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:16.301 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:20:16.302 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:17.210 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:20:17.211 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:18.179 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:20:18.179 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:19.105 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Lang-12 ---Fixer: fix fail because of failed compiling! 
+---------------- Testing New Patch ----------------
+11:20:19.105 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Compiling
+11:20:19.936 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Finish of compiling.
+11:20:19.937 [main] DEBUG edu.lu.uni.serval.avatar.AbstractFixer - Test previously failed test cases.
+11:20:38.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests BEFORE patch = 2, [org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, org.apache.commons.lang3.RandomStringUtilsTest::testLANG805]
+11:20:38.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Failed tests AFTER patch = 4, [- org.apache.commons.lang3.RandomStringUtilsTest::testExceptions, - org.apache.commons.lang3.RandomStringUtilsTest::testLANG805, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod, - org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration]
+11:20:38.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testExceptions
+11:20:38.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Fail->Fail test case ->org.apache.commons.lang3.RandomStringUtilsTest::testLANG805
+11:20:38.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatPeriod
+11:20:38.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Pass->Fail test case ->org.apache.commons.lang3.time.DurationFormatUtilsTest::testFormatDuration
+11:20:38.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - Patch test results ff=2, fp=0, pf=2, pp=Unknown
+11:20:38.531 [main] INFO edu.lu.uni.serval.avatar.AbstractFixer - [ProFL] NegFix found
